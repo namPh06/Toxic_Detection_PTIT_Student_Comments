@@ -3,7 +3,8 @@ const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const number = value => Number(value || 0).toLocaleString('vi-VN');
 const qualityNames = {ready:'Mẫu sạch',duplicate:'Bản trùng',conflict:'Nhãn mâu thuẫn',incomplete:'Chưa mở hết nội dung',empty_or_ui:'Rỗng / giao diện',excluded:'Đã loại'};
-let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, toastTimer, reviewDirty = false;
+let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, toastTimer, reviewSaving = false;
+const reviewDrafts = new Map();
 async function api(path, body) {
   const response = await fetch(path, body === undefined ? {} : {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   if (!response.ok) {
@@ -47,6 +48,7 @@ function bars(items, max) {
 function renderStatus(status) {
   const completed=lastStatus?.annotation_job?.running&&lastStatus.annotation_job.automatic&&!status.annotation_job?.running;
   lastStatus=status;
+  updateReviewActions();
   const s=status.summary, result=status.result;
   $('total').textContent=number(s.total);$('usable').textContent=number(s.usable);$('labeled').textContent=number(s.labeled);
   $('post-count').textContent=`Từ ${number(s.posts)} bài viết`;
@@ -86,7 +88,7 @@ function renderStatus(status) {
   $('dataset-csv').disabled=$('dataset-json').disabled=!health?.reviewed;
   $('auto-dataset-csv').disabled=$('auto-dataset-json').disabled=!s.labeled;
   if(completed&&currentTab==='data'){
-    if(reviewDirty)toast('Đã xử lý toàn bộ. Bấm “Cập nhật danh sách” sau khi lưu phần bạn đang sửa.');
+    if(reviewDrafts.size)toast('Đã xử lý toàn bộ. Bấm “Cập nhật danh sách” sau khi lưu phần bạn đang sửa.');
     else loadRows();
   }
   if(result) renderResults(result);
@@ -136,7 +138,7 @@ function renderCrawler(s){
   }
 }
 function suggestionHTML(row){
-  if(row.label_source==='automatic')return `<div class="label-suggestion"><b>Nhãn tự động: ${esc(row.label)}</b><p>Chưa được người đọc xác nhận.</p>${row.needs_review?`<p class="annotation-error">Cần kiểm tra: ${row.review_reason==='truncated'?'văn bản quá dài, mô hình chỉ đọc một phần':'điểm nằm trong vùng chưa rõ'}.</p>`:''}<details class="row-detail"><summary>Thông tin nhãn</summary><p>Điểm toxic: ${typeof row.model_score==='number'?row.model_score.toFixed(3):'—'} · Ngưỡng ${esc(row.label_threshold)}</p><small>${esc(row.label_model)} · ${esc(String(row.label_revision||'').slice(0,12))}</small></details></div>`;
+  if(row.label_source==='automatic')return `<div class="label-suggestion"><b>Nhãn tự động đã lưu: ${esc(row.label)}</b><p>Chưa được người đọc xác nhận. Chỉ cần lưu lại nếu bạn chỉnh sửa.</p>${row.needs_review?`<p class="annotation-error">Cần kiểm tra: ${row.review_reason==='truncated'?'văn bản quá dài, mô hình chỉ đọc một phần':'điểm nằm trong vùng chưa rõ'}.</p>`:''}<details class="row-detail"><summary>Thông tin nhãn</summary><p>Điểm toxic: ${typeof row.model_score==='number'?row.model_score.toFixed(3):'—'} · Ngưỡng ${esc(row.label_threshold)}</p><small>${esc(row.label_model)} · ${esc(String(row.label_revision||'').slice(0,12))}</small></details></div>`;
   const suggestion=row.suggestion;if(!suggestion)return '';
   const label=['toxic','non-toxic'].includes(suggestion.suggested_label)?suggestion.suggested_label:'';
   const score=typeof suggestion.model_score==='number'&&Number.isFinite(suggestion.model_score)?suggestion.model_score.toFixed(3):'không có';
@@ -151,25 +153,52 @@ async function loadRows(){
     $('page-info').textContent=`${number(data.total)} bình luận · Trang ${page} / ${Math.max(1,Math.ceil(data.total/25))}`;
     $('prev-page').disabled=page<=1;$('next-page').disabled=page*25>=data.total;
     $('data-rows').innerHTML=data.rows.length?data.rows.map(r=>`<tr><td><div class="raw-text">${esc(r.text_raw)}</div><details class="row-detail"><summary>Bản làm sạch & nguồn</summary><div class="clean-text">${esc(r.text_clean)||'Không còn token'}</div><div class="row-meta">Bài viết: ${esc(r.post_id)}<br>Bình luận: ${esc(r.comment_id)}</div></details></td><td><span class="quality-tag ${['conflict','incomplete','empty_or_ui'].includes(r.quality)?'bad':''}">${esc(qualityNames[r.quality]||r.quality)}</span>${r.text_complete==null?'<p class="row-meta">Chưa xác nhận đã mở hết nội dung.</p>':''}${r.label?`<p class="row-meta">${esc(({manual:'Người đọc xác nhận',imported:'Nhãn nhập từ tệp',automatic:'Mô hình gán tự động',legacy:'Nhãn đã lưu'})[r.label_source]||'Nhãn đã lưu')}</p>`:''}</td><td><form class="label-form" data-id="${esc(r.id)}" data-text-hash="${esc(r.text_hash)}">${r.annotation_stale?`<p class="annotation-error">Nội dung đã đổi. Nhãn cũ: ${esc(r.previous_label||'chưa có')}. Đọc lại trước khi xác nhận.</p>`:''}${suggestionHTML(r)}<select name="label" aria-label="Nhãn bình luận ${esc(r.comment_id)}"><option value="" ${!r.label?'selected':''}>Chưa gán nhãn</option><option value="non-toxic" ${r.label==='non-toxic'?'selected':''}>Non-toxic</option><option value="toxic" ${r.label==='toxic'?'selected':''}>Toxic</option></select><input name="note" type="text" placeholder="Ghi chú ngữ cảnh…" aria-label="Ghi chú bình luận ${esc(r.comment_id)}" maxlength="2000" value="${esc(r.annotation_note)}"><label class="check"><input name="excluded" type="checkbox" ${r.excluded?'checked':''}>Loại mẫu khỏi huấn luyện</label><button class="button small" type="submit">Lưu đánh giá</button></form></td></tr>`).join(''):'<tr><td colspan="3" class="no-rows">Không có bình luận phù hợp bộ lọc. Thử đổi nhãn hoặc chất lượng.</td></tr>';
-    reviewDirty=false;
+    for(const form of document.querySelectorAll('.label-form')){
+      const draft=reviewDrafts.get(form.dataset.id);if(!draft)continue;
+      form.elements.label.value=draft.label;form.elements.note.value=draft.note;form.elements.excluded.checked=draft.excluded;
+      if(draft.text_hash!==form.dataset.textHash){const warning=document.createElement('p');warning.className='annotation-error';warning.textContent='Nội dung đã đổi từ lúc chỉnh sửa. Đọc lại và cập nhật đánh giá trước khi lưu.';form.prepend(warning);}
+    }
+    updateReviewActions();
   }catch(error){toast(error.message,true);}
 }
-$('data-rows').addEventListener('input',()=>{reviewDirty=true;});
-$('data-rows').addEventListener('change',()=>{reviewDirty=true;});
+function updateReviewActions(){
+  const count=reviewDrafts.size;
+  $('review-pending').textContent=count?`${number(count)} bình luận có thay đổi chưa lưu, gồm cả ngoài trang hiện tại.`:'Không có thay đổi chưa lưu.';
+  $('review-save-all').textContent=reviewSaving?'Đang lưu…':`Lưu tất cả thay đổi${count?` (${number(count)})`:''}`;
+  $('review-save-all').disabled=reviewSaving||!count;
+  document.querySelectorAll('.label-form button[type="submit"]').forEach(button=>button.disabled=reviewSaving);
+}
+function rememberReview(form){
+  reviewDrafts.set(form.dataset.id,{id:form.dataset.id,text_hash:form.dataset.textHash,label:form.elements.label.value,note:form.elements.note.value,excluded:form.elements.excluded.checked});
+  updateReviewActions();
+}
+async function saveReviews(items,bulk){
+  if(reviewSaving||!items.length)return;
+  reviewSaving=true;updateReviewActions();
+  try{
+    await api(bulk?'/api/annotate-bulk':'/api/annotate',bulk?{rows:items}:items[0]);
+    for(const item of items)if(reviewDrafts.get(item.id)===item)reviewDrafts.delete(item.id);
+    toast(`Đã lưu ${number(items.length)} đánh giá.`);
+    await loadRows();renderStatus(await api('/api/status'));
+  }catch(error){toast(error.message,true);}
+  finally{reviewSaving=false;updateReviewActions();}
+}
+for(const eventName of ['input','change'])$('data-rows').addEventListener(eventName,event=>{const form=event.target.closest('.label-form');if(form)rememberReview(form);});
+$('review-save-all').onclick=()=>saveReviews([...reviewDrafts.values()],true);
 $('data-rows').addEventListener('submit',event=>{
   event.preventDefault();const form=event.target;if(!form.matches('.label-form'))return;
-  action(form.querySelector('button[type="submit"]'),async()=>{await api('/api/annotate',{id:form.dataset.id,text_hash:form.dataset.textHash,label:form.elements.label.value,note:form.elements.note.value,excluded:form.elements.excluded.checked});toast('Đã lưu nhãn và ghi chú.');await loadRows();renderStatus(await api('/api/status'));});
+  if(reviewSaving)return;rememberReview(form);saveReviews([reviewDrafts.get(form.dataset.id)],false);
 });
 $('data-rows').addEventListener('click',event=>{
   const button=event.target.closest('.use-suggestion');if(!button)return;
   button.closest('form').elements.label.value=button.dataset.label;
-  reviewDirty=true;
-  toast('Đã điền gợi ý. Đọc bình luận rồi bấm “Lưu đánh giá” để xác nhận.');
+  rememberReview(button.closest('form'));
+  toast('Đã điền gợi ý. Đọc bình luận rồi bấm “Lưu tất cả thay đổi” để lưu cùng các dòng đã sửa.');
 });
 $('auto-suggest').onclick=()=>action($('auto-suggest'),async()=>{const result=await api('/api/suggest',{});renderStatus(await api('/api/status'));toast(`Đang tạo gợi ý cho ${number(result.total)} mẫu. Khi xong, bấm “Cập nhật danh sách” để xem.`);});
 $('auto-label-all').onclick=()=>action($('auto-label-all'),async()=>{
   const result=await api('/api/auto-label',{});renderStatus(await api('/api/status'));
-  if(!lastStatus.annotation_job.running&&!reviewDirty)await loadRows();
+  if(!lastStatus.annotation_job.running&&!reviewDrafts.size)await loadRows();
   toast(`Đã nhận xử lý toàn bộ ${number(result.total)} mẫu, không phụ thuộc bộ lọc. Không cần lưu từng dòng.`);
 });
 $('review-refresh').onclick=()=>action($('review-refresh'),loadRows);

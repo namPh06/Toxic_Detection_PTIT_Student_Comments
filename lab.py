@@ -80,23 +80,35 @@ class Lab:
                     stale=bool(result and result['fingerprint'] != fingerprint(rows)))
 
     def annotate(self, body):
-        with self.lock:
-            row = next((r for r in self.rows() if r['id'] == body.get('id')), None)
-            if row is None:
-                raise ValueError('Không tìm thấy bình luận.')
-            if body.get('text_hash') != row['text_hash']:
-                raise ValueError('Nội dung bình luận đã thay đổi. Tải lại danh sách và đọc lại trước khi lưu nhãn.')
-            label, note, excluded = body.get('label'), body.get('note', ''), body.get('excluded', False)
-            if label not in ('', *LABELS) or not isinstance(note, str) or len(note) > 2000 or type(excluded) is not bool:
-                raise ValueError('Nhãn, ghi chú hoặc trạng thái loại mẫu không hợp lệ.')
-            annotations = dict(self.annotations)
-            annotations[body['id']] = dict(label=label, note=note, excluded=excluded,
-                                           text_hash=row['text_hash'], label_source='manual',
-                                           updated_at=datetime.now(timezone.utc).isoformat())
-            if row['suggestion']:
-                annotations[body['id']]['suggestion_at_review'] = row['suggestion']
-            self.save_workspace(annotations, self.imported, self.suggestions)
+        self.annotate_many([body])
         return dict(saved=True)
+
+    def annotate_many(self, items):
+        if not isinstance(items, list) or not 1 <= len(items) <= 20000:
+            raise ValueError('Cần từ 1 đến 20.000 đánh giá để lưu.')
+        with self.lock:
+            rows = {r['id']: r for r in self.rows()}
+            annotations = dict(self.annotations)
+            seen = set()
+            for body in items:
+                if not isinstance(body, dict) or not isinstance(body.get('id'), str) or body['id'] in seen:
+                    raise ValueError('Đánh giá không hợp lệ hoặc trùng mã bình luận.')
+                seen.add(body['id'])
+                row = rows.get(body['id'])
+                if row is None:
+                    raise ValueError('Không tìm thấy bình luận.')
+                if body.get('text_hash') != row['text_hash']:
+                    raise ValueError('Nội dung bình luận đã thay đổi. Tải lại danh sách và đọc lại trước khi lưu nhãn.')
+                label, note, excluded = body.get('label'), body.get('note', ''), body.get('excluded', False)
+                if label not in ('', *LABELS) or not isinstance(note, str) or len(note) > 2000 or type(excluded) is not bool:
+                    raise ValueError('Nhãn, ghi chú hoặc trạng thái loại mẫu không hợp lệ.')
+                annotations[body['id']] = dict(label=label, note=note, excluded=excluded,
+                                               text_hash=row['text_hash'], label_source='manual',
+                                               updated_at=datetime.now(timezone.utc).isoformat())
+                if row['suggestion']:
+                    annotations[body['id']]['suggestion_at_review'] = row['suggestion']
+            self.save_workspace(annotations, self.imported, self.suggestions)
+        return dict(saved=len(items))
 
     def import_rows(self, body):
         incoming = parse_import(body.get('content'), body.get('filename'))

@@ -191,6 +191,10 @@ details p { margin: 8px 0 12px; overflow-wrap: anywhere; }
 .label-form input[type=text] { margin-top: 8px; padding: 8px 10px; font-size: 12px; }
 .label-form .check { display: flex; align-items: center; gap: 7px; min-height: 32px; margin: 6px 0; font-size: 11px; font-weight: 400; }
 .label-form .button { width: 100%; }
+.review-panel { overflow: clip; }
+.review-actions { position: sticky; bottom: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px 20px; border-top: 1px solid var(--line); background: var(--surface); }
+.review-actions p { margin: 0; color: var(--muted); font-size: 12px; }
+.review-actions .button { min-height: 44px; }
 .annotation-error { color: #a32136; font-weight: 550; }
 .pagination { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 .experiment-config { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-block: 18px; }

@@ -101,4 +101,88 @@ async function checkBulkLabelingBrowser(page, baseURL) {
     return passed;
   }finally{await page.unroute(baseURL+'/api/**');await page.unroute(baseURL+'/status');}
 }
-if(typeof module!=='undefined')module.exports={checkLabelingBrowser,checkBulkLabelingBrowser};
+async function checkBulkReviewBrowser(page,baseURL){
+  const passed=[],writes=[];
+  const check=(ok,name)=>{if(!ok)throw Error(name);passed.push(name);};
+  const rows=Array.from({length:30},(_,i)=>({id:`1:${i}`,post_id:'1',comment_id:String(i),text_raw:`Bình luận ${i}`,text_clean:`bình luận ${i}`,text_hash:`hash-${i}`,quality:'ready',label:'non-toxic',label_source:'automatic',annotation_note:'',text_complete:true}));
+  const status={summary:{total:30,usable:30,labeled:30,posts:1,labels:{'non-toxic':30},quality:{ready:30},avg_tokens:3},job:{running:false,message:''},result:null,stale:false,annotation_job:{running:false,message:''},dataset_health:{automatic:30,reviewed:0,needs_review:0,training_ready:true}};
+  let fail=false,hold=false,release;
+  await page.route(baseURL+'/api/**',async route=>{
+    const request=route.request(),url=new URL(request.url()),path=url.pathname;
+    if(path==='/api/status')return route.fulfill({json:status});
+    if(path==='/api/rows'){
+      const filtered=url.searchParams.get('q')?rows.filter(r=>r.id==='1:0'):rows;
+      const offset=(Number(url.searchParams.get('page')||1)-1)*25;
+      return route.fulfill({json:{rows:filtered.slice(offset,offset+25),total:filtered.length}});
+    }
+    if(['/api/annotate','/api/annotate-bulk'].includes(path)){
+      const body=request.postDataJSON(),items=path.endsWith('-bulk')?body.rows:[body];
+      writes.push({path,items});
+      if(hold)await new Promise(resolve=>{release=resolve;});
+      if(fail||items.some(item=>rows.find(r=>r.id===item.id).text_hash!==item.text_hash))return route.fulfill({status:400,json:{error:'Không lưu được: cần đọc lại nội dung.'}});
+      for(const item of items)Object.assign(rows.find(r=>r.id===item.id),{label:item.label,annotation_note:item.note,excluded:item.excluded,label_source:'manual'});
+      return route.fulfill({json:{saved:items.length}});
+    }
+    throw Error('Unexpected API in bulk-review fixture: '+path);
+  });
+  await page.route(baseURL+'/status',route=>route.fulfill({json:{phase:'idle',ready:false,running:false,posts:0,comments:0,target:20,results:[],message:'Fixture'}}));
+  const form=id=>page.locator(`.label-form[data-id="1:${id}"]`);
+  try{
+    await page.setViewportSize({width:1440,height:800});
+    await page.goto(baseURL+'/#data');await form(0).waitFor();
+    check(await page.locator('#review-save-all').isDisabled(),'Untouched automatic labels need no per-row save');
+    check(await form(0).innerText().then(t=>t.includes('Nhãn tự động đã lưu')),'Automatic label explicitly shown as saved');
+    await form(0).locator('select').selectOption('toxic');
+    await form(0).locator('[name="note"]').fill('Đã đọc trang một');
+    await page.locator('#next-page').click();await form(25).waitFor();
+    await form(25).locator('[name="excluded"]').check();
+    await form(25).locator('[name="note"]').fill('Đã đọc trang hai');
+    check(await page.locator('#review-save-all').innerText()==='Lưu tất cả thay đổi (2)','Pending count includes edits from other pages');
+    await page.locator('#search').fill('chỉ một mẫu');await form(0).waitFor();
+    check(await form(0).locator('select').inputValue()==='toxic'&&await form(0).locator('[name="note"]').inputValue()==='Đã đọc trang một','Edits survive paging and search');
+    await page.locator('#review-refresh').click();
+    check(await form(0).locator('select').inputValue()==='toxic','Refreshing list keeps drafts');
+    fail=true;await page.locator('#review-save-all').click();
+    await page.waitForFunction(()=>document.querySelector('#toast').textContent.includes('Không lưu được'));
+    check(await page.locator('#review-save-all').isEnabled()&&await form(0).locator('select').inputValue()==='toxic','Failed batch keeps edits for retry');
+    fail=false;await page.locator('#review-save-all').click();
+    await page.waitForFunction(()=>document.querySelector('#review-save-all').disabled&&!document.querySelector('#review-save-all').textContent.includes('Đang lưu'));
+    check(writes.length===2&&writes[1].path==='/api/annotate-bulk'&&writes[1].items.length===2,'One bulk request saves every edited row across pages and filters');
+    check(rows[0].label==='toxic'&&rows[25].excluded&&rows[25].annotation_note==='Đã đọc trang hai'&&rows[1].label_source==='automatic','Chosen labels, notes and exclusions saved; untouched labels preserved');
+    check(await page.locator('#review-pending').innerText()==='Không có thay đổi chưa lưu.','Successful batch clears pending count');
+    await page.locator('#search').fill('');await form(1).waitFor();
+    await form(0).locator('[name="note"]').fill('Bản gửi trước');
+    hold=true;await page.locator('#review-save-all').click();
+    await page.waitForFunction(()=>document.querySelector('#review-save-all').textContent==='Đang lưu…');
+    await form(0).locator('[name="note"]').fill('Bản sửa khi đang lưu');
+    await form(1).locator('select').selectOption('toxic');
+    hold=false;release();
+    await page.waitForFunction(()=>document.querySelector('#review-save-all').textContent==='Lưu tất cả thay đổi (2)');
+    check(await form(0).locator('[name="note"]').inputValue()==='Bản sửa khi đang lưu','Edits typed during save remain pending');
+    await form(1).locator('[type="submit"]').click();
+    await page.waitForFunction(()=>document.querySelector('#review-save-all').textContent==='Lưu tất cả thay đổi (1)');
+    check(writes.at(-1).path==='/api/annotate'&&await form(0).locator('[name="note"]').inputValue()==='Bản sửa khi đang lưu','Single-row save preserves other pending edits');
+    rows[0].text_hash='new-hash';
+    await page.locator('#review-refresh').click();
+    await page.waitForFunction(()=>document.querySelector('.label-form[data-id="1:0"] .annotation-error'));
+    check(await form(0).innerText().then(t=>t.includes('Nội dung đã đổi từ lúc chỉnh sửa')),'Changed source text warns before overwriting a draft');
+    await page.locator('#review-save-all').click();
+    await page.waitForFunction(()=>document.querySelector('#toast').textContent.includes('Không lưu được'));
+    check(writes.at(-1).items[0].text_hash==='hash-0'&&await page.locator('#review-save-all').isEnabled(),'Stale draft keeps its original hash and remains pending after rejection');
+    await form(0).locator('[name="note"]').fill('Đã đọc nội dung mới');
+    await page.locator('#review-save-all').click();
+    await page.waitForFunction(()=>document.querySelector('#review-pending').textContent==='Không có thay đổi chưa lưu.');
+    check(writes.at(-1).items[0].text_hash==='new-hash','Explicitly editing the refreshed row saves its current text hash');
+    for(const width of [1440,390]){
+      await page.setViewportSize({width,height:800});await page.locator('#review-save-all').scrollIntoViewIfNeeded();
+      check(await page.evaluate(()=>document.scrollingElement.scrollWidth<=innerWidth),`Bulk save fits at ${width}px`);
+      const bounds=await page.locator('#review-save-all').boundingBox();
+      check(bounds.y>=0&&bounds.y+bounds.height<=800&&bounds.x>=0&&bounds.x+bounds.width<=width,`Bulk save is reachable at ${width}px`);
+      await form(0).locator('select').scrollIntoViewIfNeeded();
+      const pinned=await page.locator('#review-save-all').boundingBox();
+      check(pinned.y>=0&&pinned.y+pinned.height<=800,`Bulk save stays visible while editing at ${width}px`);
+    }
+    return passed;
+  }finally{await page.unroute(baseURL+'/api/**');await page.unroute(baseURL+'/status');}
+}
+if(typeof module!=='undefined')module.exports={checkLabelingBrowser,checkBulkLabelingBrowser,checkBulkReviewBrowser};

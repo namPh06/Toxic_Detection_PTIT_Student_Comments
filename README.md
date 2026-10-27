@@ -43,6 +43,8 @@ Lệnh từ chối mở nếu phiên Chrome điều khiển của tool còn ho�
 
 ## Gán nhãn tự động toàn bộ
 
+Nhãn tự động được lưu ngay khi tác vụ hoàn tất, không cần bấm **Lưu đánh giá** từng dòng. Khi muốn sửa nhãn, ghi chú hoặc trạng thái loại mẫu, có thể chỉnh nhiều dòng rồi bấm **Lưu tất cả thay đổi** ở cuối danh sách. Nút này lưu cả những dòng đã sửa ở trang khác hoặc bị ẩn bởi bộ lọc, giữ nguyên các dòng chưa sửa. Chuyển trang, lọc và **Cập nhật danh sách** giữ các chỉnh sửa; hãy lưu trước khi tải lại hoặc đóng tab vì bản chưa lưu chỉ nằm trong phiên giao diện.
+
 Nút chính dùng ngưỡng **điểm toxic ≥ 0,5 → toxic**, thấp hơn → non-toxic. Mọi mẫu hợp lệ chưa có nhãn đều được xử lý, kể cả mẫu có điểm chưa rõ. Điểm nằm giữa 0,2–0,8 hoặc văn bản phải cắt vì quá dài được đánh dấu `needs_review`; cờ này không chặn tải dataset hay huấn luyện. Kết quả ghi `label_source=automatic`, điểm, ngưỡng, model/revision và hash văn bản để phân biệt với nhãn do người đọc xác nhận. Kết quả mô hình đã lưu còn khớp nội dung được dùng lại, chỉ chạy suy luận cho mẫu còn thiếu.
 
 **Có thể huấn luyện trực tiếp trên nhãn máy**, nhưng chỉ số trên validation/test có nhãn máy đo mức khớp với bộ nhãn đó, chưa phải độ chính xác độc lập trên PTIT. Giao diện và báo cáo ghi rõ giới hạn này.

@@ -83,6 +83,52 @@ class LabIntegrityTests(unittest.TestCase):
         self.assert_workspace_unchanged(before, disk)
         self.assertEqual(self.lab.dataset_rows()[0]['label'], 'non-toxic')
 
+    def test_bulk_reviews_commit_once_and_preserve_untouched_rows(self):
+        self.review(2, note='Giữ nguyên đánh giá cũ.')
+        previous = copy.deepcopy(self.lab.annotations)
+        raw_before = self.source()
+        rows = self.lab.rows()
+        self.lab.suggestions[rows[0]['id']] = suggestion(rows[0])
+        items = [dict(id=rows[0]['id'], text_hash=rows[0]['text_hash'], label='toxic', note='Đã đọc'),
+                 dict(id=rows[1]['id'], text_hash=rows[1]['text_hash'], label='non-toxic', excluded=True)]
+        with patch.object(self.lab, 'save_workspace', wraps=self.lab.save_workspace) as save:
+            self.assertEqual(self.lab.annotate_many(items), dict(saved=2))
+        save.assert_called_once()
+        restored = Lab(self.directory, self.source)
+        self.assertEqual(restored.annotations, self.lab.annotations)
+        self.assertEqual(restored.annotations[rows[2]['id']], previous[rows[2]['id']])
+        self.assertEqual(restored.annotations[rows[0]['id']]['suggestion_at_review'], self.lab.suggestions[rows[0]['id']])
+        self.assertTrue(restored.annotations[rows[1]['id']]['excluded'])
+        self.assertTrue(all(restored.annotations[item['id']]['label_source'] == 'manual' for item in items))
+        self.assertEqual(self.source(), raw_before)
+
+    def test_bulk_review_validation_never_commits_a_partial_batch(self):
+        self.review(2)
+        rows = self.lab.rows()
+        first = dict(id=rows[0]['id'], text_hash=rows[0]['text_hash'], label='toxic')
+        second = dict(id=rows[1]['id'], text_hash=rows[1]['text_hash'], label='non-toxic')
+        before, disk = self.state(), (self.directory / 'workspace.json').read_bytes()
+        for invalid in [dict(second, text_hash='old'), dict(second, id='missing'), dict(second, label='bad'),
+                        dict(second, note='x' * 2001), dict(second, excluded='yes'), first, None, dict(second, id=[])]:
+            with self.subTest(invalid=invalid):
+                with self.assertRaises(ValueError):
+                    self.lab.annotate_many([first, invalid])
+                self.assert_workspace_unchanged(before, disk)
+        for invalid in [None, {}, [], [{}] * 20001]:
+            with self.assertRaises(ValueError):
+                self.lab.annotate_many(invalid)
+            self.assert_workspace_unchanged(before, disk)
+
+    def test_bulk_review_write_failure_preserves_the_previous_workspace(self):
+        self.review(2)
+        rows = self.lab.rows()
+        items = [dict(id=row['id'], text_hash=row['text_hash'], label='toxic') for row in rows[:2]]
+        before, disk = self.state(), (self.directory / 'workspace.json').read_bytes()
+        with patch('pathlib.Path.replace', side_effect=OSError('simulated atomic replace failure')):
+            with self.assertRaises(OSError):
+                self.lab.annotate_many(items)
+        self.assert_workspace_unchanged(before, disk)
+
     def test_changed_text_invalidates_review_until_explicit_rereview(self):
         self.review(0, label='toxic')
         original = self.lab.rows()[0]

@@ -509,6 +509,8 @@ class Handler(BaseHTTPRequestHandler):
                     raise
         elif self.path == '/api/annotate':
             return LAB.annotate(body)
+        elif self.path == '/api/annotate-bulk':
+            return LAB.annotate_many(body.get('rows'))
         elif self.path == '/api/suggest':
             return LAB.start_suggestions()
         elif self.path == '/api/auto-label':

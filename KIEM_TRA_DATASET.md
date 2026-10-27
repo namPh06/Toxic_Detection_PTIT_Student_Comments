@@ -1,5 +1,13 @@
 # Kiểm tra luồng dữ liệu PTIT — cập nhật 27/10/2026
 
+## Lưu nhiều đánh giá cùng lúc — 27/10/2026
+
+Thêm **Lưu tất cả thay đổi** cho các nhãn, ghi chú và trạng thái loại mẫu đã chỉnh, gồm cả dòng ở trang khác hoặc bị ẩn bởi bộ lọc. Nhãn tự động được ghi rõ là đã lưu, không yêu cầu lưu lại từng dòng. Chỉnh sửa được giữ khi chuyển trang, lọc và cập nhật danh sách; bản chưa lưu chỉ nằm trong phiên giao diện, cần lưu trước khi tải lại hoặc đóng tab.
+
+API kiểm tra toàn bộ lô trước khi ghi một lần: mã trùng, nhãn sai, hash nội dung cũ hoặc lỗi ghi không làm lưu dở dang. Dòng chưa chỉnh được giữ nguyên; chỉnh sửa phát sinh khi đang gửi vẫn còn chờ lưu. **26 kiểm thử Python, 20 kiểm tra lưu nhiều đánh giá, 29 kiểm tra gán nhãn cũ và 63 kiểm tra giao diện đạt.** Đã kiểm tra nút lưu khi cuộn ở độ rộng 1.440 px và 390 px; không tràn ngang. Kiểm thử duyệt thủ công dùng dữ liệu tạm, không tạo nhãn người đọc cho corpus thật.
+
+Đã cập nhật máy chủ cục bộ, chạy gán nhãn cho **4 mẫu hợp lệ mới còn thiếu**. Hiện có **2.131 bình luận gốc, 2.091 mẫu sạch có nhãn tự động** (1.957 non-toxic, 134 toxic), **0 nhãn người đọc duyệt**, 137 nhãn máy cần kiểm tra. Bản CSV/JSON tự động trên đĩa và qua API đều có 2.091 dòng. Đối chiếu giữ nguyên toàn bộ nội dung gốc và 2.087 annotation trước đó. Bằng chứng: `test-results/bulk-review-verification.json`, ảnh giao diện desktop/mobile trong `test-results/bulk-review-*.png`. Chưa đánh giá độ chính xác ngữ nghĩa trên tập PTIT do người đọc gán nhãn độc lập.
+
 ## Khôi phục crawl và kiểm tra Facebook thực tế — 27/10/2026
 
 Sau khi người dùng đăng nhập thành công, đã xác nhận ba vấn đề: máy chủ không phản hồi nhưng giao diện còn nhãn “Sẵn sàng”; cửa sổ Chrome đăng nhập thủ công còn giữ hồ sơ của project; bộ lọc nguồn loại bài vì URL nhóm dùng ID `450310163844833` trong khi permalink Facebook dùng tên `2k5ptit`.

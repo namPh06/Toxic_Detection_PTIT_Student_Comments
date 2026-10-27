@@ -308,6 +308,26 @@ class HTTPTests(unittest.TestCase):
             self.assertEqual(len(imported), 1)
             self.assertEqual(imported[0]['text_raw'], first['text_raw'])
 
+    def test_bulk_reviews_validate_the_entire_batch_and_persist(self):
+        rows = [dict(r, label='') for r in fixture()[:3]]
+        with tempfile.TemporaryDirectory() as temp, patch.object(self.app, 'LAB', Lab(Path(temp), lambda: rows)):
+            lab = self.app.LAB
+            items = [dict(id=r['id'], text_hash=r['text_hash'], label='toxic', note='reviewed') for r in lab.rows()[:2]]
+            self.assertEqual(self.request('/api/annotate-bulk', dict(rows=items), origin=False)[0], 403)
+            self.assertEqual(self.request('/api/annotate-bulk', {})[0], 400)
+            invalid = [items[0], dict(items[1], text_hash='old-hash')]
+            self.assertEqual(self.request('/api/annotate-bulk', dict(rows=invalid))[0], 400)
+            self.assertEqual(lab.annotations, {})
+            status, body = self.request('/api/annotate-bulk', dict(rows=items))
+            self.assertEqual((status, json.loads(body)), (200, dict(saved=2)))
+            restored = Lab(Path(temp), lambda: rows)
+            self.assertEqual(restored.annotations, lab.annotations)
+            self.assertEqual(len(restored.annotations), 2)
+            status, body = self.request('/api/dataset.json')
+            self.assertEqual(status, 200)
+            self.assertEqual([(r['id'], r['label_source']) for r in json.loads(body)['rows']],
+                             [(item['id'], 'manual') for item in items])
+
     def test_bulk_endpoint_and_automatic_exports(self):
         import time
         from test_bulk_labeling import BulkLabelingTests
