@@ -16,6 +16,7 @@
     <a href="#overview" data-tab="overview" aria-label="Tổng quan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg><span>Tổng quan</span></a>
     <a href="#crawl" data-tab="crawl" aria-label="Thu thập dữ liệu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 15v5h16v-5"/></svg><span>Thu thập dữ liệu</span></a>
     <a href="#data" data-tab="data" aria-label="Làm sạch & gán nhãn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11M13 13h4m-4 3h4"/></svg><span>Làm sạch & gán nhãn</span></a>
+    <a href="#features" data-tab="features" aria-label="Trích xuất đặc trưng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 10h16M10 4v16M15 14h2m-2 3h2"/></svg><span>Trích xuất đặc trưng</span></a>
     <a href="#models" data-tab="models" aria-label="Huấn luyện & đánh giá"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v17h17M8 15v-4m5 4V7m5 8V4"/></svg><span>Huấn luyện & đánh giá</span></a>
     <a href="#report" data-tab="report" aria-label="Báo cáo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h7"/></svg><span>Báo cáo</span></a>
   </nav>
@@ -37,8 +38,9 @@
     <a href="#crawl"><span class="step">1</span><h3>Thu thập</h3><p>Bình luận từ Facebook</p><span class="step-state" id="step-crawl">Đang kiểm tra</span></a>
     <a href="#data"><span class="step">2</span><h3>Làm sạch</h3><p>Chuẩn hóa và lọc trùng</p><span class="step-state">Xem trong bộ dữ liệu</span></a>
     <a href="#data"><span class="step">3</span><h3>Gán nhãn</h3><p>Xử lý toàn bộ, sửa khi cần</p><span class="step-state" id="step-label">Cần thực hiện</span></a>
-    <a href="#models"><span class="step">4</span><h3>Huấn luyện</h3><p>So sánh 5 cấu hình</p><span class="step-state" id="step-model">Chờ dữ liệu có nhãn</span></a>
-    <a href="#report"><span class="step">5</span><h3>Báo cáo</h3><p>Đánh giá và xuất kết quả</p><span class="step-state" id="step-report">Chưa có thực nghiệm</span></a>
+    <a href="#features"><span class="step">4</span><h3>Đặc trưng</h3><p>BoW và TF-IDF</p><span class="step-state" id="step-features">Chưa trích xuất</span></a>
+    <a href="#models"><span class="step">5</span><h3>Huấn luyện</h3><p>So sánh các cấu hình</p><span class="step-state" id="step-model">Chờ đặc trưng</span></a>
+    <a href="#report"><span class="step">6</span><h3>Báo cáo</h3><p>Đánh giá và xuất kết quả</p><span class="step-state" id="step-report">Chưa có thực nghiệm</span></a>
   </div>
   <div class="two-col overview-charts">
     <article class="panel"><div class="panel-heading"><div><h2>Phân bố nhãn</h2><p>Trên các mẫu sạch, không trùng</p></div></div><div class="distribution"><div id="donut" class="donut" role="img" aria-label="Chưa có dữ liệu"><div><strong id="donut-total">—</strong><span>mẫu sạch</span></div></div><div id="label-legend" class="legend"></div></div><div class="panel-foot">Bao gồm nhãn tự động và nhãn đã được người đọc xác nhận.</div></article>
@@ -75,7 +77,7 @@
       <details class="manual-options"><summary>Gợi ý và duyệt thủ công (tùy chọn)</summary><p class="muted">Chỉ tạo gợi ý sẽ không lưu nhãn cuối. Điểm ≤ 0,2 hoặc ≥ 0,8 mới có gợi ý; phần còn lại để trống. “Dùng gợi ý” điền lựa chọn, “Lưu đánh giá” xác nhận nhãn.</p><div class="actions"><button id="auto-suggest" class="button" type="button">Tạo gợi ý tự động</button><button id="dataset-csv" class="button" type="button" disabled>Tải CSV đã duyệt</button><button id="dataset-json" class="button" type="button" disabled>Tải JSON đã duyệt</button></div></details>
     </div>
   </article>
-  <details class="guide"><summary>Hướng dẫn gán nhãn và làm sạch</summary><div class="two-col"><div><h3>Cách phân loại bình luận</h3><p><b>Toxic:</b> công kích, lăng mạ, đe dọa, quấy rối hoặc miệt thị cá nhân/nhóm.</p><p><b>Non-toxic:</b> hỏi đáp, thông tin, phê bình không công kích. Ý kiến tiêu cực không mặc nhiên là toxic.</p><p>Đùa thân mật, trích dẫn và mỉa mai cần ngữ cảnh. Nếu chưa chắc, để trống và ghi chú. “Loại mẫu” dành cho nội dung lỗi/ngoài phạm vi.</p></div><div><h3>Các bước làm sạch</h3><p>Chuẩn hóa Unicode, chữ thường và teencode; ẩn URL/email/điện thoại; tách token âm tiết/emoji; bỏ stop words và dấu câu.</p><p>Giữ dấu tiếng Việt, từ phủ định và từ tục. Lọc trùng theo bản chuẩn hóa; nhãn mâu thuẫn cần rà soát. Nhãn lưu riêng, không sửa file gốc.</p><p>Nhập CSV/JSON với post_id, comment_id, text_raw, label (trống/toxic/non-toxic). Kiểm tra nhãn nhập trước khi sử dụng.</p></div></div></details>
+  <details class="guide"><summary>Hướng dẫn gán nhãn và làm sạch</summary><div class="two-col"><div><h3>Cách phân loại bình luận</h3><p><b>Toxic:</b> công kích, lăng mạ, đe dọa, quấy rối hoặc miệt thị cá nhân/nhóm.</p><p><b>Non-toxic:</b> hỏi đáp, thông tin, phê bình không công kích. Ý kiến tiêu cực không mặc nhiên là toxic.</p><p>Đùa thân mật, trích dẫn và mỉa mai cần ngữ cảnh. Nếu chưa chắc, để trống và ghi chú. “Loại mẫu” dành cho nội dung lỗi/ngoài phạm vi.</p></div><div><h3>Các bước làm sạch</h3><p>Chuẩn hóa Unicode, chữ thường và một số teencode; ẩn URL/email/điện thoại; giữ chuỗi emoji; bỏ dấu câu và hai stop words “các”, “những”.</p><p>Giữ “không được”, từ tục và chuỗi emoji. Giữ k/cc khi mơ hồ; 10-50 k → 10-50k. :))/=))) → emoticon_smile; :(( → emoticon_sad, không quyết định nhãn theo biểu cảm. Dòng chỉ còn dấu bị loại.</p><p>Chuẩn hóa viết tắt trong cụm rõ nghĩa: làm j → làm gì, đi hc → đi học. c.u/c_u/c*u → cu. Chỉ rút gọn chữ kéo dài trong danh sách đã rà soát (gấpppp → gấp, vậyyyy → vậy). Giữ tên/từ chưa nhận diện; các token này không quyết định nhãn.</p><p>Lọc trùng theo bản chuẩn hóa; nhãn mâu thuẫn cần rà soát. Nhãn lưu riêng, không sửa file gốc. Nhập CSV/JSON với post_id, comment_id, text_raw, label (trống/toxic/non-toxic). Kiểm tra nhãn nhập trước khi sử dụng.</p></div></div></details>
   <article class="panel review-panel">
     <div class="panel-heading"><div><h2>Danh sách bình luận</h2><p>Nhãn tự động đã được lưu. Bạn có thể sửa nhiều dòng rồi lưu cùng lúc.</p></div><button id="review-refresh" class="button small" type="button">Cập nhật danh sách</button></div>
     <div class="toolbar"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="Tìm trong bình luận…" aria-label="Tìm bình luận"></div><select id="label-filter" aria-label="Lọc nhãn"><option value="all">Tất cả nhãn</option><option value="unlabeled">Chưa gán nhãn</option><option value="toxic">Toxic</option><option value="non-toxic">Non-toxic</option></select><select id="quality-filter" aria-label="Lọc chất lượng"><option value="ready">Mẫu sạch duy nhất</option><option value="all">Tất cả chất lượng</option><option value="duplicate">Bản trùng</option><option value="conflict">Nhãn mâu thuẫn</option><option value="incomplete">Chưa mở hết nội dung</option><option value="empty_or_ui">Rỗng / chữ giao diện</option><option value="excluded">Đã loại thủ công</option></select><label class="button file-button" for="import-file">Nhập tệp</label><input type="file" id="import-file" accept=".json,.csv" hidden></div>
@@ -84,9 +86,45 @@
   </article>
 </section>
 
+<section id="features" class="view" hidden>
+  <div class="page-heading"><div><span class="eyebrow">CHUẨN BỊ ĐẦU VÀO MÔ HÌNH</span><h1>Trích xuất đặc trưng</h1><p>Chuyển bình luận đã làm sạch thành đặc trưng BoW, TF-IDF cho Naive Bayes / SVM và vector từ cho TextCNN.</p></div></div>
+  <div class="metric-grid feature-input">
+    <article class="metric"><span>Mẫu sạch có nhãn</span><strong id="feature-eligible">—</strong><small>Đầu vào cho bước trích xuất</small></article>
+    <article class="metric"><span>Non-toxic</span><strong id="feature-non-toxic">—</strong><small>Trong các mẫu sạch có nhãn</small></article>
+    <article class="metric"><span>Toxic</span><strong id="feature-toxic">—</strong><small>Trong các mẫu sạch có nhãn</small></article>
+    <article class="metric"><span>Mẫu chưa sử dụng</span><strong id="feature-unused">—</strong><small>Chưa có nhãn hoặc không đạt điều kiện</small></article>
+  </div>
+  <article class="panel">
+    <div class="panel-heading"><div><h2>Cấu hình trích xuất</h2><p>Giữ cấu hình mặc định để so sánh BoW và TF-IDF trên cùng cách chia tập.</p></div></div>
+    <form id="feature-form" class="panel-body">
+      <div class="feature-settings">
+        <fieldset><legend>Phương pháp cho NB / SVM</legend><label class="feature-choice"><input id="feature-bow" type="checkbox" checked><span><b>BoW</b><small>Đếm số lần token hoặc cụm xuất hiện.</small></span></label><label class="feature-choice"><input id="feature-tfidf" type="checkbox" checked><span><b>TF-IDF</b><small>Gán trọng số theo mức phổ biến trong tập train.</small></span></label>
+          <div class="feature-options"><b>Embedding cho TextCNN: Word2Vec tiếng Việt</b><p class="muted">Dùng PhoW2V 100 chiều và cho embedding học tiếp khi huấn luyện. Khi bấm trích xuất, công cụ tự tải khoảng 786 MB nếu máy chưa có; các lần sau dùng lại tệp đã tải.</p><p class="muted">Từ train chưa có trong Word2Vec được khởi tạo ngẫu nhiên và học tiếp cùng mô hình. <a href="https://github.com/datquocnguyen/PhoW2V" target="_blank" rel="noopener noreferrer">Nguồn PhoW2V</a> · Dùng cho nghiên cứu/giáo dục; không phân phối lại vector.</p></div>
+        </fieldset>
+        <div class="feature-options"><label for="feature-ngram">Đơn vị đặc trưng</label><select id="feature-ngram"><option value="both">Unigram + bigram</option><option value="unigram">Unigram — từng token</option><option value="bigram">Bigram — hai token liền nhau</option></select><p class="muted">Tách từ bằng Underthesea: “sinh viên không tốt” → “sinh_viên”, “không”, “tốt”. Unigram lấy từng từ; bigram lấy hai từ liền nhau, như “sinh_viên không” hoặc “không tốt”.</p><label for="feature-max">Số đặc trưng tối đa</label><input id="feature-max" type="number" min="1" max="100000" step="1" value="20000" required><p class="muted">Giới hạn kích thước từ vựng cho mỗi phương pháp. Số thực tế có thể ít hơn.</p></div>
+      </div>
+      <div class="feature-submit"><p>Chia theo nhóm bài viết: train ≈60%, validation ≈20%, test ≈20%. Chỉ học từ vựng và IDF trên train.</p><button id="feature-extract" class="button primary" type="submit">Trích xuất đặc trưng</button></div>
+    </form>
+  </article>
+  <article class="notice"><div><b id="feature-status" role="status" aria-live="polite">Chưa trích xuất đặc trưng.</b><progress id="feature-progress" aria-label="Đang tải Word2Vec và trích xuất đặc trưng" hidden></progress><p id="feature-status-note">Cần mẫu sạch có nhãn ở cả hai lớp và đủ nhóm bài độc lập để chia tập.</p></div></article>
+  <p id="feature-stale" class="warning" hidden>Dữ liệu, nhãn, cách tách từ hoặc cấu hình đã thay đổi. Cần trích xuất lại trước khi huấn luyện.</p>
+  <div id="feature-results" hidden>
+    <div class="section-heading"><h2>Kết quả trích xuất</h2><span id="feature-created"></span></div>
+    <div id="feature-dimensions" class="two-col"></div>
+    <article class="panel"><div class="panel-heading"><div><h2>Phân chia dữ liệu</h2><p>Cùng cách chia cho tất cả phương pháp. Các nhóm bài không giao nhau giữa các tập.</p></div></div><div class="table-scroll" tabindex="0" role="region" aria-label="Phân chia dữ liệu trích xuất"><table><thead><tr><th>Tập dữ liệu</th><th>Số mẫu</th><th>Non-toxic</th><th>Toxic</th><th>Nhóm bài</th></tr></thead><tbody id="feature-splits"></tbody></table></div></article>
+    <article id="feature-preview" class="panel">
+      <div class="panel-heading"><div><h2>Xem đặc trưng của bình luận</h2><p>Giá trị thực tế từ ma trận đã tạo; chỉ hiện đặc trưng có giá trị khác 0.</p></div></div>
+      <div class="panel-body"><div class="feature-preview-controls"><div><label for="feature-split">Tập dữ liệu</label><select id="feature-split"><option value="all">Tất cả các tập</option><option value="train">Train</option><option value="validation">Validation</option><option value="test">Test</option></select></div><div><label for="feature-index">Bình luận số</label><input id="feature-index" type="number" min="1" step="1" value="1"></div><div class="actions"><button id="feature-prev" class="button small" type="button" aria-label="Bình luận trước">← Trước</button><button id="feature-next" class="button small" type="button" aria-label="Bình luận sau">Sau →</button></div></div><p id="feature-sample-meta" class="muted" aria-live="polite"></p><div id="feature-sample-text" class="feature-sample-text"></div><p class="muted">Từ sau khi tách bằng Underthesea (dấu _ nối các tiếng trong một từ):</p><div id="feature-sample-tokens" class="feature-sample-text"></div></div>
+      <div class="table-scroll feature-term-scroll" tabindex="0" role="region" aria-label="Giá trị đặc trưng của bình luận"><table><thead><tr><th>Đặc trưng</th><th>BoW · số lần</th><th>TF-IDF · trọng số</th></tr></thead><tbody id="feature-terms"></tbody></table></div><div id="feature-term-note" class="panel-foot"></div>
+      <div id="embedding-preview" hidden><div class="panel-body"><h3>Vector đầu vào TextCNN</h3><p id="embedding-sample-note" class="muted"></p></div><div class="table-scroll feature-term-scroll" tabindex="0" role="region" aria-label="Vector Word2Vec của từng từ"><table><thead><tr><th>Từ</th><th>Nguồn vector</th><th>Giá trị embedding ban đầu</th></tr></thead><tbody id="embedding-rows"></tbody></table></div></div>
+    </article>
+  </div>
+  <details class="guide"><summary>TextCNN dùng đặc trưng ở bước này như thế nào?</summary><p>Trang này tự tải PhoW2V nếu cần, tạo từ vựng từ train, nạp vector có sẵn và lưu ma trận embedding ban đầu để TextCNN dùng lại. Bạn xem được vector trước khi huấn luyện; embedding sẽ học tiếp khi TextCNN học phân loại toxic/non-toxic. Unigram/bigram chỉ áp dụng cho BoW và TF-IDF. TextCNN dùng chuỗi từ Underthesea, tối đa 128 từ; từ ngoài từ vựng train dùng vector UNK.</p></details>
+</section>
+
 <section id="models" class="view" hidden>
   <header class="model-hero">
-    <div class="model-hero-copy"><span class="eyebrow">MODEL WORKSPACE</span><h1>Huấn luyện & đánh giá</h1><p>Từ dữ liệu đã gán nhãn đến mô hình phân loại bình luận.</p><div class="model-hero-meta"><span>5 cấu hình</span><span>3 nhóm đặc trưng</span><span>Chia tập theo bài viết</span></div></div>
+    <div class="model-hero-copy"><span class="eyebrow">MODEL WORKSPACE</span><h1>Huấn luyện & đánh giá</h1><p>Huấn luyện NB/SVM bằng bộ đặc trưng đã trích xuất và so sánh với TextCNN.</p><div class="model-hero-meta"><span id="training-config-count">5 cấu hình</span><span id="training-feature-names">BoW · TF-IDF · Embeddings</span><span>Chia tập theo bài viết</span></div></div>
     <button id="train" class="button primary">Huấn luyện 5 cấu hình</button>
   </header>
   <section class="model-lineup" aria-labelledby="model-lineup-title">
@@ -100,13 +138,14 @@
     </div>
   </section>
   <article class="notice training-notice"><svg class="training-status-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b id="training-status" aria-live="polite">Chưa chạy huấn luyện.</b><p>Cần ít nhất 10 mẫu sạch mỗi lớp và 5 nhóm bài độc lập có nhãn. Mỗi tập phải có cả hai lớp.</p><details id="training-detail" class="technical-detail" hidden><summary>Chi tiết lỗi huấn luyện</summary><pre id="training-debug"></pre></details></div></article>
-  <details class="guide"><summary>Chi tiết cấu hình & cách đánh giá</summary><div class="experiment-config"><div><small>Đặc trưng</small><b>BoW · TF-IDF · Embeddings</b></div><div><small>Thuật toán</small><b>Naive Bayes · SVM · TextCNN</b></div><div><small>Chia theo nhóm bài</small><b>Train ≈60% / Val ≈20% / Test ≈20%</b></div><div><small>Chọn mô hình</small><b>Macro-F1 trên validation</b></div></div><p>Tỷ lệ thực tế tùy nhóm bài. Từ vựng chỉ học trên train. Lượng dữ liệu tối thiểu chưa đủ để đưa ra kết luận về chất lượng mô hình.</p></details>
+  <details class="guide"><summary>Chi tiết cấu hình & cách đánh giá</summary><div class="experiment-config"><div><small>Đặc trưng</small><b id="training-config-features">BoW · TF-IDF · Embeddings</b></div><div><small>Thuật toán</small><b>Naive Bayes · SVM · TextCNN</b></div><div><small>Chia theo nhóm bài</small><b>Train ≈60% / Val ≈20% / Test ≈20%</b></div><div><small>Chọn mô hình</small><b>Macro-F1 trên validation</b></div></div><p>Tỷ lệ thực tế tùy nhóm bài. Từ vựng chỉ học trên train. Lượng dữ liệu tối thiểu chưa đủ để đưa ra kết luận về chất lượng mô hình.</p></details>
   <p id="automatic-training-warning" class="warning" hidden><strong>Lưu ý về nhãn tự động.</strong> Có nhãn tự động trong dataset. Chỉ số so với nhãn máy đo mức khớp với mô hình gán nhãn; chưa phải đánh giá độc lập trên nhãn chuẩn PTIT.</p>
-  <p id="stale-warning" class="warning" hidden>Dữ liệu hoặc nhãn đã thay đổi. Kết quả bên dưới được tính trên phiên bản dữ liệu cũ.</p>
+  <p id="training-embedding" class="muted"></p>
+  <p id="stale-warning" class="warning" hidden>Dữ liệu, nhãn, cách tách từ hoặc bộ đặc trưng đã thay đổi. Cần huấn luyện lại bằng bộ đặc trưng hiện tại để cập nhật kết quả.</p>
   <div class="model-workbench">
   <div id="model-empty" class="empty-state model-empty">
     <div class="empty-model-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M8 15v-4m5 4V7m5 8v-5"/><path d="M16 4h5m-2.5-2.5v5"/></svg></div>
-    <span class="eyebrow">KẾT QUẢ THỰC NGHIỆM</span><h2>Khám phá mô hình phù hợp nhất</h2><p>Chưa có kết quả huấn luyện. Kiểm tra nhãn dữ liệu, rồi chọn <b>Huấn luyện 5 cấu hình</b> để bắt đầu so sánh.</p>
+    <span class="eyebrow">KẾT QUẢ THỰC NGHIỆM</span><h2>Khám phá mô hình phù hợp nhất</h2><p>Chưa có kết quả huấn luyện. Trích xuất đặc trưng, rồi chọn <b>Huấn luyện</b> để bắt đầu so sánh.</p>
     <div class="result-preview-labels" aria-label="Nội dung sẽ có sau huấn luyện"><span>Accuracy</span><span>Macro-F1</span><span>Ma trận nhầm lẫn</span></div>
     <a href="#data" class="button">Kiểm tra bộ dữ liệu <span aria-hidden="true">→</span></a>
   </div>

@@ -409,6 +409,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send(json.dumps(payload(), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='ptit_selenium_comments.json')
         elif path == '/api/status':
             self.json(LAB.status())
+        elif path == '/api/features':
+            self.json(LAB.feature_preview(int(query.get('index', ['0'])[0]), query.get('split', ['all'])[0]))
         elif path == '/api/rows':
             rows = LAB.rows()
             search = query.get('q', [''])[0].casefold()
@@ -521,6 +523,8 @@ class Handler(BaseHTTPRequestHandler):
             return LAB.save_cleaned()
         elif self.path == '/api/train':
             return LAB.start_training()
+        elif self.path == '/api/features':
+            return LAB.start_features(body)
         elif self.path == '/api/predict':
             return LAB.predict(body)
         else:

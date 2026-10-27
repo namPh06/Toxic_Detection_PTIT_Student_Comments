@@ -4,8 +4,9 @@ import re
 import threading
 from datetime import datetime, timezone
 
-from dataset import LABELS, LABEL_METADATA, atomic_json, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash
+from dataset import LABELS, LABEL_METADATA, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash
 from experiments import build_report, predict, split_dataset, train_experiment
+from features import build_features, feature_key, feature_summary, preview_features, validate_settings
 
 
 class Lab:
@@ -21,6 +22,20 @@ class Lab:
         if not isinstance(self.annotations, dict) or not isinstance(self.imported, list) or not isinstance(self.suggestions, dict):
             raise ValueError('Kho nhãn/dữ liệu nhập không hợp lệ; không ghi đè dữ liệu.')
         self.job = dict(running=False, message='Chưa chạy huấn luyện.', error=False)
+        self.feature_job = dict(running=False, message='Chưa trích xuất đặc trưng.', error=False)
+        self.features = None
+        feature_path = self.directory / 'features.joblib'
+        if feature_path.exists():
+            try:
+                import joblib
+                self.features = joblib.load(feature_path)
+                if self.features.get('schema_version') != 1:
+                    raise ValueError('Phiên bản đặc trưng không còn phù hợp.')
+                feature_summary(self.features)
+                self.feature_job['message'] = 'Đã khôi phục bộ đặc trưng đã lưu.'
+            except Exception:
+                self.features = None
+                self.feature_job.update(error=True, message='Không đọc được bộ đặc trưng đã lưu. Hãy trích xuất lại.')
         self.annotation_job = dict(running=False, message='Bấm “Làm sạch & gán nhãn toàn bộ” để tạo dataset trong một lần.', error=False)
         if self.suggestions:
             self.annotation_job['message'] = f'Đã lưu kết quả mô hình cho {len(self.suggestions)} bình luận. Có thể gán nhãn toàn bộ hoặc xem từng mẫu.'
@@ -59,7 +74,7 @@ class Lab:
             job = dict(self.job)
             annotation_job = dict(self.annotation_job)
         stats = summary(rows)
-        key = fingerprint(rows)
+        key = feature_key(rows)
         with self.lock:
             if self.split_check is None or self.split_check[0] != key:
                 try:
@@ -77,7 +92,64 @@ class Lab:
                       unknown_completeness=sum(r.get('text_complete') is None for r in rows),
                       training_ready=training_ready, training_message=training_message)
         return dict(summary=stats, job=job, annotation_job=annotation_job, dataset_health=health, result=result,
-                    stale=bool(result and result['fingerprint'] != fingerprint(rows)))
+                    features=self.feature_status(rows),
+                    stale=bool(result and (result['fingerprint'] != fingerprint(rows) or
+                                           (self.features and result.get('feature_created_at') != self.features['created_at']) or
+                                           result.get('tokenizer_version') != TOKENIZER_VERSION)))
+
+    def feature_status(self, rows=None):
+        with self.lock:
+            bundle = self.features
+            stale = bool(bundle and bundle['key'] != feature_key(self.rows() if rows is None else rows))
+            return dict(job=dict(self.feature_job), ready=bool(bundle and not stale), stale=stale,
+                        result=feature_summary(bundle) if bundle else None)
+
+    def feature_preview(self, index=0, split='all'):
+        with self.lock:
+            if not self.features or self.features['key'] != feature_key(self.rows()):
+                raise ValueError('Chưa có đặc trưng phù hợp với dữ liệu hiện tại. Hãy trích xuất lại.')
+            return preview_features(self.features, index, split)
+
+    def start_features(self, body):
+        settings = validate_settings(dict(body, embedding='word2vec', word2vec_path='', embedding_trainable=True))
+        with self.lock:
+            if self.feature_job['running'] or self.job['running'] or self.annotation_job['running']:
+                raise ValueError('Chờ tác vụ trích xuất, huấn luyện hoặc gán nhãn hiện tại hoàn tất.')
+            rows = self.rows()
+            split_dataset(rows)
+            self.feature_job = dict(running=True, error=False, message='Đang chia tập và trích xuất đặc trưng…')
+            try:
+                threading.Thread(target=self.extract_features, args=(rows, settings), daemon=True).start()
+            except Exception:
+                self.feature_job.update(running=False, error=True, message='Không khởi động được bước trích xuất. Hãy thử lại.')
+                raise
+        return dict(started=True)
+
+    def extract_features(self, rows, settings):
+        temp = self.directory / 'features.joblib.tmp'
+        try:
+            import joblib
+            def notify(message):
+                with self.lock:
+                    self.feature_job['message'] = message
+            bundle = build_features(rows, settings, notify)
+            with self.lock:
+                if bundle['key'] != feature_key(self.rows()):
+                    raise ValueError('Dữ liệu đã thay đổi trong lúc trích xuất. Hãy chạy lại.')
+                self.directory.mkdir(parents=True, exist_ok=True)
+                joblib.dump(bundle, temp)
+                temp.replace(self.directory / 'features.joblib')
+                self.features = bundle
+                self.feature_job.update(message='Đã lưu đặc trưng và embedding Word2Vec. TextCNN sẽ cho embedding học tiếp khi huấn luyện.', error=False)
+        except Exception as error:
+            with self.lock:
+                self.feature_job.update(error=True, message=f'Trích xuất thất bại: {error}')
+        finally:
+            try:
+                temp.unlink(missing_ok=True)
+            finally:
+                with self.lock:
+                    self.feature_job['running'] = False
 
     def annotate(self, body):
         self.annotate_many([body])
@@ -163,7 +235,7 @@ class Lab:
 
     def start_suggestions(self, automatic=False):
         with self.lock:
-            if self.annotation_job['running'] or self.job['running']:
+            if self.annotation_job['running'] or self.job['running'] or self.feature_job['running']:
                 raise ValueError('Chờ tác vụ gợi ý/huấn luyện hiện tại hoàn tất.')
             rows = [r for r in self.rows() if r['quality'] == 'ready' and not r['label'] and (automatic or not r['suggestion'])]
             if not rows:
@@ -221,25 +293,30 @@ class Lab:
 
     def start_training(self):
         with self.lock:
-            if self.job['running'] or self.annotation_job['running']:
+            if self.job['running'] or self.annotation_job['running'] or self.feature_job['running']:
                 raise ValueError('Chờ tác vụ huấn luyện/gợi ý hiện tại hoàn tất.')
             rows = self.rows()
-            split_dataset(rows)
-            self.job = dict(running=True, message='Đang chuẩn bị 5 cấu hình…', error=False)
-            threading.Thread(target=self.train, args=(rows,), daemon=True).start()
+            if not self.features or self.features['key'] != feature_key(rows):
+                raise ValueError('Hãy trích xuất đặc trưng cho dữ liệu hiện tại trước khi huấn luyện.')
+            self.job = dict(running=True, message='Đang chuẩn bị huấn luyện từ bộ đặc trưng đã lưu…', error=False)
+            try:
+                threading.Thread(target=self.train, args=(rows, self.features), daemon=True).start()
+            except Exception:
+                self.job.update(running=False, error=True, message='Không khởi động được huấn luyện. Hãy thử lại.')
+                raise
         return dict(started=True)
 
-    def train(self, rows):
+    def train(self, rows, prepared=None):
         run = 'run-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
         try:
             def notify(message):
                 with self.lock:
                     self.job['message'] = message
-            train_experiment(rows, self.directory / 'runs' / run, notify)
+            result = train_experiment(rows, self.directory / 'runs' / run, notify, prepared=prepared)
             with self.lock:
                 atomic_json(self.directory / 'latest.json', dict(run=run))
                 self.run = run
-                self.job.update(message='Đã hoàn tất 5 cấu hình. Kết quả chọn mô hình dựa trên validation.', error=False)
+                self.job.update(message=f'Đã hoàn tất {len(result["models"])} cấu hình. Kết quả chọn mô hình dựa trên validation.', error=False)
         except Exception as error:
             with self.lock:
                 self.job.update(message=f'Huấn luyện thất bại: {error}', error=True)

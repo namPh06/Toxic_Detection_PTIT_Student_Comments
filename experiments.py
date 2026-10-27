@@ -6,7 +6,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from dataset import LABELS, PREPROCESS_VERSION, atomic_json, fingerprint, summary
+from dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, fingerprint, summary
 
 
 def split_dataset(rows):
@@ -55,28 +55,41 @@ def metrics(y_true, y_pred):
                 per_class=classification_report(y_true, y_pred, labels=[0, 1], target_names=LABELS, output_dict=True, zero_division=0))
 
 
-def train_experiment(rows, output, notify=lambda message: None, epochs=12):
+def train_experiment(rows, output, notify=lambda message: None, epochs=12, prepared=None):
     import joblib
     import sklearn
     import torch
-    from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
     from sklearn.naive_bayes import MultinomialNB
     from sklearn.pipeline import Pipeline
     from sklearn.svm import LinearSVC
     from neural import encode, predict_cnn, train_cnn
+    from features import build_features, feature_key
 
-    eligible, split, groups = split_dataset(rows)
-    texts = {name: [eligible[i]['text_clean'] for i in ids] for name, ids in split.items()}
-    labels = {name: [LABELS.index(eligible[i]['label']) for i in ids] for name, ids in split.items()}
+    prepared = prepared if prepared is not None else build_features(rows, {})
+    if prepared['key'] != feature_key(rows):
+        raise ValueError('Bộ đặc trưng thuộc dữ liệu cũ. Hãy trích xuất lại trước khi huấn luyện.')
+    embedding = prepared.get('embedding')
+    if prepared['settings'].get('embedding') == 'word2vec' and not embedding:
+        raise ValueError('Bộ đặc trưng chưa có Word2Vec. Hãy trích xuất lại trước khi huấn luyện.')
+    eligible, split, groups = prepared['rows'], prepared['split'], prepared['groups']
+    texts, labels = prepared['texts'], prepared['labels']
+    ngrams = {'unigram': [1, 1], 'bigram': [2, 2], 'both': [1, 2]}[prepared['settings']['ngram']]
     output.mkdir(parents=True, exist_ok=False)
     result = dict(created_at=datetime.now(timezone.utc).isoformat(), fingerprint=fingerprint(rows),
-                  preprocess_version=PREPROCESS_VERSION, seed=42, summary=summary(rows), models=[],
+                  preprocess_version=PREPROCESS_VERSION, tokenizer='Underthesea',
+                  tokenizer_version=TOKENIZER_VERSION, seed=42, summary=summary(rows), models=[],
                   versions=dict(python=platform.python_version(), sklearn=sklearn.__version__, torch=torch.__version__),
                   split={name: dict(count=len(ids), groups=len({groups[i] for i in ids}),
                                      labels=dict(Counter(eligible[i]['label'] for i in ids)),
                                      automatic_labels=sum(eligible[i].get('label_source') == 'automatic' for i in ids)) for name, ids in split.items()},
-                  settings=dict(ngram_range=[1, 2], max_features=20000, nb_alpha=1, svm_C=1,
-                                cnn_embedding=64, cnn_filters=48, cnn_kernels=[2, 3, 4], cnn_max_length=128,
+                  feature_created_at=prepared['created_at'],
+                  cnn_embedding=embedding['metadata'] if embedding else dict(source='random', dimensions=64, trainable=True),
+                  settings=dict(ngram_range=ngrams, max_features=prepared['settings']['max_features'],
+                                feature_methods=prepared['settings']['methods'], nb_alpha=1, svm_C=1,
+                                cnn_embedding=embedding['metadata']['dimensions'] if embedding else 64,
+                                cnn_embedding_source=embedding['metadata']['source'] if embedding else 'random',
+                                cnn_embedding_trainable=embedding['metadata']['trainable'] if embedding else True,
+                                cnn_filters=48, cnn_kernels=[2, 3, 4], cnn_max_length=128,
                                 cnn_dropout=0.3, cnn_epochs=epochs, cnn_learning_rate=0.001, cnn_batch_size=32))
     manifest = {name: [dict(id=eligible[i]['id'], post_id=eligible[i]['post_id'], group=groups[i], label=eligible[i]['label'], label_source=eligible[i].get('label_source', 'legacy'))
                        for i in ids] for name, ids in split.items()}
@@ -91,18 +104,19 @@ def train_experiment(rows, output, notify=lambda message: None, epochs=12):
                        for i, actual, predicted in zip(split['test'], labels['test'], test_pred)]
         atomic_json(output / f'{name}-predictions.json', predictions)
 
-    for feature, vectorizer in [('BoW', CountVectorizer), ('TF-IDF', TfidfVectorizer)]:
+    for feature, data in prepared['features'].items():
         for algorithm, classifier in [('NB', MultinomialNB()), ('SVM', LinearSVC(class_weight='balanced', random_state=42, max_iter=10000))]:
             name = feature + '-' + algorithm
             notify('Đang huấn luyện ' + name)
             started = time.monotonic()
-            model = Pipeline([('vectorizer', vectorizer(tokenizer=str.split, token_pattern=None, lowercase=False,
-                                                        ngram_range=(1, 2), max_features=20000)), ('classifier', classifier)])
-            model.fit(texts['train'], labels['train'])
-            record(name, feature, algorithm, model.predict(texts['validation']), model.predict(texts['test']), time.monotonic() - started)
+            classifier.fit(data['matrices']['train'], labels['train'])
+            model = Pipeline([('vectorizer', data['vectorizer']), ('classifier', classifier)])
+            record(name, feature, algorithm, classifier.predict(data['matrices']['validation']),
+                   classifier.predict(data['matrices']['test']), time.monotonic() - started)
             joblib.dump(model, output / f'{name}.joblib')
     started = time.monotonic()
-    model, vocabulary, history, best_epoch = train_cnn(texts['train'], labels['train'], texts['validation'], labels['validation'], notify, epochs)
+    model, vocabulary, history, best_epoch = train_cnn(texts['train'], labels['train'], texts['validation'], labels['validation'], notify, epochs,
+                                                       prepared_embedding=embedding)
     record('TextCNN', 'Word embeddings', 'TextCNN', predict_cnn(model, encode(texts['validation'], vocabulary)),
            predict_cnn(model, encode(texts['test'], vocabulary)), time.monotonic() - started)
     torch.save(model.state_dict(), output / 'TextCNN.pt')
@@ -116,6 +130,9 @@ def train_experiment(rows, output, notify=lambda message: None, epochs=12):
 
 def predict(text, directory, model_name):
     from dataset import clean_text
+    metadata = json.loads((directory / 'metrics.json').read_text(encoding='utf-8'))
+    if metadata.get('tokenizer_version') != TOKENIZER_VERSION:
+        raise ValueError('Mô hình dùng cách tách từ cũ. Hãy trích xuất lại đặc trưng bằng Underthesea và huấn luyện lại.')
     cleaned = clean_text(text)
     if not cleaned:
         raise ValueError('Bình luận không còn token sau làm sạch.')
@@ -123,7 +140,7 @@ def predict(text, directory, model_name):
         import torch
         from neural import TextCNN, encode, predict_cnn
         vocabulary = json.loads((directory / 'vocabulary.json').read_text(encoding='utf-8'))
-        model = TextCNN(len(vocabulary) + 2)
+        model = TextCNN(len(vocabulary) + 2, embedding_dim=metadata['settings'].get('cnn_embedding', 64))
         model.load_state_dict(torch.load(directory / 'TextCNN.pt', map_location='cpu', weights_only=True))
         value = predict_cnn(model, encode([cleaned], vocabulary))[0]
     elif model_name in ('BoW-NB', 'BoW-SVM', 'TF-IDF-NB', 'TF-IDF-SVM'):
@@ -140,7 +157,9 @@ def build_report(rows, result=None):
     if result:
         local_time = datetime.fromisoformat(result['created_at']).astimezone(timezone(timedelta(hours=7)))
         status = ('Kết quả dưới đây thuộc snapshot huấn luyện ' + local_time.strftime('%d/%m/%Y %H:%M (UTC+7)') + '. '
-                  + ('Dữ liệu hiện tại đã thay đổi; cần chạy lại để cập nhật.' if result['fingerprint'] != fingerprint(rows) else 'Snapshot trùng với dữ liệu hiện tại.'))
+                  + ('Dữ liệu hoặc cách tách từ hiện tại đã thay đổi; cần chạy lại để cập nhật.'
+                     if result['fingerprint'] != fingerprint(rows) or result.get('tokenizer_version') != TOKENIZER_VERSION
+                     else 'Snapshot trùng với dữ liệu và cách tách từ hiện tại.'))
     lines = [
         '# Phân loại bình luận toxic và non-toxic trong các nhóm Facebook liên quan đến sinh viên PTIT',
         '\n## 1. Giới thiệu bài toán',
@@ -156,13 +175,17 @@ def build_report(rows, result=None):
         'hoặc đùa thân mật cần xét ngữ cảnh, không dùng từ khóa đơn lẻ làm nhãn chuẩn.',
         'BoW biểu diễn số lần xuất hiện token/ngram. TF-IDF giảm trọng số token phổ biến và tăng trọng số '
         'token đặc trưng. Với cấu hình mặc định: idf(t)=log((1+n)/(1+df(t)))+1, sau đó chuẩn hóa L2. '
-        'Cả hai dùng unigram/bigram, tối đa 20.000 đặc trưng; từ vựng và IDF chỉ học trên train.',
+        'Mặc định dùng unigram/bigram, tối đa 20.000 đặc trưng; có thể chọn lại trên trang Trích xuất đặc trưng. '
+        'Từ vựng và IDF chỉ học trên train; NB/SVM dùng lại ma trận đã trích xuất.',
         'Multinomial Naive Bayes dùng xác suất có điều kiện với giả định độc lập đặc trưng và làm trơn alpha=1. '
         'LinearSVC là SVM tuyến tính với C=1, class_weight=balanced để giảm tác động mất cân bằng lớp.',
-        'Mô hình học sâu bổ sung: TextCNN theo hướng Kim (2014), embedding 64 chiều học từ đầu, '
+        'Mô hình học sâu bổ sung: TextCNN theo hướng Kim (2014), có thể khởi tạo embedding bằng Word2Vec tiền huấn luyện '
+        'hoặc embedding ngẫu nhiên 64 chiều để so sánh. Với Word2Vec: ghép vector với từ vựng chỉ tạo từ train, '
+        'từ không có vector được khởi tạo ngẫu nhiên; validation/test dùng token UNK cho từ ngoài từ vựng train. '
+        'Có thể giữ cố định embedding hoặc cho học tiếp khi huấn luyện TextCNN. '
         '3 cửa sổ convolution 2/3/4 token, mỗi cửa sổ 48 bộ lọc, ReLU, global max pooling, dropout 0,3 và lớp tuyến tính 2 nhãn. '
         'Adam, learning rate 0,001; batch 32; tối đa 12 epoch; chọn epoch bằng macro-F1 validation. '
-        'Đây là baseline học sâu, không phải Transformer hay mô hình đã tiền huấn luyện.',
+        'TextCNN vẫn phải học phân loại trên dữ liệu đã gán nhãn, kể cả khi embedding đã tiền huấn luyện.',
         '\n## 3. Thực nghiệm và kết quả',
         '\n### 3.1. Thu thập và tiền xử lý',
         f'Dữ liệu hiện tại: **{stats["total"]} bình luận**, **{stats["posts"]} bài**; '
@@ -171,9 +194,17 @@ def build_report(rows, result=None):
         f'Kiểm tra chất lượng: {json.dumps(stats["quality"], ensure_ascii=False)}.',
         f'Nguồn nhãn: {json.dumps(stats["label_sources"], ensure_ascii=False)}. Nhãn automatic được mô hình gán, chưa phải nhãn người đọc xác nhận.',
         'Quy trình: chuẩn hóa Unicode NFC, chữ thường, giải mã HTML; ẩn URL/email/số điện thoại bằng token; '
-        'bỏ ký tự vô hình và dấu câu; chuẩn hóa một số teencode; tách token theo âm tiết/khoảng trắng và emoji; '
-        'loại danh sách stop words ngắn. Giữ dấu tiếng Việt, từ phủ định, từ tục và emoji. '
-        'Chưa ghép từ đa âm tiết bằng bộ phân đoạn tiếng Việt; bigram giúp biểu diễn các cụm gần nhau. '
+        'bỏ ký tự vô hình trong chữ và dấu câu; chuẩn hóa một số teencode; '
+        'chỉ loại stop words các/những. Giữ dấu tiếng Việt, từ phủ định, được/thì/mà, từ tục và emoji. '
+        'Giữ k/cc khi mơ hồ; dạng tiền 10-50 k thành 10-50k; ko đc thành không được. '
+        'Biểu cảm :))/=))) thành emoticon_smile, :(( thành emoticon_sad; không dùng biểu cảm làm nhãn. '
+        'Chuẩn hóa j/hc trong các cụm đã xác định ngữ cảnh (làm j → làm gì, đi hc → đi học); '
+        'gom c.u/c_u/c*u về cu. Chỉ rút gọn chữ kéo dài khi khớp danh sách từ đã rà soát '
+        'về từ gốc; giữ tên/từ chưa nhận diện. '
+        f'Phiên bản tiền xử lý hiện tại: {PREPROCESS_VERSION}. '
+        f'Tách từ bằng Underthesea trước trích xuất đặc trưng, phiên bản {TOKENIZER_VERSION}. '
+        'Từ đa âm tiết được nối bằng dấu gạch dưới (sinh viên → sinh_viên); unigram là một từ, bigram là hai từ liền nhau. '
+        'Giữ nguyên token ẩn thông tin, biểu cảm, emoji ghép và dạng tiền. NB/SVM, TextCNN và dự đoán dùng cùng bộ tách từ. '
         'Không xóa bản gốc. Văn bản trùng sau chuẩn hóa chỉ giữ một mẫu; nhãn mâu thuẫn bị loại khỏi train cho tới khi rà soát. '
         'Mẫu còn nội dung thu gọn được đánh dấu incomplete và không dùng huấn luyện; độ đầy đủ của bản crawl cũ thiếu thông tin này chưa được xác minh.',
         '\n### 3.2. Quy trình gán nhãn',
@@ -201,7 +232,7 @@ def build_report(rows, result=None):
         'Không có bài hoặc văn bản chuẩn hóa trùng giữa các tập. Seed 42; seed 43 cho validation. '
         'Chọn lần chia đầu tiên mà cả hai lớp xuất hiện trong mỗi tập; không chọn theo điểm mô hình. '
         'Tối thiểu 10 mẫu mỗi lớp và 5 nhóm độc lập chỉ là điều kiện chạy kỹ thuật; cần nhiều dữ liệu hơn cho kết luận đáng tin cậy.',
-        'Bốn baseline dùng cùng các tập chia: BoW+NB, BoW+SVM, TF-IDF+NB, TF-IDF+SVM; TextCNN dùng cùng tập. '
+        'Mỗi phương pháp đặc trưng được chọn được dùng cho hai baseline NB và SVM; TextCNN dùng cùng các tập chia. '
         'Chọn mô hình theo macro-F1 validation, không chọn theo test. Test được dùng để so sánh cuối cùng. '
         'Không cân bằng mẫu hoặc học từ vựng trên toàn bộ dữ liệu trước khi chia.',
         'Nhãn validation/test cần được người đọc gán độc lập, không xem gợi ý tự động, rồi kiểm tra chéo và khóa trước đánh giá. '
@@ -216,6 +247,10 @@ def build_report(rows, result=None):
         if result['summary'].get('label_sources', {}).get('automatic', 0):
             lines += ['**Lần huấn luyện này dùng nhãn tự động.** Nếu validation/test có nhãn máy, các chỉ số đo mức khớp với nhãn máy, chưa đo độ chính xác thực trên PTIT. Xem automatic_labels trong thống kê từng tập.']
         lines += [f'Snapshot: {result["fingerprint"]}. Phiên bản thư viện: {json.dumps(result["versions"])}.',
+                  f'Bộ tách từ của lần chạy: {result.get("tokenizer", "Khoảng trắng")}; phiên bản: {result.get("tokenizer_version", "cũ")}.',
+                  f'Cấu hình thực tế: {json.dumps(result["settings"], ensure_ascii=False)}.',
+                  f'Embedding TextCNN: {json.dumps(result.get("cnn_embedding", dict(source="random", dimensions=64, trainable=True)), ensure_ascii=False)}. '
+                  'Các vector xem ở trang đặc trưng là giá trị khởi tạo; nếu học tiếp, vector trong mô hình sau huấn luyện sẽ thay đổi.',
                   f'Phân chia thực tế: {json.dumps(result["split"], ensure_ascii=False)}.',
                   '| Cấu hình | Val macro-F1 | Accuracy | Precision toxic | Recall toxic | F1 toxic | Macro-F1 | Giây |',
                   '|---|---:|---:|---:|---:|---:|---:|---:|']
@@ -225,10 +260,14 @@ def build_report(rows, result=None):
         lines += [f'Mô hình được chọn theo validation: **{result["selected_model"]}**. TextCNN lấy epoch {result["cnn_best_epoch"]}.']
         for feature in ('BoW', 'TF-IDF'):
             subset = [m for m in result['models'] if m['feature'] == feature]
+            if len(subset) != 2:
+                continue
             delta = subset[1]['test']['f1_macro'] - subset[0]['test']['f1_macro']
             lines.append(f'Với {feature}, chênh lệch test macro-F1 của SVM so với NB là {delta:+.4f}.')
         for algorithm in ('NB', 'SVM'):
             subset = [m for m in result['models'] if m['algorithm'] == algorithm]
+            if len(subset) != 2:
+                continue
             delta = subset[1]['test']['f1_macro'] - subset[0]['test']['f1_macro']
             lines.append(f'Với {algorithm}, chênh lệch test macro-F1 của TF-IDF so với BoW là {delta:+.4f}.')
         for model in result['models']:
@@ -241,7 +280,7 @@ def build_report(rows, result=None):
     lines += ['\n## 4. Kết luận và hạn chế',
               'Hệ thống cung cấp luồng thu thập → làm sạch → gán nhãn → trích chọn đặc trưng → huấn luyện → '
               'đánh giá → dự đoán. Hạn chế: số bài ít, thiên lệch chọn nhóm, chưa xác minh danh tính sinh viên, '
-              'mỉa mai và hội thoại cần ngữ cảnh, ảnh/sticker bị bỏ qua, token hóa âm tiết, TextCNN cắt ở 128 token. '
+              'mỉa mai và hội thoại cần ngữ cảnh, ảnh/sticker bị bỏ qua, tách từ có thể sai với tiếng lóng, TextCNN cắt ở 128 token. '
               'Cần tăng số nhóm/bài và nhãn được kiểm tra chéo; mở rộng đánh giá sang dữ liệu ở thời điểm khác. '
               'Tránh điều chỉnh lặp lại dựa trên test. Bản gốc vẫn có thể chứa thông tin cá nhân; '
               'ẩn tên và định danh trước khi chia sẻ corpus, không chia sẻ chrome-profile.',
@@ -254,7 +293,10 @@ def build_report(rows, result=None):
               '6. PyTorch: https://docs.pytorch.org/docs/stable/nn.html',
               '7. Selenium: https://www.selenium.dev/documentation/webdriver/',
               '8. Model gợi ý: [dangvansam/vietnamese-toxicity](https://huggingface.co/dangvansam/vietnamese-toxicity), revision bac60f3e162d3a06003bf561a9f8365982ccc67a.',
-              '9. Nguyen et al. (2023), [ViSoBERT](https://aclanthology.org/2023.emnlp-main.315/); [model card và phạm vi nghiên cứu](https://huggingface.co/uitnlp/visobert).']
+              '9. Nguyen et al. (2023), [ViSoBERT](https://aclanthology.org/2023.emnlp-main.315/); [model card và phạm vi nghiên cứu](https://huggingface.co/uitnlp/visobert).',
+              '10. Underthesea: https://github.com/undertheseanlp/underthesea',
+              '11. PhoW2V (Nguyen et al., 2020): https://github.com/datquocnguyen/PhoW2V. '
+              'Vector theo từ 100 chiều; dùng cho nghiên cứu/giáo dục, không phân phối lại vector.']
     report = ''
     for index, line in enumerate(lines):
         separator = '\n' if index and line.startswith('|') and lines[index - 1].startswith('|') else '\n\n'

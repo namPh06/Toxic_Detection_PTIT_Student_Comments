@@ -1,5 +1,6 @@
-"""Small CPU TextCNN; vocabulary and embeddings are learned on train only."""
+"""Small CPU TextCNN with train-only vocabulary and optional pretrained vectors."""
 from collections import Counter
+from dataset import word_tokens
 
 import torch
 from torch import nn
@@ -8,10 +9,17 @@ MAX_LENGTH = 128
 
 
 class TextCNN(nn.Module):
-    def __init__(self, vocabulary_size):
+    def __init__(self, vocabulary_size, embedding_weights=None, trainable=True, embedding_dim=64):
         super().__init__()
-        self.embedding = nn.Embedding(vocabulary_size, 64, padding_idx=0)
-        self.convs = nn.ModuleList(nn.Conv1d(64, 48, kernel) for kernel in (2, 3, 4))
+        if embedding_weights is None:
+            self.embedding = nn.Embedding(vocabulary_size, embedding_dim, padding_idx=0)
+        else:
+            weights = torch.as_tensor(embedding_weights, dtype=torch.float32).clone()
+            if weights.ndim != 2 or weights.shape[0] != vocabulary_size:
+                raise ValueError('Kích thước embedding không khớp từ vựng TextCNN.')
+            embedding_dim = weights.shape[1]
+            self.embedding = nn.Embedding.from_pretrained(weights, freeze=not trainable, padding_idx=0)
+        self.convs = nn.ModuleList(nn.Conv1d(embedding_dim, 48, kernel) for kernel in (2, 3, 4))
         self.dropout = nn.Dropout(0.3)
         self.output = nn.Linear(144, 2)
 
@@ -25,17 +33,22 @@ def encode(texts, vocabulary):
     # shortcut: truncate at 128 tokens, revisit with length-distribution analysis for longer comments.
     encoded = torch.zeros((len(texts), MAX_LENGTH), dtype=torch.long)
     for i, text in enumerate(texts):
-        ids = [vocabulary.get(t, 1) for t in text.split()[:MAX_LENGTH]]
+        ids = [vocabulary.get(t, 1) for t in word_tokens(text)[:MAX_LENGTH]]
         encoded[i, :len(ids)] = torch.tensor(ids, dtype=torch.long)
     return encoded
 
 
-def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12):
+def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12, prepared_embedding=None):
     from sklearn.metrics import f1_score
     torch.manual_seed(42)
     torch.set_num_threads(2)
-    vocabulary = {word: i + 2 for i, (word, _) in enumerate(Counter(' '.join(train_text).split()).most_common(20000))}
-    model = TextCNN(len(vocabulary) + 2)
+    if prepared_embedding:
+        vocabulary = prepared_embedding['vocabulary']
+        model = TextCNN(len(vocabulary) + 2, prepared_embedding['weights'], prepared_embedding['metadata']['trainable'])
+    else:
+        vocabulary = {word: i + 2 for i, (word, _) in enumerate(
+            Counter(token for text in train_text for token in word_tokens(text)).most_common(20000))}
+        model = TextCNN(len(vocabulary) + 2)
     train_x, val_x = encode(train_text, vocabulary), encode(val_text, vocabulary)
     labels = torch.tensor(train_y, dtype=torch.long)
     counts = torch.bincount(labels, minlength=2).float()

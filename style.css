@@ -73,7 +73,7 @@ p { overflow-wrap: anywhere; }
 .metric small { color: var(--muted); font-size: 11px; line-height: 1.7; }
 .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
 .section-heading > span { color: var(--muted); font-size: 12px; }
-.pipeline { display: grid; grid-template-columns: repeat(5, 1fr); margin-bottom: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pipeline { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin-bottom: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .pipeline > a { padding: 22px 18px; min-width: 0; }
 .pipeline > a:hover { background: #faf6f7; }
 .pipeline > a + a { border-left: 1px solid var(--line); }
@@ -295,6 +295,36 @@ footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line);
 .prediction-panel #predict-button { width: 100%; }
 #model-results:not([hidden]) + .prediction-panel { grid-column: 1 / -1; }
 
+.feature-settings { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+.feature-settings fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.feature-settings legend, .feature-options > label, .feature-preview-controls label { display: block; margin-bottom: 8px; font-weight: 600; }
+.feature-choice { display: flex; gap: 12px; align-items: center; min-height: 76px; padding: 14px; margin: 0 0 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+.feature-choice:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.feature-choice input[type=checkbox] { min-height: 20px; width: 20px; height: 20px; }
+.feature-choice span { min-width: 0; }
+.feature-choice small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.feature-options select, .feature-options input { width: 100%; min-height: 44px; }
+.feature-options p { margin: 8px 0 18px; font-size: 12px; }
+.feature-submit { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+.feature-submit p { max-width: 600px; margin: 0; color: var(--muted); font-size: 12px; }
+.feature-submit .button { flex-shrink: 0; min-height: 44px; }
+.feature-dimension { font-size: 32px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.feature-preview-controls { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.feature-preview-controls select, .feature-preview-controls input { min-height: 44px; }
+.feature-preview-controls input { width: 110px; }
+.feature-preview-controls .button { min-height: 44px; }
+.feature-sample-text { margin-top: 12px; padding: 16px; border-radius: 10px; background: var(--bg); overflow-wrap: anywhere; }
+.feature-term-scroll { max-height: 420px; }
+#feature-terms td:first-child { overflow-wrap: anywhere; }
+#feature-terms td:not(:first-child) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.embedding-values { max-width: 560px; white-space: normal; overflow-wrap: anywhere; font-family: monospace; line-height: 1.6; }
+#embedding-rows td { vertical-align: top; }
+#embedding-rows summary { min-height: 44px; cursor: pointer; overflow-wrap: anywhere; }
+#features .notice { margin-bottom: 20px; }
+#features .notice > div { width: 100%; }
+#feature-progress { display: block; margin-top: 12px; }
+#feature-progress[hidden] { display: none; }
+#features .metric strong { margin-top: 12px; }
 @media (max-width: 1200px) {
   .model-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .model-hero { flex-wrap: wrap; }
@@ -349,6 +379,12 @@ footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line);
   .sidebar { padding: 14px 12px 0; }
   nav { margin-top: 12px; gap: 3px; }
   nav a { flex-direction: column; justify-content: flex-start; gap: 6px; font-size: 11px; line-height: 1.3; padding: 10px 3px; min-height: 66px; text-align: center; }
+  nav { flex-wrap: wrap; }
+  nav a { flex: 1 1 30%; }
+  .feature-settings { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .feature-submit { flex-direction: column; align-items: stretch; gap: 16px; }
+  .feature-preview-controls { gap: 12px; }
+  .feature-preview-controls .actions { flex-basis: 100%; }
   nav a span { max-width: 90px; }
   .topbar { padding: 0 16px; font-size: 11px; }
   .topbar > span { display: none; }

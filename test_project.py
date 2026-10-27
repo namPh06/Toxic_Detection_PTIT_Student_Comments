@@ -8,7 +8,7 @@ import unicodedata
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash
+from dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
 from experiments import build_report, metrics, predict, split_dataset, train_experiment
 from lab import Lab
 
@@ -139,7 +139,7 @@ class ExperimentTests(unittest.TestCase):
             self.assertEqual(result['selected_model'], max(result['models'], key=lambda m: m['validation']['f1_macro'])['name'])
             split = json.loads((directory / 'split.json').read_text())
             train_ids = {r['id'] for r in split['train']}
-            train_tokens = {t for r in rows if r['id'] in train_ids for t in r['text_clean'].split()}
+            train_tokens = {t for r in rows if r['id'] in train_ids for t in word_tokens(r['text_clean'])}
             vocabulary = json.loads((directory / 'vocabulary.json').read_text(encoding='utf-8'))
             self.assertEqual(set(vocabulary), train_tokens)
             for model in result['models']:
@@ -148,7 +148,7 @@ class ExperimentTests(unittest.TestCase):
                 self.assertEqual(sum(map(sum, model['test']['confusion_matrix'])), result['split']['test']['count'])
                 if model['name'] != 'TextCNN':
                     fitted = joblib.load(directory / (model['name'] + '.joblib'))
-                    self.assertTrue(set(fitted['vectorizer'].vocabulary_) <= train_tokens | {a+' '+b for r in rows if r['id'] in train_ids for a,b in zip(r['text_clean'].split(),r['text_clean'].split()[1:])})
+                    self.assertTrue(set(fitted['vectorizer'].vocabulary_) <= train_tokens | {a+' '+b for r in rows if r['id'] in train_ids for a,b in zip(word_tokens(r['text_clean']),word_tokens(r['text_clean'])[1:])})
             report = (directory / 'report.md').read_text(encoding='utf-8')
             self.assertIn('TextCNN', report)
             self.assertIn('|\n|---', report)
