@@ -7,3 +7,14 @@ driver-cache/
 .env.*
 *.log
 *.tmp
+data/annotations.json
+data/workspace.json
+data/imported.json
+data/processed.*
+data/dataset_auto.*
+data/latest.json
+data/runs/
+data/report.md
+test-results/
+.playwright-mcp/
+models/

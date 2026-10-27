@@ -5,18 +5,23 @@ import queue
 import threading
 import time
 import webbrowser
+import argparse
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
+
+from dataset import atomic_json, csv_bytes, text_hash
+from lab import Lab
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
 COMMANDS = queue.Queue()
+BROWSER_THREAD = None
 STOP = threading.Event()
 LOCK = threading.RLock()
-STATE = dict(phase='opening', message='Đang mở Chrome…', ready=False, running=False, posts=0, comments=0, target=20, source='', results=[])
-STATE['version'] = '2.4-startup-timeout'
+STATE = dict(phase='idle', message='Dữ liệu đã sẵn sàng. Mở Chrome khi cần thu thập thêm.', ready=False, running=False, posts=0, comments=0, target=20, source='', results=[])
+STATE['version'] = '3.0-comment-lab'
 ROWS = {}
 HELPERS = (ROOT / 'helpers.js').read_text(encoding='utf-8')
 DOM = (ROOT / 'dom.js').read_text(encoding='utf-8')
@@ -27,13 +32,11 @@ def update(**values):
 
 def payload():
     with LOCK:
-        return dict(schema_version=1, source=STATE['source'], completeness='not_verified', posts=list(STATE['results']), rows=list(ROWS.values()))
+        return dict(schema_version=1, source=STATE['source'], completeness='not_verified', posts=[dict(r) for r in STATE['results']], rows=[dict(r) for r in ROWS.values()])
 
 def save():
-    DATA.mkdir(exist_ok=True)
-    temp = DATA / 'progress.tmp'
-    temp.write_text(json.dumps(payload(), ensure_ascii=False, indent=2), encoding='utf-8')
-    temp.replace(DATA / 'progress.json')
+    with LOCK:
+        atomic_json(DATA / 'progress.json', payload())
 
 def restore():
     file = DATA / 'progress.json'
@@ -44,7 +47,37 @@ def restore():
         results = data.get('posts', [])
         update(source=data.get('source', ''), results=results, posts=len(results), comments=len(ROWS))
 
-def navigate(driver, url):
+def is_tab_crash(error):
+    text = str(error).lower()
+    return 'tab crashed' in text or 'target frame detached' in text
+
+def replace_crashed_tab(driver):
+    """Open a fresh tab and drop the crashed one; the Chrome process itself is still alive."""
+    crashed = driver.current_window_handle
+    driver.switch_to.new_window('tab')
+    fresh = driver.current_window_handle
+    try:
+        driver.switch_to.window(crashed)
+        driver.close()
+    except Exception:
+        pass
+    driver.switch_to.window(fresh)
+    return fresh
+
+def navigate(driver, url, attempts=3):
+    """A crashed renderer tab is replaced and retried instead of killing the whole session."""
+    from selenium.common.exceptions import WebDriverException
+    for attempt in range(attempts):
+        try:
+            return _navigate_once(driver, url)
+        except WebDriverException as error:
+            if not is_tab_crash(error) or attempt == attempts - 1:
+                raise
+            update(message=f'Tab Chrome bị crash khi tải trang, đang mở tab mới và thử lại ({attempt + 2}/{attempts})…')
+            time.sleep(2)
+            replace_crashed_tab(driver)
+
+def _navigate_once(driver, url):
     """A slow image/feed must not destroy an otherwise usable browser session."""
     from selenium.common.exceptions import TimeoutException
     try:
@@ -59,6 +92,19 @@ def navigate(driver, url):
             raise RuntimeError('Trang tải quá lâu và chưa tới Facebook. Kiểm tra mạng rồi mở lại công cụ.')
         driver.execute_script('return document.readyState;')
         update(message='Facebook tải chậm; đã giữ phiên Chrome. Chờ trang hiển thị rồi tiếp tục.')
+
+def check_browser(driver):
+    """Recover a closed selected tab, but never reuse a dead browser session."""
+    from selenium.common.exceptions import InvalidSessionIdException, NoSuchWindowException
+    handles = driver.window_handles
+    if not handles:
+        raise InvalidSessionIdException('Chrome không còn cửa sổ nào. Bấm Mở Chrome thu thập để mở lại.')
+    try:
+        current = driver.current_window_handle
+    except NoSuchWindowException:
+        current = None
+    if current not in handles:
+        driver.switch_to.window(handles[-1])
 
 def scope_url(url):
     parsed = urlparse(url)
@@ -87,7 +133,7 @@ def run_batch(driver):
                 break
             driver.execute_script(HELPERS)
             result = driver.execute_script(DOM, 'feed', '')
-            if not result.get('posts') and not result.get('blocked'):
+            if not result.get('blocked') and not any(p['id'] not in posts for p in result.get('posts', [])):
                 # Facebook can populate the timestamp href only after pointer hover.
                 from selenium.webdriver.common.action_chains import ActionChains
                 for element in driver.execute_script(DOM, 'feed_hover', ''):
@@ -105,10 +151,12 @@ def run_batch(driver):
             for post in result.get('posts', []):
                 posts.setdefault(post['id'], post)
             diag = result.get('diagnostics', {})
-            update(message=f'Tìm được {min(len(posts),target)}/{target} bài · đọc {diag.get("anchors",0)} link, {diag.get("articles",0)} khối bài, {diag.get("candidates",0)} permalink nhận diện. Bản 2.3.')
+            update(message=f'Tìm được {min(len(posts),target)}/{target} bài · đọc {diag.get("anchors",0)} link, {diag.get("articles",0)} khối bài, {diag.get("candidates",0)} permalink nhận diện.')
             if len(posts) >= target:
                 break
             step = driver.execute_script(DOM, 'feed_scroll', '')
+            if step.get('blocked'):
+                raise RuntimeError('Facebook yêu cầu đăng nhập/xác minh hoặc đang hạn chế. Đã dừng.')
             stale = stale + 1 if len(posts) == before and not step.get('moved') else 0
             if stale >= 5:
                 break
@@ -117,17 +165,14 @@ def run_batch(driver):
         chosen = list(posts.values())[:target]
         if not chosen and not STOP.is_set():
             raise RuntimeError('Không nhận diện được link bài trong nhóm/trang. Chưa thu thập bài nào.')
-        completed = {r['post_id'] for r in STATE['results'] if r.get('reason') == 'no_progress'}
         for index, post in enumerate(chosen, 1):
             if STOP.is_set():
                 break
-            if post['id'] in completed:
-                update(posts=index, message=f'Bỏ qua bài {index}: đã xử lý lần trước.')
-                continue
             reason = 'time_limit'
+            post_error = None
             update(phase='collecting', message=f'Bài {index}/{len(chosen)}: đang tải bình luận…')
-            driver.switch_to.new_window('tab')
             try:
+                driver.switch_to.new_window('tab')
                 navigate(driver, post['url'])
                 if STOP.wait(3):
                     reason = 'user_stop'
@@ -156,8 +201,15 @@ def run_batch(driver):
                             for item in result.get('rows', []):
                                 key = (post['id'], item['comment_id'])
                                 if key in ROWS:
-                                    if len(item['text_raw']) > len(ROWS[key]['text_raw']):
-                                        ROWS[key]['text_raw'] = item['text_raw']
+                                    old = ROWS[key]
+                                    if len(item['text_raw']) > len(old['text_raw']) or (old.get('text_complete') is False and item.get('text_complete') is True):
+                                        if item['text_raw'] != old['text_raw'] and old.get('label'):
+                                            old['invalidated_raw_label'] = dict(label=old['label'], text_hash=text_hash(old['text_raw']))
+                                            old['label'] = ''
+                                        old['text_raw'] = item['text_raw']
+                                        old['text_complete'] = item.get('text_complete')
+                                    elif item['text_raw'] == old['text_raw'] and item.get('text_complete') is True:
+                                        old['text_complete'] = True
                                     continue
                                 if len(ROWS) >= 10000:
                                     break
@@ -173,9 +225,10 @@ def run_batch(driver):
                         step = driver.execute_script(DOM, 'advance', post['id'])
                         if step.get('blocked') or step.get('wrong_source'):
                             raise RuntimeError('Gặp hạn chế hoặc đổi bài khi tải. Đã dừng.')
-                        if step.get('missing_scroll'):
-                            reason = 'unrecognized_scroll'
-                            break
+                        if step.get('missing_scope'):
+                            if STOP.wait(2.5):
+                                break
+                            continue
                         stale = stale + 1 if len(ROWS) == before and not step.get('moved') and not step.get('clicked') else 0
                         if stale >= 5:
                             reason = 'no_progress'
@@ -185,14 +238,28 @@ def run_batch(driver):
                             break
                     if STOP.is_set() and reason != 'dataset_limit':
                         reason = 'user_stop'
+            except Exception as error:
+                reason, post_error = 'crawl_error', error
             finally:
-                driver.close()
-                driver.switch_to.window(feed_handle)
+                try:
+                    if driver.current_window_handle != feed_handle:
+                        driver.close()
+                except Exception as error:
+                    reason, post_error = 'crawl_error', post_error or error
+                try:
+                    driver.switch_to.window(feed_handle)
+                except Exception as error:
+                    reason, post_error = 'crawl_error', post_error or error
             with LOCK:
                 STATE['results'] = [r for r in STATE['results'] if r['post_id'] != post['id']]
-                STATE['results'].append(dict(post_id=post['id'], url=post['url'], reason=reason, count=sum(r['post_id'] == post['id'] for r in ROWS.values()), completeness='not_verified'))
+                result = dict(post_id=post['id'], url=post['url'], reason=reason, count=sum(r['post_id'] == post['id'] for r in ROWS.values()), completeness='not_verified')
+                if post_error:
+                    result['error'] = str(post_error).split('Stacktrace:')[0].strip()[:500]
+                STATE['results'].append(result)
             update(posts=index)
             save()
+            if post_error:
+                raise post_error
             if STOP.wait(2):
                 break
         update(phase='ready', message='Đã dừng theo yêu cầu.' if STOP.is_set() else f'Đã xử lý {STATE["posts"]}/{len(chosen)} bài. Không xác nhận đã lấy đủ bình luận.')
@@ -208,14 +275,14 @@ def worker():
         from selenium import webdriver
         from selenium.webdriver.chrome.service import Service
         from selenium.webdriver.common.selenium_manager import SeleniumManager
-        restore()
         options = webdriver.ChromeOptions()
         options.page_load_strategy = 'eager'
         options.add_argument('--start-maximized')
         options.add_argument('--user-data-dir=' + str(ROOT / 'chrome-profile'))
         # Resolve explicitly, ignoring obsolete chromedriver.exe on PATH.
         os.environ.pop('SE_CHROMEDRIVER', None)
-        chrome = Path(os.environ.get('PROGRAMFILES', r'C:\Program Files')) / 'Google/Chrome/Application/chrome.exe'
+        candidates = [Path(os.environ.get(v, d)) / 'Google/Chrome/Application/chrome.exe' for v, d in (('PROGRAMFILES', r'C:\Program Files'), ('PROGRAMFILES(X86)', r'C:\Program Files (x86)'), ('LOCALAPPDATA', ''))]
+        chrome = next((c for c in candidates if c.exists()), candidates[0])
         args = ['--browser', 'chrome', '--skip-driver-in-path', '--cache-path', str(ROOT / 'driver-cache')]
         if chrome.exists():
             options.binary_location = str(chrome)
@@ -227,21 +294,58 @@ def worker():
         driver = webdriver.Chrome(service=Service(executable_path=resolved['driver_path']), options=options)
         driver.set_page_load_timeout(35)
         navigate(driver, 'https://www.facebook.com/')
+        check_browser(driver)
         update(ready=True, phase='ready', message='Tự đăng nhập và vào nhóm/trang trong Chrome vừa mở. Sau đó bấm Bắt đầu.')
         while True:
-            command = COMMANDS.get()
+            try:
+                command = COMMANDS.get(timeout=1)
+            except queue.Empty:
+                check_browser(driver)
+                continue
             if command == 'quit':
                 break
             if command == 'start':
-                run_batch(driver)
+                try:
+                    check_browser(driver)
+                    if STATE.get('requested_source'):
+                        navigate(driver, STATE['requested_source'])
+                    run_batch(driver)
+                    check_browser(driver)
+                except Exception as error:
+                    check_browser(driver)
+                    summary = str(error).split('Stacktrace:')[0].strip()[:500]
+                    update(phase='error', running=False, message=f'Lỗi thu thập/lưu dữ liệu: {summary}. Bình luận đã đọc vẫn được giữ trong phiên; tải bản sao trước khi đóng công cụ. Chrome vẫn mở để thử lại.')
     except Exception as error:
-        DATA.mkdir(exist_ok=True)
-        (DATA / 'startup-error.txt').write_text(str(error), encoding='utf-8')
+        from selenium.common.exceptions import InvalidSessionIdException, NoSuchWindowException
         summary = str(error).split('Stacktrace:')[0].strip()[:700]
-        update(ready=False, running=False, phase='error', message=f'Không mở/điều khiển được Chrome: {summary}. Chi tiết trong selenium/data/startup-error.txt. Đóng công cụ rồi mở lại. Nếu lỗi timeout, kiểm tra kết nối mạng; tải driver chỉ cần Internet khi chưa có driver phù hợp.')
+        if isinstance(error, (InvalidSessionIdException, NoSuchWindowException)):
+            message = 'Phiên Chrome đã đóng hoặc mất kết nối. Bấm Mở Chrome thu thập để mở lại; dữ liệu và nhãn đã lưu vẫn được giữ.'
+        elif is_tab_crash(error):
+            message = 'Tab Chrome bị crash. Hãy tắt máy chủ cũ bằng Ctrl+C rồi chạy MO_CONG_CU.cmd từ thư mục project để mở công cụ trong phiên Windows bình thường.'
+        else:
+            message = f'Không mở/điều khiển được Chrome: {summary}. Bạn vẫn có thể làm sạch, gán nhãn và huấn luyện.'
+        update(ready=False, running=False, phase='error', message=message)
+        try:
+            DATA.mkdir(exist_ok=True)
+            (DATA / 'startup-error.txt').write_text(str(error), encoding='utf-8')
+        except OSError:
+            pass
     finally:
-        if driver:
-            driver.quit()
+        try:
+            if driver:
+                driver.quit()
+        except Exception:
+            pass
+        finally:
+            update(ready=False, running=False)
+
+
+LAB = Lab(DATA, lambda: payload()['rows'])
+
+class LocalHTTPServer(ThreadingHTTPServer):
+    # Windows otherwise lets two app instances bind the same port and write one workspace.
+    allow_reuse_address = False
+
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args):
@@ -251,67 +355,190 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header('Content-Type', kind)
         self.send_header('Cache-Control', 'no-store')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'")
         if filename:
             self.send_header('Content-Disposition', f'attachment; filename="{filename}"')
         self.send_header('Content-Length', str(len(content)))
         self.end_headers()
         self.wfile.write(content)
 
+    def json(self, body, code=200):
+        self.send(json.dumps(body, ensure_ascii=False).encode(), 'application/json;charset=utf-8', code)
+
+    def valid_host(self):
+        if self.headers.get('Host') != f'127.0.0.1:{self.server.server_port}':
+            self.send(b'Forbidden host', 'text/plain', 403)
+            return False
+        return True
+
     def do_GET(self):
-        if self.path == '/':
-            html = (ROOT / 'index.html').read_text(encoding='utf-8')
-            html += '<script>' + (ROOT / 'count-control.js').read_text(encoding='utf-8') + '</script>'
-            self.send(html.encode(), 'text/html;charset=utf-8')
-        elif self.path == '/status':
+        if not self.valid_host():
+            return
+        try:
+            self.get_route()
+        except ConnectionError:
+            return
+        except (ValueError, TypeError) as error:
+            self.json(dict(error=str(error)), 400)
+        except Exception as error:
+            self.json(dict(error=f'Không đọc được dữ liệu: {error}'), 500)
+
+    def get_route(self):
+        url = urlparse(self.path)
+        path, query = url.path, parse_qs(url.query)
+        static = {
+            '/': ('index.html', 'text/html'),
+            '/ui.js': ('ui.js', 'text/javascript'),
+            '/style.css': ('style.css', 'text/css'),
+            '/assets/fonts/be-vietnam-pro-400.ttf': ('assets/fonts/be-vietnam-pro-400.ttf', 'font/ttf'),
+            '/assets/fonts/be-vietnam-pro-500.ttf': ('assets/fonts/be-vietnam-pro-500.ttf', 'font/ttf'),
+            '/assets/fonts/be-vietnam-pro-600.ttf': ('assets/fonts/be-vietnam-pro-600.ttf', 'font/ttf'),
+            '/assets/fonts/be-vietnam-pro-700.ttf': ('assets/fonts/be-vietnam-pro-700.ttf', 'font/ttf'),
+        }
+        if path in static:
+            filename, kind = static[path]
+            self.send((ROOT / filename).read_bytes(), kind + ';charset=utf-8')
+        elif path == '/favicon.ico':
+            self.send(b'', 'image/x-icon', 204)
+        elif path == '/status':
             with LOCK:
                 body = json.dumps(STATE, ensure_ascii=False).encode()
             self.send(body, 'application/json;charset=utf-8')
-        elif self.path == '/download':
+        elif path == '/download':
             self.send(json.dumps(payload(), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='ptit_selenium_comments.json')
+        elif path == '/api/status':
+            self.json(LAB.status())
+        elif path == '/api/rows':
+            rows = LAB.rows()
+            search = query.get('q', [''])[0].casefold()
+            label = query.get('label', ['all'])[0]
+            quality = query.get('quality', ['all'])[0]
+            rows = [r for r in rows if (not search or search in str(r.get('text_raw', '')).casefold())
+                    and (label == 'all' or r['label'] == ('' if label == 'unlabeled' else label))
+                    and (quality == 'all' or r['quality'] == quality)]
+            page = max(1, int(query.get('page', ['1'])[0]))
+            self.json(dict(total=len(rows), page=page, rows=rows[(page - 1) * 25:page * 25]))
+        elif path in ('/api/export.csv', '/api/export.json'):
+            rows = LAB.rows()
+            if path.endswith('.csv'):
+                self.send(csv_bytes(rows), 'text/csv;charset=utf-8', filename='ptit_cleaned.csv')
+            else:
+                self.send(json.dumps(dict(rows=rows), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='ptit_cleaned.json')
+        elif path in ('/api/dataset.csv', '/api/dataset.json'):
+            rows = LAB.dataset_rows()
+            if path.endswith('.csv'):
+                self.send(csv_bytes(rows), 'text/csv;charset=utf-8', filename='ptit_reviewed_dataset.csv')
+            else:
+                self.send(json.dumps(dict(schema_version=2, label_policy='reviewed_only', rows=rows), ensure_ascii=False, indent=2).encode(),
+                          'application/json;charset=utf-8', filename='ptit_reviewed_dataset.json')
+        elif path in ('/api/dataset-auto.csv', '/api/dataset-auto.json'):
+            rows = LAB.dataset_rows(reviewed_only=False)
+            if path.endswith('.csv'):
+                self.send(csv_bytes(rows), 'text/csv;charset=utf-8', filename='ptit_dataset_auto.csv')
+            else:
+                self.send(json.dumps(dict(schema_version=2, label_policy='includes_automatic', rows=rows), ensure_ascii=False, indent=2).encode(),
+                          'application/json;charset=utf-8', filename='ptit_dataset_auto.json')
+        elif path == '/api/report':
+            self.send(LAB.report().encode(), 'text/markdown;charset=utf-8', filename='bao_cao_ptit.md')
+        elif path == '/api/results.json':
+            self.send(json.dumps(LAB.result(), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='metrics.json')
         else:
             self.send(b'Not found', 'text/plain', 404)
 
     def do_POST(self):
         # Browser pages from another origin cannot start automation on this local service.
-        if self.headers.get('Origin') != 'http://127.0.0.1:8767':
+        if not self.valid_host():
+            return
+        if self.headers.get('Origin') != f'http://127.0.0.1:{self.server.server_port}':
             self.send(b'Forbidden', 'text/plain', 403)
             return
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if not 0 < length <= 15_000_000 or self.headers.get_content_type() != 'application/json':
+                raise ValueError('Yêu cầu JSON, tối đa 15 MB.')
+            body = json.loads(self.rfile.read(length))
+            if not isinstance(body, dict):
+                raise ValueError('Yêu cầu phải là JSON object.')
+            answer = self.post_route(body)
+            if answer is not None:
+                self.json(answer)
+        except ConnectionError:
+            return
+        except (ValueError, TypeError, KeyError) as error:
+            self.json(dict(error=str(error)), 400)
+        except Exception as error:
+            self.json(dict(error=f'Không thực hiện được: {error}'), 500)
+
+    def post_route(self, body):
         if self.path == '/start':
-            try:
-                length = int(self.headers.get('Content-Length', '0'))
-                if not 0 < length <= 1024:
-                    raise ValueError()
-                body = json.loads(self.rfile.read(length))
-                target = body.get('target')
-                if type(target) is not int or not 1 <= target <= 500:
-                    raise ValueError()
-            except (ValueError, TypeError, AttributeError):
-                self.send('Số bài phải là số nguyên từ 1 đến 500.'.encode(), 'text/plain;charset=utf-8', 400)
-                return
+            target, source = body.get('target'), body.get('source', '')
+            if type(target) is not int or not 1 <= target <= 500:
+                raise ValueError('Số bài phải là số nguyên từ 1 đến 500.')
+            if not isinstance(source, str) or len(source) > 2000 or (source and not scope_url(source)):
+                raise ValueError('Nhập URL https của nhóm/fanpage Facebook, hoặc để trống để dùng tab hiện tại.')
             with LOCK:
                 if not STATE['ready'] or STATE['running']:
                     self.send(b'Not ready', 'text/plain', 409)
                     return
                 STATE['target'] = target
+                STATE['requested_source'] = source
                 STATE['running'] = True
                 STATE['message'] = 'Đang bắt đầu…'
                 STOP.clear()
-            COMMANDS.put('start')
+                COMMANDS.put('start')
         elif self.path == '/stop':
             STOP.set()
+        elif self.path == '/api/browser':
+            global BROWSER_THREAD
+            with LOCK:
+                if STATE['ready'] or STATE['phase'] == 'opening' or (BROWSER_THREAD and BROWSER_THREAD.is_alive()):
+                    raise ValueError('Chrome đã mở hoặc đang khởi động.')
+                while True:
+                    try:
+                        COMMANDS.get_nowait()
+                    except queue.Empty:
+                        break
+                STATE.update(phase='opening', message='Đang mở Chrome riêng…')
+                BROWSER_THREAD = threading.Thread(target=worker, daemon=True)
+                try:
+                    BROWSER_THREAD.start()
+                except Exception:
+                    BROWSER_THREAD = None
+                    STATE.update(phase='error', ready=False, running=False, message='Không khởi động được phiên Chrome. Bấm Mở Chrome thu thập để thử lại.')
+                    raise
+        elif self.path == '/api/annotate':
+            return LAB.annotate(body)
+        elif self.path == '/api/suggest':
+            return LAB.start_suggestions()
+        elif self.path == '/api/auto-label':
+            return LAB.start_suggestions(automatic=True)
+        elif self.path == '/api/import':
+            return LAB.import_rows(body)
+        elif self.path == '/api/clean':
+            return LAB.save_cleaned()
+        elif self.path == '/api/train':
+            return LAB.start_training()
+        elif self.path == '/api/predict':
+            return LAB.predict(body)
         else:
             self.send(b'Not found', 'text/plain', 404)
             return
-        self.send(b'{}', 'application/json')
+        return {}
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='PTIT Comment Lab')
+    parser.add_argument('--no-browser', action='store_true', help='Do not open the dashboard automatically')
+    args = parser.parse_args()
     try:
-        server = ThreadingHTTPServer(('127.0.0.1', 8767), Handler)
+        server = LocalHTTPServer(('127.0.0.1', 8767), Handler)
     except OSError:
         print('Cong 8767 dang bi chiem. Hay dong cua so MO_CONG_CU.cmd cu (Ctrl+C), roi mo lai. Dong tab web khong tat chuong trinh cu.')
         raise SystemExit(1)
-    threading.Thread(target=worker, daemon=True).start()
-    webbrowser.open('http://127.0.0.1:8767/')
+    restore()
+    if not args.no_browser:
+        webbrowser.open('http://127.0.0.1:8767/')
+    print('PTIT Comment Lab: http://127.0.0.1:8767/', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

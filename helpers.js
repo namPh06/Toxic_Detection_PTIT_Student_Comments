@@ -16,12 +16,46 @@
       return {id,url:u.href};
     } catch { return null; }
   }
+  function groupAliases(group, scripts) {
+    const aliases=new Set([group]);
+    for (const text of scripts) {
+      let pending;try {pending=[JSON.parse(text)];} catch {continue;}
+      while (pending.length) {
+        const value=pending.pop();if (!value || typeof value!=="object") continue;
+        if (value.__typename==="Group" && typeof value.id==="string" && typeof value.url==="string") {
+          try {
+            const u=new URL(value.url),slug=u.pathname.match(/^\/groups\/([\w.-]+)\/?$/)?.[1];
+            if (u.protocol==="https:" && /(^|\.)facebook\.com$/i.test(u.hostname) && slug && (value.id===group || slug===group)) {
+              aliases.add(value.id);aliases.add(slug);
+            }
+          } catch {}
+        }
+        for (const child of Object.values(value)) if (child && typeof child==="object") pending.push(child);
+      }
+    }
+    return aliases;
+  }
   function commentInfo(href) {
-    try { const u=new URL(href,"https://www.facebook.com");const parent=u.searchParams.get("comment_id")||"";const reply=u.searchParams.get("reply_comment_id")||"";return {id:reply||parent,parent:reply?parent:""}; } catch {return {id:"",parent:""};}
+    try {
+      const u=new URL(href,"https://www.facebook.com");
+      if(u.protocol!=="https:"||!/(^|\.)facebook\.com$/i.test(u.hostname))return {id:"",parent:""};
+      const parent=u.searchParams.get("comment_id")||"",reply=u.searchParams.get("reply_comment_id")||"";
+      if([parent,reply].some(id=>id&&!/^[\w.-]+$/.test(id)))return {id:"",parent:""};
+      return {id:reply||parent,parent:reply?parent:""};
+    } catch {return {id:"",parent:""};}
+  }
+  function fallbackCommentId(node, post, author, text, complete) {
+    const cache=root.__ptitCommentIDs||(root.__ptitCommentIDs=new WeakMap()),previous=cache.get(node);
+    const prefix=previous?.text.replace(/[.\u2026\s]+$/u,'');
+    const same=previous&&previous.post===post&&previous.author===author&&(previous.text===text||(!previous.complete&&prefix&&text.startsWith(prefix)));
+    // shortcut: without a permalink, only expansion on the same DOM node is identifiable.
+    const id=same?previous.id:'local_'+hash(post+'|'+author+'|'+text);
+    cache.set(node,{post,author,text,complete,id});
+    return id;
   }
   function expandKind(text, insideComment=false) {
     const t=clean(text);
-    if (/^(?:xem (?:thêm |các )?(?:\d+ )?(?:bình luận|phản hồi|câu trả lời)(?: (?:khác|trước|nữa))?|xem (?:tất cả )?\d+ (?:phản hồi|câu trả lời)|view (?:more|previous|all|\d+)(?: \d+)? (?:comments|replies)(?: \(\d+\))?|\d+ (?:phản hồi|câu trả lời|replies|reply))$/i.test(t)) return "comments";
+    if (/^(?:xem (?:thêm |các |tất cả )?(?:\d+ )?(?:bình luận|phản hồi|câu trả lời)(?: (?:khác|trước|nữa))?|(?:view|see) (?:(?:more|previous|all)(?: \d+)?|\d+(?: more)?) (?:comments|replies)|\d+ (?:phản hồi|câu trả lời|replies|reply))(?: \(\d+\))?$/i.test(t)) return "comments";
     if (insideComment && /^(?:xem thêm|see more)$/i.test(t)) return "text";
     return null;
   }
@@ -30,7 +64,7 @@
   const columns=["comment_id","post_id","post_url","parent_comment_id","text_raw","label","annotation_note","collection_method","collected_at","identifier_quality","comment_filter"];
   const csv=rows=>"\ufeff"+columns.map(csvCell).join(",")+"\r\n"+rows.map(r=>columns.map(k=>csvCell(r[k])).join(",")).join("\r\n");
   const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const helpers={clean,hash,postInfo,commentInfo,expandKind,uiOnly,csv,columns,esc};
+  const helpers={clean,hash,postInfo,groupAliases,commentInfo,fallbackCommentId,expandKind,uiOnly,csv,columns,esc};
   root.PTITHelpers=helpers;
   if (typeof module!=="undefined" && module.exports)module.exports=helpers;
 })(typeof globalThis!=="undefined"?globalThis:this);

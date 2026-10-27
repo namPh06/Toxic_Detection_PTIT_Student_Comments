@@ -1,1 +1,129 @@
-<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PTIT · Quét 20 bài</title><style>body{font:16px/1.65 'Segoe UI',sans-serif;background:#f2f6fb;color:#263e60;margin:0}main{max-width:780px;margin:50px auto;padding:28px;background:white;border:1px solid #d9e4f2;border-radius:20px}h1{font-size:30px}button,a.button{font:inherit;padding:12px 22px;border:1px solid #b9cbe3;border-radius:10px;background:#edf3fb;color:#274977;cursor:pointer;text-decoration:none}button.on{background:#203f70;color:white}button:disabled{opacity:.55;cursor:default}.actions{display:flex;gap:12px;flex-wrap:wrap}.status{padding:20px;background:#edf3fb;border-radius:12px;margin:22px 0}.stats{font-size:23px;font-weight:600}li{margin:8px 0}small{color:#677c96}#results{font-size:13px}</style><main><small>SELENIUM · THU THẬP CÓ GIỚI HẠN</small><h1>Mở nhóm. Bấm chạy. Lưu dữ liệu.</h1><ol><li>Đăng nhập Facebook trong <b>Chrome riêng do công cụ mở</b>.</li><li>Vào nhóm hoặc trang. Chọn thứ tự <b>bài mới nhất</b> trên Facebook nếu có.</li><li>Bấm Bắt đầu; công cụ lấy tối đa 20 bài theo thứ tự đang hiển thị, tự mở và cuộn bình luận.</li></ol><div class="actions"><button id="start">Bắt đầu quét 20 bài</button><button id="stop">Dừng</button><a class="button" href="/download">Tải JSON</a></div><div class="status"><div id="message">Đang kết nối…</div><div id="stats" class="stats"></div></div><p id="source"></p><div id="results"></div><small>Dữ liệu tự lưu sau mỗi lượt vào selenium/data/progress.json. Mỗi bài tối đa 3 phút, toàn bộ tối đa 10.000 mẫu. Không xác nhận lấy hết bình luận; ảnh/sticker có thể bị bỏ qua. Khi gặp xác minh/hạn chế, công cụ dừng. Không tự đổi bộ lọc bình luận.</small></main><script>const $=id=>document.getElementById(id);async function act(name){try{const r=await fetch('/'+name,{method:'POST'});if(!r.ok)throw Error('Công cụ chưa sẵn sàng');}catch(e){$('message').textContent=e.message;}}$('start').onclick=()=>act('start');$('stop').onclick=()=>act('stop');async function refresh(){try{const s=await(await fetch('/status')).json();$('message').textContent=s.message;$('stats').textContent=s.posts+' bài xử lý · '+s.comments+' bình luận';$('source').textContent=s.source?'Nguồn: '+s.source:'';$('start').disabled=!s.ready||s.running;$('start').classList.toggle('on',s.running);$('start').textContent=s.running?'Đang quét…':'Bắt đầu quét 20 bài';$('stop').disabled=!s.running;$('results').replaceChildren(...s.results.map(r=>{const p=document.createElement('p');p.textContent='Bài '+r.post_id+' · '+r.count+' mẫu · '+r.reason+' · chưa xác nhận đầy đủ';return p;}));}catch(e){$('message').textContent='Chưa kết nối được công cụ. Hãy mở lại app.py.';}}refresh();setInterval(refresh,1000);</script></html>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PTIT · Comment Lab</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/ui.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Đến nội dung chính</a>
+<aside class="sidebar">
+  <a class="brand" href="/#overview"><span class="brand-mark">P<span>+</span></span><span>PTIT<small>Comment Lab</small></span></a>
+  <div class="nav-caption">QUẢN LÝ DỮ LIỆU</div>
+  <nav aria-label="Điều hướng chính">
+    <a href="#overview" data-tab="overview" aria-label="Tổng quan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg><span>Tổng quan</span></a>
+    <a href="#crawl" data-tab="crawl" aria-label="Thu thập dữ liệu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 15v5h16v-5"/></svg><span>Thu thập dữ liệu</span></a>
+    <a href="#data" data-tab="data" aria-label="Làm sạch & gán nhãn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11M13 13h4m-4 3h4"/></svg><span>Làm sạch & gán nhãn</span></a>
+    <a href="#models" data-tab="models" aria-label="Huấn luyện & đánh giá"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v17h17M8 15v-4m5 4V7m5 8V4"/></svg><span>Huấn luyện & đánh giá</span></a>
+    <a href="#report" data-tab="report" aria-label="Báo cáo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h7"/></svg><span>Báo cáo</span></a>
+  </nav>
+  <div class="sidebar-note"><i class="dot"></i>Dữ liệu lưu trên máy</div>
+</aside>
+<div class="workspace">
+<header class="topbar"><span>Phân loại bình luận sinh viên PTIT</span><b id="breadcrumb">Tổng quan</b></header>
+<main id="main-content" tabindex="-1">
+<section id="overview" class="view">
+  <div class="page-heading"><div><span class="eyebrow">PTIT · COMMENT INTELLIGENCE</span><h1>Tổng quan</h1><p>Theo dõi bộ dữ liệu và tiến độ phân loại toxic / non-toxic.</p></div><a class="button primary" href="#data">Mở bộ dữ liệu <span aria-hidden="true">→</span></a></div>
+  <div class="metric-grid">
+    <article class="metric"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4zM8 8h8m-8 4h5"/></svg><span>Bình luận thu thập</span><strong id="total">—</strong><small id="post-count">Đang đọc dữ liệu…</small></article>
+    <article class="metric"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/></svg><span>Mẫu sạch</span><strong id="usable">—</strong><small>Đã loại nội dung lỗi và bản trùng</small></article>
+    <article class="metric"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5zM9 14l2 2 4-4"/></svg><span>Đã gán nhãn</span><strong id="labeled">—</strong><small id="label-percent">Trong số mẫu sạch</small></article>
+    <article class="metric"><svg class="metric-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16V9m5 7V4m5 12v-5"/></svg><span>Mô hình đã huấn luyện</span><strong id="model-count">0 <small>/ 5</small></strong><small>Naive Bayes, SVM và TextCNN</small></article>
+  </div>
+  <div class="section-heading"><h2>Tiến độ công việc</h2><span>Chọn một bước để tiếp tục</span></div>
+  <div class="pipeline">
+    <a href="#crawl"><span class="step">1</span><h3>Thu thập</h3><p>Bình luận từ Facebook</p><span class="step-state" id="step-crawl">Đang kiểm tra</span></a>
+    <a href="#data"><span class="step">2</span><h3>Làm sạch</h3><p>Chuẩn hóa và lọc trùng</p><span class="step-state">Xem trong bộ dữ liệu</span></a>
+    <a href="#data"><span class="step">3</span><h3>Gán nhãn</h3><p>Xử lý toàn bộ, sửa khi cần</p><span class="step-state" id="step-label">Cần thực hiện</span></a>
+    <a href="#models"><span class="step">4</span><h3>Huấn luyện</h3><p>So sánh 5 cấu hình</p><span class="step-state" id="step-model">Chờ dữ liệu có nhãn</span></a>
+    <a href="#report"><span class="step">5</span><h3>Báo cáo</h3><p>Đánh giá và xuất kết quả</p><span class="step-state" id="step-report">Chưa có thực nghiệm</span></a>
+  </div>
+  <div class="two-col overview-charts">
+    <article class="panel"><div class="panel-heading"><div><h2>Phân bố nhãn</h2><p>Trên các mẫu sạch, không trùng</p></div></div><div class="distribution"><div id="donut" class="donut" role="img" aria-label="Chưa có dữ liệu"><div><strong id="donut-total">—</strong><span>mẫu sạch</span></div></div><div id="label-legend" class="legend"></div></div><div class="panel-foot">Bao gồm nhãn tự động và nhãn đã được người đọc xác nhận.</div></article>
+    <article class="panel"><div class="panel-heading"><div><h2>Chất lượng dữ liệu</h2><p>Những mẫu được giữ lại và loại khỏi dataset</p></div></div><div id="quality-bars" class="bars"></div><div class="panel-foot" id="quality-note">Dữ liệu gốc luôn được giữ nguyên.</div></article>
+  </div>
+  <article class="notice"><div><b>Bước tiếp theo</b><p id="next-action">Đang kiểm tra bộ dữ liệu…</p></div><a href="#data">Xem dữ liệu <span aria-hidden="true">→</span></a></article>
+</section>
+
+<section id="crawl" class="view" hidden>
+  <div class="page-heading"><div><h1>Thu thập dữ liệu</h1><p>Lấy bình luận từ nhóm hoặc fanpage Facebook bạn có quyền truy cập.</p></div><a href="/download" class="button">Tải dữ liệu gốc</a></div>
+  <div class="two-col crawl-layout">
+    <article class="panel"><div class="panel-heading"><h2>Thiết lập thu thập</h2></div><div class="panel-body">
+      <ol class="instructions"><li><b>Mở Chrome và đăng nhập Facebook</b><span>Dùng cửa sổ riêng của công cụ để truy cập nhóm hoặc fanpage.</span></li><li><b>Chọn nguồn và bắt đầu</b><span>Bình luận được tự lưu trong quá trình thu thập.</span></li></ol>
+      <button id="browser-open" class="button wide">Mở Chrome thu thập <span aria-hidden="true">↗</span></button>
+      <form id="crawl-form"><label for="source-url">Liên kết nhóm / fanpage</label><input id="source-url" type="url" placeholder="https://www.facebook.com/groups/…" maxlength="2000" aria-describedby="source-hint"><small id="source-hint">Để trống để dùng tab Chrome đang mở.</small><label for="target">Số bài muốn thu thập</label><input id="target" type="number" value="20" min="1" max="500" step="1" required aria-describedby="target-hint"><small id="target-hint">Từ 1–500 bài, theo thứ tự Facebook đang hiển thị.</small><div class="actions"><button id="start" class="button primary" type="submit">Bắt đầu thu thập</button><button id="stop" class="button danger" type="button" disabled>Dừng thu thập</button></div></form>
+    </div></article>
+    <div><article class="panel"><div class="panel-heading"><h2>Tiến độ thu thập</h2><span class="pill" id="crawl-phase">Đang kết nối</span></div><div class="panel-body"><p id="crawl-message" aria-live="polite">Đang kết nối…</p><div class="crawl-numbers"><div><strong id="crawl-posts">0</strong><small>bài đã xử lý</small></div><div><strong id="crawl-comments">0</strong><small>bình luận đã lưu</small></div></div><progress id="crawl-progress" value="0" max="20" aria-label="Tiến độ bài viết"></progress><p class="muted break" id="crawl-source"></p><details id="crawl-detail" class="technical-detail" hidden><summary>Chi tiết lỗi</summary><pre id="crawl-debug"></pre></details></div></article>
+    <article class="notice"><div><b>Lưu ý khi thu thập</b><p>Facebook có thể giới hạn bình luận hiển thị. Dữ liệu thu được chưa được xác nhận đầy đủ; ảnh và sticker chưa được xử lý.</p><details><summary>Giới hạn phiên</summary><p>Tối đa 3 phút mỗi bài và 10.000 bình luận trong kho dữ liệu. Công cụ dừng khi Facebook yêu cầu xác minh hoặc hạn chế truy cập.</p></details></div></article></div>
+  </div>
+  <details class="panel history-panel"><summary>Nhật ký bài viết <span>Kết quả từng bài đã thu thập</span></summary><div class="table-scroll crawl-log" tabindex="0" role="region" aria-label="Nhật ký bài viết"><table><thead><tr><th>Bài viết</th><th>Bình luận</th><th>Kết quả thu thập</th><th>Độ đầy đủ</th></tr></thead><tbody id="crawl-results"></tbody></table></div></details>
+</section>
+
+<section id="data" class="view" hidden>
+  <div class="page-heading"><div><h1>Làm sạch & gán nhãn</h1><p>Xử lý toàn bộ dữ liệu đã thu thập, sau đó tải dataset để sử dụng.</p></div><details class="export-menu"><summary class="button">Xuất bản làm sạch</summary><div class="export-options"><button id="clean-save" class="button">Lưu bản làm sạch</button><a href="/api/export.csv" class="button">Tải CSV toàn bộ</a><a href="/api/export.json" class="button">Tải JSON toàn bộ</a></div></details></div>
+  <article class="panel annotation-assist">
+    <div class="panel-heading"><div><h2>Tạo dataset tự động</h2><p>Làm sạch, lọc trùng và gán nhãn trong một lần.</p></div><button id="auto-label-all" class="button primary" type="button">Làm sạch & gán nhãn toàn bộ</button></div>
+    <div class="panel-body">
+      <p>Áp dụng cho tất cả mẫu hợp lệ chưa có nhãn, kể cả ngoài trang và bộ lọc hiện tại. Nhãn bạn đã lưu được giữ nguyên.</p>
+      <p id="annotation-status" class="processing-status" role="status" aria-live="polite">Sẵn sàng xử lý toàn bộ.</p>
+      <div id="dataset-health" class="dataset-summary">Đang kiểm tra dataset…</div>
+      <div class="download-row"><div><b>Tải dataset đã gán nhãn</b><p class="muted">Gồm mẫu sạch có nhãn tự động và nhãn đã duyệt.</p></div><div class="actions"><button id="auto-dataset-csv" class="button" type="button" disabled>Tải CSV</button><button id="auto-dataset-json" class="button" type="button" disabled>Tải JSON</button></div></div>
+      <p class="muted">Nhãn tự động có thể sai. Các mẫu chưa rõ được đánh dấu “Cần kiểm tra” để bạn xem lại.</p>
+      <details class="technical-detail"><summary>Chi tiết xử lý dữ liệu</summary><p id="dataset-details" class="muted"></p><p class="muted">Mô hình chạy trên máy, không gửi bình luận lên mạng. Lần đầu cần tải mô hình khoảng 100 MB. Điểm toxic ≥ 0,5 được gán toxic; các mẫu còn lại được gán non-toxic. Mẫu chưa rõ hoặc quá dài vẫn được gán nhãn và đánh dấu cần kiểm tra.</p><p class="muted">Kết quả tự lưu: <code>data/dataset_auto.csv</code> và <code>data/dataset_auto.json</code>.</p><p id="annotation-debug" class="muted"></p></details>
+      <details class="manual-options"><summary>Gợi ý và duyệt thủ công (tùy chọn)</summary><p class="muted">Chỉ tạo gợi ý sẽ không lưu nhãn cuối. Điểm ≤ 0,2 hoặc ≥ 0,8 mới có gợi ý; phần còn lại để trống. “Dùng gợi ý” điền lựa chọn, “Lưu đánh giá” xác nhận nhãn.</p><div class="actions"><button id="auto-suggest" class="button" type="button">Tạo gợi ý tự động</button><button id="dataset-csv" class="button" type="button" disabled>Tải CSV đã duyệt</button><button id="dataset-json" class="button" type="button" disabled>Tải JSON đã duyệt</button></div></details>
+    </div>
+  </article>
+  <details class="guide"><summary>Hướng dẫn gán nhãn và làm sạch</summary><div class="two-col"><div><h3>Cách phân loại bình luận</h3><p><b>Toxic:</b> công kích, lăng mạ, đe dọa, quấy rối hoặc miệt thị cá nhân/nhóm.</p><p><b>Non-toxic:</b> hỏi đáp, thông tin, phê bình không công kích. Ý kiến tiêu cực không mặc nhiên là toxic.</p><p>Đùa thân mật, trích dẫn và mỉa mai cần ngữ cảnh. Nếu chưa chắc, để trống và ghi chú. “Loại mẫu” dành cho nội dung lỗi/ngoài phạm vi.</p></div><div><h3>Các bước làm sạch</h3><p>Chuẩn hóa Unicode, chữ thường và teencode; ẩn URL/email/điện thoại; tách token âm tiết/emoji; bỏ stop words và dấu câu.</p><p>Giữ dấu tiếng Việt, từ phủ định và từ tục. Lọc trùng theo bản chuẩn hóa; nhãn mâu thuẫn cần rà soát. Nhãn lưu riêng, không sửa file gốc.</p><p>Nhập CSV/JSON với post_id, comment_id, text_raw, label (trống/toxic/non-toxic). Kiểm tra nhãn nhập trước khi sử dụng.</p></div></div></details>
+  <article class="panel">
+    <div class="panel-heading"><div><h2>Danh sách bình luận</h2><p>Xem nội dung, kiểm tra chất lượng và chỉnh nhãn khi cần.</p></div><button id="review-refresh" class="button small" type="button">Cập nhật danh sách</button></div>
+    <div class="toolbar"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="Tìm trong bình luận…" aria-label="Tìm bình luận"></div><select id="label-filter" aria-label="Lọc nhãn"><option value="all">Tất cả nhãn</option><option value="unlabeled">Chưa gán nhãn</option><option value="toxic">Toxic</option><option value="non-toxic">Non-toxic</option></select><select id="quality-filter" aria-label="Lọc chất lượng"><option value="ready">Mẫu sạch duy nhất</option><option value="all">Tất cả chất lượng</option><option value="duplicate">Bản trùng</option><option value="conflict">Nhãn mâu thuẫn</option><option value="incomplete">Chưa mở hết nội dung</option><option value="empty_or_ui">Rỗng / chữ giao diện</option><option value="excluded">Đã loại thủ công</option></select><label class="button file-button" for="import-file">Nhập tệp</label><input type="file" id="import-file" accept=".json,.csv" hidden></div>
+    <div class="table-scroll data-table" tabindex="0" role="region" aria-label="Bình luận và gán nhãn"><table class="annotation-table"><thead><tr><th>Nội dung bình luận</th><th>Chất lượng</th><th>Nhãn & đánh giá</th></tr></thead><tbody id="data-rows"></tbody></table></div><div class="pagination"><span id="page-info">Đang tải…</span><div class="actions"><button id="prev-page" class="button small">← Trước</button><button id="next-page" class="button small">Sau →</button></div></div>
+  </article>
+</section>
+
+<section id="models" class="view" hidden>
+  <header class="model-hero">
+    <div class="model-hero-copy"><span class="eyebrow">MODEL WORKSPACE</span><h1>Huấn luyện & đánh giá</h1><p>Từ dữ liệu đã gán nhãn đến mô hình phân loại bình luận.</p><div class="model-hero-meta"><span>5 cấu hình</span><span>3 nhóm đặc trưng</span><span>Chia tập theo bài viết</span></div></div>
+    <button id="train" class="button primary">Huấn luyện 5 cấu hình</button>
+  </header>
+  <section class="model-lineup" aria-labelledby="model-lineup-title">
+    <div class="section-heading"><h2 id="model-lineup-title">Cấu hình so sánh</h2><span>Cùng dữ liệu · Cùng cách đánh giá</span></div>
+    <div class="model-cards">
+      <article><span class="model-code">01</span><div><h3>BoW + Naive Bayes</h3><p>Tần suất từ</p></div></article>
+      <article><span class="model-code">02</span><div><h3>BoW + SVM</h3><p>Tần suất từ</p></div></article>
+      <article><span class="model-code">03</span><div><h3>TF-IDF + Naive Bayes</h3><p>Trọng số từ</p></div></article>
+      <article><span class="model-code">04</span><div><h3>TF-IDF + SVM</h3><p>Trọng số từ</p></div></article>
+      <article class="neural-model"><span class="model-code"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4M10 10h4v4h-4z"/></svg></span><div><h3>TextCNN</h3><p>Word embeddings</p></div></article>
+    </div>
+  </section>
+  <article class="notice training-notice"><svg class="training-status-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b id="training-status" aria-live="polite">Chưa chạy huấn luyện.</b><p>Cần ít nhất 10 mẫu sạch mỗi lớp và 5 nhóm bài độc lập có nhãn. Mỗi tập phải có cả hai lớp.</p><details id="training-detail" class="technical-detail" hidden><summary>Chi tiết lỗi huấn luyện</summary><pre id="training-debug"></pre></details></div></article>
+  <details class="guide"><summary>Chi tiết cấu hình & cách đánh giá</summary><div class="experiment-config"><div><small>Đặc trưng</small><b>BoW · TF-IDF · Embeddings</b></div><div><small>Thuật toán</small><b>Naive Bayes · SVM · TextCNN</b></div><div><small>Chia theo nhóm bài</small><b>Train ≈60% / Val ≈20% / Test ≈20%</b></div><div><small>Chọn mô hình</small><b>Macro-F1 trên validation</b></div></div><p>Tỷ lệ thực tế tùy nhóm bài. Từ vựng chỉ học trên train. Lượng dữ liệu tối thiểu chưa đủ để đưa ra kết luận về chất lượng mô hình.</p></details>
+  <p id="automatic-training-warning" class="warning" hidden><strong>Lưu ý về nhãn tự động.</strong> Có nhãn tự động trong dataset. Chỉ số so với nhãn máy đo mức khớp với mô hình gán nhãn; chưa phải đánh giá độc lập trên nhãn chuẩn PTIT.</p>
+  <p id="stale-warning" class="warning" hidden>Dữ liệu hoặc nhãn đã thay đổi. Kết quả bên dưới được tính trên phiên bản dữ liệu cũ.</p>
+  <div class="model-workbench">
+  <div id="model-empty" class="empty-state model-empty">
+    <div class="empty-model-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M8 15v-4m5 4V7m5 8v-5"/><path d="M16 4h5m-2.5-2.5v5"/></svg></div>
+    <span class="eyebrow">KẾT QUẢ THỰC NGHIỆM</span><h2>Khám phá mô hình phù hợp nhất</h2><p>Chưa có kết quả huấn luyện. Kiểm tra nhãn dữ liệu, rồi chọn <b>Huấn luyện 5 cấu hình</b> để bắt đầu so sánh.</p>
+    <div class="result-preview-labels" aria-label="Nội dung sẽ có sau huấn luyện"><span>Accuracy</span><span>Macro-F1</span><span>Ma trận nhầm lẫn</span></div>
+    <a href="#data" class="button">Kiểm tra bộ dữ liệu <span aria-hidden="true">→</span></a>
+  </div>
+  <div id="model-results" hidden>
+    <article class="panel"><div class="panel-heading"><div><h2>So sánh mô hình</h2><p id="split-info"></p></div><a href="/api/results.json" class="button small">Tải chỉ số JSON</a></div><div class="table-scroll" tabindex="0" role="region" aria-label="Bảng chỉ số mô hình"><table><thead><tr><th>Cấu hình</th><th>Val macro-F1</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1 toxic</th><th>Macro-F1</th><th>Thời gian</th></tr></thead><tbody id="metrics-rows"></tbody></table></div><div class="panel-foot">Accuracy trở đi đo trên test. Precision/Recall/F1 lấy toxic là lớp dương; ★ chọn bằng validation.</div></article>
+    <div class="two-col"><article class="panel"><div class="panel-heading"><h2>Ma trận nhầm lẫn</h2><select id="matrix-model" aria-label="Mô hình cho confusion matrix"></select></div><div class="panel-body"><p class="muted">Hàng: nhãn trong dataset · Cột: dự đoán</p><div id="matrix"></div></div></article><article class="panel"><div class="panel-heading"><h2>Macro-F1 trên tập test</h2><span class="pill">0 – 1</span></div><div id="score-bars" class="bars"></div></article></div>
+  </div>
+  <article class="panel prediction-panel"><div class="panel-heading"><div><span class="eyebrow">THỬ NGHIỆM NHANH</span><h2>Thử phân loại bình luận</h2><p>Kết quả tham khảo, không tự thêm vào nhãn huấn luyện.</p></div></div><form id="predict-form" class="panel-body"><label for="predict-text">Nội dung bình luận</label><textarea id="predict-text" placeholder="Nhập bình luận tiếng Việt cần phân loại…" rows="3" maxlength="20000" required></textarea><div class="actions"><select id="predict-model" aria-label="Chọn mô hình dự đoán"><option value="">Mô hình chọn theo validation</option><option>BoW-NB</option><option>BoW-SVM</option><option>TF-IDF-NB</option><option>TF-IDF-SVM</option><option>TextCNN</option></select><button id="predict-button" class="button primary" disabled>Phân loại</button></div><output id="prediction" aria-live="polite"></output></form></article>
+  </div>
+</section>
+
+<section id="report" class="view" hidden>
+  <div class="page-heading"><div><h1>Báo cáo</h1><p>Tổng hợp phương pháp, thống kê dữ liệu và kết quả thực nghiệm.</p></div><a class="button primary" href="/api/report">Tải báo cáo .md</a></div>
+  <div class="two-col"><article class="panel"><div class="panel-heading"><h2>Nội dung báo cáo</h2></div><ol class="report-list"><li><span>01</span><div><h3>Giới thiệu bài toán</h3><p>Mục tiêu, phạm vi, nguồn dữ liệu và định nghĩa nhãn.</p></div></li><li><span>02</span><div><h3>Cơ sở lý thuyết</h3><p>BoW, TF-IDF, Naive Bayes, SVM và TextCNN.</p></div></li><li><span>03</span><div><h3>Thực nghiệm & kết quả</h3><p>Tiền xử lý, chia tập, siêu tham số, so sánh và ma trận nhầm lẫn.</p></div></li><li><span>04</span><div><h3>Kết luận & tài liệu tham khảo</h3><p>Hạn chế, hướng phát triển và các nguồn tài liệu.</p></div></li></ol></article><article class="panel"><div class="panel-heading"><h2>Trạng thái báo cáo</h2></div><div class="panel-body"><h3 id="report-state">Đang kiểm tra…</h3><p id="report-description"></p><p class="muted">Bổ sung tên thành viên, lớp và phân công trước khi nộp. Ẩn định danh trong dữ liệu trước khi chia sẻ.</p><details class="technical-detail"><summary>Các tệp dữ liệu của project</summary><p><code>data/progress.json</code> — dữ liệu gốc<br><code>data/workspace.json</code> — nhãn và kết quả mô hình<br><code>data/processed.csv</code> — bản xuất làm sạch<br><code>data/runs/</code> — mô hình, dữ liệu và kết quả từng lần chạy</p></details></div></article></div>
+  <article class="panel"><div class="panel-heading"><h2>Xem trước báo cáo</h2><button id="report-refresh" class="button small">Cập nhật</button></div><pre id="report-preview" class="report-preview" tabindex="0" aria-label="Nội dung báo cáo Markdown"></pre></article>
+</section>
+<footer>PTIT Comment Lab</footer>
+</main></div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

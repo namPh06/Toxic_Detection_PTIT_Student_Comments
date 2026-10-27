@@ -1,55 +1,13 @@
 {
   "schema_version": 1,
-  "source": "https://www.facebook.com/groups/408571091380061",
+  "source": "https://www.facebook.com/groups/450310163844833",
   "completeness": "not_verified",
   "posts": [
     {
-      "post_id": "1475518661351960",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1475518661351960/",
+      "post_id": "1313499147525926",
+      "url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
       "reason": "no_progress",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1474834121420414",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1474834121420414/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1468516765385483",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1468516765385483/",
-      "reason": "no_progress",
-      "count": 97,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1473934391510387",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1473934391510387/",
-      "reason": "no_progress",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1471899821713844",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1471899821713844/",
-      "reason": "no_progress",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1473088798261613",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1473088798261613/",
-      "reason": "no_progress",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1473176861586140",
-      "url": "https://www.facebook.com/groups/408571091380061/posts/1473176861586140/",
-      "reason": "no_progress",
-      "count": 7,
+      "count": 5,
       "completeness": "not_verified"
     }
   ],
@@ -27690,6 +27648,76 @@
       "annotation_note": "",
       "collection_method": "selenium_auto",
       "collected_at": "2026-10-16T08:38:05.992958+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1313767950832379",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Mình d23, mấy kỳ trước cx thấy azota như này,nhưng thực sự là nêm đọc câu hỏi rồi tra giáo trình, chứ chỉ học azota và đáp án là điểm thấp vc\nHọc theo azota 1 kỳ rồi điểm xuống đáy\nKhuyên thật nhất là đầu tư thời gian đọc hiểu giáo trình",
+      "post_id": "1313499147525926",
+      "post_url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-10-27T04:53:57.831188+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1313770220832152",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "1313767950832379",
+      "text_complete": true,
+      "text_raw": "TaupeFish1029 trong bài viết tui có ghi rõ là chỉ để luyện thêm rồi nha =))))",
+      "post_id": "1313499147525926",
+      "post_url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-10-27T04:53:57.831203+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1313907420818432",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "1313767950832379",
+      "text_complete": true,
+      "text_raw": "TaupeFish1029 trộm vía 2 kì mình chỉ học azota mà A với A+",
+      "post_id": "1313499147525926",
+      "post_url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-10-27T04:53:57.831207+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1313836320825542",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "đá sinh gái lại còn tốt bụng qa trúc gái iu",
+      "post_id": "1313499147525926",
+      "post_url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-10-27T04:53:57.831210+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1313889597486881",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": ".",
+      "post_id": "1313499147525926",
+      "post_url": "https://www.facebook.com/groups/2k5ptit/posts/1313499147525926/",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-10-27T04:53:57.831212+00:00",
       "comment_filter": "unknown"
     }
   ]
