@@ -125,3 +125,9 @@ class TextAndIconTransformer(BaseEstimator, TransformerMixin):
             base_names = []
         return np.array(base_names + ['__feature_icon_toxic_score__'])
 
+    def __getattr__(self, name):
+        # Delegate attribute access (like vocabulary_, idf_, etc.) to underlying vectorizer
+        if name != 'vectorizer' and hasattr(self, 'vectorizer') and self.vectorizer is not None and hasattr(self.vectorizer, name):
+            return getattr(self.vectorizer, name)
+        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+
