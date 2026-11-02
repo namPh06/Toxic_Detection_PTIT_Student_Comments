@@ -17,4 +17,7 @@ data/runs/
 data/report.md
 test-results/
 .playwright-mcp/
-models/
+models/vietnamese-toxicity/
+models/word2vec/
+*.joblib
+*.pt

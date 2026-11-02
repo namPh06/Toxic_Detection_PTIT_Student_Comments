@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+_TESTS = _ROOT / 'tests'
+if str(_TESTS) not in sys.path:
+    sys.path.insert(0, str(_TESTS))
 """Run with python -m unittest -v. Fixtures are synthetic and never touch real data."""
 import http.client
 import json
@@ -8,8 +16,8 @@ import unicodedata
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
-from experiments import build_report, metrics, predict, split_dataset, train_experiment
+from data_processing.dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
+from models.experiments import build_report, metrics, predict, split_dataset, train_experiment
 from lab import Lab
 
 

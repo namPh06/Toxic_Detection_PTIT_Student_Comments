@@ -10,14 +10,144 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from functools import lru_cache
 from threading import RLock
+try:
+    from data_processing.icon_scorer import calculate_icon_toxic_score
+except ImportError:
+    from icon_scorer import calculate_icon_toxic_score
 
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
 # Keep function words that express permission, negation or relations in a comment.
 STOP_WORDS = frozenset('các những'.split())
-TEENCODE = {'ko': 'không', 'khum': 'không', 'hong': 'không',
-            'hok': 'không', 'dc': 'được', 'đc': 'được', 'mn': 'mọi người',
-            'mik': 'mình', 'mk': 'mình', 'bn': 'bạn', 'ntn': 'như thế nào'}
+TEENCODE = {
+    # ---- Phủ định ----
+    'k': 'không', 'ko': 'không', 'kh': 'không', 'khum': 'không', 'hong': 'không',
+    'hok': 'không', 'hổng': 'không', 'hem': 'không', 'hơm': 'không', 'khong': 'không',
+    'kg': 'không', 'khg': 'không', 'khôg': 'không', 'kô': 'không', 'hông': 'không',
+    'kp': 'không phải', 'kphai': 'không phải',
+    'kbh': 'không bao giờ', 'kbt': 'không biết', 'kbiet': 'không biết', 'idk': 'không biết',
+    'chx': 'chưa', 'chua': 'chưa', 'chưaa': 'chưa',
+ 
+    # ---- Từ nối / liên từ / giới từ ----
+    'nhma': 'nhưng mà', 'nhm': 'nhưng mà', 'nma': 'nhưng mà', 'nhg': 'nhưng mà',
+    'nhưg': 'nhưng', 'nhữg': 'những',
+    'vs': 'với', 'zới': 'với', 'dzới': 'với',
+    'cug': 'cũng', 'cg': 'cũng', 'cx': 'cũng',
+    'mờ': 'mà', 'mừ': 'mà',
+    'tsao': 'tại sao', 'tạisao': 'tại sao', 'vsao': 'vì sao',
+    'ngta': 'người ta', 'ng': 'người', 'ngừoi': 'người', 'nguoi': 'người',
+ 
+    # ---- Được / rồi / vậy / thôi / luôn / nữa ----
+    'dc': 'được', 'đc': 'được', 'dk': 'được', 'dzc': 'được', 'duoc': 'được',
+    'rùi': 'rồi', 'ròi': 'rồi', 'ruii': 'rồi', 'oy': 'rồi', 'òi': 'rồi',
+    'zậy': 'vậy', 'zay': 'vậy', 'zị': 'vậy', 'dzậy': 'vậy', 'dzay': 'vậy',
+    'thui': 'thôi', 'thoy': 'thôi', 'thoii': 'thôi', 'thuii': 'thôi',
+    'nhiu': 'nhiều', 'nhìu': 'nhiều', 'nhieu': 'nhiều',
+    'đr': 'đúng rồi', 'đrồi': 'đúng rồi', 'dr': 'đúng rồi',
+    'lun': 'luôn', 'luon': 'luôn', 'lunn': 'luôn',
+    'nx': 'nữa', 'nữa': 'nữa',
+    'thía': 'thế', 'zậy á': 'vậy á',
+ 
+    # ---- Đại từ xưng hô ----
+    'mn': 'mọi người', 'mng': 'mọi người', 'mnk': 'mọi người',
+    'mik': 'mình', 'mk': 'mình', 'mjnh': 'mình', 'minh': 'mình',
+    'bn': 'bạn', 'b': 'bạn', 'lh': 'liên hệ', 'bnn': 'bạn',
+    'ae': 'anh em', 'ac': 'anh chị', 'ace': 'anh chị em',
+    'tui': 'tôi', 'tuj': 'tôi',
+    'ny': 'người yêu', 'ngiu': 'người yêu',
+    'sếp': 'sếp',
+ 
+    # ---- Nghi vấn ----
+    'ntn': 'như thế nào', 'ntnao': 'như thế nào',
+    'j': 'gì', 'gj': 'gì', 'jz': 'gì vậy', 'jzay': 'gì vậy',
+    'lmj': 'làm gì', 'lm': 'làm',
+    'bh': 'bao giờ', 'bjo': 'bây giờ', 'bjh': 'bây giờ',
+    'hem': 'không',
+ 
+    # ---- Động từ / tính từ hay gặp ----
+    'bik': 'biết', 'bít': 'biết', 'bjk': 'biết',
+    'hiu': 'hiểu', 'hỉu': 'hiểu', 'hju': 'hiểu',
+    'iu': 'yêu', 'yeu': 'yêu',
+    'ns': 'nói', 'nc': 'nói chuyện',
+    'đg': 'đang', 'dg': 'đang', 'đag': 'đang',
+    'thik': 'thích', 'thix': 'thích', 'thjk': 'thích', 'thick': 'thích',
+    'zui': 'vui', 'zuii': 'vui', 'bùn': 'buồn', 'buon': 'buồn',
+    'xink': 'xinh', 'xỉu': 'xỉu',
+    'zô': 'vô', 'zào': 'vào', 'zề': 'về', 'zìa': 'về',
+    'wa': 'quá', 'wá': 'quá', 'qá': 'quá', 'quớ': 'quá',
+    'lém': 'lắm', 'lắmm': 'lắm',
+    'gét': 'ghét',
+    'nhá': 'nhé', 'nhe': 'nhé', 'nha': 'nhé', 'nhóe': 'nhé',
+ 
+    # ---- Cảm thán / ngữ khí ----
+    'ừk': 'ừ', 'ừm': 'ừ', 'uh': 'ừ', 'uk': 'ừ', 'um': 'ừ', 'uhm': 'ừ',
+    'ạk': 'ạ', 'ạh': 'ạ',
+    'vl': 'vãi', 'vcl': 'vãi', 'vkl': 'vãi', 'cvl': 'vãi',
+    'omg': 'trời ơi', 'trơi': 'trời', 'zời': 'trời',
+ 
+    # ---- Đồng ý / OK ----
+    'oki': 'ok', 'okie': 'ok', 'oke': 'ok', 'okela': 'ok', 'okê': 'ok',
+    'okey': 'ok', 'okla': 'ok', 'okk': 'ok', 'okee': 'ok', 'okay': 'ok',
+ 
+    # ---- Cảm ơn / xin lỗi / làm ơn ----
+    'tks': 'cảm ơn', 'thks': 'cảm ơn', 'camon': 'cảm ơn', 'cmon': 'cảm ơn',
+    'thanks': 'cảm ơn', 'thank': 'cảm ơn', 'thankiu': 'cảm ơn', 'thanku': 'cảm ơn',
+    'tkiu': 'cảm ơn', 'thx': 'cảm ơn', 'ty': 'cảm ơn', 'cảmơn': 'cảm ơn', 'camon': 'cảm ơn',
+    'sr': 'xin lỗi', 'sry': 'xin lỗi', 'sorry': 'xin lỗi',  'xlỗi': 'xin lỗi',
+    'pls': 'làm ơn', 'plz': 'làm ơn', 'please': 'làm ơn',
+ 
+    # ---- Mạng xã hội / phản hồi ----
+    'ib': 'nhắn tin', 'inb': 'nhắn tin', 'inbox': 'nhắn tin', 'nt': 'nhắn tin',
+    'cmt': 'bình luận', 'bl': 'bình luận', 'bluan': 'bình luận', 'comment': 'bình luận',
+    'tl': 'trả lời', 'rep': 'trả lời',
+    'fb': 'facebook', 'ig': 'instagram', 'ytb': 'youtube', 'zl': 'zalo', 'mess': 'messenger',
+    'ad': 'admin', 'qtv': 'quản trị viên',
+    'fl': 'theo dõi', 'flw': 'theo dõi',
+    'stt': 'trạng thái',
+    'acc': 'tài khoản', 
+    'onl': 'online', 'ol': 'online',
+ 
+    # ---- Sinh viên / giáo dục ----
+    'sv': 'sinh viên', 'svien': 'sinh viên',
+    'gv': 'giảng viên', 'gvcn': 'giáo viên chủ nhiệm',
+    'hs': 'học sinh', 'phhs': 'phụ huynh học sinh',
+    'bgh': 'ban giám hiệu',
+    'clc': 'chất lượng cao',
+    'đh': 'đại học', 'dh': 'đại học',
+    'ktx': 'ký túc xá',
+    'dky': 'đăng ký', 'đky': 'đăng ký',
+    'hp': 'học phí', 'hphi': 'học phí',
+    'tn': 'tốt nghiệp', 'tnghiep': 'tốt nghiệp', 'kltn': 'khóa luận tốt nghiệp',
+    'tkb': 'thời khóa biểu',
+    'cntt': 'công nghệ thông tin',
+    'btap': 'bài tập', 'ktra': 'kiểm tra',
+    'kq': 'kết quả', 'kqua': 'kết quả',
+    'tbao': 'thông báo', 'ttin': 'thông tin',
+    'yc': 'yêu cầu', 'ycau': 'yêu cầu',
+    'hd': 'hướng dẫn', 'hdan': 'hướng dẫn',
+    'vde': 'vấn đề', 'vđ': 'vấn đề', 'ldo': 'lý do',
+ 
+    # ---- Thời gian / địa điểm ----
+    'hnay': 'hôm nay', 'hqua': 'hôm qua', 'tnay': 'tối nay', 'ngmai': 'ngày mai',
+    'tgian': 'thời gian',
+    'sg': 'sài gòn', 'hcm': 'hồ chí minh', 'tphcm': 'hồ chí minh',
+ 
+    # ---- Mua bán / dịch vụ ----
+    'sp': 'sản phẩm', 'spham': 'sản phẩm',
+    'dv': 'dịch vụ', 'cty': 'công ty',
+    'nv': 'nhân viên', 'nvien': 'nhân viên',
+    'sdt': 'số điện thoại', 'sđt': 'số điện thoại',
+    'đt': 'điện thoại', 'đthoai': 'điện thoại',
+    'đchi': 'địa chỉ',
+    'vd': 'ví dụ',
+    'cf': 'cà phê', 'caphe': 'cà phê',
+    'sn': 'sinh nhật',
+ 
+    # ---- Tiếng Anh thường dùng ----
+    'btw': 'nhân tiện',
+    'asap': 'càng sớm càng tốt',
+}
+
 UI_ONLY = re.compile(r'^(?:thích|like|trả lời|reply|xem bản dịch|see translation|'
                      r'\d+\s*(?:phút|giờ|ngày|tuần|tháng|năm)(?: trước)?)$', re.I)
 PREPROCESS_VERSION = 'ptit-v4-canonical-normalization'
@@ -118,6 +248,11 @@ def clean_text(value):
     tokens = [expanded for t in tokens for expanded in TEENCODE.get(t, t).split()
               if expanded not in STOP_WORDS and not all(unicodedata.category(c)[0] == 'P' or
                                                        unicodedata.category(c) == 'Cf' for c in expanded)]
+    try:
+        from data_processing.context_model import disambiguate_tokens
+    except ImportError:
+        from context_model import disambiguate_tokens
+    tokens = disambiguate_tokens(tokens)
     # A leftover symbol such as '=' is not a meaningful comment on its own.
     if not any(re.search(r'\w', t) or re.fullmatch(EMOJI_PATTERN, t) for t in tokens):
         return ''
@@ -152,6 +287,7 @@ def prepare(rows, annotations=None):
         row['excluded'] = annotation.get('excluded', row.get('excluded', False))
         row['text_clean'] = clean_text(row.get('text_raw', ''))
         raw = str(row.get('text_raw', '')).strip()
+        row['icon_toxic_score'] = calculate_icon_toxic_score(raw)
         if row['excluded']:
             row['quality'] = 'excluded'
         elif row.get('text_complete') is False:
@@ -202,7 +338,7 @@ def csv_bytes(rows):
     columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_clean',
                'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
-               'collection_method', 'collected_at', *LABEL_METADATA]
+               'collection_method', 'collected_at', 'icon_toxic_score', *LABEL_METADATA]
     writer = csv.DictWriter(output, fieldnames=columns, extrasaction='ignore')
     writer.writeheader()
     for row in rows:

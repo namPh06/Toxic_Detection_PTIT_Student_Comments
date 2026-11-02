@@ -4,9 +4,9 @@ import re
 import threading
 from datetime import datetime, timezone
 
-from dataset import LABELS, LABEL_METADATA, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash
-from experiments import build_report, predict, split_dataset, train_experiment
-from features import build_features, feature_key, feature_summary, preview_features, validate_settings
+from data_processing.dataset import LABELS, LABEL_METADATA, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash
+from models.experiments import build_report, predict, split_dataset, train_experiment
+from models.features import build_features, feature_key, feature_summary, preview_features, validate_settings
 
 
 class Lab:
@@ -250,7 +250,7 @@ class Lab:
 
     def suggest(self, rows, automatic=False):
         try:
-            from labeling import automatic_annotation, generate_suggestions
+            from data_processing.labeling import automatic_annotation, generate_suggestions
 
             def notify(message):
                 with self.lock:

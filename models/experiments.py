@@ -6,7 +6,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, fingerprint, summary
+from data_processing.dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, fingerprint, summary
 
 
 def split_dataset(rows):
@@ -59,11 +59,11 @@ def train_experiment(rows, output, notify=lambda message: None, epochs=12, prepa
     import joblib
     import sklearn
     import torch
-    from sklearn.naive_bayes import MultinomialNB
     from sklearn.pipeline import Pipeline
-    from sklearn.svm import LinearSVC
-    from neural import encode, predict_cnn, train_cnn
-    from features import build_features, feature_key
+    from models.naive_bayes import create_nb_classifier
+    from models.svm import create_svm_classifier
+    from models.neural import encode, predict_cnn, train_cnn
+    from models.features import build_features, feature_key
 
     prepared = prepared if prepared is not None else build_features(rows, {})
     if prepared['key'] != feature_key(rows):
@@ -104,15 +104,36 @@ def train_experiment(rows, output, notify=lambda message: None, epochs=12, prepa
                        for i, actual, predicted in zip(split['test'], labels['test'], test_pred)]
         atomic_json(output / f'{name}-predictions.json', predictions)
 
+    from models.naive_bayes import create_nb_classifier
+    from models.svm import create_svm_classifier
+
     for feature, data in prepared['features'].items():
-        for algorithm, classifier in [('NB', MultinomialNB()), ('SVM', LinearSVC(class_weight='balanced', random_state=42, max_iter=10000))]:
+        for algorithm, classifier in [('NB', create_nb_classifier()), ('SVM', create_svm_classifier())]:
             name = feature + '-' + algorithm
             notify('Đang huấn luyện ' + name)
             started = time.monotonic()
             classifier.fit(data['matrices']['train'], labels['train'])
             model = Pipeline([('vectorizer', data['vectorizer']), ('classifier', classifier)])
-            record(name, feature, algorithm, classifier.predict(data['matrices']['validation']),
-                   classifier.predict(data['matrices']['test']), time.monotonic() - started)
+
+            if hasattr(classifier, 'decision_function'):
+                import numpy as np
+                from sklearn.metrics import f1_score
+                val_scores = classifier.decision_function(data['matrices']['validation'])
+                test_scores = classifier.decision_function(data['matrices']['test'])
+                best_th, best_f1 = 0.0, -1.0
+                val_targets = labels['validation']
+                for th in np.linspace(-1.0, 0.5, 31):
+                    pred = (val_scores >= th).astype(int)
+                    score = f1_score(val_targets, pred, average='macro', zero_division=0)
+                    if score > best_f1:
+                        best_f1, best_th = score, th
+                val_pred = (val_scores >= best_th).astype(int)
+                test_pred = (test_scores >= best_th).astype(int)
+            else:
+                val_pred = classifier.predict(data['matrices']['validation'])
+                test_pred = classifier.predict(data['matrices']['test'])
+
+            record(name, feature, algorithm, val_pred, test_pred, time.monotonic() - started)
             joblib.dump(model, output / f'{name}.joblib')
     started = time.monotonic()
     model, vocabulary, history, best_epoch = train_cnn(texts['train'], labels['train'], texts['validation'], labels['validation'], notify, epochs,
@@ -129,7 +150,7 @@ def train_experiment(rows, output, notify=lambda message: None, epochs=12, prepa
 
 
 def predict(text, directory, model_name):
-    from dataset import clean_text
+    from data_processing.dataset import clean_text
     metadata = json.loads((directory / 'metrics.json').read_text(encoding='utf-8'))
     if metadata.get('tokenizer_version') != TOKENIZER_VERSION:
         raise ValueError('Mô hình dùng cách tách từ cũ. Hãy trích xuất lại đặc trưng bằng Underthesea và huấn luyện lại.')
@@ -138,7 +159,7 @@ def predict(text, directory, model_name):
         raise ValueError('Bình luận không còn token sau làm sạch.')
     if model_name == 'TextCNN':
         import torch
-        from neural import TextCNN, encode, predict_cnn
+        from models.neural import TextCNN, encode, predict_cnn
         vocabulary = json.loads((directory / 'vocabulary.json').read_text(encoding='utf-8'))
         model = TextCNN(len(vocabulary) + 2, embedding_dim=metadata['settings'].get('cnn_embedding', 64))
         model.load_state_dict(torch.load(directory / 'TextCNN.pt', map_location='cpu', weights_only=True))
@@ -148,7 +169,9 @@ def predict(text, directory, model_name):
         value = joblib.load(directory / f'{model_name}.joblib').predict([cleaned])[0]
     else:
         raise ValueError('Mô hình không hợp lệ.')
-    return dict(label=LABELS[int(value)], text_clean=cleaned, model=model_name)
+    from data_processing.icon_scorer import calculate_icon_toxic_score
+    icon_score = calculate_icon_toxic_score(text)
+    return dict(label=LABELS[int(value)], text_clean=cleaned, model=model_name, icon_toxic_score=icon_score)
 
 
 def build_report(rows, result=None):

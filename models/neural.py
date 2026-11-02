@@ -1,6 +1,6 @@
 """Small CPU TextCNN with train-only vocabulary and optional pretrained vectors."""
 from collections import Counter
-from dataset import word_tokens
+from data_processing.dataset import word_tokens
 
 import torch
 from torch import nn

@@ -4,7 +4,11 @@ import json
 from collections import Counter
 from datetime import datetime, timezone
 
-from dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint, word_tokens
+from data_processing.dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint, word_tokens
+try:
+    from data_processing.icon_scorer import TextAndIconTransformer
+except ImportError:
+    from icon_scorer import TextAndIconTransformer
 
 
 def validate_settings(settings):
@@ -37,7 +41,7 @@ def feature_key(rows):
 
 
 def build_features(rows, settings, notify=lambda message: None):
-    from experiments import split_dataset
+    from models.experiments import split_dataset
     from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
     settings = validate_settings(settings)
@@ -47,9 +51,16 @@ def build_features(rows, settings, notify=lambda message: None):
     ngrams = {'unigram': (1, 1), 'bigram': (2, 2), 'both': (1, 2)}[settings['ngram']]
     features = {}
     for name in settings['methods']:
-        vectorizer = (CountVectorizer if name == 'BoW' else TfidfVectorizer)(
-            tokenizer=word_tokens, token_pattern=None, lowercase=False,
-            ngram_range=ngrams, max_features=settings['max_features'])
+        if name == 'BoW':
+            base_vectorizer = CountVectorizer(
+                tokenizer=word_tokens, token_pattern=None, lowercase=False,
+                ngram_range=ngrams, max_features=settings['max_features'])
+        else:
+            base_vectorizer = TfidfVectorizer(
+                tokenizer=word_tokens, token_pattern=None, lowercase=False,
+                ngram_range=ngrams, max_features=settings['max_features'],
+                sublinear_tf=True)
+        vectorizer = TextAndIconTransformer(base_vectorizer)
         try:
             matrices = {'train': vectorizer.fit_transform(texts['train'])}
         except ValueError as error:
@@ -58,7 +69,7 @@ def build_features(rows, settings, notify=lambda message: None):
         features[name] = dict(vectorizer=vectorizer, matrices=matrices)
     embedding = None
     if settings['embedding'] == 'word2vec':
-        from embedding import prepare_embeddings
+        from data_processing.embedding import prepare_embeddings
         embedding = prepare_embeddings(texts['train'], settings['word2vec_path'], settings['embedding_trainable'], notify)
     return dict(schema_version=1, created_at=datetime.now(timezone.utc).isoformat(), key=feature_key(rows),
                 fingerprint=fingerprint(rows), preprocess_version=PREPROCESS_VERSION, settings=settings,
@@ -92,8 +103,9 @@ def preview_features(bundle, index=0, split='all'):
         vector = item['matrices'][part].getrow(local)
         for column, value in zip(vector.indices, vector.data):
             term = names[column]
+            val = round(float(value), 3) if term == '__feature_icon_toxic_score__' else (int(value) if name == 'BoW' else round(float(value), 4))
             terms.setdefault(term, dict(term=term, bow=None, tfidf=None))[
-                'bow' if name == 'BoW' else 'tfidf'] = int(value) if name == 'BoW' else float(value)
+                'bow' if name == 'BoW' else 'tfidf'] = val
     embedding = None
     if bundle.get('embedding'):
         item = bundle['embedding']

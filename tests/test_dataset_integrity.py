@@ -1,8 +1,16 @@
+import sys
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+_TESTS = _ROOT / 'tests'
+if str(_TESTS) not in sys.path:
+    sys.path.insert(0, str(_TESTS))
 """Integrity regressions use synthetic comments and never write the real dataset."""
 import json
 import unittest
 
-from dataset import clean_text, csv_bytes, parse_import, prepare, row_id, text_hash
+from data_processing.dataset import clean_text, csv_bytes, parse_import, prepare, row_id, text_hash
 
 
 def sample(**values):
