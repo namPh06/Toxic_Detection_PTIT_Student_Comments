@@ -295,7 +295,7 @@ $('browser-open').onclick=()=>action($('browser-open'),async()=>{await api('/api
 $('crawl-form').onsubmit=event=>{event.preventDefault();action($('start'),async()=>{await api('/start',{target:Number($('target').value),source:$('source-url').value.trim()});toast('Đã bắt đầu thu thập.');});};
 $('stop').onclick=()=>action($('stop'),async()=>{await api('/stop',{});toast('Đã gửi yêu cầu dừng; chờ thao tác hiện tại kết thúc.');});
 $('train').onclick=()=>action($('train'),async()=>{await api('/api/train',{});renderStatus(await api('/api/status'));toast('Đã bắt đầu huấn luyện. Giữ cửa sổ máy chủ mở.');});
-$('predict-form').onsubmit=event=>{event.preventDefault();action($('predict-button'),async()=>{const r=await api('/api/predict',{text:$('predict-text').value,model:$('predict-model').value});$('prediction').textContent=`${r.label.toUpperCase()} · ${r.model} — Bản chuẩn hóa: ${r.text_clean}${r.stale?' · Mô hình dùng snapshot dữ liệu cũ.':''}`;});};
+$('predict-form').onsubmit=event=>{event.preventDefault();action($('predict-button'),async()=>{const r=await api('/api/predict',{text:$('predict-text').value,model:$('predict-model').value});$('prediction').textContent=`${r.label.toUpperCase()} · ${r.model} — Chuẩn hóa: ${r.text_clean} · Điểm icon: ${r.icon_toxic_score !== undefined ? r.icon_toxic_score : 0}${r.stale?' · Mô hình dùng snapshot dữ liệu cũ.':''}`;});};
 $('import-file').onchange=async()=>{
   const file=$('import-file').files[0];if(!file)return;
   try{if(file.size>10_000_000)throw Error('Tệp tối đa 10 MB.');const r=await api('/api/import',{filename:file.name,content:await file.text()});toast(`Đã nhập ${r.added} mẫu mới và cập nhật ${r.labels_updated} nhãn.`);page=1;await loadRows();renderStatus(await api('/api/status'));}catch(error){toast(error.message,true);}finally{$('import-file').value='';}
@@ -305,4 +305,33 @@ $('report-refresh').onclick=loadReport;
 const importLabel=document.querySelector('label[for="import-file"]');
 importLabel.tabIndex=0;importLabel.setAttribute('role','button');
 importLabel.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();$('import-file').click();}});
+async function loadGeminiConfig(){
+  try{
+    const r=await api('/api/gemini/config');
+    if($('gemini-key-status')){
+      $('gemini-key-status').textContent=r.has_key?'Đã có API Key':'Chưa có Key';
+      $('gemini-key-status').className=r.has_key?'pill success':'pill';
+    }
+  }catch(e){}
+}
+if($('gemini-key-save')){
+  $('gemini-key-save').onclick=()=>action($('gemini-key-save'),async()=>{
+    const key=$('gemini-key').value.trim();
+    if(!key)throw Error('Vui lòng nhập API Key.');
+    await api('/api/gemini/config',{api_key:key});
+    $('gemini-key').value='';
+    await loadGeminiConfig();
+    toast('Đã lưu Gemini API Key thành công!');
+  });
+}
+if($('gemini-normalize-btn')){
+  $('gemini-normalize-btn').onclick=()=>action($('gemini-normalize-btn'),async()=>{
+    const text=$('predict-text').value.trim();
+    if(!text)throw Error('Vui lòng nhập nội dung bình luận phía trên.');
+    const r=await api('/api/gemini/normalize',{text});
+    $('gemini-output').innerHTML='<div class="clean-text" style="padding: 8px; border-radius: 4px; background: var(--bg-surface, #f8f9fa);"><strong>Gemini chuẩn hóa:</strong> '+esc(r.result)+'</div>';
+    toast('Đã chuẩn hóa câu bằng Gemini!');
+  });
+}
+loadGeminiConfig();
 navigate();refresh();

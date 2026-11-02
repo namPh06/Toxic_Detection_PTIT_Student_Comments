@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+_TESTS = _ROOT / 'tests'
+if str(_TESTS) not in sys.path:
+    sys.path.insert(0, str(_TESTS))
 """Offline unit checks; the model smoke check is opt-in and uses synthetic sentences."""
 import hashlib
 import io
@@ -8,8 +16,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from dataset import text_hash
-from labeling import FILES, MODEL_ID, REVISION, ensure_model, generate_suggestions, suggestion_from_logit, valid_file
+from data_processing.dataset import text_hash
+from data_processing.labeling import FILES, MODEL_ID, REVISION, ensure_model, generate_suggestions, suggestion_from_logit, valid_file
 
 
 class Download(io.BytesIO):

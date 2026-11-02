@@ -10,14 +10,14 @@ from pathlib import Path
 
 import numpy as np
 
-from dataset import word_tokens
+from data_processing.dataset import word_tokens
 
 SOURCE_NAME = 'PhoW2V_words_100dims'
 SOURCE_URL = 'https://github.com/datquocnguyen/PhoW2V'
 DOWNLOAD_URL = ('https://drive.usercontent.google.com/download?'
                 'id=11u9vJTaVBgB7z-eucBqvWJi3bYq4OgIw&export=download&confirm=t')
 ARCHIVE_SIZE = 785783878
-DEFAULT_PATH = Path(__file__).parent / 'models' / 'word2vec' / (SOURCE_NAME + '.zip')
+DEFAULT_PATH = Path(__file__).resolve().parent.parent / 'models' / 'word2vec' / (SOURCE_NAME + '.zip')
 
 
 def ensure_word2vec(notify=lambda message: None):

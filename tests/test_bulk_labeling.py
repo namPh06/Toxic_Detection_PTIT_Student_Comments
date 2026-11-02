@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+_TESTS = _ROOT / 'tests'
+if str(_TESTS) not in sys.path:
+    sys.path.insert(0, str(_TESTS))
 """Bulk labels, persistence and provenance; synthetic fixtures only."""
 import copy
 import json
@@ -6,9 +14,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from dataset import csv_bytes, fingerprint, parse_import
+from data_processing.dataset import csv_bytes, fingerprint, parse_import
 from lab import Lab
-from labeling import automatic_annotation
+from data_processing.labeling import automatic_annotation
 from test_lab_integrity import suggestion
 from test_project import fixture
 

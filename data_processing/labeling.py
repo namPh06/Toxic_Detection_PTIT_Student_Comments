@@ -8,7 +8,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from dataset import text_hash
+from data_processing.dataset import text_hash
 
 MODEL_ID = 'dangvansam/vietnamese-toxicity'
 REVISION = 'bac60f3e162d3a06003bf561a9f8365982ccc67a'

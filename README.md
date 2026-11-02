@@ -93,27 +93,40 @@ Nhập JSON dạng `{"rows":[...]}` hoặc mảng dòng; CSV dùng UTF-8, các c
 - Chọn mô hình cuối cùng theo **validation macro-F1**, sau đó trình bày kết quả test của cả năm. Không có xác suất “độ tin cậy” giả cho SVM. Lớp dương = toxic; confusion matrix hàng thật/cột dự đoán, thứ tự `[non-toxic, toxic]`.
 - Mỗi lượt có snapshot, seed, phiên bản thư viện, tham số và phép chia để truy vết. Khi nhãn/dữ liệu thay đổi, giao diện báo kết quả cũ. Không coi một lần chia là bằng chứng vượt trội có ý nghĩa thống kê.
 
-## Dữ liệu và tệp
+## Cấu trúc thư mục theo chức năng
 
 ```text
-app.py                  Máy chủ localhost + điều khiển crawler sẵn có
-index.html/style.css/ui.js  Giao diện tiếng Việt, không dùng CDN
-dataset.py              Làm sạch, lọc trùng, nhập/xuất
-lab.py                  Lưu workspace, quản lý gợi ý và huấn luyện
-labeling.py             Gợi ý nhãn bằng mô hình ONNX đã chốt phiên bản
-experiments.py          Chia tập, 4 baseline, đánh giá, báo cáo
-neural.py               TextCNN PyTorch
-test_project.py         Kiểm thử trên fixture riêng
-data/progress.json      Kho crawl gốc (không sửa khi gán nhãn)
-data/workspace.json     Kho chính: nhãn, dữ liệu nhập và gợi ý; ghi nguyên tử
-data/annotations.json   Nhãn phiên bản cũ, chỉ đọc khi chưa có workspace.json
-data/imported.json      Dữ liệu nhập phiên bản cũ, chỉ đọc khi chưa có workspace.json
-models/vietnamese-toxicity/  model.onnx và tokenizer.json được kiểm tra SHA-256
-data/processed.*        Bản làm sạch xuất tại lần bấm lưu
-data/dataset_auto.*     Mẫu sạch đã gán nhãn, gồm nhãn máy; xuất khi xử lý toàn bộ
-data/latest.json        Tham chiếu lần huấn luyện hoàn tất gần nhất
-data/runs/run-.../      dataset.json, split.json, metrics.json, report.md,
-                        *-predictions.json, *.joblib, TextCNN.pt, vocabulary.json
+data_collection/        Thu thập dữ liệu
+  dom.js, helpers.js      Kịch bản quét DOM và hỗ trợ crawler Selenium
+  login.py                Điều khiển mở hồ sơ Chrome để đăng nhập Facebook thủ công
+  Login_Facebook.cmd      Script mở đăng nhập Chrome profile
+
+data_processing/        Xử lý dữ liệu
+  dataset.py              Làm sạch, lọc trùng, chuẩn hóa teencode, chuẩn bị dữ liệu
+  context_model.py        Mô hình giải quyết nhập nhằng ngữ cảnh (the/thế, pass, xl...)
+  gemini_normalizer.py    Chuẩn hóa sâu ngữ cảnh bằng Google Gemini AI (LLM)
+  labeling.py             Gợi ý & gán nhãn tự động qua mô hình ONNX trên CPU
+  embedding.py            Xử lý word embeddings / Word2Vec
+
+models/                 Mô hình & Thí nghiệm
+  features.py             Trích xuất đặc trưng BoW và TF-IDF
+  neural.py               Kiến trúc mạng nơ-ron TextCNN (PyTorch)
+  experiments.py          Chia tập GroupShuffleSplit, huấn luyện 5 mô hình, đánh giá
+
+tests/                  Kiểm thử phần mềm
+  test_*.py, test_*.js    Toàn bộ test suite tự động kiểm tra tính toàn vẹn hệ thống
+
+Giao diện & Ứng dụng:
+  app.py                  Máy chủ web localhost + điều khiển quy trình
+  lab.py                  Điều phối workspace, đồng bộ dữ liệu và huấn luyện
+  index.html, ui.js, style.css  Giao diện Dashboard quản lý toàn bộ quy trình
+  Open_Tool.cmd           Khởi chạy nhanh toàn bộ ứng dụng
+
+Dữ liệu:
+  data/progress.json      Kho crawl gốc (bảo toàn không ghi đè)
+  data/workspace.json     Kho chính: nhãn, dữ liệu nhập và gợi ý
+  data/features.joblib    Bộ đặc trưng trích xuất đã cache
+  data/runs/run-.../      Snapshot từng lần huấn luyện (weights, metrics, report)
 ```
 
 `workspace.json` là nguồn chính khi đã tồn tại. Nếu chưa có, ứng dụng đọc `annotations.json`/`imported.json` cũ; lần lưu nhãn, nhập dữ liệu hoặc lưu gợi ý tiếp theo ghi trạng thái vào workspace trong một lần thay tệp nguyên tử. Các tệp cũ không bị xóa nhưng không tiếp tục nhận cập nhật; không sửa chúng để thay nhãn khi workspace đã có.

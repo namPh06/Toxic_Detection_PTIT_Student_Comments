@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+_TESTS = _ROOT / 'tests'
+if str(_TESTS) not in sys.path:
+    sys.path.insert(0, str(_TESTS))
 """Workspace and review integrity checks with temporary data and no model/network calls."""
 import copy
 import json
@@ -7,7 +15,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from dataset import csv_bytes, row_id, text_hash
+from data_processing.dataset import csv_bytes, row_id, text_hash
 from lab import Lab
 
 

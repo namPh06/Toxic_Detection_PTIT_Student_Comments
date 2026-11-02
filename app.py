@@ -11,7 +11,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
-from dataset import atomic_json, csv_bytes, text_hash
+from data_processing.dataset import atomic_json, csv_bytes, text_hash
 from lab import Lab
 
 ROOT = Path(__file__).resolve().parent
@@ -23,8 +23,8 @@ LOCK = threading.RLock()
 STATE = dict(phase='idle', message='Dữ liệu đã sẵn sàng. Mở Chrome khi cần thu thập thêm.', ready=False, running=False, posts=0, comments=0, target=20, source='', results=[])
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
-HELPERS = (ROOT / 'helpers.js').read_text(encoding='utf-8')
-DOM = (ROOT / 'dom.js').read_text(encoding='utf-8')
+HELPERS = (ROOT / 'data_collection' / 'helpers.js').read_text(encoding='utf-8')
+DOM = (ROOT / 'data_collection' / 'dom.js').read_text(encoding='utf-8')
 
 def update(**values):
     with LOCK:
@@ -441,6 +441,9 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self.send(json.dumps(dict(schema_version=2, label_policy='includes_automatic', rows=rows), ensure_ascii=False, indent=2).encode(),
                           'application/json;charset=utf-8', filename='ptit_dataset_auto.json')
+        elif path == '/api/gemini/config':
+            from data_processing.gemini_normalizer import get_api_key
+            self.json(dict(has_key=bool(get_api_key()), model='gemini-2.5-flash'))
         elif path == '/api/report':
             self.send(LAB.report().encode(), 'text/markdown;charset=utf-8', filename='bao_cao_ptit.md')
         elif path == '/api/results.json':
@@ -527,6 +530,20 @@ class Handler(BaseHTTPRequestHandler):
             return LAB.start_features(body)
         elif self.path == '/api/predict':
             return LAB.predict(body)
+        elif self.path == '/api/gemini/config':
+            from data_processing.gemini_normalizer import get_api_key, set_api_key
+            if 'api_key' in body:
+                set_api_key(body['api_key'])
+            return dict(has_key=bool(get_api_key()), model='gemini-2.5-flash')
+        elif self.path == '/api/gemini/normalize':
+            from data_processing.gemini_normalizer import normalize_with_gemini
+            text = body.get('text', '')
+            texts = body.get('texts', [])
+            if text:
+                return dict(result=normalize_with_gemini(text))
+            elif texts:
+                return dict(results=normalize_with_gemini(texts))
+            raise ValueError('Thiếu text hoặc texts cần chuẩn hóa.')
         else:
             self.send(b'Not found', 'text/plain', 404)
             return

@@ -1,8 +1,9 @@
 @echo off
 cd /d "%~dp0"
 if exist ".venv\Scripts\python.exe" (
-  ".venv\Scripts\python.exe" dang_nhap.py
+  ".venv\Scripts\python.exe" data_collection\login.py
 ) else (
-  python dang_nhap.py
+  python data_collection\login.py
 )
 if errorlevel 1 pause
+
