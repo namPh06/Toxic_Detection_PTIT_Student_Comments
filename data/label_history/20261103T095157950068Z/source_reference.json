@@ -1,0 +1,5 @@
+{
+  "source_sha256": "aca10ae14f8fe802c1fd3587c5ee7e382f308830e4698b969193eaf2ae0026b9",
+  "policy": "ptit-v4-abuse-context-20261102",
+  "note": "Full legacy decisions retained in workspace_before.json; older-policy reviews require v4 confirmation."
+}

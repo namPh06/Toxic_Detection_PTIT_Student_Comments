@@ -1,0 +1,77 @@
+{
+  "archived_annotations": 2091,
+  "carried_current_policy": 0,
+  "result": {
+    "summary": {
+      "total": 5453,
+      "usable": 4865,
+      "quality": {
+        "ready": 4865,
+        "duplicate": 588
+      },
+      "labels": {
+        "non-toxic": 4159,
+        "toxic": 706
+      },
+      "labeled": 4865,
+      "label_sources": {
+        "automatic": 4865
+      },
+      "posts": 541,
+      "avg_tokens": 13.3,
+      "top_terms": [
+        [
+          "không",
+          1257
+        ],
+        [
+          "có",
+          1055
+        ],
+        [
+          "học",
+          757
+        ],
+        [
+          "bạn",
+          677
+        ],
+        [
+          "đi",
+          619
+        ],
+        [
+          "mình",
+          526
+        ],
+        [
+          "người",
+          506
+        ],
+        [
+          "em",
+          481
+        ],
+        [
+          "cho",
+          459
+        ],
+        [
+          "trường",
+          437
+        ],
+        [
+          "nguyễn",
+          412
+        ],
+        [
+          "gia",
+          404
+        ]
+      ],
+      "preprocess_version": "ptit-v1-syllable-negation-emoji"
+    },
+    "human_reviewed": 0,
+    "pending_review": 4865
+  }
+}

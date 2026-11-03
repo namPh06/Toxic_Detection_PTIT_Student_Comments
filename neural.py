@@ -8,8 +8,14 @@ from torch import nn
 MAX_LENGTH = 128
 
 
+def compute_info():
+    return (dict(device='cuda', name=torch.cuda.get_device_name(0)) if torch.cuda.is_available()
+            else dict(device='cpu', name='CPU'))
+
+
 class TextCNN(nn.Module):
-    def __init__(self, vocabulary_size, embedding_weights=None, trainable=True, embedding_dim=64):
+    def __init__(self, vocabulary_size, embedding_weights=None, trainable=True, embedding_dim=64,
+                 filters=48, dropout=0.3):
         super().__init__()
         if embedding_weights is None:
             self.embedding = nn.Embedding(vocabulary_size, embedding_dim, padding_idx=0)
@@ -19,9 +25,9 @@ class TextCNN(nn.Module):
                 raise ValueError('Kích thước embedding không khớp từ vựng TextCNN.')
             embedding_dim = weights.shape[1]
             self.embedding = nn.Embedding.from_pretrained(weights, freeze=not trainable, padding_idx=0)
-        self.convs = nn.ModuleList(nn.Conv1d(embedding_dim, 48, kernel) for kernel in (2, 3, 4))
-        self.dropout = nn.Dropout(0.3)
-        self.output = nn.Linear(144, 2)
+        self.convs = nn.ModuleList(nn.Conv1d(embedding_dim, filters, kernel) for kernel in (2, 3, 4))
+        self.dropout = nn.Dropout(dropout)
+        self.output = nn.Linear(filters * 3, 2)
 
     def forward(self, tokens):
         embedded = self.embedding(tokens).transpose(1, 2)
@@ -38,29 +44,37 @@ def encode(texts, vocabulary):
     return encoded
 
 
-def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12, prepared_embedding=None):
+def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12, prepared_embedding=None, config=None):
     from sklearn.metrics import f1_score
     torch.manual_seed(42)
     torch.set_num_threads(2)
+    device = torch.device(compute_info()['device'])
+    notify(f'TextCNN: huấn luyện trên {device}')
+    config = dict(config or {})
+    filters, dropout = config.get('filters', 48), config.get('dropout', 0.3)
     if prepared_embedding:
         vocabulary = prepared_embedding['vocabulary']
-        model = TextCNN(len(vocabulary) + 2, prepared_embedding['weights'], prepared_embedding['metadata']['trainable'])
+        model = TextCNN(len(vocabulary) + 2, prepared_embedding['weights'],
+                        config.get('trainable', prepared_embedding['metadata']['trainable']),
+                        filters=filters, dropout=dropout)
     else:
         vocabulary = {word: i + 2 for i, (word, _) in enumerate(
             Counter(token for text in train_text for token in word_tokens(text)).most_common(20000))}
-        model = TextCNN(len(vocabulary) + 2)
+        model = TextCNN(len(vocabulary) + 2, filters=filters, dropout=dropout)
     train_x, val_x = encode(train_text, vocabulary), encode(val_text, vocabulary)
-    labels = torch.tensor(train_y, dtype=torch.long)
+    model.to(device)
+    labels = torch.tensor(train_y, dtype=torch.long, device=device)
     counts = torch.bincount(labels, minlength=2).float()
-    loss_fn = nn.CrossEntropyLoss(weight=len(labels) / (2 * counts))
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    loss_fn = nn.CrossEntropyLoss(weight=len(labels) / (2 * counts) if config.get('balanced', True) else None)
+    optimizer = torch.optim.Adam(model.parameters(), lr=config.get('learning_rate', 0.001),
+                                 weight_decay=config.get('weight_decay', 0.0))
     best_score, best_state, best_epoch, history = -1, None, 0, []
     for epoch in range(epochs):
         model.train()
         total = 0.0
         for indexes in torch.randperm(len(train_x)).split(32):
             optimizer.zero_grad()
-            loss = loss_fn(model(train_x[indexes]), labels[indexes])
+            loss = loss_fn(model(train_x[indexes].to(device)), labels[indexes.to(device)])
             loss.backward()
             optimizer.step()
             total += loss.item() * len(indexes)
@@ -70,7 +84,9 @@ def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12, prepared_
         notify(f'TextCNN: epoch {epoch + 1}/{epochs}, validation macro-F1 = {score:.3f}')
         if score > best_score:
             best_score, best_epoch = score, epoch + 1
-            best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+            best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+        if config.get('patience') and epoch + 1 - best_epoch >= config['patience']:
+            break
     model.load_state_dict(best_state)
     model.eval()
     return model, vocabulary, history, best_epoch
@@ -78,5 +94,13 @@ def train_cnn(train_text, train_y, val_text, val_y, notify, epochs=12, prepared_
 
 def predict_cnn(model, encoded):
     model.eval()
+    device = next(model.parameters()).device
     with torch.no_grad():
-        return torch.cat([model(batch).argmax(dim=1) for batch in encoded.split(64)]).tolist()
+        return torch.cat([model(batch.to(device)).argmax(dim=1).cpu() for batch in encoded.split(64)]).tolist()
+
+
+def score_cnn(model, encoded):
+    model.eval()
+    device = next(model.parameters()).device
+    with torch.no_grad():
+        return torch.cat([model(batch.to(device)).softmax(dim=1)[:, 1].cpu() for batch in encoded.split(64)]).tolist() if len(encoded) else []

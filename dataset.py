@@ -8,16 +8,30 @@ import re
 import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+from functools import lru_cache
 
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
-STOP_WORDS = frozenset('và là của các những một được với thì mà ở này đó'.split())
-TEENCODE = {'ko': 'không', 'k': 'không', 'khum': 'không', 'hong': 'không',
+STOP_WORDS = frozenset(('các', 'những'))
+TEENCODE = {'ko': 'không', 'khum': 'không', 'hong': 'không',
             'hok': 'không', 'dc': 'được', 'đc': 'được', 'mn': 'mọi người',
             'mik': 'mình', 'mk': 'mình', 'bn': 'bạn', 'ntn': 'như thế nào'}
 UI_ONLY = re.compile(r'^(?:thích|like|trả lời|reply|xem bản dịch|see translation|'
                      r'\d+\s*(?:phút|giờ|ngày|tuần|tháng|năm)(?: trước)?)$', re.I)
-PREPROCESS_VERSION = 'ptit-v1-syllable-negation-emoji'
+PREPROCESS_VERSION = 'ptit-v2-preserve-meaning-20261103'
+TOKENIZER_VERSION = 'underthesea-9.5.0-v1'
+
+
+def word_tokens(text):
+    """Segment cleaned Vietnamese text consistently for all model features."""
+    return list(_word_tokens_cached(text))
+
+
+@lru_cache(maxsize=20000)
+def _word_tokens_cached(text):
+    from underthesea import word_tokenize
+
+    return tuple(word_tokenize(text, format='text').split())
 
 
 def atomic_json(path, value):
@@ -36,14 +50,27 @@ def text_hash(value):
     return hashlib.sha256(str(value or '').encode('utf-8')).hexdigest()
 
 
+def input_fingerprint(rows):
+    """Bind raw model inputs too: transformer input preserves punctuation."""
+    return text_hash(json.dumps(sorted((r['id'], r.get('text_raw', '')) for r in rows), ensure_ascii=False))
+
+
 def clean_text(value, *, remove_stopwords=True):
     text = unicodedata.normalize('NFC', html.unescape(str(value or ''))).lower()
     text = re.sub(r'<(?:/?(?:div|span|p|br|a|b|i|strong))\b[^>]*>', ' ', text)
-    text = re.sub(r'[\u200b-\u200d\ufeff]', '', text)
+    text = re.sub(r'[\u200b\u200c\ufeff]', '', text)
+    text = re.sub(r'(?<=\w)\u200d(?=\w)', '', text)
     text = re.sub(r'(?:https?://|www\.)\S+', ' urltoken ', text)
     text = re.sub(r'\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b', ' emailtoken ', text)
     text = re.sub(r'(?<!\w)(?:\+84|0)(?:[ .-]?\d){9,10}(?!\w)', ' phonetoken ', text)
-    tokens = re.findall(r'\w+|[^\w\s]', text, flags=re.UNICODE)
+    # Keep ambiguous standalone k; only attach it to an explicit amount.
+    text = re.sub(r'(?<=\d)\s+k\b', 'k', text)
+    text = re.sub(r'[:=]-?\){2,}', ' emoticon_smile ', text)
+    text = re.sub(r'[:=]-?\({2,}', ' emoticon_sad ', text)
+    # Preserve emoji modifiers, variation selectors and joined emoji sequences.
+    modifier = r'[\ufe0e\ufe0f\U0001f3fb-\U0001f3ff]?'
+    tokens = re.findall(r'[0-9#*]\ufe0f?\u20e3|[\U0001f1e6-\U0001f1ff]{2}|\w+|'
+                        rf'[^\w\s\u200d]{modifier}(?:\u200d[^\w\s]{modifier})*', text)
     # Keep negation, accents, profanity and emoji: they can change the target label.
     tokens = [expanded for t in tokens for expanded in TEENCODE.get(t, t).split()
               if (not remove_stopwords or expanded not in STOP_WORDS) and not all(unicodedata.category(c).startswith('P') for c in expanded)]
@@ -68,6 +95,8 @@ def prepare(rows, annotations=None):
             row['previous_label'] = row['label']
             row['label'] = ''
         row['label_source'] = (annotation.get('label_source', 'manual') if annotation else row.get('label_source', 'legacy')) if row['label'] else ''
+        row['label_policy_version'] = annotation.get('label_policy_version', row.get('label_policy_version', ''))
+        row['human_verified'] = bool(annotation.get('human_verified', row.get('human_verified', False))) and not row['annotation_stale']
         for key in LABEL_METADATA:
             row[key] = (annotation.get(key) if annotation else row.get(key)) if row['label_source'] == 'automatic' else None
         row['annotation_note'] = annotation.get('note', row.get('annotation_note', ''))
@@ -91,7 +120,9 @@ def prepare(rows, annotations=None):
                 row['quality'] = 'conflict'
         else:
             # Prefer the annotated copy; unlabelled duplicates never override a reviewed label.
-            keeper = next((r for r in duplicates if r['label']), duplicates[0])
+            keeper = next((r for r in duplicates if r['label'] and r['human_verified']
+                           and r['label_source'] == 'manual'),
+                          next((r for r in duplicates if r['label']), duplicates[0]))
             for row in duplicates:
                 if row is not keeper:
                     row['quality'] = 'duplicate'
@@ -122,7 +153,7 @@ def csv_bytes(rows):
     columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_clean',
                'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
-               'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', *LABEL_METADATA]
+               'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', 'label_policy_version', 'human_verified', 'label_usable', 'label_approved', 'label_approval_method', *LABEL_METADATA]
     writer = csv.DictWriter(output, fieldnames=columns, extrasaction='ignore')
     writer.writeheader()
     for row in rows:
@@ -180,7 +211,7 @@ def parse_import(content, filename):
             else:
                 raise ValueError(f'Dòng {index + 1}: {name} phải là true/false hoặc để trống.')
         if label and row.get('label_source', '') not in ('', 'manual', 'imported', 'legacy', 'automatic'):
-            raise ValueError(f'Dòng {index + 1}: nguồn nhãn chưa được duyệt; không nhập nhãn tự động thành nhãn chuẩn.')
+            raise ValueError(f'Dòng {index + 1}: nguồn nhãn không hợp lệ.')
         automatic = label and row.get('label_source') == 'automatic'
         label_metadata = {}
         if automatic:
@@ -189,8 +220,7 @@ def parse_import(content, filename):
             # Reconciled semantic decisions and SVM labels have no calibrated
             # probability. Preserve missing scores rather than inventing one.
             unscored = (row.get('model_score') in (None, '') and row.get('label_threshold') in (None, '')
-                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic')
-                        and row.get('needs_review') in (True, 'True', 'true'))
+                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic'))
             for name in ('model_score', 'label_threshold'):
                 if unscored:
                     label_metadata[name] = None

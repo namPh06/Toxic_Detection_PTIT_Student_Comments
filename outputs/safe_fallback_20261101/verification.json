@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "rows_checked": 5936,
-  "development_validation_once": 654,
-  "folds_checked": 5,
-  "fallback_checked": 294,
-  "protected_hashes_unchanged": true,
-  "synthetic_transitive_alias_check": true
-}

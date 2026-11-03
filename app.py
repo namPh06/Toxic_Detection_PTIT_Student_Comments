@@ -521,10 +521,10 @@ class Handler(BaseHTTPRequestHandler):
         elif path in ('/api/dataset.csv', '/api/dataset.json'):
             rows = LAB.dataset_rows()
             if path.endswith('.csv'):
-                self.send(csv_bytes(rows), 'text/csv;charset=utf-8', filename='ptit_reviewed_dataset.csv')
+                self.send(csv_bytes(rows), 'text/csv;charset=utf-8', filename='ptit_labeled_dataset.csv')
             else:
-                self.send(json.dumps(dict(schema_version=2, label_policy='reviewed_only', rows=rows), ensure_ascii=False, indent=2).encode(),
-                          'application/json;charset=utf-8', filename='ptit_reviewed_dataset.json')
+                self.send(json.dumps(dict(schema_version=2, label_policy='includes_automatic', rows=rows), ensure_ascii=False, indent=2).encode(),
+                          'application/json;charset=utf-8', filename='ptit_labeled_dataset.json')
         elif path in ('/api/dataset-auto.csv', '/api/dataset-auto.json'):
             rows = LAB.dataset_rows(reviewed_only=False)
             if path.endswith('.csv'):
@@ -618,7 +618,7 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == '/api/clean':
             return LAB.save_cleaned()
         elif self.path == '/api/train':
-            return LAB.start_training()
+            return LAB.start_training(body)
         elif self.path == '/api/features':
             return LAB.start_features(body)
         elif self.path == '/api/predict':

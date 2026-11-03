@@ -1,14 +1,12 @@
-> Tiến độ 31/10/2026: đã có 981 nhãn người dùng, gồm 946 phát triển và 35 giữ riêng để chẩn đoán. Đã chạy bốn baseline với tách từ Pyvi bằng baseline_v32.py; xem [báo cáo mới](outputs/baselines_v32_20261031/BAO_CAO.md). Pipeline giao diện và số liệu bàn giao bên dưới là lịch sử; chưa có test độc lập hoặc mô hình mới đủ tốt để triển khai.
-
 # PTIT Comment Lab
 
-Ứng dụng chạy trên máy cá nhân cho bài tập lớn **phân loại toxic / non-toxic từ bình luận Facebook liên quan đến sinh viên PTIT**. Tận dụng crawler Selenium có sẵn, bổ sung giao diện, tiền xử lý, gán nhãn, thí nghiệm và báo cáo.
+Ứng dụng web chạy tại máy để thu thập bình luận Facebook, gán nhãn toxic/non-toxic,
+trích xuất đặc trưng và so sánh mô hình cho bài tập lớn. Backend Python, giao diện
+HTML/CSS/JavaScript; không cần Node.js hay bước build frontend.
 
-## Mở ứng dụng
+## Chạy ứng dụng
 
-**Bấm đúp `MO_CONG_CU.cmd`**, rồi mở http://127.0.0.1:8767/. Giữ cửa sổ chạy ứng dụng mở trong khi sử dụng. Cần Python 3.10+ (đã kiểm tra trên Python 3.13), Chrome để crawl và Internet khi cài thư viện/driver lần đầu. PyTorch cần tải khoảng hơn 100 MB và dung lượng giải nén lớn hơn.
-
-Chạy thủ công bằng PowerShell:
+Bấm đúp `Open_Tool.cmd`, hoặc chạy từ thư mục dự án:
 
 ```powershell
 python -m venv .venv
@@ -16,127 +14,202 @@ python -m venv .venv
 .venv\Scripts\python.exe app.py
 ```
 
-Không cần đăng nhập Facebook để làm sạch, gán nhãn, huấn luyện hoặc đọc báo cáo. Chrome chỉ mở khi bấm **Mở Chrome thu thập**. Nếu cổng 8767 đang được dùng, đóng phiên cũ bằng Ctrl+C trước khi mở lại; đóng tab web không tắt máy chủ.
+Mở http://127.0.0.1:8767/. Cần Python 3.10+; đã chạy trên Python 3.13.
+Giữ cửa sổ Python mở trong khi dùng. Đóng tab web không tắt máy chủ; nếu cổng đã
+bị chiếm, dừng phiên cũ bằng Ctrl+C. Không cần đăng nhập Facebook để duyệt nhãn
+hoặc huấn luyện. Chrome và Internet cần cho thu thập và tải phụ thuộc lần đầu.
 
-Nếu Chrome báo `tab crashed` ngay khi mở: chạy `MO_CONG_CU.cmd` từ Explorer hoặc PowerShell thông thường. Trong lần kiểm tra này, máy chủ chạy trong môi trường hạn chế quyền làm Chrome crash ngay cả với trang HTML trống; cùng Chrome/driver chạy trong phiên Windows bình thường hoạt động được. Giữ nguyên thư mục `chrome-profile` để giữ phiên đăng nhập.
+Để thu thập, bấm **Mở Chrome thu thập**, đăng nhập bằng tài khoản của mình, vào
+bài viết/nhóm có quyền truy cập rồi bắt đầu crawl. Có thể dùng `Login_Facebook.cmd`
+để đăng nhập riêng. Giữ `chrome-profile/` để giữ phiên; không đưa thư mục này lên Git.
+Nếu CAPTCHA quay về trang đăng nhập, hoàn tất đăng nhập trực tiếp trong Chrome,
+không chạy nhiều phiên cùng dùng profile. Facebook có thể ẩn bình luận, câu trả lời
+hoặc chỉ hiện nội dung thu gọn; số lượng thu được không chứng minh đã lấy đủ.
 
-Khi đóng hết cửa sổ Chrome, ứng dụng kiểm tra phiên mỗi giây và cho mở lại bằng **Mở Chrome thu thập**. Lệnh crawl của phiên cũ bị bỏ trước khi mở phiên mới; dữ liệu đã lưu vẫn được giữ.
+## Gán nhãn và chạy các bước tiếp theo
 
-### CAPTCHA xong quay về đăng nhập
+Hai thao tác trên giao diện được tách riêng:
 
-Nếu cùng tài khoản đăng nhập được trong Chrome thường nhưng cửa sổ thu thập bị lặp xác minh, có thể thử đăng nhập thủ công trong hồ sơ riêng của project:
+- **Làm sạch dữ liệu** chỉ chuẩn hóa, kiểm tra chất lượng, lọc trùng và lưu bản
+  `data/processed.json/csv`; không gọi mô hình hoặc thay đổi nhãn trong workspace.
+- **Gán nhãn tự động** là tùy chọn, chỉ xử lý mẫu sạch chưa có nhãn. Không ghi đè
+  nhãn đã lưu, kể cả quyết định của người đọc để nhãn trống chờ xem xét. Nút bị
+  khóa khi không còn mẫu phù hợp. Mẫu sạch có nhãn máy dùng được ngay, không cần
+  bước duyệt. Bản tải dataset ở phần chính gồm cả nhãn máy và nhãn sửa tay.
 
-1. Đóng cửa sổ **Chrome thu thập** đang mở. Có thể giữ máy chủ và giao diện tool chạy.
-2. Bấm đúp **`DANG_NHAP_FACEBOOK.cmd`**. Chrome mở bằng hồ sơ `chrome-profile` của project; bạn tự đăng nhập và hoàn tất xác minh Facebook.
-3. Khi đã vào được Facebook, đóng cửa sổ Chrome vừa mở để lưu và giải phóng hồ sơ.
-4. Quay lại tool, bấm **Mở Chrome thu thập**, mở nhóm cần lấy dữ liệu rồi bắt đầu.
+1. Thống nhất tiêu chí trong [QUY_TAC_GAN_NHAN.md](QUY_TAC_GAN_NHAN.md).
+2. Đọc bình luận gốc và ngữ cảnh bài viết/bình luận cha khi cần. Chọn nhãn rồi
+   bấm **Lưu nhãn** hoặc **Lưu tất cả thay đổi** khi cần sửa. Câu không đủ ngữ
+   cảnh hoặc không hợp lệ cần được loại/để chờ rà soát.
+3. Tác vụ Qwen đọc tiêu chí và ngữ cảnh, cần Ollama cùng
+   `qwen3:4b-instruct-2507-q4_K_M` tại máy. Không cần chạy lại tác vụ này khi nhận
+   dữ liệu đã có nhãn. Việc sửa nhãn trên giao diện lưu vào `data/workspace.json`.
+4. Sau khi gán nhãn, thực hiện **Trích xuất đặc trưng → Huấn luyện → Đánh giá/báo
+   cáo**. Mẫu sạch có nhãn đã lưu trong nhóm phát triển được dùng trực tiếp,
+   không phụ thuộc nguồn nhãn hoặc phê duyệt. Sửa nhãn làm đặc trưng cũ hết hiệu lực.
+   Xuất bản dữ liệu như bên dưới khi chia sẻ cho nhóm.
 
-Lệnh từ chối mở nếu phiên Chrome điều khiển của tool còn hoạt động. Hồ sơ được giữ tại chỗ, không sao chép cookie từ Chrome cá nhân. Crawler vẫn dùng Selenium như trước; Facebook có thể yêu cầu xác minh lại. Cách này chưa bảo đảm khắc phục vòng lặp và không tự giải CAPTCHA.
+Mốc 03/11/2026 sau sửa tiền xử lý: **5.453 bình luận**, **541 bài**, **4.868 mẫu sau lọc trùng**,
+585 bản trùng. Bộ nhãn nhận khi pull được người phụ trách xác nhận là bản chuẩn
+để tiếp tục sử dụng; không cần gán nhãn lại. Bộ nhãn có hỗ trợ Qwen, được phê duyệt
+theo bản chụp trong `dataset_approval` của workspace; việc phê duyệt này không
+đồng nghĩa từng mẫu được gán tay. Nguồn nhãn và `human_verified` được giữ nguyên
+để truy vết; `v4` là phiên bản tiêu chí. Trong mẫu sạch có
+4.162 non-toxic và 706 toxic. Các con số này mô tả dữ liệu, không phải độ chính xác nhãn.
 
-## Quy trình sử dụng
+Bản làm sạch v2 giữ `không được`, giữ `k/cc` khi mơ hồ, chuẩn hóa `50 k` thành
+`50k`, giữ chuỗi emoji và chuyển `:))/=)))`, `:((` thành token biểu cảm. Chỉ bỏ
+hai stop words `các`, `những`. Ba câu trước đây bị gộp do mất từ được giữ riêng;
+bình luận gốc và nhãn không đổi.
 
-1. **Tổng quan:** xem số bình luận/bài, mẫu sạch, tiến độ nhãn và phân bố chất lượng từ dữ liệu thật.
-2. **Thu thập:** mở Chrome riêng, tự đăng nhập, nhập URL nhóm/fanpage hoặc để trống để dùng tab hiện tại, chọn 1–500 bài rồi bắt đầu. Có tiến độ, số bình luận, lý do kết thúc từng bài và nút dừng. Tải JSON gốc nếu cần.
-3. **Làm sạch & gán nhãn:** bấm **Làm sạch & gán nhãn toàn bộ** một lần. Ứng dụng xử lý mọi mẫu sạch chưa có nhãn trong workspace, không phụ thuộc trang/bộ lọc; giữ nguyên nhãn đã lưu. Kết quả tự lưu vào `data/dataset_auto.csv/json`, bản làm sạch đầy đủ vào `data/processed.csv/json`. Dùng **Tải CSV / Tải JSON** trong mục **Tải dataset đã gán nhãn** để tải ngay; không cần lưu từng dòng. Có thể sửa từng nhãn khi cần. Phần **Gợi ý và duyệt thủ công (tùy chọn)** giữ chế độ gợi ý rồi xác nhận như trước.
-4. **Huấn luyện & đánh giá:** khi đủ nhãn, chạy 5 cấu hình. Theo dõi tiến độ TextCNN, bảng Accuracy/Precision/Recall/F1/Macro-F1, confusion matrix, biểu đồ so sánh và thử dự đoán. Các nhãn dự đoán không tự trở thành nhãn chuẩn.
-5. **Báo cáo:** xem/tải Markdown gồm giới thiệu, lý thuyết, thực nghiệm, kết luận và tài liệu tham khảo. Phần kết quả tự lấy từ lần huấn luyện hoàn tất gần nhất. Bổ sung tên thành viên/lớp/phân công trước khi nộp.
+`label_usable` cho biết mẫu sạch có nhãn dùng được. Không cần chạy lệnh phê duyệt.
+`label_approved`, `label_approval_method` và `dataset_approval` cũ chỉ còn là lịch
+sử, không chặn trích xuất/huấn luyện. Nhãn máy không bị đổi thành nhãn do người
+gán; `human_verified` giữ đúng nguồn gốc. Nhãn không khớp nội dung hiện tại, mẫu
+trùng/lỗi/đã loại hoặc chưa có nhãn vẫn không được dùng. Gợi ý chưa lưu nhãn cũng
+không được coi là nhãn cuối.
 
-**Tại thời điểm kiểm tra, corpus có 0 nhãn chuẩn đã xác nhận.** Chưa có Accuracy/Precision/Recall/F1 trên dữ liệu PTIT; chạy được mô hình gợi ý không chứng minh độ chính xác trên corpus này. Báo cáo nêu rõ trạng thái dữ liệu; các fixture kiểm thử phần mềm không phải số liệu BTL. Xem [hướng dẫn gán nhãn](HUONG_DAN_GAN_NHAN.md).
+### Sửa nhãn và kiểm tra chéo (tùy chọn)
 
-## Gán nhãn tự động toàn bộ
+- Đọc bản gốc trước, mở **Bản làm sạch & nguồn** và ngữ cảnh khi cần. Không lấy
+  bình luận đứng gần làm bình luận cha nếu không có liên kết ID xác thực.
+- **Dùng gợi ý** chỉ điền lựa chọn. Có thể sửa nhiều dòng, chuyển trang hoặc lọc
+  rồi **Lưu tất cả thay đổi**; lưu trước khi tải lại hoặc đóng tab. Nếu nội dung
+  đã đổi, cập nhật danh sách và đọc lại trước khi xác nhận. Lô lưu lỗi không được
+  coi là đã lưu thành công; kiểm tra thông báo và các dòng còn chờ lưu.
+- Kiểm tra riêng nhóm **Nhãn mâu thuẫn** và **Chưa mở hết nội dung**. Văn bản thiếu
+  cần thu thập lại; sửa nhãn không bổ sung được phần văn bản bị thiếu. Câu chưa rõ
+  để trống và ghi lý do, không mặc định thành non-toxic.
+- Lấy mẫu kiểm tra chéo từ nhiều bài/chủ đề, gồm cả câu không bị máy gắn cờ. Không
+  chỉ đọc các câu dễ hoặc gom toxic từ một bài và non-toxic từ bài khác.
+- Khi kiểm định, người đọc không xem dự đoán/điểm máy. Hai người gán độc lập một
+  phần dữ liệu, lưu nhãn riêng, thống nhất bất đồng rồi mới chốt nhãn cuối. Giao
+  diện hiện lưu một nhãn cuối cùng, chưa quản lý hai lượt gán độc lập. Ghi số mẫu,
+  người gán và cách giải quyết bất đồng; chỉ báo Cohen kappa sau khi thực sự đo.
 
-Nhãn tự động được lưu ngay khi tác vụ hoàn tất, không cần bấm **Lưu đánh giá** từng dòng. Khi muốn sửa nhãn, ghi chú hoặc trạng thái loại mẫu, có thể chỉnh nhiều dòng rồi bấm **Lưu tất cả thay đổi** ở cuối danh sách. Nút này lưu cả những dòng đã sửa ở trang khác hoặc bị ẩn bởi bộ lọc, giữ nguyên các dòng chưa sửa. Chuyển trang, lọc và **Cập nhật danh sách** giữ các chỉnh sửa; hãy lưu trước khi tải lại hoặc đóng tab vì bản chưa lưu chỉ nằm trong phiên giao diện.
+## Kiểm tra dataset trước khi bàn giao hoặc huấn luyện
 
-Nút chính dùng ngưỡng **điểm toxic ≥ 0,5 → toxic**, thấp hơn → non-toxic. Mọi mẫu hợp lệ chưa có nhãn đều được xử lý, kể cả mẫu có điểm chưa rõ. Điểm nằm giữa 0,2–0,8 hoặc văn bản phải cắt vì quá dài được đánh dấu `needs_review`; cờ này không chặn tải dataset hay huấn luyện. Kết quả ghi `label_source=automatic`, điểm, ngưỡng, model/revision và hash văn bản để phân biệt với nhãn do người đọc xác nhận. Kết quả mô hình đã lưu còn khớp nội dung được dùng lại, chỉ chạy suy luận cho mẫu còn thiếu.
+1. Đối chiếu số dòng nguồn, số bài, số mẫu sạch, trùng, bị loại, nhãn máy và nhãn
+   đã được người xác nhận. Không lấy tổng dòng CSV làm số mẫu đủ điều kiện train.
+2. Kiểm tra ID duy nhất và `text_hash` khớp nội dung gốc. Nội dung đổi phải được
+   duyệt lại; không sửa ID/hash hoặc bỏ cột nguồn nhãn khi chỉnh CSV bằng Excel.
+3. Rà các nhóm rỗng/giao diện, trùng, nhãn mâu thuẫn, chưa mở hết nội dung và đã
+   loại. Giữ dữ liệu gốc để đối chiếu; nhãn trống không đồng nghĩa non-toxic.
+4. Sau khi lưu, xuất rồi chạy `shared_dataset.py --check` như bên dưới. Lệnh kiểm
+   tra checksum, nguồn dữ liệu/nhãn/ngữ cảnh, nhóm chia và bản xuất; không đánh giá
+   tính đúng về ngữ nghĩa. Khi cần kiểm tra giao diện/API, đối chiếu ID, văn bản,
+   nguồn nhãn và số dòng giữa bản tải xuống với workspace tương ứng.
+5. Kiểm tra các bài nối bằng alias hoặc văn bản trùng không lọt sang các tập khác
+   nhau. Không dùng nhóm đã dành riêng để chọn ví dụ, sửa prompt hoặc tối ưu ngưỡng.
+6. Tách kiểm tra kỹ thuật khỏi chất lượng nhãn: chạy lại ra cùng kết quả chỉ chứng
+   minh ổn định. Độ chính xác cần nhãn tham chiếu được người đọc kiểm tra độc lập;
+   báo precision/recall/F1 toxic, macro-F1 và confusion matrix, không chỉ accuracy.
+   Mẫu chẩn đoán chọn theo từ khóa không thay cho mẫu ngẫu nhiên của corpus.
+7. Với dữ liệu crawl mới, đối chiếu một số bài trên Facebook đã đăng nhập để kiểm
+   tra văn bản đầy đủ, bình luận cha và độ bao phủ. Kiểm thử DOM giả lập, số vòng
+   cuộn hoặc việc crawler dừng không chứng minh đã thu thập hết bình luận.
 
-**Có thể huấn luyện trực tiếp trên nhãn máy**, nhưng chỉ số trên validation/test có nhãn máy đo mức khớp với bộ nhãn đó, chưa phải độ chính xác độc lập trên PTIT. Giao diện và báo cáo ghi rõ giới hạn này.
+## Chia sẻ dữ liệu đã gán nhãn qua Git
 
-### Chế độ chỉ tạo gợi ý (tùy chọn)
+Dừng máy chủ trước khi xuất/commit hoặc pull để tránh ghi đè dữ liệu đang sửa.
+Sau một đợt gán nhãn, chạy:
 
-`labeling.py` chạy mô hình [dangvansam/vietnamese-toxicity](https://huggingface.co/dangvansam/vietnamese-toxicity), chốt revision `bac60f3e162d3a06003bf561a9f8365982ccc67a`, bằng ONNX Runtime trên CPU. Lần đầu tải khoảng 100 MB vào `models/vietnamese-toxicity`; ứng dụng kiểm tra kích thước và SHA-256 trước khi dùng. Cache mô hình đã được tải và kiểm tra trong lần bàn giao này. Khi cache còn hợp lệ, có thể tạo gợi ý không cần Internet; nội dung bình luận không được gửi lên dịch vụ bên ngoài.
-
-Mô hình đọc bản gốc đã chuẩn hóa NFC/khoảng trắng, không đọc bản đã bỏ stop words. Điểm toxic là sigmoid của đầu ra mô hình, **chưa hiệu chỉnh trên PTIT, không phải độ chính xác hay xác suất đúng của nhãn**. Điểm ≤ 0,2 gợi ý `non-toxic`; điểm ≥ 0,8 gợi ý `toxic`; khoảng giữa để trống. Văn bản vượt 512 token của tokenizer, tính cả token đặc biệt, cũng không nhận nhãn gợi ý vì đầu vào phải bị cắt. Người đọc cần xem toàn bộ bình luận và ngữ cảnh.
-
-Gợi ý được lưu riêng với model/revision, điểm, thời gian và dấu vân tay văn bản; không tự trở thành nhãn huấn luyện. Mẫu lỗi, trùng, đã có nhãn hoặc biết là chưa mở hết nội dung không được tạo gợi ý. Mô hình có thể sai với tiếng lóng, phủ định, trích dẫn và mỉa mai. Theo [model card ViSoBERT nguồn](https://huggingface.co/uitnlp/visobert), mô hình nền dành cho mục đích nghiên cứu; tính năng này được dùng trong phạm vi BTL nghiên cứu.
-
-## Đối chiếu yêu cầu đề bài
-
-| Yêu cầu | Chức năng / tệp |
-|---|---|
-| Thu thập bình luận Facebook | Crawler Selenium, `app.py`, `dom.js`, `helpers.js`; màn hình Thu thập |
-| Tiền xử lý, tách token, stop words | `dataset.py`; chuẩn hóa NFC/chữ thường/teencode, token hóa âm tiết + emoji, lọc stop words, URL/email/điện thoại, bản trùng và dòng lỗi |
-| Ít nhất 2 cách trích đặc trưng | BoW, TF-IDF (unigram + bigram); embeddings học từ đầu cho TextCNN |
-| Naive Bayes và SVM, chia train/test | Bốn cấu hình BoW/TF-IDF × MultinomialNB/LinearSVC; chia thêm validation để chọn mô hình |
-| Mô hình hiện đại bổ sung | TextCNN (mô hình học sâu CNN cho văn bản, theo Kim 2014); chạy CPU, không cần tải pretrained weights |
-| Accuracy, Precision, Recall, F1, confusion matrix | `experiments.py`; bảng/biểu đồ giao diện; tệp metrics và báo cáo |
-| So sánh đặc trưng và thuật toán | Cùng phép chia cho mọi cấu hình; báo cáo chênh lệch macro-F1 giữa NB/SVM và BoW/TF-IDF |
-| Báo cáo có lý thuyết, thực nghiệm và tài liệu tham khảo | Xuất Markdown từ giao diện; `BAO_CAO.md` là bản tại thời điểm bàn giao |
-
-## Tiền xử lý và ý nghĩa mẫu sạch
-
-`text_raw` luôn giữ nguyên. `text_clean` chuẩn hóa Unicode, loại ký tự vô hình/dấu câu, giải mã HTML, thay URL/email/điện thoại bằng token, đổi một số teencode và bỏ danh sách stop words ngắn. Giữ phủ định, dấu tiếng Việt, từ tục và emoji. Token hóa hiện theo âm tiết/khoảng trắng, **chưa ghép từ đa âm tiết bằng VnCoreNLP/underthesea**; bigram được dùng cho hai baseline.
-
-`quality=ready` là mẫu văn bản duy nhất qua kiểm tra tự động, không đảm bảo đúng phạm vi/ngữ cảnh; người gán cần rà soát. Các trạng thái khác: `duplicate`, `conflict` (bản trùng có nhãn khác nhau), `empty_or_ui`, `excluded`, `incomplete` (crawler còn thấy nội dung chưa mở hết). Dữ liệu cũ thiếu `text_complete` có độ đầy đủ chưa xác minh, cần kiểm tra lại nguồn khi cần; không được coi là đã xác nhận đầy đủ.
-
-**Xuất bản làm sạch → Tải CSV/JSON toàn bộ** giữ tất cả trạng thái để kiểm tra. **Dataset đã gán nhãn** (`GET /api/dataset-auto.csv` hoặc `/api/dataset-auto.json`) và tập huấn luyện dùng mẫu `ready` có nhãn, gồm cả nhãn máy. **Dataset đã duyệt** (`/api/dataset.csv`, `/api/dataset.json`) chỉ chứa nhãn người dùng xác nhận/nhập; không chứa nhãn máy hay gợi ý. Nếu chưa có mẫu phù hợp, ứng dụng trả thông báo thay vì tạo dataset rỗng. CSV bảo vệ ô bắt đầu bằng ký tự công thức bằng dấu nháy đơn; nhập lại bằng ứng dụng sẽ đối chiếu hash để khôi phục nguyên văn.
-
-Nhãn mới gắn với SHA-256 của `text_raw`. Nếu crawler cập nhật nội dung, nhãn cũ được giữ để đối chiếu nhưng mất hiệu lực huấn luyện/xuất dataset; cần chạy lại gán nhãn toàn bộ hoặc đọc và lưu lại thủ công. Nhãn cũ từ phiên bản chưa có dấu vân tay cần được rà soát khi chuyển sang quy trình này.
-
-Nhập JSON dạng `{"rows":[...]}` hoặc mảng dòng; CSV dùng UTF-8, các cột bắt buộc `post_id,comment_id,text_raw`. `label` chỉ được trống, `toxic`, `non-toxic`; `annotation_note` tùy chọn. Khi nhập dataset tự động đã xuất, giữ `label_source=automatic` cùng hash, điểm, ngưỡng, model/revision, `needs_review` và `review_reason`; ứng dụng kiểm tra và giữ nguồn nhãn máy. Nhãn không ghi nguồn được coi là người dùng nhập, vì vậy không bỏ metadata của nhãn tự động. Tệp tối đa 10 MB, 10.000 dòng/lượt, tổng workspace tối đa 20.000 dòng. Trùng ID chỉ cập nhật nhãn khi văn bản giống hệt; nhãn người đọc có thể thay nhãn máy, nhãn máy không ghi đè nhãn người đọc. Dữ liệu mới và nhãn được ghi cùng nhau vào `data/workspace.json`.
-
-## Thiết kế thí nghiệm
-
-- Học từ mẫu sạch có nhãn, gồm nhãn tự động nếu có. Tối thiểu 10 mẫu mỗi lớp và 5 nhóm bài độc lập để chạy; cần nhiều hơn để có kết quả đáng tin cậy. Thống kê từng tập ghi số `automatic_labels`.
-- Chuẩn bị nhãn validation/test do người đọc gán độc lập, không nhìn gợi ý mô hình; kiểm tra chéo và khóa nhãn trước đánh giá. Giao diện chưa tự che gợi ý hoặc quản lý bộ test khóa riêng: dùng bản xuất và quy trình nhóm để thực hiện. Nhãn test chỉ sao chép từ gợi ý sẽ làm phép đánh giá thiên lệch.
-- Chia theo **bài viết**, nối các bài có bình luận trùng vào cùng nhóm. Mục tiêu 60/20/20 theo số nhóm; tỷ lệ mẫu thực tế hiển thị sau khi chạy. Không âm thầm chuyển sang random split theo dòng nếu thiếu nhóm.
-- Các tập đều cần có hai lớp. Chọn lần chia hợp lệ đầu tiên với seed 42/43; không tối ưu phép chia theo điểm mô hình.
-- BoW/TF-IDF chỉ fit trên train: 20.000 đặc trưng tối đa, ngram 1–2. NB alpha=1. SVM tuyến tính C=1, balanced class weights.
-- TextCNN: embedding 64, kernels 2/3/4 × 48 filters, ReLU + max pooling, dropout 0,3, Adam lr=0,001, batch 32, 12 epoch. Từ vựng train tối đa 20.000 token, OOV token riêng, cắt 128 token. Epoch chọn theo macro-F1 validation; class weights lấy từ train.
-- Chọn mô hình cuối cùng theo **validation macro-F1**, sau đó trình bày kết quả test của cả năm. Không có xác suất “độ tin cậy” giả cho SVM. Lớp dương = toxic; confusion matrix hàng thật/cột dự đoán, thứ tự `[non-toxic, toxic]`.
-- Mỗi lượt có snapshot, seed, phiên bản thư viện, tham số và phép chia để truy vết. Khi nhãn/dữ liệu thay đổi, giao diện báo kết quả cũ. Không coi một lần chia là bằng chứng vượt trội có ý nghĩa thống kê.
-
-## Dữ liệu và tệp
-
-```text
-app.py                  Máy chủ localhost + điều khiển crawler sẵn có
-index.html/style.css/ui.js  Giao diện tiếng Việt, không dùng CDN
-dataset.py              Làm sạch, lọc trùng, nhập/xuất
-lab.py                  Lưu workspace, quản lý gợi ý và huấn luyện
-labeling.py             Gợi ý nhãn bằng mô hình ONNX đã chốt phiên bản
-experiments.py          Chia tập, 4 baseline, đánh giá, báo cáo
-neural.py               TextCNN PyTorch
-test_project.py         Kiểm thử trên fixture riêng
-data/progress.json      Kho crawl gốc (không sửa khi gán nhãn)
-data/workspace.json     Kho chính: nhãn, dữ liệu nhập và gợi ý; ghi nguyên tử
-data/annotations.json   Nhãn phiên bản cũ, chỉ đọc khi chưa có workspace.json
-data/imported.json      Dữ liệu nhập phiên bản cũ, chỉ đọc khi chưa có workspace.json
-models/vietnamese-toxicity/  model.onnx và tokenizer.json được kiểm tra SHA-256
-data/processed.*        Bản làm sạch xuất tại lần bấm lưu
-data/dataset_auto.*     Mẫu sạch đã gán nhãn, gồm nhãn máy; xuất khi xử lý toàn bộ
-data/latest.json        Tham chiếu lần huấn luyện hoàn tất gần nhất
-data/runs/run-.../      dataset.json, split.json, metrics.json, report.md,
-                        *-predictions.json, *.joblib, TextCNN.pt, vocabulary.json
+```powershell
+.venv\Scripts\python.exe shared_dataset.py --export
+.venv\Scripts\python.exe shared_dataset.py --check
+git add data/progress.json data/workspace.json data/shared_dataset.json data/shared_dataset.csv data/shared_manifest.json data/post_context.json data/parent_context.json data/label_history
+git commit -m "Cap nhat du lieu va nhan"
+git push
 ```
 
-`workspace.json` là nguồn chính khi đã tồn tại. Nếu chưa có, ứng dụng đọc `annotations.json`/`imported.json` cũ; lần lưu nhãn, nhập dữ liệu hoặc lưu gợi ý tiếp theo ghi trạng thái vào workspace trong một lần thay tệp nguyên tử. Các tệp cũ không bị xóa nhưng không tiếp tục nhận cập nhật; không sửa chúng để thay nhãn khi workspace đã có.
+Lần bàn giao code cần commit cả những file code đã sửa. Người nhận chỉ cần:
 
-Không mở hai app dùng cùng workspace. Sao lưu toàn bộ `data` khi máy chủ đã tắt. Không tải artifact `.joblib` từ nguồn không tin cậy để thay vào thư mục mô hình; đây là định dạng pickle chỉ dành cho artifact do chính app tạo. Không chia sẻ `chrome-profile` (chứa phiên đăng nhập). Dữ liệu raw/ID vẫn có thể mang thông tin cá nhân; che tên, định danh và nội dung nhạy cảm trước khi công bố.
+```powershell
+git pull
+.venv\Scripts\python.exe shared_dataset.py --check
+.venv\Scripts\python.exe app.py
+```
 
-## Giới hạn crawler được giữ lại
+Máy mới cần cài phụ thuộc trước. Nhãn đã xác nhận được giữ nguyên sau pull;
+không phải crawl hay gán nhãn lại. Không dùng `--migrate-legacy` cho cập nhật thường
+ngày. Nếu `--check` báo lệch, xử lý thay đổi rồi xuất và kiểm tra lại trước khi push.
+Nếu nhiều người cùng sửa workspace, hợp nhất theo ID, `text_hash`, phiên bản tiêu
+chí và lịch sử; không chọn toàn bộ một phía của xung đột rồi bỏ nhãn người khác.
 
-Selenium dùng Chrome profile riêng, không lấy mật khẩu, không vượt CAPTCHA/hạn chế. Mỗi bài tối đa 3 phút; kho crawl tối đa 10.000 mẫu. Facebook có thể chỉ hiện một phần bình luận và thay DOM. `no_progress` chỉ nghĩa là không thấy tiến triển, không phải đã lấy hết. Bấm Bắt đầu lần nữa để quét lại các bài tìm được, kể cả bài đã có trong nhật ký; bình luận đã có cùng ID được giữ và cập nhật nội dung dài hơn, không cần đổi tên hay xóa `progress.json`. Crawler cuộn cả vùng lồng nhau, thử vùng chứa khi vùng con đã tới cuối và giữ thao tác bình luận trong hộp thoại bài viết. Nút tải thêm được thử tiếp khi nội dung bình luận thay đổi; nút không tạo tiến triển bị giới hạn hai lần thử. Dừng có thể phải chờ thao tác điều hướng tối đa 35 giây. Công cụ chưa xác minh tài khoản bình luận là sinh viên PTIT.
+## Cấu trúc và nguồn dữ liệu
+
+| Vị trí | Vai trò |
+| --- | --- |
+| `app.py`, `lab.py` | Máy chủ cục bộ, thu thập và điều phối tác vụ |
+| `index.html`, `style.css`, các file `.js`, `assets/` | Giao diện và font |
+| Các module Python còn lại | Tiền xử lý, gán nhãn, đặc trưng và mô hình |
+| `data/progress.json` | Dữ liệu thu thập gốc |
+| `data/workspace.json` | Nhãn, phê duyệt bộ nhãn, xác nhận riêng, ghi chú và dữ liệu nhập dùng chung |
+| `data/post_context.json`, `data/parent_context.json` | Ngữ cảnh gán nhãn |
+| `data/shared_dataset.json`, `.csv` | Bản xuất kèm nguồn nhãn, chất lượng, `human_verified` và trạng thái phê duyệt |
+| `data/shared_manifest.json` | Checksum và ranh giới nhóm dữ liệu được giữ cố định |
+| `data/label_history/` | Workspace trước khi chuyển sang tiêu chí hiện hành |
+| `outputs/history.zip` | Lịch sử các đợt rà soát, quyết định của người gán và công cụ cũ |
+| `tests/` | Bộ kiểm thử Python và các kịch bản kiểm tra trình duyệt |
+| `Report.md` | Phương pháp và trạng thái báo cáo bài làm |
+
+Chỉ lấy dòng `quality=ready` khi cần dữ liệu sạch; CSV chia sẻ vẫn chứa cả trạng
+thái loại/trùng để đối chiếu. Nhãn máy chưa xác nhận không phải đáp án chuẩn cho
+train/validation/test. Các nhóm từng dành riêng để chẩn đoán tiếp tục được giữ
+riêng, kể cả sau khi nối alias/trùng văn bản; chúng chưa phải bộ test mù độc lập.
+
+Dữ liệu hiện hành và nhãn được Git theo dõi. `.venv/`, `models/`, profile Chrome,
+cache, dữ liệu xử lý và các lần huấn luyện trong `data/runs/` được tạo tại từng máy
+và bỏ qua trong Git. `outputs/history.zip` chỉ để tra cứu, không phải nơi gán nhãn
+hằng ngày; bên trong có checksum từng file và giữ đường dẫn gốc để khôi phục khi cần.
+Các ảnh xem trước, mô hình thử cũ, bản xuất CSV trùng JSON và `node_modules` cũ đã bỏ.
+
+Các tài liệu rời trước đây như `Label_Guide.md`, `Check_Dataset.md`,
+`KIEM_DINH_NHAN.md` và hướng dẫn từng đợt được giữ nguyên bản trong file nén này,
+kèm checksum. Phần thao tác còn áp dụng đã gộp ở trên; các số liệu, đường dẫn và
+quy trình ONNX/Gemma cũ chỉ là lịch sử, không thay thế README và quy tắc v4 hiện hành.
 
 ## Kiểm thử
 
+Chạy từ thư mục dự án; dùng `-B` để không sinh cache bytecode:
+
 ```powershell
-.venv\Scripts\python.exe -m unittest discover -v
-node --check ui.js
+.venv\Scripts\python.exe -B -m unittest discover -s tests
+.venv\Scripts\python.exe -B shared_dataset.py --check
 ```
 
-Kiểm tra làm sạch/Unicode/phủ định/ẩn thông tin, lọc trùng/xung đột, lưu nhãn không sửa raw, lỗi ghi đĩa, dữ liệu nhập, chống rò rỉ nhóm bài/văn bản, chiều confusion matrix, chạy-lưu-tải-dự đoán cả 5 mô hình, báo cáo, validation API và origin/host. Kiểm thử crawler xác nhận quét lại bài chưa hoàn tất không làm mất dữ liệu/nhãn, và rê chuột tìm link mới khi link cũ còn trên feed. Toàn bộ fixture và artifact thí nghiệm thử đặt trong thư mục tạm.
+Một số kiểm thử gán nhãn tự động cũ còn mock bộ ONNX trong khi ứng dụng đã chuyển
+sang Qwen; cần cập nhật chúng trước khi dùng toàn bộ suite làm tiêu chí nghiệm thu.
+Kiểm thử dữ liệu/HTTP dùng dữ liệu tạm, không sửa bộ dữ liệu thật. Các file JavaScript
+trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ kiểm tra trình duyệt.
 
-`test_crawler_browser.js` cung cấp hai hàm cho Playwright: `checkCrawlerBrowser(page, helpersSource, domSource)` chạy DOM mô phỏng độc lập; `checkDashboardScroll(page, 'http://127.0.0.1:8767')` kiểm tra giao diện khi app đang mở. Dùng tab kiểm thử riêng và đóng tab sau khi chạy; các hàm không gửi bình luận, không chạy crawl thật, không ghi nhãn. Bao phủ vùng cuộn lồng nhau, hộp thoại, nút tải thêm dùng lại, giới hạn nút không phản hồi, vị trí nhật ký khi cập nhật, bàn phím và giao diện rộng/hẹp.
+## Huấn luyện và tối ưu mô hình
 
-`test_interface_browser.js` cung cấp `checkInterfaceBrowser(page, baseURL)` để kiểm tra giao diện ở 375, 768, 1024 và 1440 px: điều hướng, thông tin kỹ thuật thu gọn, thông báo lỗi và nội dung lỗi được escape. `test_labeling_browser.js` kiểm tra gợi ý, duyệt nhãn và xử lý toàn bộ dataset. Các tác vụ ghi dữ liệu trong kiểm thử đều được mô phỏng; chạy trên tab riêng khi app đang mở.
+Phạm vi đã chốt: tối ưu NB/SVM, chọn ngưỡng bằng validation, điều chỉnh TextCNN và bổ sung ViSoBERT. Giữ nguyên nhãn, đầu vào bình luận và các nhóm chia; không thực hiện rà/gán lại nhãn hoặc bổ sung ngữ cảnh.
 
-Tài liệu: [scikit-learn](https://scikit-learn.org/stable/), [TextCNN — Kim 2014](https://aclanthology.org/D14-1181/), [PyTorch](https://docs.pytorch.org/docs/stable/), [Selenium](https://www.selenium.dev/documentation/webdriver/).
+Trong trang **Huấn luyện**, đánh dấu các mô hình cần chạy lại: Naive Bayes, SVM, TextCNN hoặc ViSoBERT. ViSoBERT mặc định không được chọn để tránh chạy lại ngoài ý muốn. Khi dùng cả BoW và TF-IDF, danh sách gồm đúng 6 mô hình: **BoW-NB, BoW-SVM, TF-IDF-NB, TF-IDF-SVM, TextCNN, ViSoBERT**. Nếu chỉ chọn một phương pháp đặc trưng thì NB/SVM chỉ chạy cho phương pháp đó. Không sinh thêm mô hình theo unigram/bigram hoặc hậu tố tuned. Lần đầu cần mạng để tải trọng số ViSoBERT; CPU chạy lâu hơn GPU.
+
+Chỉ các mô hình được chọn mới huấn luyện. Mô hình khác được giữ từ lượt hoàn tất gần nhất khi nhãn, đầu vào, bộ chia và cấu hình đặc trưng liên quan còn phù hợp; bảng kết quả ghi rõ **Giữ kết quả cũ**. Nếu đổi unigram/bigram hoặc giới hạn đặc trưng thì không ghép lại NB/SVM dùng cấu hình cũ. Không giữ mô hình của phương pháp BoW/TF-IDF đã bỏ chọn. Checkpoint được liên kết cứng trong thư mục run mới khi hệ thống hỗ trợ, tránh nhân đôi trọng số; nếu không thì sao chép.
+
+Có thể chạy cùng quy trình từ dòng lệnh sau khi trích xuất đặc trưng trên web. Lệnh dùng lại bộ đặc trưng trong `data/features.joblib`; nếu dữ liệu đã đổi thì yêu cầu trích xuất lại:
+
+```powershell
+.venv\Scripts\python.exe -B improvements.py --include-visobert
+.venv\Scripts\python.exe -B improvements.py --algorithms NB SVM
+.venv\Scripts\python.exe -B improvements.py --algorithms TextCNN
+.venv\Scripts\python.exe -B improvements.py --algorithms ViSoBERT
+```
+
+Bỏ `--include-visobert` nếu chỉ cần NB/SVM/TextCNN. Tham số `--epochs` đặt số epoch tối đa của TextCNN (mặc định 12); `--visobert-epochs` đặt số epoch tối đa của ViSoBERT (mặc định 4). Dừng sớm và khôi phục checkpoint theo validation.
+
+TextCNN và ViSoBERT tự dùng GPU khi `torch.cuda.is_available()` trả về true; nếu không thì dùng CPU. Giao diện hiển thị thiết bị khả dụng, kết quả lưu thiết bị đã huấn luyện. NB/SVM của scikit-learn vẫn chạy CPU. Máy có GPU NVIDIA cần driver và bản PyTorch hỗ trợ CUDA phù hợp, theo [hướng dẫn chính thức của PyTorch](https://pytorch.org/get-started/locally/); chỉ có card đồ họa nhưng cài bản PyTorch CPU thì vẫn chạy CPU. ViSoBERT trên GPU tinh chỉnh toàn bộ encoder, trên CPU tinh chỉnh hai tầng cuối nên hai chiến lược không bảo đảm cho kết quả giống nhau.
+
+- Unigram/bigram, phương pháp BoW/TF-IDF và giới hạn từ vựng chỉ chọn ở bước **Trích xuất đặc trưng**. NB/SVM dùng lại đúng ma trận và vectorizer đã lưu, không tự trích xuất hay đổi n-gram trong lúc huấn luyện.
+- Huấn luyện tự chọn tham số bằng validation: thử alpha NB, C và trọng số lớp SVM trên cùng bộ đặc trưng, chỉ lưu một mô hình cuối cùng cho mỗi cặp đặc trưng/thuật toán.
+- Chọn tham số bằng macro-F1 validation, rồi chọn ngưỡng trên validation; lưu chỉ số trước/sau ngưỡng và áp dụng lại ngưỡng khi dự đoán. Không chọn cấu hình/ngưỡng theo test.
+- TextCNN chọn cấu hình learning rate/dropout/embedding và trọng số lớp bằng validation, chỉ lưu checkpoint cuối cùng dưới tên TextCNN. N-gram của BoW/TF-IDF không áp dụng cho TextCNN và ViSoBERT.
+- ViSoBERT lưu revision nguồn, tokenizer, cấu hình và checkpoint. CPU tinh chỉnh hai tầng encoder cuối cùng với bộ phân loại; GPU tinh chỉnh toàn bộ encoder với bộ phân loại. Đầu vào giữ dấu câu/emoji và dùng tokenizer riêng của ViSoBERT.
+
+Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json`, `cnn-search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
+
+Nhãn/dữ liệu dùng chung vẫn được Git theo dõi như phần bàn giao ở trên. Trọng số, cache và kết quả chạy được bỏ qua trong Git; người nhận có sẵn nhãn để chạy bước đặc trưng/huấn luyện, không phải gán lại. Ngưỡng đã tối ưu chỉ dùng được kèm đúng checkpoint của lượt chạy tương ứng.

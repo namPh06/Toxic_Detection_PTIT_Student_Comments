@@ -1,0 +1,11 @@
+# Release checksums cover these bytes, including line endings. Keep them identical
+# across Windows/Linux checkouts instead of applying core.autocrlf conversions.
+/data/progress.json -text
+/data/workspace.json -text
+/data/shared_dataset.json -text
+/data/shared_dataset.csv -text
+/data/shared_manifest.json -text
+/data/post_context.json -text
+/data/parent_context.json -text
+/data/label_history/** -text
+/QUY_TAC_GAN_NHAN.md -text
