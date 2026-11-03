@@ -1,0 +1,229 @@
+{
+  "purpose": "practice_and_policy_refinement_not_independent_test",
+  "policy_version": "ptit-v1-20261030",
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "sampling": "lowest SHA256(seed + id) among 5111 eligible unique texts",
+  "seed": "ptit-pilot20-v1-20261030:",
+  "rows": [
+    {
+      "id": "f8b467515f37b0f72188a0cf",
+      "post_id": "1283434880532353",
+      "text_raw": "Đức Lê lâu không yêu quên cách yêu",
+      "text_hash": "6fe25ee89d241b6538b6963b6c63ea9b1d97fd00c2dfd596493e8354a879ca9a",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:42:09.479Z"
+    },
+    {
+      "id": "8b69d4b339cadef6c5f0bee8",
+      "post_id": "pfbid02kDM7h4psDm69FVSn3NTv1Di8NT8yGbtLzqWBGGf4rvvvXYdD4aCdpJBZ4k9WvAGRl",
+      "text_raw": "Trần Đức Hiếu m lên tiếng gì cơ em",
+      "text_hash": "7a7b95864a38e5f22864c1ed6f03e1b4ab3678e8e5b821d380c30a863b07b1b1",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:42:36.471Z"
+    },
+    {
+      "id": "efe1f16bda41472ccca41dd7",
+      "post_id": "1306727521536422",
+      "text_raw": "Ko nhé, real cái gì mà real trg thu linh ting ấy, d25 cx thế thu thừa ra trừ vào kì 2 đấy, chứ khi nào quân sự lại thêm khoản nợ 6 củ 6 đấy",
+      "text_hash": "ee0cb5153740b503228858cbd73c2b698662f6e2d43158f87330a6c0d98c5fb7",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:43:26.730Z"
+    },
+    {
+      "id": "2ebaab48e53128171b9f92af",
+      "post_id": "1283434880532353",
+      "text_raw": "Lê Dũng ứng tuyển đi",
+      "text_hash": "2c676ab96003b6e6e1c47e4c165fc0a4c04408653717be6b78241392dffb993a",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:44:02.137Z"
+    },
+    {
+      "id": "c0ac4052e4d56f229d3fdb99",
+      "post_id": "1310665674475940",
+      "text_raw": "Trần Dũng đi thăm chú Thơm vs chú Thỏ của t đấy",
+      "text_hash": "470b2da06fe1275e07dd690fe53d771d744004d150fd0a7c33e528ea6367b7cd",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:44:38.116Z"
+    },
+    {
+      "id": "6fdb60d51279e3caf465881b",
+      "post_id": "1297550519120789",
+      "text_raw": "Anonymous participant Cty có thể pv hoặc ko, nói chung là full hên xui, oke nhất là đang thực tập tại 1 đơn vị nào đó trong kì tt tại trường, nhờ bên cty gửi thông tin về trg là ok",
+      "text_hash": "fb80829efb641e6d9618bb1af4ad4a2e704990f48f060e21077b75ebd1aa849e",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:45:11.199Z"
+    },
+    {
+      "id": "2820624c7139c77bdb4072f3",
+      "post_id": "1233606908848484",
+      "text_raw": "thầy Hoá học siêu căng :)))) học thật điểm thật .. Điểm loanh quanh 5,6",
+      "text_hash": "3e7b4f6715a7a8f5745e9eebc33a5470a564194cc14aa9a7dc762a00479757bf",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:45:32.868Z"
+    },
+    {
+      "id": "32e96f425bcd49eef9e07226",
+      "post_id": "1267483575460817",
+      "text_raw": "Kim Ánh Thùy Trâm hai bn nha ah",
+      "text_hash": "56ee32eb7d3c2e627455b309912054839876a2916a2b34b9021f6a2dc41a4ab0",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:45:56.681Z"
+    },
+    {
+      "id": "3de4d4270861d1974c780abc",
+      "post_id": "1307918778083963",
+      "text_raw": "TurquoiseBison6387 mik học mkt năm nhất ạ",
+      "text_hash": "f138121b46f910180cac0ba63cfcf5d97edc9233bba1bf05f5b65bc88bda4804",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:46:16.033Z"
+    },
+    {
+      "id": "754a69ba1af2858301c0075c",
+      "post_id": "1306403111568863",
+      "text_raw": "Nguyễn Quang M tày rồi",
+      "text_hash": "8e11a126da3c8873eb02544708dba1983b10591559a50038633d7013ac79b918",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:46:39.854Z"
+    },
+    {
+      "id": "cba44325aa79ee6ec17941c9",
+      "post_id": "1473019894935170",
+      "text_raw": "Ngọc Văn t bt hết r đấy",
+      "text_hash": "fb7f50ea7d405e9f37cc75dfb76068f444cbe044726612944da8dbf2f8e074bd",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:46:57.859Z"
+    },
+    {
+      "id": "b4816c7242491d231d0f9add",
+      "post_id": "pfbid05A1a3M8ekmPJ8AiMQ7xqeRCpX6WLfvrQMULrGZWGJbk51DkafaHJ3sNxoUUTLKrMl",
+      "text_raw": "Ngọc Tùng học ở trường thì cần giấy tờ cf lý lịch mà nhể,nhà trường phải check xem có đúng là học viên trường mình không chứ",
+      "text_hash": "d66d149dbffa7040a71e4cae69a9758de60cf8ea805e4b15f66e347ff724613a",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:47:26.036Z"
+    },
+    {
+      "id": "e1a5cccc81f32254f75b77ee",
+      "post_id": "1305010721708102",
+      "text_raw": "Đóng trước thi 2 ngày là đc. Ko phải sợ đâu",
+      "text_hash": "905a2581d5472cbf06dd0393686abea5264a461d55b5248a7b12418a95b9473b",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:47:47.308Z"
+    },
+    {
+      "id": "d41c590ddc3cacb4f913964f",
+      "post_id": "1473019894935170",
+      "text_raw": "Bạch Đức sướng nắm",
+      "text_hash": "cbe5a20f7131ddec876a39e78c571d6a3b2b8766bc9e56c45a23764a82ce6a30",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:48:18.332Z"
+    },
+    {
+      "id": "3f9dcd6161f30d42c4e91415",
+      "post_id": "1208545544687954",
+      "text_raw": "A ko rõ môn này thầy như nào nma a học thcs thầy , nộp đủ bài đúng thời hạn là full 9 e nhé, nên chắc môn này e học thầy điểm thầy cx ok e nhé",
+      "text_hash": "60602b0b17a9e18ef000700ac451dfc04749d90dd2864ac8a62f0de9214b70b8",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:48:37.943Z"
+    },
+    {
+      "id": "e9f0d5e4d7ea544271a29bf8",
+      "post_id": "1296642605878247",
+      "text_raw": "miễn phí hoặc 50k hên xui",
+      "text_hash": "3a16e1984ffda7e9a4ff017fddbc6146ebb1cc2eb77b01576c2cdd93150b1710",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:50:59.934Z"
+    },
+    {
+      "id": "0c33eac2250e9336256532fc",
+      "post_id": "1307899324752575",
+      "text_raw": "Mỹ Duyên =)))",
+      "text_hash": "5a2a271e29f46633f2b182a769b7bf70a2ed775369138112b4dcad1d1ecd9297",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:52:54.048Z"
+    },
+    {
+      "id": "22e2b70e086b0adb0b6ace75",
+      "post_id": "1267483575460817",
+      "text_raw": "ThoughtfulCrocodile1520 cho hỏi bạn tròn như trái đất ko ạ",
+      "text_hash": "9f54f9540b9f72cd52bdeac2eefca18c36f841e36da3ae52823640f0f097e0c0",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:53:46.483Z"
+    },
+    {
+      "id": "11c7024be30a4078a7fccd65",
+      "post_id": "1310067531202421",
+      "text_raw": "Người tham gia ẩn danh chịu em ạ, thầy cường không cho slide, ông nào chăm chụp may ra có hết, cứ gửi giáo trình lên chat gpt nó trả lời cũng ok rồi",
+      "text_hash": "67fd7feb0a29ee544c5bebfa7bff82fd690404b873c875cde249c4c761b4f5e8",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:55:10.720Z"
+    },
+    {
+      "id": "c0ab5ea006035a0719f4b4df",
+      "post_id": "1307111234831384",
+      "text_raw": "có cần nam một lốc sì tin nữ một nụ hôn lốc xoáy kiểu pháp ko ạ...",
+      "text_hash": "216c0aca7093705e42b57799b4a8170784dbe0c9962f00db20a798d6b3ccafa7",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:55:55.629Z"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Hướng dẫn gán nhãn bình luận PTIT
 
+> Hiện hành 02/11/2026: áp dụng [quy tắc v4](QUY_TAC_GAN_NHAN.md). Chê trường không tự động toxic. Nhãn/ví dụ lịch sử cần rà lại theo v4.
+
 Có thể làm sạch và gán nhãn **toàn bộ tập dữ liệu trong một lần**, không cần duyệt từng bình luận. Chỉ có hai nhãn: `toxic` và `non-toxic`.
 
 ## Xử lý toàn bộ (cách dùng chính)
@@ -56,3 +58,7 @@ Tối thiểu kỹ thuật là 10 mẫu mỗi lớp và 5 nhóm bài độc lậ
 - Khóa bộ test sau khi thống nhất nhãn; tránh xem kết quả test rồi liên tục sửa mô hình để tăng điểm.
 - Ghi rõ trong báo cáo phần dữ liệu có nhãn tự động, model/revision, ngưỡng 0,5 của chế độ toàn bộ hoặc 0,2/0,8 của chế độ gợi ý; ghi quy trình người đọc duyệt nếu có. Không gọi nhãn máy là nhãn người đọc xác nhận.
 - Không suy ra mọi tài khoản trong nhóm đều là sinh viên PTIT. Không đưa tên/định danh cá nhân vào báo cáo minh họa nếu chưa ẩn danh.
+
+## Rà soát ngữ cảnh và kiểm định mới
+
+Ngoài điểm chưa rõ và văn bản dài, nhãn máy có từ tục, viết tắt đa nghĩa hoặc một số cách diễn đạt nhạy cảm được đánh dấu `needs_review=true`, `review_reason=context` dù điểm cao/thấp. Đây chỉ là cờ ưu tiên đọc, không đổi nhãn hay bảo đảm các mẫu còn lại đúng. Nhãn máy vẫn được đưa vào huấn luyện như trước. Xem [kiểm định nhãn](KIEM_DINH_NHAN.md) và `audit_labels.py` để đo bằng nhãn độc lập.

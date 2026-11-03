@@ -1,0 +1,906 @@
+{
+  "seed": 20261027,
+  "reference_type": "AI provisional review before model predictions; not human gold",
+  "rows": [
+    {
+      "id": "a3e261e7c78e90119be0c521",
+      "text_hash": "87c3043624570da28d231624a1a83ab0e7b99fa1ce2ac29314992667372667fa",
+      "text_raw": "Bao Hung đc bb",
+      "post_id": "pfbid02k786JkSp9K5CBSZP4jtWBPhcmJ8RmpPcdszPEKQi877TJ4JGQht7xhoiy8JcDju6l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "9d6076b15980c04d2c3b5f1a",
+      "text_hash": "322421e8502e2c0edc61681c8c928954858c40d9a4a864d3acbbfa183728e799",
+      "text_raw": "Duc Anh ứng vội",
+      "post_id": "1283434880532353",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "2ee2fc1f3de4b412e146e0d1",
+      "text_hash": "edef2ef0d77e2242dc633ecafa507fe62abf246a9e2e0a828096fede4e2d019e",
+      "text_raw": "Quang Huy vl bro cứ đùa",
+      "post_id": "pfbid02TFN84GJaT4xuZZVD2xxRu599Rhd7YxuhFwgdBBej8W7AH8CTLGtQePqPmaRNbZfxl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "d639a60fb6f58a152d37623c",
+      "text_hash": "b59d41469b3a0385bde91cbd73576c4da55b8044aacc0eda63c5fca54f859ec2",
+      "text_raw": "ném thú cưng Thanh Thảo để tự đọc",
+      "post_id": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3c924cd5ca80a2c3085a263e",
+      "text_hash": "990e9974ef281087808bef44e2b00724564ecaffd8d43280c0a3d3278cc4b8a1",
+      "text_raw": "HopefulOtter7688 nhưng bạn yên tâm là thường có cả đợt 2 nộp các thứ cơ nên ko lo",
+      "post_id": "1305010721708102",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "61708a561719293727df2dad",
+      "text_hash": "36c1be9dd797e7af57aed379709ab8cee9d8fbf1549acd8ed5bb37b8653b2409",
+      "text_raw": "Nguyễn Thanh Tùng quỳ mm xuống",
+      "post_id": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "1ba2ef63e0af41795e2cde52",
+      "text_hash": "0e945f3856de1c5147d150c642792e746f6235b0d5bfe49d1b575ef643d9b4e0",
+      "text_raw": "Thi lại",
+      "post_id": "1305108191698355",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "b8c80408d24fb4e4b6017e9a",
+      "text_hash": "9e323e5ee13832ad1edde99cb55b5402106ff50ac12971f6a04bf7da6437e0b1",
+      "text_raw": "Ngọc Diễmhyhyyhhhhhyhyhyhhyyhyh",
+      "post_id": "pfbid02kDM7h4psDm69FVSn3NTv1Di8NT8yGbtLzqWBGGf4rvvvXYdD4aCdpJBZ4k9WvAGRl",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "64201f010cb36d81e6ccc139",
+      "text_hash": "68f38b9742ab5b559f2e661e93cf9f9a24f2f21c2f3abaf8315944b7dc37470e",
+      "text_raw": "chất thực sự",
+      "post_id": "pfbid02RovnAC3fLQfdBEu8Ynj8DNtLPBuvVxcZPNGud8g7zGJNAq6u5899CiAZbXuMjCo4l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ba5e4ffd76c00539900c6cc7",
+      "text_hash": "537d66f12c931df22e39a69ecc108135f2945656815b9a02bfecb94b38c6618f",
+      "text_raw": "Như Quỳnh rất sẵn sàng r đây...",
+      "post_id": "1282865387255969",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "1dea6cf2731585dd969b1ea7",
+      "text_hash": "0f827301b5a7e6bb6039dd4ba926bbaad2926f48423af6ce4cedb11b48e9fcac",
+      "text_raw": "Ngọc Ánh mình nhắn rùi đó ạ",
+      "post_id": "1289885743220600",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "2ed2500af61419fea26cfff3",
+      "text_hash": "002e8939736b6fb4f3e7d57574556b3e2498b297339e2be579c0249a742dfebc",
+      "text_raw": "Đọc đề 20 lần trước khi làm bài",
+      "post_id": "1311655504376957",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "69e15dd2c4c8a2af90da9623",
+      "text_hash": "a4dce714bb07912323da750203cd12b07ef908c713f9c066a65b443288ecbcb4",
+      "text_raw": "Linh kiện và mạch điện tử : Nguyễn đức minh\nLý thuyết mạch : Trần thục Linh\nLý 2 cô Nga\nTín hiệu cô trang",
+      "post_id": "1207743941434781",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "7636c51f9294c26da35c032b",
+      "text_hash": "cc773938f8e4d96d9f76b0cb9265ad31f02d9e807e21888c80b49133e4fb9e38",
+      "text_raw": "Lương Ngọc Duy e xin rì viu thầy trung anh anh ơi :))",
+      "post_id": "930446815831163",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "d6ce89bdc62847c46e7579c8",
+      "text_hash": "b0e56fd9bd9eaf8fe4729f7518735ec8f52f65219b1722f42000a71444c698ff",
+      "text_raw": "Bn vào Đoàn TN Chính phủ - Đoàn TN Bộ KHCN - Đoàn trg mình nhé",
+      "post_id": "1306112718264569",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3e5e907e6073d206902e7236",
+      "text_hash": "c8152a227f9275e57f45e5ff5281a013e24fee40d2df94fc8ada6509cd3c1028",
+      "text_raw": "Càng giấu càng dễ bị lấy",
+      "post_id": "1293886836153824",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "c2de3d248b327c1be4837b3e",
+      "text_hash": "c2172abab04540f025c1eacb5b254218c612d456f4135f4ef618acf47c7ad9fb",
+      "text_raw": "Hội anti HV công nghệ BƯU ĐIỆN đâu nói muốn móc khoá đâu. E muốn 1 lụ hôn lốc xoáy kiểu pháp cơ mà",
+      "post_id": "pfbid0YijJXCphtC9Nhjnpnj7MpSUHJ8fVRALJCbHWSzbmCjpxXDSWSpACK8gtF2Zg8tg7l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "69b86e5585c4657b4811b26c",
+      "text_hash": "c00754968deb4f03dc454f09edf88cbbdaa2b1f070c1559d5c0e1d4707214b8f",
+      "text_raw": "Ô qua mới đc 20k liên tiếp này, mà chả biết thế nào toàn tầm 9h 9r t quay mới trúng cơ",
+      "post_id": "1305053335037174",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0d44afaad0ff3912656d32ab",
+      "text_hash": "e2f29263214d65b0bd803dca3b78bd1c36d1e7da80b785893eca33de814585f6",
+      "text_raw": "Hp 6tr6 tiền ăn 80k/ngày X20 ngày. Tiền ăn vặt,sinh hoạt thuê quân trang 1tr5-2tr",
+      "post_id": "1299853488890492",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "30b241edb50523ad63759bb1",
+      "text_hash": "84137cb0bbd0f0456d5f96e6e0e26cac3081a2322847b68a10c194565a9e565b",
+      "text_raw": "Làm gì có đề nào dễ đặt bút làm mới biết đề nào cũng có cái khó",
+      "post_id": "1207908511418324",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0ff6379a750836aabb082976",
+      "text_hash": "425a6cfb98c6e99ad805218d5ef4ca667879085e92b5a70fa6fa790fa02b0a7e",
+      "text_raw": "Đăng tin sai sự thật là phải chịu trách nhiệm với hành động của mình nhé các E!",
+      "post_id": "pfbid0uLaeERAsXjm4LkWQMVSwsQhWm5PYQCfMKMcYRyo54UzBpHbNKsBufuY2aUksvCrEl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "980e38a0f0bdba9ad2f960c5",
+      "text_hash": "bfb28962653e1154ef9f673d771d82b5de52a0f635b46df556884222102582ac",
+      "text_raw": "Ahihi124 e cảm ơn ạ",
+      "post_id": "1472041208366372",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0e1ac3b6fe6412beab716be7",
+      "text_hash": "e9449f601aa57909d27525417b39a9650aad7e377247787bd8526b89f0424055",
+      "text_raw": "để ngã thì đau hơn",
+      "post_id": "1308575578018283",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "8a155e831bcac11609da05c4",
+      "text_hash": "7c9dc501c9eef1a50fbd7cf96997f4ff6f359d8a4afc840e2a7b1850b3827785",
+      "text_raw": "1994 đoán vội J-Hope BTS",
+      "post_id": "pfbid02gyj1U7qA7zSLV1s161jafYN8oG76X4NgyFXResWBr1vFQCfY5b7s7jTJG6FhodNFl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ac9b0c1fa2a45da97988ee50",
+      "text_hash": "a2456609e7491b9b07e430951d8debb53f94632366596c7b7d89dd22437c5d96",
+      "text_raw": "em xin móc ad",
+      "post_id": "pfbid02B7ypLQztxtTG7qjEYcJzUA6R6EFmcX5GkZnV7pB8YqLbFi8UsNQWHYHeuZxDwgtCl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "7b7a6b2d79c92eb6bb7ea6dc",
+      "text_hash": "f520f7b459048658ce1ac7fd873f2e13d473e621dfe619a3a9806ddd4d80d7b7",
+      "text_raw": "Có mình với bạn mình (10 mạng) :)))",
+      "post_id": "1123365309872645",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "6a61f7df4f5c2d4c1eb8aebd",
+      "text_hash": "e0eef05de2ee4c6dac0f24530f3a6f8dbcbb3b77f404cea09a1c2223f5d91c67",
+      "text_raw": "Duy Lê Đờ hếch",
+      "post_id": "1472038805033279",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "873c1a3c339b6f429ae91691",
+      "text_hash": "cbce8f406405e5e19c87723a782f47bf04e0191686661fa2afd27fc169e30878",
+      "text_raw": "Chạy đi e a vừa từ hus qua ptit này, bên đó học nặng hơn bên mình khá nhiều với môi trường thiên học thuật nên ko hoạt bát như bên mình đâu e cứ suy nghĩ nhé",
+      "post_id": "1305108191698355",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0c614827bf6f6a44112b525f",
+      "text_hash": "cfbade96146858e0e00205009d89c7b289142ada68485f9c51d891b1a64c174b",
+      "text_raw": "Hội anti HV công nghệ BƯU ĐIỆN Mai Min về trường đấy 6h30 tối Ad tranh thủ phi đến mà xem :))",
+      "post_id": "pfbid0uvyupFusy5ZREeaafSM9rsqKfdr3VBUTk51v1zpXbvdy5EURkaS5FLn4L18SYwyPl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "5305838d62f3886910147ca6",
+      "text_hash": "29ed8ae70d97bd46341ca682c06c6b6e4e6d82ddaa0a8434e0fca126cad321ff",
+      "text_raw": "Năm nay đi Sota mà",
+      "post_id": "1469950038575489",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "6b699a192239f14c2c293557",
+      "text_hash": "7c0337e31fb611de3a648ad93c9e60c509f461f1458ac7d00460875f2905607e",
+      "text_raw": "Đào Thanh Trúc ô có cả computer architecture này, ngol kì sau có phao cứu sinh rồi. Cảm ơn chị đẹp",
+      "post_id": "1063887172487126",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "8029d2c5f2d613f6dad19e4b",
+      "text_hash": "58fef4dcfecfb3cba41f0ef9bff20da6978cf0e462b9d0475632f243f49fb39a",
+      "text_raw": "Phải tháo ra nhé",
+      "post_id": "1477726211131205",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "a886634fe799a1e864b2f356",
+      "text_hash": "3abf425c6967eeef61af6c4407899d912d3c8228fbe7631e2773027051440f5a",
+      "text_raw": "Trịnh Khánh Linh bomber đó em",
+      "post_id": "pfbid02kDM7h4psDm69FVSn3NTv1Di8NT8yGbtLzqWBGGf4rvvvXYdD4aCdpJBZ4k9WvAGRl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "54baeb3ef032a19ebb2bcce8",
+      "text_hash": "8892d3c7142c402a8ca106f8f8f9257492504ed01e7800e69da5fe5649f660fe",
+      "text_raw": "Có giấy của viện xin hoãn bt nhé.",
+      "post_id": "1290583203150854",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "619455bda0c8d77f010365b3",
+      "text_hash": "511ea9c9e38bf9663848261c2df56e2966f24f87ce3cb61c5a08b1ad25811ba4",
+      "text_raw": "Đi concert về, tôi thấy ae tập bay",
+      "post_id": "pfbid031gwpQ2ddL7pAbWmuRWo2do629inmAR2A4cNfa5Dr6v3j4d8RnaYb1TsjjHHknyuvl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "d8f130c961a498d07e09c481",
+      "text_hash": "a7d1fdc304e369b59218aef1057345c61b31f03fcb196aec4137864e56797204",
+      "text_raw": "Nguyen Duy chắc chỉ là AI thôi anh",
+      "post_id": "pfbid0xpQDewvPACtqwJMtggfZ8ZQNjMmukZCLveCReaH6iz346PNFhoYo3Woid5Xa68Fql",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "9e3cf7c02aca9519ea8d6d63",
+      "text_hash": "054357a4a5c9c8cb2bc95d58dea176f85313d7a6882e15785b483d70668967a7",
+      "text_raw": "Mấy bạn sắp đi quân sự thì tham khảo nè. Đây là tổng hợp những món cần thiết!\n1. Vali size 24: https://s.shopee.vn/AKbIDgGEUT\n2. Đầu lọc nước: https://s.shopee.vn/AAHs1NGrpS\n3. Quần lót giấy: https://s.shopee.vn/9zyRp4HVAR\n4. Giày Asia: https://s.shopee.vn/9pf1clI8VQ\n5. Chăn gối 2in1: https://s.shopee.vn/9fLbQSIlqP\n6. Ô/dù: https://s.shopee.vn/40hEg3rpGU\n7. Sạc dự phòng: https://s.shopee.vn/4B0esMrBvX\n8. Quạt cầm tay: https://s.shopee.vn/50Zlrto1Ei\n9. Ổ điện: https://s.shopee.vn/5AtC4CnNtl\nS.SHOPEE.VN\nVali Du Lịch Bamozo 8812 Thời Trang Size 20/24 Chất Liệu Nhựa ABS 3 Lớp Bền Đẹp_8812 | Shopee Việt Nam",
+      "post_id": "1473019894935170",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "18781c250bb942482c1202e5",
+      "text_hash": "5622788e30fcbeda758f0e23e2c304d48b7d6736372a5e5357a2bfef84ee6c9f",
+      "text_raw": "Chs đàn có bị vụt k nhỉ",
+      "post_id": "1478767994360360",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "209457c7feb0ce7b11a8aadd",
+      "text_hash": "9195ea623013d81eacb7535b9b984adb5c40ca2cbc68c498eb1140a9c557e417",
+      "text_raw": "beBaocuteee7864 cho mình lấp đít, ah ko, làm quen dc ko",
+      "post_id": "1267483575460817",
+      "reference_label": "toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "8bee36d9c58f85683992eafd",
+      "text_hash": "bc9d185a01cc82c843a180e5a5eb80d631b4cd696893f680972780097b999204",
+      "text_raw": "Nguyễn Bá Tú t không có lời nào để bênh m hết",
+      "post_id": "1306403111568863",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f46747074a7099ab3aa5528c",
+      "text_hash": "d04542032bfdb9bd51dc48ce959477131b8140c5bd37b74ba433a49bcc13fa96",
+      "text_raw": "Tùng Nhân lên xu hướng",
+      "post_id": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "9a6849469be3582318ac3baf",
+      "text_hash": "ea4af0fcef5d530e4ac7adc8ff0289da44805f51811e4644ac74ff7c5aa72dfe",
+      "text_raw": "Sota khó lắm bạn ơi khả năng dc về siêu thấp nhé",
+      "post_id": "1472680558302437",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "da00cc25b768de56e6b90938",
+      "text_hash": "d7d0ed59931d2c68137f55e401a56bac5c1a1ec96593ac38b3da83b968d464fd",
+      "text_raw": "xoá hqua r được k ạ =))",
+      "post_id": "pfbid0YijJXCphtC9Nhjnpnj7MpSUHJ8fVRALJCbHWSzbmCjpxXDSWSpACK8gtF2Zg8tg7l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f23955e5296b4a48d97e81af",
+      "text_hash": "f8ce2b3f9dedb6a2b337bc6e08d4dd95b84dab3b2f263111f947288b3bcde0f0",
+      "text_raw": "Người tham gia ẩn danh 931 0 tính vào gpt thì có đc học bổng ko ạ tại em nghe nói phải đủ tín mới được học bổng ạ",
+      "post_id": "1476405961263230",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "920af44bade2b8ade5161305",
+      "text_hash": "49f5faa71a57aec9e006c88b1672b442fb209036a9b6da34b49dfff550b0e521",
+      "text_raw": "Còn em thì sao",
+      "post_id": "pfbid0zwGCkBdwR2R8sbugGJ67UTJUYyva8uNhGhYHZpX8xgvP6BHnLLFF27iHnNmmq7FAl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "9fc347dde54a0ef62d099d5a",
+      "text_hash": "814599869ffff74ca606a97c673623c40595a5bd80c2b87e8d2e2b028b55a183",
+      "text_raw": "Nộp trước khi thi là được mà",
+      "post_id": "1310634027812438",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f115e02e68a7995f654d6f48",
+      "text_hash": "92e8074073f22e439904e4c8f7c717a3dc7229b20377397e8751d9e681ba6426",
+      "text_raw": "SunnyAvocado1076 cuối t11\nCần cc nhắn c",
+      "post_id": "1309621617913679",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "cd04ef52051ad1aca68a3fb7",
+      "text_hash": "9222f9940d4028d60775bc4c8decc076b944c7a3ce18fb09280703d19ce4da0b",
+      "text_raw": "Nguyễn Huy là sao v huy =))))",
+      "post_id": "1472038805033279",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3a0bfd1946fce4306052dadb",
+      "text_hash": "f0dd4e11d367d9f71fed5f08453c16c988939ce4986502aead38e229c0174f18",
+      "text_raw": "Đỉnh cao của sự dâm dê là giả Ba Tê để ở vs gái",
+      "post_id": "1267483575460817",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "aea9a1f1d374861510d5a3ff",
+      "text_hash": "8e535a852696b01db1fc0799e265a52c8c1e222de3d47a9612923be68394dc70",
+      "text_raw": "Ngo Hoàng Anh ?",
+      "post_id": "1308904531318721",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ceef315a951a2680745949cc",
+      "text_hash": "76ca9794bfb1b4c6699d3567362fcddd1d43146b659ac5c1991683378003e8fb",
+      "text_raw": "nói ông bị đao thì gái còn tin đó ông ạ.",
+      "post_id": "1267483575460817",
+      "reference_label": "toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "7b17b4d689ab3bc44d5637cc",
+      "text_hash": "4763bcd2ae6058f251261409c7abaf003cd4109f95608342ec57cb4e50b07d8f",
+      "text_raw": "Bùi Tuấn Hải đến lúc thả bả khí ra ngoài r",
+      "post_id": "pfbid02kDM7h4psDm69FVSn3NTv1Di8NT8yGbtLzqWBGGf4rvvvXYdD4aCdpJBZ4k9WvAGRl",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0232c0d2c14592ccd4074e8b",
+      "text_hash": "7bafc4ed5a2036dfe11208d741ac0b1a6e23e2888c13a9ec5f28897131135e28",
+      "text_raw": "Minh Trí Một Nước Đi Tuyệt Vời Của PTIT Tôi Yêu .",
+      "post_id": "1308575578018283",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ac43a1a91b20f7fabeeb142b",
+      "text_hash": "fa564f613707cfcc1f88e59cc53850cc880779c115e40f915d59e0af4f6e94b2",
+      "text_raw": "Daudau5232 quả này chưa hãi tôi còn gặp quả rủ đi hẹn hò cơ",
+      "post_id": "1267483575460817",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "320ca4d3eef99da2ba7ba8d1",
+      "text_hash": "d67dc266890bb2c961daeb83a7ff4896dac333e4fff9619869f21d7d8a222a85",
+      "text_raw": "Hăn Nguyễn dạ vâng ạ",
+      "post_id": "1305300078345833",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "a46d6085e8267c7e66dc648e",
+      "text_hash": "6fa1bae27069f9ca2430c8cb2a7bd37bb66ae6ad1e84be90f762fd7e5ef56681",
+      "text_raw": "=)))) vl thật á làm cài gờ giảm tốc này cho sv khỏi lên tầng 2 à",
+      "post_id": "1308575578018283",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3c186b564cbf4c458ea849c5",
+      "text_hash": "925d501f96a642bde49701e1b6dddcee5d3a33ccb7f441c632a970ee9ceea9a4",
+      "text_raw": "Vũ Minh m đấy",
+      "post_id": "1472038805033279",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0c3414db25295e8495799005",
+      "text_hash": "407eb1549bfb7356a2b26a10987bd28bb97100b71b583b278efd1766d38975f9",
+      "text_raw": "thất đức quá quý cô ơi",
+      "post_id": "1307111234831384",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "66851989dac84571cd0ab710",
+      "text_hash": "2e9d4ca51305309fed3bcfde68d79ccb8a2bdf50851c791b61f84d61f241cc99",
+      "text_raw": "IntelligentFox3540 bạn ơi mình học cải thiện kỳ đông này cũng bị trùng nhưng vẫn đky được lịch thì liệu có học được không, liệu lịch thi có bị trùng không.",
+      "post_id": "1306895968186244",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "09fa37cb30248af3709b67f6",
+      "text_hash": "42232953a1aeb912901fdaeef030ef4a1d545c7d214c666c69b40b162ea98a60",
+      "text_raw": "Nguyễn Thu Hiền chắc acc clone của Lại Bảo Trung",
+      "post_id": "1479459977624495",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "bba3c95a022c015775a47bbc",
+      "text_hash": "ff1288d41fa84b14db76ba7c2bcab229c2810a71c44a4053a779e605feafb949",
+      "text_raw": "Phong Nguyễn ?",
+      "post_id": "1305271928348648",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "bd8bf929a97402e8e7afba38",
+      "text_hash": "b733d9a318c3509180f463caa1e10407b9fc82af09a945b0853ca1fe46abe3a3",
+      "text_raw": "Ngô ĐứcAnh đóng phát 50 luôn chứ nhề",
+      "post_id": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ed32d0d62980732e73e6c88f",
+      "text_hash": "7925a393bd0ba7084d8ed164ae256966c321d05b66c8efc7d77b9a903270e459",
+      "text_raw": "Tuấn Hùng",
+      "post_id": "1291618169714024",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0093b00c64beb3a784a65cdb",
+      "text_hash": "65e0e0b1041169ae51f559c539a0bcd364e5aba91d3144eab4497c830e574a67",
+      "text_raw": "mình bn oi",
+      "post_id": "1468516765385483",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "16bc0aaf9b939f5ecd0ec56e",
+      "text_hash": "06baf7d0e36b93c8125e1b471b7e428f8c22399f8f4ab0ff5143d9e198030280",
+      "text_raw": "Thái Thành Quyền 10d",
+      "post_id": "1308211134721394",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "084a2ad21d359ec26516bfe2",
+      "text_hash": "75d52e9871503da3745903be675fc94408a37bbe257e8f00534c783a8c9c51a3",
+      "text_raw": "Hình như là Hoàng Hoàng Tuấn flex ẩn danh =)))",
+      "post_id": "1310338084508699",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "e863a66149deda8f41218182",
+      "text_hash": "3d39736a7fcdc194c56bcaf72d539d1e3452003e6f77427f54253dab735cd5bc",
+      "text_raw": "Nay chào tân AD có phát cái này 0 ạ",
+      "post_id": "pfbid037qdfbhqApUMrcGfRLKLXzwmRg4HDMwaSKfVWtNytkfQ9oQio6KUJixJdaLDeaHQYl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f87522fcf260d6756f61ef90",
+      "text_hash": "5b41df21518a31786c9230a99a793cfa1a3755caed0183b4408ac3c5ff19af97",
+      "text_raw": "Nguyễn Hà ăn ở sao í Hà",
+      "post_id": "1479260607644432",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3058b462478675ca43ffb9aa",
+      "text_hash": "06b582bf002882dbd43651322cfc6b571faf752ffa023dc07936c6d895af9b83",
+      "text_raw": "Khả năng chung chat gpt",
+      "post_id": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "7bf1fe9bc7bc259819544561",
+      "text_hash": "a098935e4d6525bf6a74f5a50d6c139897f558ed5128f367c35f822a5bacb95f",
+      "text_raw": "Channel Hung kh dang iu a",
+      "post_id": "1480584067512086",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ba5964f75b8e24e54d91af66",
+      "text_hash": "318d79afa8c181d36e84a1cb65ac61e0f5f42aab8690a01f166acf56608322d3",
+      "text_raw": "Xin 1 slot cho chạn vương Việt Hoàng",
+      "post_id": "1283434880532353",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "4dd23afcf18624effb98f720",
+      "text_hash": "ad99fbd0d1e4afd3194a77b3002a299277aca82593ec4f5523fa88414f797493",
+      "text_raw": "kh phải của em nma e muốn lốc xoáy đc kh ạ",
+      "post_id": "1310648627810978",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "75428d9900f3509b9bbeeeac",
+      "text_hash": "4e48a59d2a167cb3946b86f16ac8d3bb65d3f5e3454a49fe3589015e94fded2c",
+      "text_raw": "Nguyễn Mai Đức Trọng dạ xưa a có học thầy Sơn không ạ",
+      "post_id": "1310330674509440",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "47cada633396b48e4ee75b5e",
+      "text_hash": "ed91bf0d7f90cfd053d8ae58069eb64a7bae661f90928606cb8963faeec0fdf6",
+      "text_raw": "có 450 cdr thôi học có mấy đâu mà k kịp",
+      "post_id": "1482996513937508",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "c19290fbd01a4409df03cb07",
+      "text_hash": "68ad11f719763ae5a1e97581844430ae45ccf2855f57cd2b4083c4cf13b01c6e",
+      "text_raw": "Mõm à",
+      "post_id": "1297310999144741",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "d4e725447677dcc5b532162f",
+      "text_hash": "b14880b9cdb08c128c3e624df448f97139730044d0fcad8b76a92371b9c47b69",
+      "text_raw": "Ngoc Bao Nguyen này gemini phát mà trg nói như trường làm ý :))",
+      "post_id": "pfbid02BoJ6i94fLXrz1XfohM7fLNCyZ7DGTGzUtNzHWWynFynFR4fTCHNt7iKW4i6mjBDgl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "180bde7c3931f5fefc043080",
+      "text_hash": "91ca0bfb8dadc2053fc72b1b978c65586911b09269f884db9e4ac40548586aa6",
+      "text_raw": "HonestRadish3788 có khả năng trg sẽ trừ vào học phí hk2 á bạn",
+      "post_id": "1296650552544119",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "cd5c6d1b464e5ec2933cf273",
+      "text_hash": "fedddf25a5d0e31389e067f8553b283cc4de38fa7c4a57f25b186907f5e845ce",
+      "text_raw": "Huy Hà Quang Nam Nguyễn râu nhí chỉ nnay thôi b ạ",
+      "post_id": "1311271074415400",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "54514b3a1fb2e5a0f2360813",
+      "text_hash": "93761e34849bfc3cdc1da082c865db4e401e5b43a1115ceb6289e8ec8153d72e",
+      "text_raw": "Thương ae trg P",
+      "post_id": "pfbid02bKSSku6dSeCGTxyDzHXTS6Ur4eekA2qKifRdyAbLNAXoZfXJXZAsNVcayiuhyfdwl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "acc21634741db9dc412a8bae",
+      "text_hash": "a89edfadf92b2a1cecbf4abdc1718dcc2259ec2d739e05d40a271ca04afcc3a7",
+      "text_raw": "May quá ATTT ko sao",
+      "post_id": "1306403111568863",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "74a1935a33c37c4d8b3c9d19",
+      "text_hash": "7f8dfa69ed8f2aed5dc0ada2af4835370f121a10788682e881a419299281e440",
+      "text_raw": "Trần Hữu Thọ triển luon",
+      "post_id": "pfbid02TFN84GJaT4xuZZVD2xxRu599Rhd7YxuhFwgdBBej8W7AH8CTLGtQePqPmaRNbZfxl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "9ac7635e74f86c9d1b21bfa2",
+      "text_hash": "b51009a38c4ecc2a59dbb2fa1f07a6cbf29239779c72b32752d9e521bfc87e0a",
+      "text_raw": "Huy NQ kèo quỷ dành cho qhuy",
+      "post_id": "1468516765385483",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "b2f8c27358757b947b0dc03f",
+      "text_hash": "20884f84fa0f30629e6777338399aca906805bc8d884d1b2e3ce169f0161e907",
+      "text_raw": "Shao em không nhận đc :((((((",
+      "post_id": "1479260607644432",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "6b7785c64b17ffcd6481b72e",
+      "text_hash": "bbfcd49a658365651b2e329b5523274070d454e44eb77ba46562f124144a6076",
+      "text_raw": "Người tham gia ẩn danh 788 t cừ nha",
+      "post_id": "1267483575460817",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "6e96cc5b3036ac0473f8894b",
+      "text_hash": "716830036d248c7f16f16b0797e050fdb7506a689d2128d3912c066fc1164218",
+      "text_raw": "chet cung d nhan minh an cap",
+      "post_id": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "5ab415513c1acebe85ba011c",
+      "text_hash": "c6abf23b27ff2ae6ce6ca8f9afbb18776e9e729005274fdddb884eebe0331494",
+      "text_raw": "Chung nhé, mình với Thanh Phong hôm nào cũng collab",
+      "post_id": "1473019894935170",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "7a792122b42fc8a7e92d7ac9",
+      "text_hash": "134f446af61ed49507d7f4f9fa4bd27310987d6abf0014580ef1152e0cedf8d9",
+      "text_raw": "tư duy bẩn vcl",
+      "post_id": "1267483575460817",
+      "reference_label": "toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "43bd409621bbf5e8d78e14f3",
+      "text_hash": "5bce47ccbd64707ae9ecf0c00599cb90223183bc8a7930823127eaa236542d06",
+      "text_raw": "Thiệc hả shop",
+      "post_id": "pfbid02RovnAC3fLQfdBEu8Ynj8DNtLPBuvVxcZPNGud8g7zGJNAq6u5899CiAZbXuMjCo4l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f713ca8f7c8c047c468fc410",
+      "text_hash": "13761affef67a317f5e796b1653e85923673038cf0a8bb1b416fee84d8a333f1",
+      "text_raw": "Người tham gia ẩn danh https://softwaredesign.home.blog/\nSOFTWAREDESIGN.HOME.BLOG\nSoftware: Art of Design and Programming",
+      "post_id": "1086282313580945",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0ad22564b848a4cac1ab6b19",
+      "text_hash": "92364c68e05691917bde2a5cc75d5cd14f549064d03b9695bbe6dbfd8d7a91a5",
+      "text_raw": "Quốc Khánh",
+      "post_id": "pfbid0YijJXCphtC9Nhjnpnj7MpSUHJ8fVRALJCbHWSzbmCjpxXDSWSpACK8gtF2Zg8tg7l",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "8146f122433c0d0725a9d2da",
+      "text_hash": "8b1c406ee03f504964ba2f3d0c2c2c173c9cdd03402201437bd18372c242ba9f",
+      "text_raw": "Lưu Nhật",
+      "post_id": "1304964045046103",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "04e57f8a457d82661bf7da30",
+      "text_hash": "baae6ee2830295286a7c1d6eadb292b532bb47053a8febf96f8f6a0309d05eaa",
+      "text_raw": "tca là lỗi của Quân Nguyễn",
+      "post_id": "1306403111568863",
+      "reference_label": "uncertain",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "f2247442c9d36d622194de07",
+      "text_hash": "47c72a6524eeecffda1a0587ae558900f3314245455ff085ef88d482dc4a8384",
+      "text_raw": "Nguyễn Huy bạn này độc thân nhé cậu",
+      "post_id": "1472038805033279",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "ce02adce102e9af420093f67",
+      "text_hash": "3f1967f812a03aa8c76a72d7ca4007d96c719833616b1e6543001b76f5bf5d26",
+      "text_raw": "Hoàng Sơn Tùng lốp còn ko tốt nữa có mà vứt à cu",
+      "post_id": "1306403111568863",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "64e226f8d633c46ced5bb5ca",
+      "text_hash": "2bd3d75380f1e80aad5675d91aef6cdad662863ba9f2434c4cd3610bcf36a466",
+      "text_raw": "Tan Kin Anh-Quan Khuat",
+      "post_id": "pfbid0ievv2iKT5E4ztFRKpXh1XopJxW4ci9MDUtCY1MMHZEANQBNAvCMxPcMMJw1cnKrtl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0f2ae92351bc05e4a6789a83",
+      "text_hash": "22e6daea9e00eae147613e883b4455f5c06e898dd5ca73c6864517ddf84a336a",
+      "text_raw": "Thiết kế quả lên tầng 3 mới nguu 1 đường xuống nó bé tí ko đâm thẳng xuống dc đi ngang xe dễ ngã vcl",
+      "post_id": "1308575578018283",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "1388680e383720b6caf94b7f",
+      "text_hash": "f80f66caa266d6a5385f9ad8fb0119babf90e75655f7c3f7d3e30ed72f5f57e0",
+      "text_raw": "Môn này môn cho quà thôi em",
+      "post_id": "1306456564896851",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "c56cd75e1015ef9294efaed5",
+      "text_hash": "be952ee5c5cc083ec5a6f14ae5846109989be41590091f13d107635b4ac9eeeb",
+      "text_raw": "Đồng chí lớp cô Hằng hay lớp ai v",
+      "post_id": "1306456564896851",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "0fcb352d6b7df5d1a5beb54d",
+      "text_hash": "a4a44ac03a2bddb7aa699d0738a033f0f45134036ca3bcaf6873a42253ade5a1",
+      "text_raw": "Anh Lee khee lamw",
+      "post_id": "pfbid02TAM9QhpZBFRcteFTdw833JN6fn3aAvXKnYRR2ZTbsDtQ7NTdjm24x5aJqYs6Q1zvl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    },
+    {
+      "id": "3123dbbe0b02432ff2a2f691",
+      "text_hash": "08c0101f2246240e39d7e8dc2f98bbef688f62d80427d6e67e376ea889a77150",
+      "text_raw": "của tác giả\nHình như là con lắc đơn",
+      "post_id": "pfbid031gwpQ2ddL7pAbWmuRWo2do629inmAR2A4cNfa5Dr6v3j4d8RnaYb1TsjjHHknyuvl",
+      "reference_label": "non-toxic",
+      "reviewer": "codex_ai",
+      "human_verified": false
+    }
+  ]
+}

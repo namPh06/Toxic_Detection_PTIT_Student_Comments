@@ -1,0 +1,44 @@
+{
+  "kind": "user_confirmed_targeted_development_not_independent_accuracy",
+  "rows": [
+    {
+      "id": "f722fcb92bbe27d0977fe9e5",
+      "text": "M khốn nạn lắm.",
+      "reference": "toxic",
+      "semantic": "non-toxic",
+      "onnx": "toxic"
+    },
+    {
+      "id": "385b7a006523ffc3bd44a81f",
+      "text": "câm đi thằng ri con cak mày thích đánh đồng hết kh",
+      "reference": "toxic",
+      "semantic": "toxic",
+      "onnx": "toxic"
+    },
+    {
+      "id": "4eaddf5376f010b9007ffd41",
+      "text": "Người tham gia ẩn danh 971 câm mồm",
+      "reference": "toxic",
+      "semantic": "toxic",
+      "onnx": "toxic"
+    },
+    {
+      "id": "d6648c7c37b31b9d12974790",
+      "text": "tất cả những cái cmt mặt cười + thả haha nên xem lại nhân cách của bản thân. Các người có còn là con người ko",
+      "reference": "toxic",
+      "semantic": "toxic",
+      "onnx": "toxic"
+    },
+    {
+      "id": "e08e40ed2b018149b9471eaf",
+      "text": "a m ngu tiếng anh",
+      "reference": "non-toxic",
+      "semantic": "toxic",
+      "onnx": "toxic"
+    }
+  ],
+  "semantic_correct": 3,
+  "onnx_correct": 4,
+  "total": 5,
+  "updated_at": "2026-10-30T14:27:18.436Z"
+}

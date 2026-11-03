@@ -1,0 +1,31 @@
+{
+  "rows": [
+    {
+      "number": 4,
+      "id": "d4e0e2eac7026ab8c36cf3d0",
+      "comment": "Ko nha ít thì cũng phải jack cho t ko thì sơn tùng mtp chứ này chưa đủ cho cái hp của trường",
+      "previous_label": "toxic",
+      "label": "non-toxic"
+    },
+    {
+      "number": 22,
+      "id": "d4e725447677dcc5b532162f",
+      "comment": "Ngoc Bao Nguyen này gemini phát mà trg nói như trường làm ý :))",
+      "previous_label": "toxic",
+      "label": "non-toxic"
+    }
+  ],
+  "labels": {
+    "non-toxic": 4899,
+    "toxic": 212
+  },
+  "human_labels": {
+    "non-toxic": 1148,
+    "toxic": 118
+  },
+  "automatic_labels": {
+    "non-toxic": 3751,
+    "toxic": 94
+  },
+  "other_94_not_confirmed": true
+}

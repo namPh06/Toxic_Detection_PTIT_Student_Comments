@@ -1,0 +1,93 @@
+{
+  "reference_type": "AI provisional review; keyword-enriched diagnostic sample, not representative",
+  "human_verified": false,
+  "interpretation": "provisional AI agreement; NOT human gold accuracy",
+  "threshold": 0.5,
+  "total": 50,
+  "evaluated": 40,
+  "uncertain_excluded": 10,
+  "metrics": {
+    "accuracy": 0.9,
+    "precision": 0.25,
+    "recall": 0.5,
+    "f1": 0.3333333333333333,
+    "f1_macro": 0.6396396396396397,
+    "confusion_matrix": [
+      [
+        35,
+        3
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "per_class": {
+      "non-toxic": {
+        "precision": 0.9722222222222222,
+        "recall": 0.9210526315789473,
+        "f1-score": 0.9459459459459459,
+        "support": 38.0
+      },
+      "toxic": {
+        "precision": 0.25,
+        "recall": 0.5,
+        "f1-score": 0.3333333333333333,
+        "support": 2.0
+      },
+      "accuracy": 0.9,
+      "macro avg": {
+        "precision": 0.6111111111111112,
+        "recall": 0.7105263157894737,
+        "f1-score": 0.6396396396396397,
+        "support": 40.0
+      },
+      "weighted avg": {
+        "precision": 0.9361111111111111,
+        "recall": 0.9,
+        "f1-score": 0.9153153153153152,
+        "support": 40.0
+      }
+    }
+  },
+  "errors": [
+    {
+      "id": "a030d8551affb65156afa184",
+      "reference_label": "non-toxic",
+      "predicted_label": "toxic",
+      "model_score": 0.9776390604993238,
+      "needs_review": true,
+      "review_reason": "context"
+    },
+    {
+      "id": "d04104f1e3abb57b8809ad2e",
+      "reference_label": "non-toxic",
+      "predicted_label": "toxic",
+      "model_score": 0.972234970753942,
+      "needs_review": true,
+      "review_reason": "context"
+    },
+    {
+      "id": "3a84b90dbb4cc644917f8660",
+      "reference_label": "non-toxic",
+      "predicted_label": "toxic",
+      "model_score": 0.5578889886815849,
+      "needs_review": true,
+      "review_reason": "uncertain"
+    },
+    {
+      "id": "9fcf6427eb35e0dcb723c6ec",
+      "reference_label": "toxic",
+      "predicted_label": "non-toxic",
+      "model_score": 0.03208642769424488,
+      "needs_review": true,
+      "review_reason": "context"
+    }
+  ],
+  "review_routing": {
+    "flagged_resolved": 5,
+    "errors_flagged": 4,
+    "unflagged_resolved": 35,
+    "unflagged_errors": 0
+  }
+}

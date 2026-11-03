@@ -1,0 +1,9 @@
+{
+  "policy_version": "ptit-v4-abuse-context-20261102",
+  "policy_hash": "79e6aa5359c5a039a35a8d3f4b9f236a9a25f8a1bee4a5b37de91ea9c000d681",
+  "model": "qwen3:4b-instruct-2507-q4_K_M",
+  "started_at": "2026-11-02T14:59:49.812466+00:00",
+  "total": 6658,
+  "prompt_hash": "8d6d6b67be1e98bcfe382c1de90207dcd4fc0052d6c10f929638de6451a194fc",
+  "model_digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0"
+}

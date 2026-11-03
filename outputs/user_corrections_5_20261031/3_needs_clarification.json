@@ -1,0 +1,70 @@
+{
+  "policy_version": "ptit-v3.2-friendly-banter-20261031",
+  "rows": [
+    {
+      "id": "31ca8d1b701fd49c513388d5",
+      "post_id": "pfbid0fZpRqLgMGt5EyphxM2t5XU42V8ep5SDg1BPRWjb6tdBAiu6x3z91pqiE7oJYrnHil",
+      "comment_id": "Y29tbWVudDoxNjYwMzQ5MjYyNzcxMzI2XzE0MzA4NzI1MDIyODcxNDA=",
+      "text_hash": "0e0101cb0eeb4037449b12e2a589c26acafe64d3b2663f38b33b9c07d6b1da3b",
+      "comment": "éo mẹ quả xếp chỗ xem khắm vili",
+      "context": "Không có bình luận cha được ghi nhận.\n[Nội dung bài viết chưa có trong dữ liệu.]",
+      "review_cell": "Can_bo_sung_435!B68",
+      "note": "",
+      "label": "non-toxic",
+      "review_sequence": 67,
+      "audit_reason": "Câu chê cách xếp chỗ xem là khắm. Cần xác nhận đây có phải dịch vụ/sự kiện do trường tổ chức hay chỉ nhận xét sự kiện ngoài trường."
+    },
+    {
+      "id": "8780f878b985a9d323a915bd",
+      "post_id": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "comment_id": "Y29tbWVudDoxNjU0Mzg3MDI2NzAwODgzXzEzOTUzOTEyNTE5NjM5NTI=",
+      "text_hash": "4c2fe52c20f7685bfde22cf33774687d781b45b55068abf1e7f5ce051a9ea565",
+      "comment": "Nguyễn Anh Minh Được cấp phép nhma xây như này thì tiền đi đâu :((((",
+      "context": "Không có bình luận cha được ghi nhận.\n[Nội dung bài viết chưa có trong dữ liệu.]",
+      "review_cell": "Can_bo_sung_435!B81",
+      "note": "",
+      "label": "non-toxic",
+      "review_sequence": 80,
+      "audit_reason": "Nêu xây như này thì tiền đi đâu có thể là chê công trình và ám chỉ chi tiêu của trường; chưa có giải thích để áp dụng ngoại lệ góp ý."
+    },
+    {
+      "id": "17df834229ca71ce98c213e2",
+      "post_id": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "comment_id": "Y29tbWVudDoxNjU0Mzg3MDI2NzAwODgzXzIxMzEyNjg1NTA5MzQ3MjA=",
+      "text_hash": "f37629b655af5c6d61b440a5e14a6756424fc9d29eb082d8c3663a5aa388aaa2",
+      "comment": "Trọng Khánh tăng nữa tăng mãi bạn ạ. Cứ tưởng có nhà xe ngon ai ngờ vớ ngày đc thiết kế đi vào lòng đất",
+      "context": "Không có bình luận cha được ghi nhận.\n[Nội dung bài viết chưa có trong dữ liệu.]",
+      "review_cell": "Can_bo_sung_435!B85",
+      "note": "",
+      "label": "non-toxic",
+      "review_sequence": 84,
+      "audit_reason": "Nói tăng học phí và nhà xe được thiết kế đi vào lòng đất có vẻ trực tiếp chê trường; cần đối chiếu lại nhãn n với quy tắc riêng."
+    },
+    {
+      "id": "47952a186f83394ac7fb434c",
+      "post_id": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_id": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzI3ODUwOTU2NzM3OTA4MTA1",
+      "text_hash": "b649725a57d97a23df99563c030fa845fc79a69fe86325e6bed1a739e6f5c8e8",
+      "comment": "thương trường nghề Nguyễn Trãi",
+      "context": "Không có bình luận cha được ghi nhận.\n[Nội dung bài viết chưa có trong dữ liệu.]",
+      "review_cell": "Can_bo_sung_435!B113",
+      "note": "",
+      "label": "non-toxic",
+      "review_sequence": 112,
+      "audit_reason": "Thương trường nghề Nguyễn Trãi có thể là tự trào hoặc gọi trường bằng tên hạ thấp; cần xác nhận nghĩa trong bài gốc."
+    },
+    {
+      "id": "6e53260e9af885896e587e7e",
+      "post_id": "pfbid0pAMxuHQRSbiHKMWv6PtsvtvzkbhcwVttPnYBV1S5w4XKAGa21haZSe5Kowv5tS3ul",
+      "comment_id": "Y29tbWVudDoxNjQ3ODAwNzY0MDI2MTc2XzE5Njg1Nzc0NTcxNTUwMjk=",
+      "text_hash": "b800f293dc4afa65ef07cd2580d23fe5d03bb68f28498693dd935ae913971151",
+      "comment": "Tiến Long Trần Mihn cao đẳng ptit vẫn là căng đảo bitis",
+      "context": "Không có bình luận cha được ghi nhận.\n[Nội dung bài viết chưa có trong dữ liệu.]",
+      "review_cell": "Can_bo_sung_435!B122",
+      "note": "",
+      "label": "non-toxic",
+      "review_sequence": 121,
+      "audit_reason": "Cao đẳng PTIT có thể là hạ thấp trường hoặc trích/đùa để bảo vệ trường. Cần xác nhận vì những câu trường nghề/cao đẳng khác trong file được chọn toxic."
+    }
+  ]
+}

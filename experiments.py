@@ -16,7 +16,8 @@ def split_dataset(rows):
         raise ValueError('Cần ít nhất 10 mẫu sạch đã gán nhãn cho mỗi lớp. Đây chỉ là mức tối thiểu để chạy, chưa đủ để kết luận chất lượng.')
     import numpy as np
     from sklearn.model_selection import GroupShuffleSplit
-    parents = {str(r['post_id']): str(r['post_id']) for r in rows}
+    group_key = lambda r: str(r.get('split_group') or r['post_id'])
+    parents = {group_key(r): group_key(r) for r in rows}
 
     def root(x):
         while parents[x] != x:
@@ -28,10 +29,10 @@ def split_dataset(rows):
     for row in rows:
         if row['quality'] not in ('ready', 'duplicate'):
             continue
-        post = str(row['post_id'])
+        post = group_key(row)
         previous = first_post.setdefault(row['text_clean'], post)
         parents[root(post)] = root(previous)
-    groups = np.array([root(str(r['post_id'])) for r in eligible])
+    groups = np.array([root(group_key(r)) for r in eligible])
     labels = np.array([LABELS.index(r['label']) for r in eligible])
     if len(set(groups)) < 5:
         raise ValueError('Cần ít nhất 5 nhóm bài độc lập đã gán nhãn. Các bài có bình luận trùng được nối cùng nhóm để tránh rò rỉ dữ liệu.')

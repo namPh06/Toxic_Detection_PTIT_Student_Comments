@@ -1,0 +1,2078 @@
+{
+  "workspace_sha256": "54330037502ba61a964c5c268ec633df98b7af5407afe5220a8d65cf59d2c521",
+  "seed": "ptit-audit-20261101-v1",
+  "sampling": "Sort SHA256(seed + id), take first 300 of 4059 machine non-toxic; entire 106 machine toxic",
+  "rows": [
+    {
+      "id": "4cab82ea5654e379536822d9",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "32848890c46f9078c99bca64",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "80891c23d3e10b37765ae0ff",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "cd1a7d137233712c8a8db805",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "327d1ae9c296a4d3c0cd92a8",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "da0ed21b11e7091c07ccd812",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a14aa86890da74f674ce3b4e",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "96a9f4c5891ecb7d6602f53c",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1aa4efe3cb31a6016989ff82",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "16123b35ffdf8f6e31f71e6b",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4fd3143cb3ad6c56798dd416",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e56094018b6ef220b3e8217c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b9d875a64036fb89c06362a4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "afb935ef9fa16fd457cd8638",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d7d243229e1170fcf3654384",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "90190743d4e4d5fbebd4a997",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "17d2589aefe1b0d39cbff87f",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ef8e532dac9dc1012bf98d91",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "65e3b643a0ace27e4ac268b0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "5cfb07dfee903fa510774563",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2db23b4df61388dd5290fbd1",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f35f3e542257aaf44df09e44",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "14f4ff2e0ecc1498abc07762",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b15bf1a876048c193bb4ace",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b61ba32ea93e67298e3868b8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "cfc1d792b3356785414aa02c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c18a75545f53cd8bdb663451",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "137f8b5bab6b3d31c65307c9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8cb615d5d54d391539e725f9",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "365f707843d591193d1183ca",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2eef4cf837ff25b44620dc6d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "5808e3bbc786c9040d3725c0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1995b93d2f8b74e55185ddaa",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6954d873f18af821961bf9ec",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b61a730a6626d85f74cf6a0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e82fc2e92939129f45bfebd5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "87ca40616322213ddd0a853d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3d4d372ec05a06bfc7b95dbd",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "27bfa3719a16943aa4f93092",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "63b8d58be448d451f3dfbf85",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9e32c9fa23e121020e35a4ce",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b770a6f7ef3783ad5510ab49",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "5293ddefb1768d3b02233c46",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ba01a5ec55cb09d70a4da8cf",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1ad23920e47e1da041f950f2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e38a696914b81496b9bf0aa1",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c5d35480331b75a1940e8e81",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8a58be0b93b34ecbb6f637fc",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b6c1d8721933f743e701645b",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "cd2bc6cdbcef1c41cbf23554",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "83972aefcf06e6fadccb21fe",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0635cd5bba6cc4c9dea4d358",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a77f50e64986493920d31c0f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d3523569099b087b51441a2e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "621a3798e582f88b552e11df",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "992477d129b3c30aec2157ff",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "bfe4653b8f141634c0175ebe",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "95b1c21d20dd42a09019aa6b",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "97c57ea12db33b0f5afe6af9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2c2f2d99ab76d5b2748cc3a3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b4a0eed40b96283c8965a387",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a395a2a288b8f0e5f8fa3411",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e9b8f6d2ee617499b8433649",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4727a9e30a5d7ed4e025989a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a9bbba5a11afaff72c8da106",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1af8cb27428b9929a2d09b9c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3058b462478675ca43ffb9aa",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "60a5aec3b67919e878250bf0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b286fb2a16e4a31f751a9ece",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "83f05536c41215bf9ab05edb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "36c19c030a09281be1f34c79",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "baf4ac71da1bbb2375416318",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b3aefcf6496d255f94487dbf",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "56ff386b4b1c898fe99887b6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1de46041ecdaf33b78741cb7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d528eb9529483f47fe8456f8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "988fa9826bf597d16948593a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "57bf0538dc0f88db5787ab76",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "69367ed61ec9c1a3867f99c7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2b283806961ce3fc6cea3c92",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1be26bd7fb2f43c8c823ceb3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e1f1ba573d595e8f9b968020",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d99eca6ac619b7e57dd1c0b8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "057c1c700def1d7891a3e6a3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e1ad912b4731c37f04c7b68c",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "aa358c0e4314665c4b29556f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c2059452fe288fd880d5541a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4353570215e8f0cf1a6aff37",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "93f10ac1a6515105ae20f7dc",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1de53e8a9ed1f14fd3612559",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "900bbff74929214da01b6beb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "85a1cdaf6f84ec815c723abb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c6e2d7020bba5982b8e68f0a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e01b65665c2d701271584c4d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "add4fdd59464ad55fdc4bf07",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "fc106119cb54470d78184294",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3959dd3001715b058af2a1f9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "059727448c1083fda4a3374e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b4362a902a30f8fc04a9eb01",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "587efe77090d2e9a65ba150a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "207e334b10f41677084ca87b",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4132592a5d7a820aeff8261e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "750072dce00cec78a1996079",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2bebf65b370aad73f8f11865",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9e909caddab2c982f4b38fd1",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "78266310f995cff245d682e3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "45da1bc4ce982237e15380fd",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c6ef7f6ca3e7cc157d89afb5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6c4e4bdb9dea7bdbcce0868f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "429af6a7e31228dee7706ddb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "63f5005cdb25d23adb05723e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e2a8fa924eedf3332597fcc2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4966054998705d4bf5796bdd",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0675b21e2b4a6a9a20dad5ef",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1960f81b80afe4bc1fd94c01",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "92f9abc8afa3202bacdf7a1f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "12b5a63ba25aa8f2a917ad3c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "aa69ad3c0e14eb1c0cbfb069",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "55bc5e73bc83b975e4a30108",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2dc6247d329065995b57998a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9e531b146eaf5c7a69044257",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b090d962235cb24c868d885d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ff76662bc3112eed798fe4b2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "08e824d549c6ed6b094a2d16",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6b397be7a7742742671a7ae8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0eb5b1fcd186ade1a1274b09",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7076786bfc70a5469d740115",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "30661fb0c8df66c124f69d47",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a076db6f48fb5c3f5c7f338d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d612f1c61f8213aac1b8523d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b2e048eddaa346394c013f6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "59cfc7b0c2dc735cdea8be48",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2098aacdeb810446a0afb633",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b79c5a84eb7a13116806035e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "480a86ea5456b11f048d78a2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f68a9931ca2980613fe8e4aa",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "47e3fb12e68485f8457b1d77",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "67f5575b2590b493ae91bdc4",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4dad8dce54baae169225b759",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "991cbad8370d710e45515b6c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "34f469fe277587d3b4710bb5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d15ddbd328283c7b9d2a1a67",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "48e3dbec51fa59d00dafd98d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b4723cf1954b6735582afeba",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "de809bd2f4258aa55e71507f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f71faa7d75cce38c1cb17ae4",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "237b2ea00bde00a4d1f229a9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a4cdf459e4d719ea815e5b01",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "94cc718f56971496d4f0b282",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f5e55515082c808e7d82db2e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9536924412ae63ebc73f1951",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "19be2f6d3fba5215b13f945e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c2b75b504d2c9231239ed69e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e72f190431223307de3de68d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "25d810217811ba9fde1fb2ec",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d6ff6a23a8914fb49f515a6e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1647a5e93f169b69b92eaaf8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "89fc910046386303edb6f59c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8afd7691e81fa337f866e618",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ab16faa4b08e91425d301af4",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ab9c80f51809fb77d5d9f154",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9890d1b95e6f4e283f17db84",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "14407b87b3c1b630f40781fb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9e01ec23ff3e9ed8c905caa4",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "eca001b8d9ef3fa45bdfb72c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ced2474addeb56ea01a6b74c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b7f79db2f51ee69aeba2b981",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0dac3ce51a74ad9c49a3ba5c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3c8ef3911341b99ca0bab395",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ea334aa51237d46cce79ae25",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0beaefb5ffc259a5e2868337",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d01e276c3508001554b346d9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "de9e430eade94572fb59580f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e4839ca32ab57954208cde05",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "73aa02dc58e435f42ec97935",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6316546a90e315f4c51c09d9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "13176261333e51e2e1825b3c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ff289b26deb4f960d8a70a46",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "999f06ab321f24e186c4f342",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "217a5294732a78d45f3b6672",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1bb074d96d82503697a0b618",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "644ba5fdd094cab3a3bcab3f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d29748135a4237d614609083",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7e29ba73fb9524209c633cf2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "23a98b34855a3aa47e6c565a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0ed4edd2d71aa06ab2e0a3ca",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4715023d238621a2c90dbce8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "106fb3018b20f64f1946225e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d97ffd76cb9c218e5fc709df",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "5e7876aae03c5483f3126711",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fbc1aa81dd964d2d09e7e19c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3be384a16f7d7ba153bae19f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "37b44777c264a4fe3507b8ad",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c1622a1c9756295cda187cc3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4a6c031e600e4e24b156f9bc",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ba543f0c967a33f9d6d78416",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "90f5a662de59678965448cd1",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "6712e995c23e1c7697316f15",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fec33f6436479bea1196f3cb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b5629eee2bcc9b060b23d86b",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "18ae543307775341e30a5c8d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "55cb334972e3b4e393da0821",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9893fa2b73d15422858bf221",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "34dbe407c791660b159af628",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e45a24198cdc61a0ceda2bb0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "230c3f3fd58922091c93f318",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8de67ec020593ae3ee538d79",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "39116fae5cb5447eeae1e1f3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1bc2e90b87134600fe4ef276",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fa595824e90f1cf549b060ac",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9ef5064d2699f8ca29555dc6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9d2ce20ce0b27fe9cca679c6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "df5601437c0b8cadd0cd42eb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "76a1aae60c2be6b7dcffa229",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3c2647eb9579cd531a0c35a9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d3b40dfb147294c6c03068a7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b5018ab73a8b1cfb65a59316",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "cf0fa3decad5faf7da7fb43b",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d317ece11b97b9171fd819b3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "935f2375c8d13053a701ac8f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "08651df4b2f9bad8cd6aba62",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f2f55dee76a033d7916854e9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ab3352d11e0482193db42db2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1d346566233ff1b3c18b57cb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b894ce58e44d7bed8d68c119",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8b6407b459f8d6148505df6d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "dbbe6001297dc70b61c33383",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "92b7b4757d0edab039ba675f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "af8d2bef55bcb650df475dbb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "be93f4cff53fe16690d227b6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fd23a1005ae8425f6e2932b7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "685c31c684a86beb9eb6e586",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ebffd06e972bf5bccf9a6215",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a1adb43e515c9086679c1a57",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2c14cc9dd12e13550d5292fb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "baaf2e67468b4f7583607ac9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "85900c605c8854e39e2797d1",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "89a675583aa6f8b026d2db6d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f201f2f93e001bc671af3478",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6c2b3640e1776c001f0d2ce2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b9ea4f96b72e2aa5e8731364",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4285cc00111ecbc5d35f7df3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9d43ebf0fe6d4a0fd38996f9",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "265bfae685dbbfbe52997d87",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b2caebdf13a6d4c7df4aefe5",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "c9e1349263203f93c95c9e6d",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1580a6fcb3a2d96bfcc103ce",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "829d6e5cff9cb22afda7fba8",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "562a4dcd245cf6ef87afcb34",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9779d0f0615eeea29de0c53a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9b108feba445a82b4180d90e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0fd6ac9d667dbe4950945dfb",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "03d4a3dbdc695c690ad09f55",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7a8e024e865bdf8a5728aea6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0836719c5ccd5065e5c31f07",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "356a856a9ef70f64ec3a69ee",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a8f5ede01bf6d6f58d70e4c5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fcf62eb6faed5a9de31ec595",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "916f21e173ae500837e34cf2",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a719e6b96006a275957c42c0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7621b60b295671bda84919aa",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f449c4b911a6b5bf41bb44c4",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b0084bf0b05fe1f9097fa8a9",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "aef246bb855b14eccd428e75",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "28f6a4ac826056a9699f82ff",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3994a1feb2b858016cc2aaa7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "96a292b9b7a725831397e023",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "bf11f1778665d36de0317764",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e240a5b2f3fe42ea3a7d734c",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e77ecc3c38ba163fbf98098e",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "246178766a23e3c9a0bb8944",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fec269589b3061587c44eb34",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d068eb79602e37f82cf21581",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b88c28b05016d5024b1408f",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2863b99c9800a5347a436f38",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9ac965111529cb88269779e7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2baa1fa09e82239b8d26e383",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b84eb438407f24ca04c98fe5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e2aad08fe89c8b1f4309ac48",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "56efef34aac255449234c419",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a0fa5f1d45a61712b74be243",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "11d23ae0652c82f86eecb103",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "bb5b9c191c9c9ed5f43af1dc",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c28fef9c2e566c3fc6423655",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f84d33bdbd2e36908fa6cebc",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d89deccfc8b1bdcd87df2708",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "155fb83ffdadface82e0a840",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c0af924e0f4d3ab5c73d5116",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c9a36c8d4b85c7d8d378d56e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "39080e4164fbc8120501803a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b268a43be4e1143a50e44a26",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "aa75efa644cb4dcfc33ad871",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "176d956b8a825068061655d2",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "2d6d5149524596a6fbec9677",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "330942b1f2ffb0a633fa24bf",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0eff128417fecde4b0941ea6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "70c55f2f16b80bf7f2621518",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "5bcecb278f4bd6ef8bd5f694",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "410623e59e31ea11588ddf75",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "83c32b772aff9c36642802e3",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "34c03c5a3c6f9aa1376ac848",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2d1349e1f53af1467f41eb9a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fdc461c19a9bb940cd5192c6",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "68043c32e9c4fdc26ba5d092",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a96600d5e68081cca3ef431e",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e1d53224854689c4319e0035",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3a72bb0124239bd938a7da78",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8fb6ab6c5827e2559f9ca57a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "16e216157d1c8340e5862ec7",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0743eaefba1e472e33a8f5e6",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "05121e145b351842960540a5",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "afcdc2091f63a08aaf59c60a",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6c538b911c06e977a30de414",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8c1cea71b08aca06deb848f1",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d4b8bc6d9c03a280b8fba793",
+      "label": "non-toxic",
+      "method": "text_only_svm_fallback"
+    },
+    {
+      "id": "d210fa52cf24bb243d17cb19",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fee36517dc9c773fbfe7d0b0",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2f8bf777d1bab25291130f51",
+      "label": "non-toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "cc45f96ccf1ec322ccbe2af2",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7e001b70ce18ba2cd989dba4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "40bbffb8d1302f11c7b8ef40",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d4e0e2eac7026ab8c36cf3d0",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b6b8a27fb3357d0c6482a84",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "29f264be818b2eb0dcf1a8ca",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a907a5d48ba21f2bbe189ad7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a2f503221f152dc0494667a7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8df3e901acc46a65e2592e21",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "74f54078b1de558c6207fc63",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0512d7a45da3fb4798104418",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "08a2988d09aefbf72ec5994a",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "522d9250f820ff1b2ba1ca35",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3a23e0ab706f1bdafc1e2cd1",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "930ae76eede3eb5c266d3feb",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3ec38d5eff0d48b6d653b546",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b17077ff6aa13a0f5d08acad",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8b4290ce5646a023d1f481de",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8ca33cf336badff33996d7c7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "261e4ead9d633eeffa3ffbbf",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3b64a20aa99df74c6ae57faf",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d4e725447677dcc5b532162f",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c69fc96d39d3d79a8e1b8c27",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2a2b3865b4949ec80f995f72",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "0ba4a6fee412018fcfb8e17d",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "95aba2ed18909420d7973bcb",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "87c11a2e984ca1da230eedc7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "91dda59ca88038ee17121655",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1f09acbf62bac57ab780bb7c",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "27b7cbe0fae191387595cdc4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4be81b55abef3ddba435a8e4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4164b5737c5684d07651624b",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d7816b5a403081d98adb29b4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "67eade54ba1e44378cd9993b",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4c1ec04cd6dcd392f73fa62a",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c7cd6255e4ee9811499be6f4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9e0230d73f5994582f19dcc8",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b4409e89ef9b8aebd18f88bc",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "30f1dee7417dd6c280903754",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c30a3b7c5ecbc031ea986dd0",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8709f88de963c260b8518ec5",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "bfe21661b49e2a16b98a1907",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "dfb92e44da1b56fcb901cfed",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c01844e56868ee0ca32443e0",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1416897afea21922d62cd580",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "8342ae6d838e9ac0bd1b1631",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1451346c4b7e012313378aff",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "97105c56f4ca3aaa6d6539eb",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "78f654d17cf64a7135935ff4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "af955d0de3b0205cc8d49bc7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "e02a61b08eede0aef1bed674",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6b41af4a0535d2c557b1f770",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "45f148cb10f38522e4e8904a",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f91b4398f23781b406c77e0c",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "d94fb170f0c34bbf4ce25a86",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "6a5f593f8f0758fa2372eb42",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9b96301c1ab9fd67c25fc9b2",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "138fdd4db62f5993feda3c6b",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "16c36a8b29a8bcb9c30f96f4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f6cebe9980ece73a009568f1",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "76c1091afda1627a2b60a656",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "00db8be09662ff6a180d0cb4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "4aaa5fe3d1c0cd83b33636b3",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b3eeb0e64a3eeb38a9c44fad",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2813aaa1e201d92231b9d52c",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "f27022b1a1e415e3365547ef",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9efda566b0c9c82c7115d8db",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "aef716a51a3ef82a5e0139c7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "49566f93cb146d878a0568e8",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7b0e4501e1e3c83a98d45089",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "b59c3e405f614fd975eda13d",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ba47647d70dafb3d0be6acb1",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "843f5e17b067a107aff382dc",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "3fbc48bafae13f1ca0d8ede2",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "fba270a591c04d49cd10c78c",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "c968523a1dffb12aa13e53d4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "9adf094549784e414d0c7614",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "1be85b25062ced1cd691bdfa",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "56be1b396b379e74dc84340d",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "2f95b8a46254c200dff68133",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "064ba943670d91aa84f740a1",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "40b7992aeaadc22ff76cdd02",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "7152ec50460370291149b488",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "28ade01a90eca5985102c7b6",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "94100284302f1c8f3e56aa4d",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "58a6423b17f076c2fd106c79",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "580fd83e1cd2a60b0f166d91",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "df56bae35fe53ba2a2518142",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "62005d64cf7d9cfe84fe6812",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "76606980585fb1793f6c7418",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "28fe8220061ad9c3b6518dd9",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "041c692ef1392732f3bb55b4",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "57fa5d5408303e4e95bcb462",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "da90886a2cd645726eb5d703",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "ac1e2ce883707c10fa91b45b",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    },
+    {
+      "id": "a10a5ee90d4eeed716411cb7",
+      "label": "toxic",
+      "method": "reconciled_assistant_proposal"
+    }
+  ],
+  "selected_random_overlap": []
+}

@@ -1,6 +1,7 @@
 """Local toxicity inference; automatic labels retain their machine provenance."""
 import hashlib
 import math
+import re
 import tempfile
 import time
 import unicodedata
@@ -13,7 +14,9 @@ from dataset import text_hash
 MODEL_ID = 'dangvansam/vietnamese-toxicity'
 REVISION = 'bac60f3e162d3a06003bf561a9f8365982ccc67a'
 MAX_TOKENS = 512
-BATCH_SIZE = 16
+# Quantized ONNX scores depend on the other texts/padding in a batch.
+# One text per inference keeps a comment independent of queue composition.
+BATCH_SIZE = 1
 LOW_THRESHOLD, HIGH_THRESHOLD = 0.2, 0.8
 FILES = {
     'model.onnx': (98385294, 'c6b21c36d89d4a3a9b295a06062a22a9605f942446d50a27d5cfee73b97db01a'),
@@ -76,11 +79,25 @@ def suggestion_from_logit(logit, truncated):
     return ('' if truncated else label), score, reason
 
 
-def automatic_annotation(item):
+# These rules route risky text to review; they never determine the target label.
+CONTEXT_REVIEW = re.compile(
+    r'(?<!\w)(?:vcl|vkl|vl|đm|đmm|dcm|dm|đcm|đéo|địt|đụ|cc|mm|'
+    r'ngu+|n+gu+|câm|sủa|súc\s+vật|óc\s+chó|lấp\s+đít|'
+    r'bị\s+đao|dâm\s+dê|giết|đánh\s+chết)(?!\w)', re.I)
+
+
+def contextual_review(text):
+    """Broad triage only: profanity may be harmless, indirect harassment may not be."""
+    normalized = unicodedata.normalize('NFC', str(text or ''))
+    return bool(CONTEXT_REVIEW.search(normalized))
+
+
+def automatic_annotation(item, text_raw=None):
     score = item['model_score']
     if type(score) not in (int, float) or not math.isfinite(score) or not 0 <= score <= 1:
         raise ValueError('Điểm mô hình không hợp lệ; không lưu nhãn tự động.')
-    reason = 'truncated' if item.get('truncated') else 'uncertain' if LOW_THRESHOLD < score < HIGH_THRESHOLD else ''
+    reason = ('truncated' if item.get('truncated') else 'context' if contextual_review(text_raw)
+              else 'uncertain' if LOW_THRESHOLD < score < HIGH_THRESHOLD else '')
     return dict(label='toxic' if score >= 0.5 else 'non-toxic', label_source='automatic',
                 text_hash=item['text_hash'], model_score=score, label_model=item['model'],
                 label_revision=item['revision'], label_threshold=0.5,

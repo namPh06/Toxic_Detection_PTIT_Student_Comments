@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "post_id": "1476701344567025",
+      "comment_id": "1478521094385050",
+      "url": "https://www.facebook.com/groups/408571091380061/posts/1476701344567025/?comment_id=1478521094385050",
+      "status": "no_text",
+      "text_raw": "",
+      "text_complete": true,
+      "identity_verified": true,
+      "identity_method": "exact_comment_permalink",
+      "parent_relation_verified": false,
+      "collected_at": "2026-10-31T17:27:10.857Z",
+      "collection_method": "playwright_public_dom",
+      "context_only": true
+    },
+    {
+      "post_id": "1305300078345833",
+      "comment_id": "1305424538333387",
+      "url": "https://www.facebook.com/groups/2k5ptit/posts/1305300078345833/?comment_id=1305424538333387",
+      "status": "collected",
+      "text_raw": "1 ngày",
+      "text_complete": true,
+      "identity_verified": true,
+      "identity_method": "exact_comment_permalink",
+      "parent_relation_verified": false,
+      "collected_at": "2026-10-31T17:27:11.815Z",
+      "collection_method": "playwright_public_dom",
+      "context_only": true
+    },
+    {
+      "post_id": "1305271928348648",
+      "comment_id": "1305432491665925",
+      "url": "https://www.facebook.com/groups/2k5ptit/posts/1305271928348648/?comment_id=1305432491665925",
+      "status": "collected",
+      "text_raw": "😭",
+      "text_complete": true,
+      "identity_verified": true,
+      "identity_method": "exact_comment_permalink",
+      "parent_relation_verified": false,
+      "collected_at": "2026-10-31T17:27:12.834Z",
+      "collection_method": "playwright_public_dom",
+      "context_only": true
+    },
+    {
+      "post_id": "1302880945254413",
+      "comment_id": "1303460175196490",
+      "url": "https://www.facebook.com/groups/2k5ptit/posts/1302880945254413/?comment_id=1303460175196490",
+      "status": "no_text",
+      "text_raw": "",
+      "text_complete": true,
+      "identity_verified": true,
+      "identity_method": "exact_comment_permalink",
+      "parent_relation_verified": false,
+      "collected_at": "2026-10-31T17:27:13.664Z",
+      "collection_method": "playwright_public_dom",
+      "context_only": true
+    }
+  ]
+}

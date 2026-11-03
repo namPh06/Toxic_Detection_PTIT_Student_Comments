@@ -1,0 +1,82 @@
+{
+  "compared": 5111,
+  "label_changes": 15,
+  "max_score_difference": 0.19608671629194496,
+  "changed_labels": [
+    {
+      "id": "3764fe8a8b7c02494bf1348e",
+      "batch16_score": 0.5052139363825779,
+      "single_score": 0.4239826951873352
+    },
+    {
+      "id": "8e7c50024bc165b66e112a42",
+      "batch16_score": 0.4945067161111219,
+      "single_score": 0.5453403254457156
+    },
+    {
+      "id": "eebc8a3aa04a74f2d0bb2395",
+      "batch16_score": 0.4913042649018667,
+      "single_score": 0.506802310545498
+    },
+    {
+      "id": "d5259386ca1381fa5b5971ff",
+      "batch16_score": 0.517893358875469,
+      "single_score": 0.41819765625561744
+    },
+    {
+      "id": "d01e4492390d1ae555747576",
+      "batch16_score": 0.5520909719572266,
+      "single_score": 0.4284734233671221
+    },
+    {
+      "id": "cf1e289f268aca6c333ba62c",
+      "batch16_score": 0.5158395963843027,
+      "single_score": 0.3813309715604579
+    },
+    {
+      "id": "15e6602cbf547260ca3d224a",
+      "batch16_score": 0.5469765555792778,
+      "single_score": 0.47089204566160253
+    },
+    {
+      "id": "43eaa9ac95e48c3f46b2ab7a",
+      "batch16_score": 0.4811599329105244,
+      "single_score": 0.5020267046817581
+    },
+    {
+      "id": "1847d1f6dd97e157094d2294",
+      "batch16_score": 0.480515346085464,
+      "single_score": 0.5200315038214601
+    },
+    {
+      "id": "4108164fd4dc4ac0daec8591",
+      "batch16_score": 0.48661594549797155,
+      "single_score": 0.5497147013182366
+    },
+    {
+      "id": "ee7d824c01a49457c8d1185e",
+      "batch16_score": 0.4936347187135085,
+      "single_score": 0.5348763355856551
+    },
+    {
+      "id": "4a20c9fdd5f51cc6bb65dfbd",
+      "batch16_score": 0.5101223939705164,
+      "single_score": 0.4414980947907748
+    },
+    {
+      "id": "622ae8e21a1a795ea7868393",
+      "batch16_score": 0.5062656610341811,
+      "single_score": 0.4935027511876324
+    },
+    {
+      "id": "940aee9462cf5cfdb418ff32",
+      "batch16_score": 0.4961704298936495,
+      "single_score": 0.515779426107024
+    },
+    {
+      "id": "2ae4c0dbad7d4b9055804839",
+      "batch16_score": 0.5244783492853856,
+      "single_score": 0.4574739010232204
+    }
+  ]
+}

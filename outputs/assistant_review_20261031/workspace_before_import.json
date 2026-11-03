@@ -1,0 +1,3815 @@
+{
+  "schema_version": 1,
+  "annotations": {
+    "5cc5abf9f33b6e95654d75e4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B2",
+      "excluded": false,
+      "text_hash": "0734a466a298b1f1785dda99a3ae3759cea43b61f7c3a2554d6c8622ccceb05b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777330+00:00"
+    },
+    "78c3625a7b52b5bcdf76d67f": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B3",
+      "excluded": false,
+      "text_hash": "3f218dcb686af2a083bb990c31e44dd787cfd71a4e819c4ac6d2b9314d913685",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777368+00:00"
+    },
+    "0ea1fa58d139b220ed071f10": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B4",
+      "excluded": false,
+      "text_hash": "727084b0b2de863a5b2ed17d3749a1824b5e3c58189005fe35524840021d7df6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777406+00:00"
+    },
+    "7db3f8e9d4ddf49433f8f3af": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B5",
+      "excluded": false,
+      "text_hash": "03198c6b13c878bb8445b7807a49ae50d5afce1d1b6c009b0eaed3d6aef5498d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777419+00:00"
+    },
+    "624a4a294c0ac2d81df26874": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B6",
+      "excluded": false,
+      "text_hash": "efdcf21e7ae70e3dac9686a54b3a13a3c86edea5cce874a53a3888d84b9fd548",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777430+00:00"
+    },
+    "272418cc23c664c85ecf5327": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B7",
+      "excluded": false,
+      "text_hash": "eda92b2e2ad8ee4d62e2d3151a6c36205b785d049f76633c9da24783b80236ce",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777441+00:00"
+    },
+    "1a6251ded709989be8d4a371": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B8",
+      "excluded": false,
+      "text_hash": "470dc450de558985aaad6aa9bf53db9063659d4108cb90f52f1632426387d9d0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777452+00:00"
+    },
+    "e9fc1323e51828ab32a13b07": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B9",
+      "excluded": false,
+      "text_hash": "0f98e91a60fdbf65d403cb4b62f55b297d0bebc30abe54467bb16acea217cf7b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777463+00:00"
+    },
+    "e1afe414c0f18d0bd27eb441": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B10",
+      "excluded": false,
+      "text_hash": "b1034b8ac44df48e8e4ae6534e38d64731ff608751a14123f713d370569eac3f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777473+00:00"
+    },
+    "8661c46edccc25910f819042": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B11",
+      "excluded": false,
+      "text_hash": "f56cc24463eb608e673fe340f8e07cb0393d151afa03204710340fa1ed0079de",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777484+00:00"
+    },
+    "65447ae140faba59f71e4c45": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B12",
+      "excluded": false,
+      "text_hash": "4129f523b74a7bb353960fe2a02395e7a87b022c56b82a7825857ad8073049ea",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777495+00:00"
+    },
+    "d8516dc77f7a6ddf4039f833": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B13",
+      "excluded": false,
+      "text_hash": "e191d2b7bd713f0c4d270c038c6d3ad16ae0ac87a7b67e85e740e1280a805739",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777506+00:00"
+    },
+    "0797c0c2ae52d42b07823c98": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B14",
+      "excluded": false,
+      "text_hash": "77a490f5d655708f1fa26ac8a29635b913fea05216542e88679f01372714854c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777516+00:00"
+    },
+    "aebd5ba8da805d473d8b14ee": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B15",
+      "excluded": false,
+      "text_hash": "e6cfae9838e769312061fc89978f42bbc9204f4482965b7132eee2c9b854306f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777527+00:00"
+    },
+    "3764fe8a8b7c02494bf1348e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B16",
+      "excluded": false,
+      "text_hash": "20a70ecdfc4b754c65880f17b41371dbfbbe7dbee4b68de53c667a8c533ba153",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777537+00:00"
+    },
+    "7bd1759ccf668df844ca9d86": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B17",
+      "excluded": false,
+      "text_hash": "4f10205a1fa4421ae1b0459e627621027a136582c45cead0061a588dccf0ecaf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777548+00:00"
+    },
+    "ae9a02fa6609e2791f5f41a0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B18",
+      "excluded": false,
+      "text_hash": "ea52f62f4c286fb30289543d348a6b5c71ed04273ba0f0db1e9ca7bb79092d53",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777559+00:00"
+    },
+    "1a6e16a271d57f0065b6a23d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B19",
+      "excluded": false,
+      "text_hash": "948d04cff02a9f2d7b5d7500545547fe64478d9b643a09b31b770baf75563b5d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777571+00:00"
+    },
+    "7d1aa6c79285596342f9f98e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B20",
+      "excluded": false,
+      "text_hash": "87b6e2ee37ee40399176090ed6fe3f9d5f4ab4ad7f7f2787450bc5dfeafe38ca",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777581+00:00"
+    },
+    "c7b4d581009c5d80ba7cf55b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B21",
+      "excluded": false,
+      "text_hash": "f6cbeea58cb0a0e4edf604d774aa88244a54993ec86bb77de1984aa7db0ce536",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777592+00:00"
+    },
+    "b6fdaefec7ccc8c59dd9addf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B22",
+      "excluded": false,
+      "text_hash": "87216662b65766eccaa9dcc342b89e95d758d79d7f619dabf177fed651c8d18c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777602+00:00"
+    },
+    "64afe68f5c14a4a4e03664cb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B23",
+      "excluded": false,
+      "text_hash": "f67dc6c1507af3603f44af9e7d4e30b8b9c1abcb34d7d0c62a71a286b10111f7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777612+00:00"
+    },
+    "15065d003719df116895d555": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B24",
+      "excluded": false,
+      "text_hash": "3f942ee538d294a296a9a32680cd62558f69ad4b3c45a900d2de2a44c197d98b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777624+00:00"
+    },
+    "6ad0afe254727db862cd7297": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B25",
+      "excluded": false,
+      "text_hash": "04ddd7901cd34bbe9e2838a2dcb57a9a31abcfb43a9306a49d08081c66ecc442",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777635+00:00"
+    },
+    "be7042a6793077f9101e42ca": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B26",
+      "excluded": false,
+      "text_hash": "674aaed96e29a864f1d36c5e911a54fa0caadeba08352e8a48ab8ed4d90c57b1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777646+00:00"
+    },
+    "630522aa9dd8e2f821d3bc71": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B27",
+      "excluded": false,
+      "text_hash": "67fd71a64c2e0cc566ddf2fa0cd50e36659589dedd359fd70d949a6be623aea4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777658+00:00"
+    },
+    "2e8502ad8cf95af2f9e4ba26": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B28",
+      "excluded": false,
+      "text_hash": "962bf060206e46ba67e30b072d69554ba5a2af5df320a7e8786b7bd8cfb5baaf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777669+00:00"
+    },
+    "3d65d5b8a70156be7daad70c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B29",
+      "excluded": false,
+      "text_hash": "92fcebbc7d9c9927e486450b4b0c4dec1a508e542c71c6880e7392b6830848d1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777679+00:00"
+    },
+    "df94f12868980dd970c47a7d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B30",
+      "excluded": false,
+      "text_hash": "362f68258fcddf00584cb61342446fea357b13c13337e2f853f6f8302d6bb50c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777690+00:00"
+    },
+    "8747cc8da43c5b908a7660f8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B31",
+      "excluded": false,
+      "text_hash": "cd1827348906d270e9e0130b7e69ea0045677a49d489c352b451d1741bf29a72",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777701+00:00"
+    },
+    "24f717fee68552b8a06539e5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B32",
+      "excluded": false,
+      "text_hash": "b4467680ee99b7b31c8df0224e046f30e50a91886bb5cb1e5219276b0cca48fb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777711+00:00"
+    },
+    "ffe706de1cd0e0e7612eb9c4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B33",
+      "excluded": false,
+      "text_hash": "caf9cef9a9dbdd6df0dc39802d0b344a656f4f7cc9c350f481106c45d1190dbe",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777723+00:00"
+    },
+    "881f326a0a59c36dde5d4c76": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B34",
+      "excluded": false,
+      "text_hash": "3f92f32f19444749ff3e9047fe070a45b62175a815cfc1c7f359089061c1fda7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777734+00:00"
+    },
+    "70ff1c01a49c9ece722e9d81": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B35",
+      "excluded": false,
+      "text_hash": "eee3ae46c5f9b52d2512f3c2ed782b5d8f8d63e47043f33d009a9ddc04db360e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777745+00:00"
+    },
+    "3e5e907e6073d206902e7236": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B36",
+      "excluded": false,
+      "text_hash": "c8152a227f9275e57f45e5ff5281a013e24fee40d2df94fc8ada6509cd3c1028",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777755+00:00"
+    },
+    "dff339be2dffb9ea75a300d4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B37",
+      "excluded": false,
+      "text_hash": "501464ea799c5ad8ac5ec619aa48ecc7220327691cf76f32e0abfe58a0fc914b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777764+00:00"
+    },
+    "a1806a0b4f5ad6cccdb6d729": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B38",
+      "excluded": false,
+      "text_hash": "e82460fdd34c87fcbbfd2baeab740a073a27cf9562696b224927fc4eec67a986",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777774+00:00"
+    },
+    "412b258561b0cbd3a95bffd6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B39",
+      "excluded": false,
+      "text_hash": "702e2b57e640690a808a67ee34fee197f694c07685a9eaf8e124e58f408ece74",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777784+00:00"
+    },
+    "870f0fc12cceb0bd4b943d02": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B40",
+      "excluded": false,
+      "text_hash": "6092442fd457b7cb9b63efbd95595b19a2ad38f50178ac68f4a7d7949659d92d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777794+00:00"
+    },
+    "0d40414e13622a1dbbe32640": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B41",
+      "excluded": false,
+      "text_hash": "960ac7dbdac669377d7a8dee91b16a66a8d42f1702ac647d761bd54813ac0c70",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777804+00:00"
+    },
+    "7d6c2bfafd2759f9180f964c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B42",
+      "excluded": false,
+      "text_hash": "83b5da256b29a76112841bdaef3a2874c9dd23ac66d72ff6e816d88bba2c0687",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777815+00:00"
+    },
+    "03ce60a88b396bdbfe32fe1e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B43",
+      "excluded": false,
+      "text_hash": "b1bf1eb9547245f594908f98fd43ccbb3714b203f16c239e5496ba65364e7e58",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777825+00:00"
+    },
+    "2edce08d746394b086a406ab": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B44",
+      "excluded": false,
+      "text_hash": "3b457c79c2862225d545fa07f0d819d5ddd2c7db09e41e8ee2936b9b8f0ae871",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777836+00:00"
+    },
+    "d8eb90f03094db10ccedad5c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B45",
+      "excluded": false,
+      "text_hash": "f66d93421dccb30c69cd838a4ad11e115d3132f5f94fc9fe7b43bc337e60c94b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777848+00:00"
+    },
+    "edf7dc118537ba41ef3a3928": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B46",
+      "excluded": false,
+      "text_hash": "ea2d84e5ac3f3bbf35eaeb42ce4583fed266cf7fd81fa157d98f45c86ac16ab5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777859+00:00"
+    },
+    "8ade84991360ce073b0316ba": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B47",
+      "excluded": false,
+      "text_hash": "69db5d4a339bfc379aa1e080c0fbf7a672f7cc9d9bdd1629d4aa54442fd21506",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777870+00:00"
+    },
+    "49f8796e62a75bdc2ade1e12": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B48",
+      "excluded": false,
+      "text_hash": "ff1bb156b2eaa146836f8227c0e095126658fe3d9660fdd26ec107d4a16528c1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777880+00:00"
+    },
+    "6c9de29cc3bfb6e5679f9091": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B49",
+      "excluded": false,
+      "text_hash": "f540c4e6febf4a5eff19e1d51d2020f85486418ed5f1de2819fba45596233c89",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777890+00:00"
+    },
+    "dc2f8494c95b58d276399140": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B50",
+      "excluded": false,
+      "text_hash": "92db3dd356501c3548a3b57573ddd57f428a009456bb7cb5db0bc76324e469d6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777910+00:00"
+    },
+    "9fcf6427eb35e0dcb723c6ec": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B51",
+      "excluded": false,
+      "text_hash": "df405dce3c2cf9c70ddea12b017bd0aa711a374453981894a931719165ba428a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777920+00:00"
+    },
+    "158506c2a21983adc456c0b8": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B52",
+      "excluded": false,
+      "text_hash": "355b1bbfc96725cdce8f4a2708fda310a80e6d13315aec4e5eed2a75fe8032ce",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777930+00:00"
+    },
+    "2cc21db5e1d63680cf7695c8": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B53",
+      "excluded": false,
+      "text_hash": "7d9224d4a7b314162c810e6d5569fdd25f0e75c1f7a1bbc4015267ea4dc68a25",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777940+00:00"
+    },
+    "6bf0946cd832090854ea00bb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B54",
+      "excluded": false,
+      "text_hash": "0de4b189d27ccdfa8475ac1631b3e87755f3676c3ab4ea158b602396503b5e11",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777950+00:00"
+    },
+    "774251434db1ea42fb0bdd89": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B55",
+      "excluded": false,
+      "text_hash": "1294154ffcaea509068cfc36833b713663aaf39cb6efe97edaffc221f8175093",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777969+00:00"
+    },
+    "f8269cac3ef5eb12ca10e582": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B56",
+      "excluded": false,
+      "text_hash": "923f7c44c3bf51764312c2b7e42795e4becc1acdddbeba2f3ad69e5ca932de1b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777980+00:00"
+    },
+    "1b172db90447faeb8903611e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B57",
+      "excluded": false,
+      "text_hash": "dfc7d63e4606fc784f85edc4cd257d5f5650963880cc8106da5672b8cb2d05bf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.777991+00:00"
+    },
+    "8d360d22ee8630a2bddb84f9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B58",
+      "excluded": false,
+      "text_hash": "405500846fd0016b1553e582c1292ef92da3c20a378d3c2e66b433a2c7db4773",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778005+00:00"
+    },
+    "0f162455aebd804098dc2d07": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B59",
+      "excluded": false,
+      "text_hash": "3c15481cd84f6de40738a7444e717e72082b6c1d28f25adca701e032b0bfadf6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778015+00:00"
+    },
+    "927e1b069c863dd36db358c0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B60",
+      "excluded": false,
+      "text_hash": "e1eb6fe99455524a05582ab8516291e764a539b4bc68eed7e6603cd920474e52",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778025+00:00"
+    },
+    "4e8e6f2e20df32e6cbceec6d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B61",
+      "excluded": false,
+      "text_hash": "e4d88db617584d7f7b43a46e3878ea7b6e7114b90737faacca7b5e2517fc8247",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778036+00:00"
+    },
+    "3c76586ae5e461675574cd7b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B62",
+      "excluded": false,
+      "text_hash": "1b5eab4d22d841fab444e747050784f54f675f07d918e6e4edd0ddddc91c2a40",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778046+00:00"
+    },
+    "9339b21ef1a17ebbf63cb3a8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B63",
+      "excluded": false,
+      "text_hash": "98639be63c7b2d71d48d13af7148ffade4cb113d794faa234ef1c03e559ae0e4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778057+00:00"
+    },
+    "b574e8ee32b84ec8525eef8f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B64",
+      "excluded": false,
+      "text_hash": "1816b6efbcaa1826e350460b9ed977de7978fef719fc40557fbf2c7fa6aaaf7b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778068+00:00"
+    },
+    "b5c7bdff5918c0717ec3c9ef": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B65",
+      "excluded": false,
+      "text_hash": "09b1af75579220e02467649ba16282acb9bbf2f29347ceb0c9bd1d08eea804be",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778078+00:00"
+    },
+    "3b6aefc59bc572f0d032c8b5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B66",
+      "excluded": false,
+      "text_hash": "56b4d7a259d7425a16752228eab27c602391d1bf1afd0131ef5bdbd716c2991e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778090+00:00"
+    },
+    "db97172d8ebec88aef25097a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B67",
+      "excluded": false,
+      "text_hash": "0a7c49cf268b2b4dbed60571e746d45efce301e7b863ba3088bd9f1e74c0ade2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778100+00:00"
+    },
+    "1023e36c3cf0234b567cdb41": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B68",
+      "excluded": false,
+      "text_hash": "c95fb1fb152b6e17599db650ab749fd79a01b38ec9d0f3b57d1b79bd97914a7a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778111+00:00"
+    },
+    "724743078a2c55b9910c7fc6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B69",
+      "excluded": false,
+      "text_hash": "c9372310342bf1967ce0664ac028d3f25986ea50626d91a804a9d91e6368ac1f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778122+00:00"
+    },
+    "ed7b261b2db20e79d83a9e54": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B70",
+      "excluded": false,
+      "text_hash": "deee0b035e5fc88cd13317b01410ac39584291e9b95cac198f348207da64e25a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778133+00:00"
+    },
+    "1da481d00c4666096061ff37": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B71",
+      "excluded": false,
+      "text_hash": "3926657875114bff829151b95e0f7bca0ee01bcfdf6cd30d60f3f86168c83620",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778144+00:00"
+    },
+    "b392732e73e5666217222fa3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B72",
+      "excluded": false,
+      "text_hash": "c300a0395e09b656ada9910a33d30660dd7b17b26d89c85c31e70a9f9b7d9e28",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778155+00:00"
+    },
+    "1b0194013510a6ca83ddd348": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B73",
+      "excluded": false,
+      "text_hash": "983939a12a9391b5fa0739e9e1e6c16a6d6bfb2bf17f6cb4321b9420060b46bf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778167+00:00"
+    },
+    "a57a3b3e9c0724886d58d842": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B74",
+      "excluded": false,
+      "text_hash": "92116d52f0ddbf824945ca670bc70d3f5b0619ce35e3b7c714271a169f2c5a45",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778178+00:00"
+    },
+    "ca7ca8d33a25f6773028af45": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B75",
+      "excluded": false,
+      "text_hash": "cfa86c0f942335b94bdaf1c78350e3e15248bee4352894cb080cff5df99689c6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778189+00:00"
+    },
+    "9bd1a37fe4ef92dbbb147fa8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B76",
+      "excluded": false,
+      "text_hash": "5b38497f8ea54d621612e087bbca3ad2b2b63dd21e750c00ead4e7100e807e30",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778200+00:00"
+    },
+    "23cd49e41d44bc869b977053": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B77",
+      "excluded": false,
+      "text_hash": "bc94c16e8ec20d8aa54b9304ba5c7848169c3b2169a0007b495ad738258ca145",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778210+00:00"
+    },
+    "d215752c70fbd8ceb8a5ac00": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B78",
+      "excluded": false,
+      "text_hash": "506f5b28a90b5e6f201bef661685e5b481c2ce72da6b42eda0cc3e7acc06d571",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778222+00:00"
+    },
+    "553d615cacd1a86def2f25df": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B79",
+      "excluded": false,
+      "text_hash": "ce4c3b66234c1c9437f5506550102f795bb4d380687e3c75ef0156354d832e47",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778233+00:00"
+    },
+    "f79695ea92132c23b721dbcd": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B80",
+      "excluded": false,
+      "text_hash": "fef7bedb053f4709f5033030bb1a3b04a1bdbd2df1766ae022b0b3ecfbca7565",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778245+00:00"
+    },
+    "6004e2323e5cd93e14e61bac": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B81",
+      "excluded": false,
+      "text_hash": "b568ffa73bbfc05a5d491cdd62859c9b872aa744fabe2523ef40195f86320206",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778256+00:00"
+    },
+    "bb4a1e2fda861f695412b702": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B82",
+      "excluded": false,
+      "text_hash": "d5b41065e2f75ce863c0df79d0dd445dd0f5d64e4c94dc2b87ee208630c0e8cd",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778268+00:00"
+    },
+    "4b2bddfc61071e6e310ca02e": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B83",
+      "excluded": false,
+      "text_hash": "71fca006a0105744af581491c1adf6779c3b65c28816d4c540589d9d90a867a3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778279+00:00"
+    },
+    "8e7c50024bc165b66e112a42": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B84",
+      "excluded": false,
+      "text_hash": "f26c75b9d3a7e8ebac15d04776bde429254b0d7503d0d99bee0fed4d758d0ba3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778290+00:00"
+    },
+    "2d887b8a35e0d098e72cb2f7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B85",
+      "excluded": false,
+      "text_hash": "8adf028063003faf9704f318405a2e4bd92fcf7e42f169a8eefb2692ec0ec607",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778301+00:00"
+    },
+    "a8233e1154bfeeb18e96720b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B86",
+      "excluded": false,
+      "text_hash": "0edd2c9ad72912673b934cc5063b8a4aee550fdb1074aef05852eec3d054e5aa",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778312+00:00"
+    },
+    "1e7e692db2f582d17da9ab39": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B87",
+      "excluded": false,
+      "text_hash": "6c43cce55487ab10830c7938f4b966f2ca0dfc0709cd3a30b335ca5e075220c2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778324+00:00"
+    },
+    "2a9a5f95aadef5fd576d19a4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B88",
+      "excluded": false,
+      "text_hash": "2a647f5a47387a376c57eae62b69b656b249e79fc155ea140089718f3ffb429d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778337+00:00"
+    },
+    "3f0411651390e06f7cd5cbdf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B89",
+      "excluded": false,
+      "text_hash": "edf5382e493df96ea539172dce5a8d284b6b8d3fa3883902dfb574d913066308",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778348+00:00"
+    },
+    "5a846fd4ab0759a71b5434c9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B90",
+      "excluded": false,
+      "text_hash": "8b1c96491f1698a1a0c2a44c55f1413495816080c44c4dd5f4500270031863c6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778359+00:00"
+    },
+    "2ee2fc1f3de4b412e146e0d1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B91",
+      "excluded": false,
+      "text_hash": "edef2ef0d77e2242dc633ecafa507fe62abf246a9e2e0a828096fede4e2d019e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778370+00:00"
+    },
+    "87d11c2124be2b29d839bb28": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B92",
+      "excluded": false,
+      "text_hash": "a497f0cab48650317626fd718c217eac716798013f35ac2acbfe35949f94ce85",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778381+00:00"
+    },
+    "026c86de7fbd35e9bba9bfb6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B93",
+      "excluded": false,
+      "text_hash": "6dca812ab5ac2392175fc4084a8477258e900eaf196a6cf52e4284d7312d5d25",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778392+00:00"
+    },
+    "901fdd9487483101a60c2f28": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B94",
+      "excluded": false,
+      "text_hash": "bfeabffe48fdb7bbc6ec0f5ca226bca6db10efcb64394f21362262953d3fe808",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778403+00:00"
+    },
+    "5f28d330d3a7996c27f3dc74": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B95",
+      "excluded": false,
+      "text_hash": "3e4c3f36ca7f6db06a243f47ecbeb900da96ea4922524c395d9f31164d05306b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778413+00:00"
+    },
+    "330c83a3bc25a70e4b4e6143": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B96",
+      "excluded": false,
+      "text_hash": "5aa554edcce647a2c1639417f95a9127130d3015117b82e7da96bec867763736",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778424+00:00"
+    },
+    "b4c09632d8f1f8104d8f405f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B97",
+      "excluded": false,
+      "text_hash": "c33033412d55d80a79469fa56b8acd7624622ccb3896983e4ca891498d970577",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778436+00:00"
+    },
+    "77c5b469c2d95d3637f0ae1f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B98",
+      "excluded": false,
+      "text_hash": "914bbd694274c5e4df64cd070736599a27d35570f9c9dfee30076ffd95a61fcb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778447+00:00"
+    },
+    "c62262cad61cc5cf90d6732a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B99",
+      "excluded": false,
+      "text_hash": "7c58647d9439c17e000ce2aad23ab7c8dfd6dd99f8e201cdb6bb0c20a337f9a7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778458+00:00"
+    },
+    "53c9bb6ec0704d0082e74ca2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B100",
+      "excluded": false,
+      "text_hash": "6538d95ebc60a80b0788d6d106c449f2e613cc98117c5cec4c1b7ac8a4dd8d26",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778469+00:00"
+    },
+    "b4800eba84d7724c32fd4c9e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B101",
+      "excluded": false,
+      "text_hash": "ec664349dc5cc4f263ed8e386e3d1013ed59d7d246f5229ce4681edaef0d2676",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778480+00:00"
+    },
+    "5cf02c02eaaee00571008f51": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B102",
+      "excluded": false,
+      "text_hash": "6c302029411daf53ca99a20a39f838e63626a59af1177d4e8d93e6083694b901",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778491+00:00"
+    },
+    "a726fe041222e3738393f053": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B103",
+      "excluded": false,
+      "text_hash": "fb9a66cb9c6997bce3c3bd511cbe86d0efaf3cb172587a69ef521572a72f8506",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778502+00:00"
+    },
+    "daca1ef4edd4d167d5faa835": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B104",
+      "excluded": false,
+      "text_hash": "9a23755e83bc3af6725bb346dcb505de44aefa9783b1c9eff132d141645b3118",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778513+00:00"
+    },
+    "161c98139560a94ed32e2003": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B105",
+      "excluded": false,
+      "text_hash": "74bf48881b76802afdc380d5c494ece23c97c11734f445db227fcb6a135e8180",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778524+00:00"
+    },
+    "40b26e27e2ae423641d9353c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B106",
+      "excluded": false,
+      "text_hash": "8e2eca7ee76bad1c50bdd7f53fa50311132b5052d885f8a080579336c103640d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778535+00:00"
+    },
+    "9cf13f8531398a03cd5da9fe": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B107",
+      "excluded": false,
+      "text_hash": "6776d1907798e37ee2dae694e44a6009044387b0bd3598aabb986ba821a2be8e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778546+00:00"
+    },
+    "d39afc8e1052bcbd4f2ca067": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B108",
+      "excluded": false,
+      "text_hash": "f158990042cdc68a920a5b6bad5db779bec45b9f3d49b580a6c8a59cfea73de3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778558+00:00"
+    },
+    "3edb235bdd3ef4a6d753e7a6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B109",
+      "excluded": false,
+      "text_hash": "207396cce80ee718782842769fc67fd8ea789143dd34e235d85279d66e1efe85",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778568+00:00"
+    },
+    "a2c90f83ba3fb162b04aa322": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B110",
+      "excluded": false,
+      "text_hash": "d6bdf3a28d5f80a8fd91eeac471dea242d2bef40a91474976b4e6b56a09c1d2a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778579+00:00"
+    },
+    "eebc8a3aa04a74f2d0bb2395": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B111",
+      "excluded": false,
+      "text_hash": "621ecb8e2a6a7f1b84422c24054d33418989a294ec52c6b41a50b1f83bec6b54",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778590+00:00"
+    },
+    "f6575ac21c2a0d0e9582cc3d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B112",
+      "excluded": false,
+      "text_hash": "d735ea199db3f8940060ad0d8640b1906f1a8d2b68d34db183994dafc01328fb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778601+00:00"
+    },
+    "34760a071f1b68c355c9f987": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B113",
+      "excluded": false,
+      "text_hash": "4cf9db58cc196b38fec80343c9c001c5b844361a475365ae966a0ee41f44112c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778612+00:00"
+    },
+    "a09e9d8b94b727e4951d4491": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B114",
+      "excluded": false,
+      "text_hash": "40006265f13dcae75978c0cf1edabd88b41588c1f8210fd2a44e695d4402d090",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778622+00:00"
+    },
+    "d6d4f8d0f43faf54a028a6dd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B115",
+      "excluded": false,
+      "text_hash": "0e4084b4cf48eb86a7c18f14fb681e32d409269e267d08d3178221eed5c500a5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778633+00:00"
+    },
+    "bafabef4b9e11bf78f3d92c6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B116",
+      "excluded": false,
+      "text_hash": "fdbc7f611afd8f82b7964948bc68881e355f4ace8069e3119cddc91e04bb5fe8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778644+00:00"
+    },
+    "ae20a5f800219a36151faad1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B117",
+      "excluded": false,
+      "text_hash": "356b01dc9776de7ce17ebf373bbac0180f8a7144d39ff6922838d20d15a11be1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778655+00:00"
+    },
+    "d8a75e0646bd0be62f5e86b5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B118",
+      "excluded": false,
+      "text_hash": "c8f1413fe5b6bcb2cb588f7bfa576f1b0590515058f9e2be5b913b23ac5ef96d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778666+00:00"
+    },
+    "7399bedfee024e8dcc995d58": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B119",
+      "excluded": false,
+      "text_hash": "2c5591f2c5dcb408b236f8a8339efdf777e309de4f5013d30e54f4c55c8fb0d7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778676+00:00"
+    },
+    "6c00d2cf11d43c1f0ea51de7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B120",
+      "excluded": false,
+      "text_hash": "5ef7170d51458017f4a19f815185a04ed3510bcc04c90362a9da5d0411006fea",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778686+00:00"
+    },
+    "764cdefa36e2a697e010c92c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B121",
+      "excluded": false,
+      "text_hash": "4b42b100cb24998cf77df148393b84c5eae30c013abfd6bef3c61e616d9d8d5a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778697+00:00"
+    },
+    "9a4f34fb8bd806ce7ff6e911": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B122",
+      "excluded": false,
+      "text_hash": "8143ec081e0638290655fdd035bc155720175c35502e30642b4e8fca2da1291d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778708+00:00"
+    },
+    "5262cb41cfe2a8c2d4552208": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B123",
+      "excluded": false,
+      "text_hash": "89ecdf90c15860499b94bcfb83e5f187e368664c65b93d0c263bc83512d02fc8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778719+00:00"
+    },
+    "7a94e76a7fe13d480ba6d402": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B124",
+      "excluded": false,
+      "text_hash": "3dbf1f934b1a995c3d38574bbba835bdab7907d5469a76134027ddcafc742b7d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778730+00:00"
+    },
+    "636f15a7cc69536f4bfdaf88": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B125",
+      "excluded": false,
+      "text_hash": "714408f7f3f18de3756bb183e9075e384946628cff066805b359c9377580e5dc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778740+00:00"
+    },
+    "bcedbe583e4498159e221d02": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B126",
+      "excluded": false,
+      "text_hash": "a5d214e99a43d4eb2c7fdff57ee2cf1b4f718ca29e12260971da9d7609659ea3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778751+00:00"
+    },
+    "68bea2049a00078bb254e695": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B127",
+      "excluded": false,
+      "text_hash": "567889cd96738f2ead4ff957a8cf02185f64c51a6e79b4154de4c740bfe0e587",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778762+00:00"
+    },
+    "eac1186e94de6ca204b6e64a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B128",
+      "excluded": false,
+      "text_hash": "bec8584b5348ab1a49506a9ca86440258007ff2e25e20e0132c12b52ce978837",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778773+00:00"
+    },
+    "4b927a710a49f14f343d411d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B129",
+      "excluded": false,
+      "text_hash": "d0710c3b8836aba47f56a52299e9ac111dae11f67212d032e6da3f5840ff8ea7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778787+00:00"
+    },
+    "e31fe9c4d6f79c48785c3f0f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B130",
+      "excluded": false,
+      "text_hash": "4dab82d67392dd9a04fa2af9ba6cbe091e0a519638c0301ee0992a27583247df",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778798+00:00"
+    },
+    "25aa8d27242b7fb028cbf0bc": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B131",
+      "excluded": false,
+      "text_hash": "d6af919e00c42c5ffc96db6139259685d1f9f861559f1d268f04dec48b843c13",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778809+00:00"
+    },
+    "cfa06509762195cb4778d17d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B132",
+      "excluded": false,
+      "text_hash": "cee2e6ea56fed632d1a500530b919a7e1e93643186a7938798d3ef0acc757fdf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778819+00:00"
+    },
+    "3f7705b4962bcaf2de2d8be1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B133",
+      "excluded": false,
+      "text_hash": "e15ce5316a01be75963c46ceb2bed5d678b17fcef2db8670ed2d2de21ab38603",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778832+00:00"
+    },
+    "cc1fa06dc8796faa4b884f42": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B134",
+      "excluded": false,
+      "text_hash": "002b55299f4896f4d7c5a76a28f4c79f8e2c2be91c981fda5bf6b465c6b4f5d6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778840+00:00"
+    },
+    "61708a561719293727df2dad": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B135",
+      "excluded": false,
+      "text_hash": "36c1be9dd797e7af57aed379709ab8cee9d8fbf1549acd8ed5bb37b8653b2409",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778848+00:00"
+    },
+    "145f15e432c0d730df22b66a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B136",
+      "excluded": false,
+      "text_hash": "78d6a4c8704522cbb0d1ade681c99753aaa8022bca6fbf857a95cf1db47112d8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778857+00:00"
+    },
+    "ef186c403c6aacbfab050fec": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B137",
+      "excluded": false,
+      "text_hash": "f31d80c07771a2300e66ed040c2cb3c50e589dbe91a2e81174f313cb3b1a58a6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778865+00:00"
+    },
+    "6e96cc5b3036ac0473f8894b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B138",
+      "excluded": false,
+      "text_hash": "716830036d248c7f16f16b0797e050fdb7506a689d2128d3912c066fc1164218",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778874+00:00"
+    },
+    "1936b9deaedf569783c680f0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B139",
+      "excluded": false,
+      "text_hash": "b8032fd59ed3bcd98c7a0809a40549154754dc1f8c8f1fa93adc0a42c758625a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778882+00:00"
+    },
+    "a9a46e404b9685a478adcd06": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B140",
+      "excluded": false,
+      "text_hash": "50904ca7c80cc0246c2a0518ebaf5047fb4aadacec92a6d73ba7b33250c22e4a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778890+00:00"
+    },
+    "d5259386ca1381fa5b5971ff": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B141",
+      "excluded": false,
+      "text_hash": "f69c465547f275304385638ff9f775554b2bc513141567137c9c684d60a498a6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778899+00:00"
+    },
+    "94621e5a427daf990068dafc": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B142",
+      "excluded": false,
+      "text_hash": "b0977c5168a9cf6147951602d02e239e61d54f24126215e298de34dacd91de6d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778907+00:00"
+    },
+    "84b4cc5ca88ce0ae28cdccae": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B143",
+      "excluded": false,
+      "text_hash": "c5323256968a9108e2449a1857b487792b5ad1dd27f69e5f5ac1400449b7bd0e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778915+00:00"
+    },
+    "c2b38936ff7439d9a7d9ffc4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B144",
+      "excluded": false,
+      "text_hash": "9463c5307c13b3ed1ac09202521ba601ec227661101bac0c7b7efc5f0d0b9c5e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778924+00:00"
+    },
+    "c2371767e4edd7183e361787": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B145",
+      "excluded": false,
+      "text_hash": "90feb3753eb78a1142684fc2923c0098dca1406246ffe86f71956fd943ac410e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778932+00:00"
+    },
+    "df9cdf18bb503d3e72b51b8c": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B146",
+      "excluded": false,
+      "text_hash": "a921a8f2e89d8aa540828d90c86ac4ece94e2326fbe12e9cb99aca0efb91dfc6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778941+00:00"
+    },
+    "c3479ff92797681e5c54d30d": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B147",
+      "excluded": false,
+      "text_hash": "f34cf06bcb9be525d0ac1f14391f8039577b1727048a71a00316ee276c39c907",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778950+00:00"
+    },
+    "908ce501b013e3b9a6d394e6": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B148",
+      "excluded": false,
+      "text_hash": "f5a7fc88401f2edafcfa8e48d2ebf39ccb411a032de58698727ab01490f9280a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778958+00:00"
+    },
+    "d01e4492390d1ae555747576": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B149",
+      "excluded": false,
+      "text_hash": "81ca8c7cf4b43d5eb09cb3815232fb9dfc54473a7c2413cba25b4e03537fbd12",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778968+00:00"
+    },
+    "d55f8cc49a456048c4e82f26": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B150",
+      "excluded": false,
+      "text_hash": "537d50776042aeb39a9a32b8d1a442dc935c038f9b447b89b1b7aefcc872ec63",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778976+00:00"
+    },
+    "c4c42d67633de8d2d6b04504": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B151",
+      "excluded": false,
+      "text_hash": "899176992dc35c757dc253921e86e87ce611140c8e84e9f02752b8667bd4243e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778985+00:00"
+    },
+    "25aeb0313d8aaaeee9087888": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B152",
+      "excluded": false,
+      "text_hash": "13b6f4107ae2c0db30e1c1c188b372ff73291526ed4c0bbb3976439e04e4f25a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.778994+00:00"
+    },
+    "ae6aa21cf7095a6689699c00": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B153",
+      "excluded": false,
+      "text_hash": "66183e64968063932a4725f9c4df6dabff7764bf336cb0603237950701739bbf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779002+00:00"
+    },
+    "b5636f73395fdf3cf1b673b0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B154",
+      "excluded": false,
+      "text_hash": "91e569de9190e1b909ab9384a025b178c9fd9e9d30ae3d3dc5b80f694f863093",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779010+00:00"
+    },
+    "18385b9cdd77946a44dbc79e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B155",
+      "excluded": false,
+      "text_hash": "604d75f4875afed77696a94db2fa725762f41fd00d77b28d4de8d36ead40ba78",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779019+00:00"
+    },
+    "80d1a8c0044ab7ef7c1df933": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B156",
+      "excluded": false,
+      "text_hash": "b934f09783bf0af48cf208e1eed5e9717ed2f2dba33b2466f2a325f7954e2b68",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779027+00:00"
+    },
+    "1c7114e3b21c60d0f6088ae6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B157",
+      "excluded": false,
+      "text_hash": "a8682d11eb53f51a821a7af2f98d750bc2ee8782e3c17b9d1f254e6ede09b6da",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779035+00:00"
+    },
+    "054772b0ac0cf11ae2602424": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B158",
+      "excluded": false,
+      "text_hash": "94d6b7ade578fdc140d9cdd711ac3899cf492f85a5553778dcc3505f792c575d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779044+00:00"
+    },
+    "ddda020163613b6e40fdfe66": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B159",
+      "excluded": false,
+      "text_hash": "c682501b77fbf5ba85d8b0ff3bcf3a319416bfd74ef313ec4110f3e2abf456b4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779052+00:00"
+    },
+    "606c6dcf31ebecc83715b947": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B160",
+      "excluded": false,
+      "text_hash": "821ae23a6fc9be67c2485c41a853210e8c4029feb7b3ab6b9930a41e454ba8f6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779060+00:00"
+    },
+    "7dc8d488de39005e2f0c6943": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B161",
+      "excluded": false,
+      "text_hash": "ebea7ccf5edb0ce0a6c87e5de7a72f79449d9c4fdadf95282fa52b46ab9d8262",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779068+00:00"
+    },
+    "3c58f8059cb9e8318f774df1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B162",
+      "excluded": false,
+      "text_hash": "aad474407352e4b743a0f0d60dadfb6f216a2c1c4e5d22dc309110e20469e06f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779076+00:00"
+    },
+    "0b77060329a52ce3a9e89fe9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B163",
+      "excluded": false,
+      "text_hash": "babfac314b95e5cdb1ee073a031837d440a10c28d08f7b606e8b01755900e7cf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779084+00:00"
+    },
+    "9e5b63796ebaa1774d50cc8b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B164",
+      "excluded": false,
+      "text_hash": "673545bb62afb6c1639f8ea0533339efd2a49cb63484b691a8050f37f5502cd0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779091+00:00"
+    },
+    "28924fd50e3a1065add647c0": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B165",
+      "excluded": false,
+      "text_hash": "c0eef4eaba59cfab186d52fc7503ae79f01c4940c012f6d224b6cd8e591c6263",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779099+00:00"
+    },
+    "6c21b13ec8ae68445cc9dd71": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B166",
+      "excluded": false,
+      "text_hash": "f704f24c4286c6c7ba23c7d19c3ee8ea791be68553bd1e16f0b781739c4ead49",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779107+00:00"
+    },
+    "cf1e289f268aca6c333ba62c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B167",
+      "excluded": false,
+      "text_hash": "688d6b28469ab61d5faade946479d8988fb4a56708b42d1c1399a053de13e291",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779115+00:00"
+    },
+    "fe8e96e4353705499ab7b291": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B168",
+      "excluded": false,
+      "text_hash": "b0f7c800638324b329bc52bfebf6972ccfcaf822431d6e6f0ae15776e7deef69",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779122+00:00"
+    },
+    "81aa1651cf1d464baa45f83d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B169",
+      "excluded": false,
+      "text_hash": "3ba0149f0459736a03194ae76bfe02b6c0dc235c209e289be5e610bd78df4c09",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779130+00:00"
+    },
+    "1198a1295fc93d43c9b91e8e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B170",
+      "excluded": false,
+      "text_hash": "8fad950e0d2783be4baaf96649839e8e5f0b7e2ea2673a816184bf3561e8ad4d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779138+00:00"
+    },
+    "9ac13920864439504b594242": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B171",
+      "excluded": false,
+      "text_hash": "ab3d5287ead6e19a442c00d71b8a46e94f09d6793e866509ef59fd0b9b361746",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779146+00:00"
+    },
+    "590ca4cb59313566f31ee2e7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B172",
+      "excluded": false,
+      "text_hash": "5dff5936c3152eeaacedb5cd524a98ba863462848fec99ac540ce471c70f1e4a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779154+00:00"
+    },
+    "50246f546abb9b21b8811528": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B173",
+      "excluded": false,
+      "text_hash": "2ef0cbbfd5096d5a9cc591bb5acd597ea0d99216b5bf3c2963d6bb1ae954426f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779167+00:00"
+    },
+    "2e55bd22867b84ccad48406f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B174",
+      "excluded": false,
+      "text_hash": "2455c00ff64385203fb37a3be6718c3125510f7745cf62425004c30346a13cd1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779176+00:00"
+    },
+    "e9a3bd60e4598589bb9792f0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B175",
+      "excluded": false,
+      "text_hash": "487acf393e87f057cb0d9c181643a6c68bcb52c471ebbdc1c2c935a3e93af408",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779184+00:00"
+    },
+    "709221bd7c8d76480a2e2b3d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B176",
+      "excluded": false,
+      "text_hash": "b273c71ee5efa8eeb8cafb67907ea7f1750a654c9258b2c536908f714b27a3be",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779192+00:00"
+    },
+    "c11bc04755361d6175d61753": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B177",
+      "excluded": false,
+      "text_hash": "c14278fc9c74665c21028b0dceac872a56ce5f19cd3740df5b638fdf9bb1d57c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779200+00:00"
+    },
+    "cc923a7327d9f280bb3a5ec1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B178",
+      "excluded": false,
+      "text_hash": "a57e110bed0bfeab53166582ee6c76dab65cad8f1993899c37e50f8e2a8a87f3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779208+00:00"
+    },
+    "fc4054ed3f46e185510171ba": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B179",
+      "excluded": false,
+      "text_hash": "947ea5108a2c7efd959cf3cafed5f057209ed994b7e482bcd799d55b83987f60",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779216+00:00"
+    },
+    "ffd0a96b833211820b5a6db8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B180",
+      "excluded": false,
+      "text_hash": "55038b9b8ef3e9927b3666e4a7adc429e26ba194922b4226a4d91f4d8e0e4d55",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779226+00:00"
+    },
+    "b3d5c6c2ae9bcde590db8737": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B181",
+      "excluded": false,
+      "text_hash": "c47d812ff057d3bfafa6a865cc54037f0c1d24af1fb6c05967ecc0dd3c944fa1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779235+00:00"
+    },
+    "fdf3f838d7902edc4937d575": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B182",
+      "excluded": false,
+      "text_hash": "58a5b30076c67da6dffabb485528e1d4b78466b8bc3adaac61b3c0c8aecbbfeb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779243+00:00"
+    },
+    "d28974d8ec56cd27d7787fde": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B183",
+      "excluded": false,
+      "text_hash": "78441ddb055869916ac98fc26ad386ee27cdc3ad9613da2b482e9073f391f4a6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779251+00:00"
+    },
+    "32609d36617b05e90f003089": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B184",
+      "excluded": false,
+      "text_hash": "184d66534b402cddac33ab70210b1d1dd480333368f3f6446d57a6b5de91e441",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779259+00:00"
+    },
+    "ec68af3584a3fb30f6144161": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B185",
+      "excluded": false,
+      "text_hash": "65f4a8cfd0fe33bdc7176984c8218c455ccc636e38cc502e38cac2959ce00012",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779267+00:00"
+    },
+    "334cdaa1115fc908e083eb4a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B186",
+      "excluded": false,
+      "text_hash": "0f12f32f99403dbb336fd83ef856f0f7a450c64ce06d09ec03691f77c3ace3ec",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779274+00:00"
+    },
+    "cf040d11c49dcae2ec74ce2d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B187",
+      "excluded": false,
+      "text_hash": "8c6bcf9fbb92b3f5b3314763a37768c3baf41a8cb27f534dece520fb56138b13",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779282+00:00"
+    },
+    "1ed6481213bbe5fb50032427": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B188",
+      "excluded": false,
+      "text_hash": "730cc2ceec55f645cb6a8016cfe03652a3808595f56ed78c049e3b135728c2ab",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779290+00:00"
+    },
+    "91171656147e11ab5c74797b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B189",
+      "excluded": false,
+      "text_hash": "e175a46e7a917f5e20ecf1e68f9e7e46d8f0434c8d6a2c257ae31e7d86aeb85d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779298+00:00"
+    },
+    "6f3f753b827313421e316226": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B190",
+      "excluded": false,
+      "text_hash": "02c6d632e373741d8c88540e92317f899a543751347c82c38671ea443d7d096f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779306+00:00"
+    },
+    "af34d38af0cdb342fc85dfe0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B191",
+      "excluded": false,
+      "text_hash": "aff5927ac1e216aa96b27b3cbed82785bbd7861bfa0766476f72a0fda9bce82d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779314+00:00"
+    },
+    "836c610085aaeb9e0d80859d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B192",
+      "excluded": false,
+      "text_hash": "4e64f83242d0dff88d03d6f22a5b47269738ebd3c83060a12280c740efdc3cc6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779322+00:00"
+    },
+    "9c7e9b7f5cbb33f8756c4bd2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B193",
+      "excluded": false,
+      "text_hash": "b814492530530bd17c552941ad2426c0e6e971c042f447e65cf5b6757d393afa",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779329+00:00"
+    },
+    "32cfff8dd68c391cf5ce78a0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B194",
+      "excluded": false,
+      "text_hash": "34604f2105575a1ecee9cf9cad8cf26db675905f61b9c5f7e9679156cff45606",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779338+00:00"
+    },
+    "86c2c506c7a57dd98e506b96": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B195",
+      "excluded": false,
+      "text_hash": "44ec5d9f38cba66f1ecdf86296cb84b8ad106ecb33f962b108c924b9d91db61e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779346+00:00"
+    },
+    "6d655d8612aa60f2b5fd8438": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B196",
+      "excluded": false,
+      "text_hash": "70e0cf99902eeeda61c9ae771412b741323992e574eca0fc209c3251ceee0f46",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779353+00:00"
+    },
+    "721e729af2eeced4ec4bf9f7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B197",
+      "excluded": false,
+      "text_hash": "a7f31141b1d75b8085353a9485608cf3e087b7006567ee18596975377684306e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779361+00:00"
+    },
+    "487e38fece831e09f6551be6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B198",
+      "excluded": false,
+      "text_hash": "fb724ec03f11ed3fd2895f95cf97e837da3dbd8c2e9841db21b16892376ae1e1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779370+00:00"
+    },
+    "51bbbef95c96ab15b44b5454": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B199",
+      "excluded": false,
+      "text_hash": "96b0f125c187d140081c92c34ad5bbd74087390374cf32582125cad012d0b6d5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779378+00:00"
+    },
+    "6929d4ab965ef09f19cb4d6d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B200",
+      "excluded": false,
+      "text_hash": "70d69efe572aee0609f9ff1e468444a679f0315db0994748892e0a3ce0c89015",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779397+00:00"
+    },
+    "3f0c743eb461d1fdd539a96f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B201",
+      "excluded": false,
+      "text_hash": "67e964417da24ba4822c264b8d013713de9f0bca5e5d71a3d148e82eba9ff07f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779406+00:00"
+    },
+    "db409722812fbadda126c63e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B202",
+      "excluded": false,
+      "text_hash": "94cd22d7dfa84d2132e6e4851cdf258c0b12484f57a5c72bee6dafbf269dc917",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779415+00:00"
+    },
+    "15e6602cbf547260ca3d224a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B203",
+      "excluded": false,
+      "text_hash": "60b29e049d9aa7e1ea45f5fe95b49daa705143b187f9a5a7f05e16906aaf5718",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779422+00:00"
+    },
+    "145c472961c3315912941e57": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B204",
+      "excluded": false,
+      "text_hash": "8f09f2e919246651425fb4555204206e28d541bb79d99a056a57ee3e08dea623",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779430+00:00"
+    },
+    "57b4208e28e453b6d73269ff": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B205",
+      "excluded": false,
+      "text_hash": "35ebb22389397e27ff6d1398226098bdddc69b4b6981982d1889f15f6bbe2060",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779438+00:00"
+    },
+    "6a61f7df4f5c2d4c1eb8aebd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B206",
+      "excluded": false,
+      "text_hash": "e0eef05de2ee4c6dac0f24530f3a6f8dbcbb3b77f404cea09a1c2223f5d91c67",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779446+00:00"
+    },
+    "4663626f403482d275c1aa3e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B207",
+      "excluded": false,
+      "text_hash": "26d17154625629d4026f2d7311d8285bafb754e881c46f7e40aadb406c63b3f4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779455+00:00"
+    },
+    "194feb633ed071066df43d62": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B208",
+      "excluded": false,
+      "text_hash": "2488d6e2b6db29f331014ee1b813142cec972ba2a93608814319d8ce47c8bf68",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779479+00:00"
+    },
+    "947df13f3c9c4b03686de76f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B209",
+      "excluded": false,
+      "text_hash": "6978e190b633886787469b3f9417ac325771dd740d095664fdefc1bf2c8d249f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779491+00:00"
+    },
+    "ec12e44f83fae575feb33d25": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B210",
+      "excluded": false,
+      "text_hash": "0379d45c60e1b8f51c4a8759c690233dc180e00ab07ff9264738e14672a3f199",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779499+00:00"
+    },
+    "13a56350b9f4992688f05953": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B211",
+      "excluded": false,
+      "text_hash": "27d0c982195529b8eb82a9e9b13518ea8f6a1b06ac5d3c4f9de3f895e80d0cc0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779508+00:00"
+    },
+    "cc47e5a147785426c553e066": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B212",
+      "excluded": false,
+      "text_hash": "8f6c5e355c8c568b0bbc24be2b78173add82b41cef2a30740115cbad7aa9fd48",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779517+00:00"
+    },
+    "ed92efc6d35f17bbed6b5bc8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B213",
+      "excluded": false,
+      "text_hash": "5abe3b6f892355289548aa87deee43ec524c5e4cf46f5782eef72848e9ac698a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779525+00:00"
+    },
+    "e9bbacc730cdc5edbec58d9d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B214",
+      "excluded": false,
+      "text_hash": "fc6b721ec1aaa9ae11aef0db3fe053678896b42bb96356b68c26e39266712854",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779533+00:00"
+    },
+    "bb436b5bc779fda0f4fe1ecb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B215",
+      "excluded": false,
+      "text_hash": "3fe6a8fb9f6a4ad120f440181b316475b931eacc521b3ef5f322ceb89ef73bdb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779542+00:00"
+    },
+    "1740d67eae2611cde5052866": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B216",
+      "excluded": false,
+      "text_hash": "b4d4a22a47416144fd7e9340e837bbbb43ad17c8876a015444fc12d6bcc3ae8d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779550+00:00"
+    },
+    "6108a2971c9955b6b2855f5b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B217",
+      "excluded": false,
+      "text_hash": "7f3d432ee1434fed7c8858dcd62449357a2410893dd3b31d947cf6cbaa29bf64",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779559+00:00"
+    },
+    "3ad84a3431eab1ee335b4108": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B218",
+      "excluded": false,
+      "text_hash": "9ba06c22b4759e17f72b5920463ac8b3ab9bb345c5214642d70fd1c2ba9bafc0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779567+00:00"
+    },
+    "2237f92d6124a1348ad3fc80": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B219",
+      "excluded": false,
+      "text_hash": "bb44d697d282f1cb9a1b0816712a0a91dfaf6cefa4d4c0ba3261dfa5d82ef599",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779575+00:00"
+    },
+    "43eaa9ac95e48c3f46b2ab7a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B220",
+      "excluded": false,
+      "text_hash": "da42d21e8e15ea8221c813d1e2f9be9079771d89c92da2ea7d757f1911d1bcca",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779583+00:00"
+    },
+    "bf5a4a0143dff20c945d3da1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B221",
+      "excluded": false,
+      "text_hash": "3c866d2c77387688997779af264767f4bf7c8db876a82ffe1c1a500e8bb54b2f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779591+00:00"
+    },
+    "a206352761bb4295d112b953": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B222",
+      "excluded": false,
+      "text_hash": "65829d5b6333cb2e81d93561b17893a4fb4526fc6ab5e79976f97aa20a753d96",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779599+00:00"
+    },
+    "4f944d57a956060b294fd386": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B223",
+      "excluded": false,
+      "text_hash": "b1230c73bc845555c9dad39e2264ddf7170c4fc6413674fad3abfe046b55e25b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779606+00:00"
+    },
+    "364eac93dafbeb056b85e585": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B224",
+      "excluded": false,
+      "text_hash": "79322bf9c486bd98630c177599069b57cc100bbf9d95728c0e015269b89c0787",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779614+00:00"
+    },
+    "010a885724869430a2470d56": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B225",
+      "excluded": false,
+      "text_hash": "334836c7833f205b7d67b28155b54e1b97d52825a3c2f44aa45f8dfc582f6b77",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779622+00:00"
+    },
+    "f165c972571e3a52d8d32149": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B226",
+      "excluded": false,
+      "text_hash": "898b9755f217215bf4e82cfbfab13faf4ce0555f9b6f85fde665e4acea76b941",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779630+00:00"
+    },
+    "0c3414db25295e8495799005": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B227",
+      "excluded": false,
+      "text_hash": "407eb1549bfb7356a2b26a10987bd28bb97100b71b583b278efd1766d38975f9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779638+00:00"
+    },
+    "3bfdf63baa551c09b6775141": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B228",
+      "excluded": false,
+      "text_hash": "93a47196f3650aa767960a6fc11445258d8eb97a8ca83531a8680aca05263339",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779646+00:00"
+    },
+    "85d7985d1536ca82ba70841e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B229",
+      "excluded": false,
+      "text_hash": "f64ac0285db0d55f44c42a6641baa90d3d4e0e0a56fbd82aaf11212904d3cf48",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779654+00:00"
+    },
+    "cf27671a33514ea08a253283": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B230",
+      "excluded": false,
+      "text_hash": "2eaaaaa039aaace920d32dbde0ac7771ec6ff1eb6fbffe1c8aef1f4377253506",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779662+00:00"
+    },
+    "eae237ab4486e10aca7c4a73": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B231",
+      "excluded": false,
+      "text_hash": "88281dfddabc8e7513de3cab983999cbd264f1defeb26823eaec761f31ac0cf5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779670+00:00"
+    },
+    "0eedb2dc116f6d100cb20dbd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B232",
+      "excluded": false,
+      "text_hash": "3b49267db1d27d517f89db265057270d97bdd35354e735cbb74fc5b506ae8e1d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779679+00:00"
+    },
+    "1fecafd0f6d9dce28affd769": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B233",
+      "excluded": false,
+      "text_hash": "f09067d6d9401f779cc242af562450442968a618ac7df3dab155f835da3461d1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779687+00:00"
+    },
+    "05200da529815591702fa4e4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B234",
+      "excluded": false,
+      "text_hash": "7289b7f00a9bd368b9a3d417af8b99137b081bb4a4e8e0d51a90b524343c43e7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779694+00:00"
+    },
+    "cd4bfbe257951f1691d47490": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B235",
+      "excluded": false,
+      "text_hash": "f7bf764e68832b9c8f8da82ad23592d61af5e18c4f021277f61117835ccf2689",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779702+00:00"
+    },
+    "3296753aa192186b1565fa9f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B236",
+      "excluded": false,
+      "text_hash": "2ec773b51c62377189c84d8e3f7651e544900031c9452b6f5ba80246ea460046",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779710+00:00"
+    },
+    "8f2ac86b0a89ed1159be9357": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B237",
+      "excluded": false,
+      "text_hash": "2e252bb43560f091f36319c1b032440c080da32f68e823c3f7b31780ce191f8f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779718+00:00"
+    },
+    "9203e9785bb683305b255008": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B238",
+      "excluded": false,
+      "text_hash": "a9357a94fef5248a78497d92ab8ba4de8d77bc761f9d9ac4e87531390759e455",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779729+00:00"
+    },
+    "74f73c77fde78d407b08d477": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B239",
+      "excluded": false,
+      "text_hash": "b481627bf3be950f75728a2b8c46474d1f480b54ce29faf7e574bd4ff22f3ee6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779737+00:00"
+    },
+    "3534a1d3e86ea4a511112320": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B240",
+      "excluded": false,
+      "text_hash": "2e952aa7b3cdda7fd65747b6a0858fd02952fada3a973007d511a18947294f2f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779745+00:00"
+    },
+    "90cff8297d52e27ba3c7beed": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B241",
+      "excluded": false,
+      "text_hash": "d23c4739ce4579d23d20fa6c92c2f72b95a02f0f2a4c26a702f5bc52277bb555",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779754+00:00"
+    },
+    "fbc585be19836933902e2cc0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B242",
+      "excluded": false,
+      "text_hash": "fbc1a3b819ccdb6bf8f58ddedb9be8ec432d3247a7fa85bf832b689de5923d6f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779762+00:00"
+    },
+    "3c3f5eff6fa1ae427a6f3ce4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B243",
+      "excluded": false,
+      "text_hash": "b5d96b09df3c73068c39737026ebd5a799d921abac47d3730ef9a86e4e4e31c5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779770+00:00"
+    },
+    "be692afdd83a7ae21909fe75": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B244",
+      "excluded": false,
+      "text_hash": "e2daed9576b31a630856be0eed3d2b3bf09ef15315c8cffa3c68baaff720cd3b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779779+00:00"
+    },
+    "ee131ba9dd1d3166369aca4a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B245",
+      "excluded": false,
+      "text_hash": "7245008aa03fcdd322ad347f3ccda78ce077233f74af16e0a26a3c69bd1d1de7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779789+00:00"
+    },
+    "1784d6d55f5f15988daf20eb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B246",
+      "excluded": false,
+      "text_hash": "418d869176abf059e175370aad4bf2cf5389ac7b6bf200ac27804a4dcc6c1af9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779797+00:00"
+    },
+    "5b967643c15c12e505de6fa5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B247",
+      "excluded": false,
+      "text_hash": "9f9d1e3a4aeff10278f1403e80ccadea184dc29128954f172b70436a1adde4d8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779805+00:00"
+    },
+    "aa22e4ca45e7506b6c95c5d6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B248",
+      "excluded": false,
+      "text_hash": "b07b589c8fb0ff21b05a3dbe951e757e336c96cc7a9789857585e8e1a1d9bb99",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779813+00:00"
+    },
+    "70a7a1850c44f66f61583ba0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B249",
+      "excluded": false,
+      "text_hash": "50863e798464ca1bfcbd4559940a00ae2bd4150212bfb52032198a3cbbae6fcb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779822+00:00"
+    },
+    "1847d1f6dd97e157094d2294": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B250",
+      "excluded": false,
+      "text_hash": "70801d65bb948c3f4b730f9bd88b4a96704f2343cd7dfcf21553bcdbf187f1ce",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779830+00:00"
+    },
+    "c694cc8e1e7dff3de27854fe": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B251",
+      "excluded": false,
+      "text_hash": "214010dc7dae61509854cd9e4d81a6b1eea70b6565ac8432d867458af08610f6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779849+00:00"
+    },
+    "9d10e73e525290f1e1aaf31b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B252",
+      "excluded": false,
+      "text_hash": "3a04c864c4c6a55dfa717667d2a60a8756842068e20b7f31a117354dafda9ea5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779859+00:00"
+    },
+    "0f2ae92351bc05e4a6789a83": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B253",
+      "excluded": false,
+      "text_hash": "22e6daea9e00eae147613e883b4455f5c06e898dd5ca73c6864517ddf84a336a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779868+00:00"
+    },
+    "9f5a8d74a1aa7024d8c62d6d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B254",
+      "excluded": false,
+      "text_hash": "92797a8524a78376b9e8e6d3821db067bd9b732e8ed79fe496fc764656a4e234",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779876+00:00"
+    },
+    "dea22a2912e7b59fd5090b58": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B255",
+      "excluded": false,
+      "text_hash": "5d57e88c8ce0cf4b4cae3b0304a28c9b2d5c35c49c792b24f34d23cd4597d013",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779884+00:00"
+    },
+    "a830967c692b32573d1f108f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B256",
+      "excluded": false,
+      "text_hash": "6ec4a65201cbdf93a0170a41fe3f68a0377584d2891cbfad85bce379771f45cf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779892+00:00"
+    },
+    "a46d6085e8267c7e66dc648e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B257",
+      "excluded": false,
+      "text_hash": "6fa1bae27069f9ca2430c8cb2a7bd37bb66ae6ad1e84be90f762fd7e5ef56681",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779900+00:00"
+    },
+    "547099b9eb16c36aa01a9139": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B258",
+      "excluded": false,
+      "text_hash": "c3d2e8ffe4840ea31cb46e0beac7081a99b9d6f251100f9e9a8f9e53aeb68f4b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779909+00:00"
+    },
+    "b4aa0fba91565e026130cfd6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B259",
+      "excluded": false,
+      "text_hash": "18530c3c27d8d5333963d76e4417b2b58ddc0ddc2faf772d1958337548df6542",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779917+00:00"
+    },
+    "f1e8675b02e0eeb7c5aa7532": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B260",
+      "excluded": false,
+      "text_hash": "89085868a7ece25104f2076d5ad6390e159725483752618aa70ddf3f3f3f9237",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779927+00:00"
+    },
+    "f115e02e68a7995f654d6f48": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B261",
+      "excluded": false,
+      "text_hash": "92e8074073f22e439904e4c8f7c717a3dc7229b20377397e8751d9e681ba6426",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779935+00:00"
+    },
+    "f781df2f48dd0aee1b163472": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B262",
+      "excluded": false,
+      "text_hash": "7e196596a246386cf0e48ccdc44db38a7018dd95c23fb0a6a53299f745d9f891",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779944+00:00"
+    },
+    "5f7f02fbcb869ce963efcbe5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B263",
+      "excluded": false,
+      "text_hash": "b479c2b0078da0fee06c862a6c8404d0503dcd48f615b63bb00b979a66a45f72",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779952+00:00"
+    },
+    "e15e7d1780d1ff373c2a477d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B264",
+      "excluded": false,
+      "text_hash": "a14478dc746816aef3ee3e6aaf0082a60c22cf19b50e84d4e3e9c71b7c180409",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779960+00:00"
+    },
+    "2362325fd5e57305f6159755": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B265",
+      "excluded": false,
+      "text_hash": "757015d1fad0eb55280303d041c19e8e49417eae2c69ce581b98c5a981f9c175",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779969+00:00"
+    },
+    "d913d9bb54f46e3bffcb2743": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B266",
+      "excluded": false,
+      "text_hash": "a9c535db18115d055b3a7b87f1679759965783d9644d65acc6a601957f6e586a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779977+00:00"
+    },
+    "846726d3fdfe3af77bd039dd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B267",
+      "excluded": false,
+      "text_hash": "38fa0aff96ca00b14928d503e884343eda8a0be073a2f9b055b51472e4f3402f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779985+00:00"
+    },
+    "f39f18f1ac2b0f6476d92d7f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B268",
+      "excluded": false,
+      "text_hash": "5007a24884675793c37d71230b98d144f32f6947df567ad6f7fe0f6a11e8c413",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.779993+00:00"
+    },
+    "8676a9eb7cb8e5257c7b1930": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B269",
+      "excluded": false,
+      "text_hash": "91806324b7eb33c8dbc93f43ba99732079441a36fcbdfee4a653b2fc02a417eb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780001+00:00"
+    },
+    "c0c9e9dcc2d1e6fe331f258f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B270",
+      "excluded": false,
+      "text_hash": "b94781e8f2c513ee0872c9d4ffcd09e414b2914a2f59f0ed904966fa4c111775",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780010+00:00"
+    },
+    "0c0bbb2893712877196118e2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B271",
+      "excluded": false,
+      "text_hash": "6e3f861fca59b595b7ea42dad045de8790a1a00c4c2cee31f136d731f36c029a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780018+00:00"
+    },
+    "db60571884182a268b1f369e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B272",
+      "excluded": false,
+      "text_hash": "1426659574434018c036724e0077eef6aac750ff79a61df334a89a76e1d4b4b2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780026+00:00"
+    },
+    "cb2fd080e601053e1bc5e5cd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B273",
+      "excluded": false,
+      "text_hash": "888c4a9c59c19e7f10b96342290846dcd6f7bcf8f641bb2eeeb99cfe00af90ce",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780034+00:00"
+    },
+    "d3698ba305bf11e55e9cf142": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B274",
+      "excluded": false,
+      "text_hash": "84a6cb99e52f8b62986d0b1800286c6b1af3a55832f0c3e6c66360419911efea",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780043+00:00"
+    },
+    "42bba67f4c026fc28c13cd9b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B275",
+      "excluded": false,
+      "text_hash": "28c4a140a470961c908b8ec7d65e568eedfe6ebc15a4d0010a99684a46f5b1c1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780051+00:00"
+    },
+    "aa8c9065f11e853b5bb128ba": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B276",
+      "excluded": false,
+      "text_hash": "d6bd3d47fdb20b9f9b7544a70fe2aeeda7820a72911a726ed799fa69571e3fae",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780059+00:00"
+    },
+    "aa0c98b86f87167226b2737c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B277",
+      "excluded": false,
+      "text_hash": "cae846b3e3ebe4653184de42637d705e0bebad160a98ee71994a52c63afe6a76",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780068+00:00"
+    },
+    "162d3fde54282a042e936cc5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B278",
+      "excluded": false,
+      "text_hash": "c6970516f28b73954530841dc228f6eae39e46e0a655e506c91cd1c0695016c6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780076+00:00"
+    },
+    "97c4331c661bfc94b5be5d79": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B279",
+      "excluded": false,
+      "text_hash": "5b9f8c8a4211574c661f34215490f3991ffbc1102f73765bfea21399d6151af6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780086+00:00"
+    },
+    "9d40dcc9a18ce2ef61f08011": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B280",
+      "excluded": false,
+      "text_hash": "c33ac862ebfe3898404aa2c6693c7903fdfad5a9f3809be9f56405b8eae0cbab",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780096+00:00"
+    },
+    "7aa844b55627c518b601e63d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B281",
+      "excluded": false,
+      "text_hash": "8908dc934838ea59c891506dd96160747d1ae1776d844d63398445c4537ebd32",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780104+00:00"
+    },
+    "fb0d7b995d5427978249c5db": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B282",
+      "excluded": false,
+      "text_hash": "45c65032adcb070d213cacaf9f3f53657354966b16921ff1ec2b23f55acbb613",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780112+00:00"
+    },
+    "dea67c8df2300e6e9221a187": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B283",
+      "excluded": false,
+      "text_hash": "bd868defa8d7b3c333fa04febaa957fa26ebeda78b5ae562ad7e9a177289d7ef",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780121+00:00"
+    },
+    "e6b225248e9b0824c240f04f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B284",
+      "excluded": false,
+      "text_hash": "9ff485f7fe57cff1eae2fff2635b60fc76d78c887e5825cb87712cec917f2737",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780129+00:00"
+    },
+    "35274d42c5df1d7f8eac6fa1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B285",
+      "excluded": false,
+      "text_hash": "0dcae5826255bef1e43ee7a97f57a71929979c7b195936fd38a2f57e7c5f56a7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780137+00:00"
+    },
+    "567812ba9bdb074f66199dfb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B286",
+      "excluded": false,
+      "text_hash": "267d5453cf71e511f7823f87a20fa420d545de6c7eaa20c2c3d75373c4dda3a5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780144+00:00"
+    },
+    "afa6b487334a3a82c8fdd34b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B287",
+      "excluded": false,
+      "text_hash": "1d3d781cf845ebb33ba3f910e00bacbacc25739fdb241e1abab06a7dd1e2035f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780153+00:00"
+    },
+    "21c5f9e28add936150d7c77b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B288",
+      "excluded": false,
+      "text_hash": "c33297c5944c09ec7949cdff2629acc7b14a86fda73cd40e208909307ffecc58",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780161+00:00"
+    },
+    "2adca5ba27c553686e69bec9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B289",
+      "excluded": false,
+      "text_hash": "c6e96315965feeb9274e9e13ede0935a0e68fb4d5d08ff32954f4fff8915dfef",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780169+00:00"
+    },
+    "1978770a7b1085bb7f4b73ce": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B290",
+      "excluded": false,
+      "text_hash": "dbb218ea2a71d8909cb21087455c5d3158aa150f8d7fc5338ed569cb58858ef2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780178+00:00"
+    },
+    "4ea890ceecae2d44601dfbcf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B291",
+      "excluded": false,
+      "text_hash": "235d6cc94f2841837e1829c870592585b66d04292bf31c8d3cd05e6bfbb276f4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780187+00:00"
+    },
+    "9410dfe7c482ffded72a10ed": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B292",
+      "excluded": false,
+      "text_hash": "1b896da42a815bead69afcfaebcf5aed4ab78240ae032da220c6cf4ed5150ff0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780195+00:00"
+    },
+    "896c6a6c06d2229a590e06e4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B293",
+      "excluded": false,
+      "text_hash": "f7e6f9339130aa66b7d3ef7bac449a63d9998a9f023be5d0e780ef256503c72c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780204+00:00"
+    },
+    "66c54a1c85e713c44850bf51": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B294",
+      "excluded": false,
+      "text_hash": "e1b1d02ba9f23a016763f92354fa7fc1b60f0ec352202fd17e9029da6c9e9d9c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780212+00:00"
+    },
+    "651dd0f9e4f1a352d65bdd9c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B295",
+      "excluded": false,
+      "text_hash": "af2c94f033112cac8cad958775430f0a17c83fba353193c45e7ec8ba5341b67a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780220+00:00"
+    },
+    "86cc0ca4968bc69dcf45c6b9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B296",
+      "excluded": false,
+      "text_hash": "30c782e64a3b271d57854fb8fd28845f860708c54826f52823eed469812d4a76",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780228+00:00"
+    },
+    "34e277c65f4a1fbfe125759e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B297",
+      "excluded": false,
+      "text_hash": "7eb7f73da571d4e610f348a542ab25ff73d0fadb810527c1d6a5fec118c96d61",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780237+00:00"
+    },
+    "4dc6d102223660bc4eb07c2d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B298",
+      "excluded": false,
+      "text_hash": "e2792de9fe0ea0a03375d8f0cd478e5adfc96091088e1d757a66ea7a620bc69a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780245+00:00"
+    },
+    "abec9c7a589e4f160f3b8867": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B299",
+      "excluded": false,
+      "text_hash": "236a75c1048150ca97c375b67f6a60595a5a2badeceae78ccc2ce651949bab90",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780253+00:00"
+    },
+    "d04104f1e3abb57b8809ad2e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B300",
+      "excluded": false,
+      "text_hash": "2f12ea283019b224f33f5d9da03575059bfa5084cb314f2c931cb7d6f7dbf2b7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780261+00:00"
+    },
+    "f26897c79ba8e560bbb99eca": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B301",
+      "excluded": false,
+      "text_hash": "2a1db572e8c7d0d602fbda5d6bec003fff73c6b9f75de94f84f39dcfafceeab8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780270+00:00"
+    },
+    "f206b920e5405426c66b44be": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B302",
+      "excluded": false,
+      "text_hash": "9710dc4684ef15d60f26b84a5c536cd529d1093e819e0e26ec4856afb021a60d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780278+00:00"
+    },
+    "4d3ceb59362d1531e0187057": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B303",
+      "excluded": false,
+      "text_hash": "bcab18a9b80d5cb8b8cafe7b6ce1946af9238d78f17c18f021c049790af1cccc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780286+00:00"
+    },
+    "9ce8c6c3447b33eaa486b424": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B304",
+      "excluded": false,
+      "text_hash": "b1ed4c1da31095a08370541d6deafaeb201c10f2c33d1cac60940d2661c9851a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780294+00:00"
+    },
+    "a030d8551affb65156afa184": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B305",
+      "excluded": false,
+      "text_hash": "c4e2f5707007ff4706bda3a6147d0368085e0fbbf184c0276c3c27d17271ff3e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780302+00:00"
+    },
+    "fc85b3ba50d6154df953b752": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B306",
+      "excluded": false,
+      "text_hash": "8f9bfc2f88f231b727cbb2736c0d9bb58332e69027bcf1073e1669f55d420b64",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780314+00:00"
+    },
+    "3a84b90dbb4cc644917f8660": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B307",
+      "excluded": false,
+      "text_hash": "9700a0adb47b5bf858280d957252051e3b59b2ae89b7ae0aaef20d5d834c4921",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780323+00:00"
+    },
+    "a7a5c2b828c38438326ea449": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B308",
+      "excluded": false,
+      "text_hash": "793066888ee361368459a98c66d7ee1b26977e24c0b1816e816fd2c3835fb1f5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780333+00:00"
+    },
+    "e23f7956d1758cce3642cbbb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B309",
+      "excluded": false,
+      "text_hash": "7caeab822abcf096a3ab0f5007e10c05fe21ccae2346fadd16cbddf324b80099",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780341+00:00"
+    },
+    "c65f501b05673b2180e27995": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B310",
+      "excluded": false,
+      "text_hash": "053e4e98a8b7b7e3d69b7e74e1676e279b4e65ea765b1c6e3a3071f15ab4efe3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780348+00:00"
+    },
+    "220bbc00f3b0cebc98ecc150": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B311",
+      "excluded": false,
+      "text_hash": "ff41f7a01b8c4b803f0c75acb95b2a62b8952df59dc0b6e4f292b790ad670922",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780356+00:00"
+    },
+    "313c09acb63e6f283f4d79b5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B312",
+      "excluded": false,
+      "text_hash": "2f608182484a7c5bac508c423fdabf0f9da462ff8993983b3878921f2f8e8dac",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780363+00:00"
+    },
+    "3a676d7cc357067d83d29452": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B313",
+      "excluded": false,
+      "text_hash": "1276945ed583730046ecd2cbf6f001bd4c411a44582534fbea278def950c268d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780371+00:00"
+    },
+    "4108164fd4dc4ac0daec8591": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B314",
+      "excluded": false,
+      "text_hash": "1ff4196f6de3fd1cf21f54759d00fc3d9c9bf65a4bb61da95f613991caed189c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780379+00:00"
+    },
+    "ee7d824c01a49457c8d1185e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B315",
+      "excluded": false,
+      "text_hash": "976e63f25c50461e677dfd86f679517c1cf5ba7b8e136f067810cce7c3f028f6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780387+00:00"
+    },
+    "902849c41d08e320dc0175ea": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B316",
+      "excluded": false,
+      "text_hash": "c40deffecd06c6bbb7e8abf04e67c0d6212b3d432901dff7d0fb79b738fff3e4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780395+00:00"
+    },
+    "8ab1402891f71464fb597900": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B317",
+      "excluded": false,
+      "text_hash": "db8c3dd845e7217d53231eab983cce6ed8dfab208e8dfcbb81dc5b3fa27d1c68",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780403+00:00"
+    },
+    "43490f5c28e047aa3ce7fc19": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B318",
+      "excluded": false,
+      "text_hash": "f2a0d9c38ca4f80eab1f4a80c2fb4d50a48c81054687d4ffaf10e90b0bf009de",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780411+00:00"
+    },
+    "2c24e594c9927dda13e8e14b": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B319",
+      "excluded": false,
+      "text_hash": "26bfced679beee1c6ca517f20ac36f8e9eadd2e960a4335e15a9e49c4aaf25cc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780419+00:00"
+    },
+    "d1427426fdc1d34c1cbe7c8b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B320",
+      "excluded": false,
+      "text_hash": "56a8252338caa8218d9fbbb015f3ede159fa9bdbfab82b77b53855474d198d7c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780426+00:00"
+    },
+    "c4ece2a028d6514301ed7837": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B321",
+      "excluded": false,
+      "text_hash": "5b20036f99a11eac8b82a2eb4d7dfd5a428302b0edf38f185b2c10c8aa5f41ae",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780434+00:00"
+    },
+    "95c0f929da11145d20d394bb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B322",
+      "excluded": false,
+      "text_hash": "a6d12310cb1b894cbc53f5e5479bc0d59b3f827bc65aff389a4a793212719879",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780442+00:00"
+    },
+    "88933e1f45ab1f19b8788fad": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B323",
+      "excluded": false,
+      "text_hash": "7cb2a6c4551aa6059dab5fd9b9cb56f994e72d308932af1aad98c46c680c916f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780450+00:00"
+    },
+    "b45b654a42a91c2ddc66d1d3": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B324",
+      "excluded": false,
+      "text_hash": "ec10d3dcca6f06e028ba0dca3eab9a80441756c06e07eeea52ce8493db7b6ec1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780458+00:00"
+    },
+    "62e57b4ec5cd073948389591": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B325",
+      "excluded": false,
+      "text_hash": "3cb2c426a55670aae760bd473c53cf820d5f3ebd77628326ad5d8a894886fd4c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780467+00:00"
+    },
+    "135789489eb343f2a2c53d14": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B326",
+      "excluded": false,
+      "text_hash": "37012e4653cb7350dfa4e22e26bbe7cbce81adfaa0410e3d46543f3dd3e7bad0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780475+00:00"
+    },
+    "4a20c9fdd5f51cc6bb65dfbd": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B327",
+      "excluded": false,
+      "text_hash": "578028916087f767739322f450e952794245aed15abdacc379c1768fc3ffb162",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780483+00:00"
+    },
+    "fb768a23228bb501e5648d9a": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B328",
+      "excluded": false,
+      "text_hash": "b3a983316b1935c1bb5ce4698681f13e6f6953f169d65962448c66c8d03b90db",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780490+00:00"
+    },
+    "093c74bb1625d36dcae1aa3d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B329",
+      "excluded": false,
+      "text_hash": "c316bb80f49ed39b0df70bc8b3f0edf2d27197e251a7e4af95935ddd303c6994",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780498+00:00"
+    },
+    "37c5fe46ef72bdcfb1b91c1a": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B330",
+      "excluded": false,
+      "text_hash": "78805ec301bd0544f1c011abb59809038ebf0ec4ce99eac5436f2929ee93e664",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780506+00:00"
+    },
+    "532c386789496084d12f4a4b": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B331",
+      "excluded": false,
+      "text_hash": "62130c62cddbc49d8e903295e72da1620e30e5582d0651279718e5110b6a2256",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780514+00:00"
+    },
+    "8f47b2cdb3e2e94a58c1dade": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B332",
+      "excluded": false,
+      "text_hash": "c5a02de23f74e55bd1f6c742a1be48a0d98dc215a52c9311122f575eff4d32f4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780522+00:00"
+    },
+    "39dff5b42e03db2efeec5c27": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B333",
+      "excluded": false,
+      "text_hash": "723866ff6e2b5c2d888b6410f22b52b5f6818eedcc4e172cb36dec4ad6319b24",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780531+00:00"
+    },
+    "6403c5e05f89e7e0a4197f2e": {
+      "label": "toxic",
+      "note": "User confirmed school criticism; previous non-toxic was a reading mistake.",
+      "excluded": false,
+      "text_hash": "59e1b12e2f589bbf7a6bdfe82561be334760525afa0603a7f129628db491e086",
+      "label_source": "manual",
+      "updated_at": "2026-10-30T16:35:35.748979+00:00"
+    },
+    "db3dde1309dca0830460c1a1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B335",
+      "excluded": false,
+      "text_hash": "491e13630b04a5f03c99845c4576fc06e96800e00edbafae8e0fd88288f83fb5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780548+00:00"
+    },
+    "9cf856dba2409f6586044749": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B336",
+      "excluded": false,
+      "text_hash": "8db17f563862218a08a7b82a493ba16a479d0de059678f55643598bea56a4065",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780558+00:00"
+    },
+    "23ebf3a634ee403c0bced651": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B337",
+      "excluded": false,
+      "text_hash": "80dd34d52a7f23dc79395dc84869bd399d9bc316274a5d60cb105df72c375659",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780565+00:00"
+    },
+    "ed21570333fae2d29e77ebb6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B338",
+      "excluded": false,
+      "text_hash": "f2b4cef67a6cb271a13a72b12543b23189a08d3d1b8f128d62f0705180c7aff8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780573+00:00"
+    },
+    "33de805a269cb3530b09fef8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B339",
+      "excluded": false,
+      "text_hash": "8b68134d7d3c669a7e14506fa5f208e4968c8c5bb90d03d4a61e2bc2d4cf0c5a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780581+00:00"
+    },
+    "e7e26077307eeb51dc24b1e0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B340",
+      "excluded": false,
+      "text_hash": "c29bd4e8c536ad1bc9b1714165f03c334ad3821a62ab47e39a7d3a22b758b164",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780589+00:00"
+    },
+    "f1b6642556c8076a62893803": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B341",
+      "excluded": false,
+      "text_hash": "33e1b9dcde590120e18d92c88c10a641cab0f82fd71d8889064eef45a796738a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780596+00:00"
+    },
+    "5b405aa43870d2d711ac1ccb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B342",
+      "excluded": false,
+      "text_hash": "d0c2d7f828d125db6d59aa218661b531bc89f38c0ba92b5392d561ce03c8482a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780604+00:00"
+    },
+    "56ee6192023cfce201a48297": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B343",
+      "excluded": false,
+      "text_hash": "b15218a334ea5ac23e7348ed44a01e9144123109ee3b0929991f42676c3d65fe",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780611+00:00"
+    },
+    "4821963a2c2f4aa3e7054ead": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B344",
+      "excluded": false,
+      "text_hash": "5936456d4ef832a0927e6cba582b410b36251c0307853360167018facca68c51",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780624+00:00"
+    },
+    "aba5bdb9d9bc3bc2977893c9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B345",
+      "excluded": false,
+      "text_hash": "4c2d49b93be9f2aae90faf1fe1ffb72ed23d9cc2d7177ed5110da972a59fdd64",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780632+00:00"
+    },
+    "622ae8e21a1a795ea7868393": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B346",
+      "excluded": false,
+      "text_hash": "f1e35283a67aaba60c1ad8c9aea8e07400b2d62fe03cdf49e40cf990f5550902",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780640+00:00"
+    },
+    "b435ac8e06d6b2e464417595": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B347",
+      "excluded": false,
+      "text_hash": "d6aba7ac4bce809269f93bd5ce7feaccf78e1bc17e0187b2e9c5550c4c1e0a70",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780648+00:00"
+    },
+    "276cae1172444fa3d9747974": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B348",
+      "excluded": false,
+      "text_hash": "891c6b13592a0b67253b4baaab8db1ccb75bba4868bb73a846ba2f97d334feb8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780656+00:00"
+    },
+    "5456aca3c342245ed3a7caf2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B349",
+      "excluded": false,
+      "text_hash": "97caa88300fbc5fbe23488bcca3f84fd9ca0b2a45e50075fd3f35e435317ba84",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780663+00:00"
+    },
+    "e6a3e42a07cec63ecbea9c2a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B350",
+      "excluded": false,
+      "text_hash": "45cd88dac65b8584dee7ec44878f1672efbe8b2577b233a21017c6d2b6dc0a29",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780671+00:00"
+    },
+    "dc710c5ede59a7f586511ff9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B351",
+      "excluded": false,
+      "text_hash": "beb960628fea01a091d1f2cf1e29122b9ad29965d10063a8d5e116d1ddf281ff",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780681+00:00"
+    },
+    "3a69204dd4b3297230ecec69": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B352",
+      "excluded": false,
+      "text_hash": "9106f21fa08bd0dbcf7ef3b9a125babf842baa6c770caa0ac5c565212f52c75b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780689+00:00"
+    },
+    "5f5efe035be184ddaa5d5f80": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B353",
+      "excluded": false,
+      "text_hash": "4efd6829ed56e28c3a9554c4161fe1add49ceeef4352429c82d542196dae5b15",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780697+00:00"
+    },
+    "2d3b136cbf2b3f9ce9a8dea3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B354",
+      "excluded": false,
+      "text_hash": "3eeb4d77965d9e1ea2ff45d8b9baab4fe408d914b5a6c9b4ca4e32a81d074f5a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780705+00:00"
+    },
+    "f145c3e2462cb728a55b4521": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B355",
+      "excluded": false,
+      "text_hash": "9418f1f71e9df0daeecd36e74aed513289184a7e9631e8e90639e66e7e85a3ab",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780712+00:00"
+    },
+    "41c2d8be06fa62f8d608bd17": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B356",
+      "excluded": false,
+      "text_hash": "e27cf8f2aef75d36406da6693001a6ef6674ae522b1151cc6e9ed7c2ff6cfa16",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780719+00:00"
+    },
+    "f44a7f9e00409af9bd99fae9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B357",
+      "excluded": false,
+      "text_hash": "e831da41e42c739d81a50e7930d110ee79d51abcac7a634b9925f1d19b298694",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780727+00:00"
+    },
+    "586888fc16f6c163066870e8": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B358",
+      "excluded": false,
+      "text_hash": "dd259fa3d0378824cf8687a849b8be1db24d828dff2a5eaad171dfc386e3f381",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780735+00:00"
+    },
+    "ddda98edf4e6e6be4417b6e8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B359",
+      "excluded": false,
+      "text_hash": "654d54d74e274cfc935e51322d208aede947b06e4b1b1d2732dca746675adba9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780743+00:00"
+    },
+    "39ea1c81ce5687ef707983ea": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B360",
+      "excluded": false,
+      "text_hash": "4a49bb93a613617aef7d53b33f9b9c590ac38e80d322a8284d3e34c0f09aa7c1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780751+00:00"
+    },
+    "5ed35e051246fc62f17ebd39": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B361",
+      "excluded": false,
+      "text_hash": "cff8a4fdae10f03141c91c0fd39a1d2a10d3c5bc9f5ea661af3e7de9893cf7c7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780758+00:00"
+    },
+    "ae4524affcc36792693b4c33": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B362",
+      "excluded": false,
+      "text_hash": "f0ed7af01dbb07ec1be987c5db6575d804cf50c40677b622834cc231179fbc1f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780765+00:00"
+    },
+    "86d1163289db7101db7d82fb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B363",
+      "excluded": false,
+      "text_hash": "26d047eb2d0ef6f1c455a67adb98ff855a47629e70817c78eaecd75b1798ff95",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780773+00:00"
+    },
+    "d0fa0365204737dcf4fbc9b3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B364",
+      "excluded": false,
+      "text_hash": "90bfdc50d2225c57c07721726769d1ab7a2f13542131be97ad129cc824f4ebb1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780781+00:00"
+    },
+    "a1651e8438507ee220ad18c9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B365",
+      "excluded": false,
+      "text_hash": "dd097ddb3a711ad2a037817d9fa472bcbb0a93d80899ee967bbb077f141217d8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780788+00:00"
+    },
+    "fc1273434257aee772dd222b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B366",
+      "excluded": false,
+      "text_hash": "e329c3543c62c232a9def36d2900ec33a14057c4b473e19d658312ed5d46bdc1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780796+00:00"
+    },
+    "2a97446dd415f492e7368bcd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B367",
+      "excluded": false,
+      "text_hash": "9c8f96da2363ac48ffe2046666624c6e1d39806613c81944042e12da4cd40e09",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780805+00:00"
+    },
+    "199bdf263c251a27e9ee45b3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B368",
+      "excluded": false,
+      "text_hash": "40cc834ef8ff55525e00a5c67d0b7985a7f1e92878da1cf2845363e8668537aa",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780814+00:00"
+    },
+    "a39e53b92987f8e4093ddf11": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B369",
+      "excluded": false,
+      "text_hash": "8b7b64186865ecc44b1d17d16be90c264c4ecbdc7db97ee2af05ad9d983c509b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780822+00:00"
+    },
+    "d745b2c0d1b8900dc35e8397": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B370",
+      "excluded": false,
+      "text_hash": "a2c3c55b410e87d6fa1311675db85f14639cff51c5a60f08d9680e08dd1946a6",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780829+00:00"
+    },
+    "a7a649a1d3d883f17406a5b7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B371",
+      "excluded": false,
+      "text_hash": "14d4fa59256113143669cd7e6cfbc3651d68238d29fb181fe7131054cd0a1f63",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780837+00:00"
+    },
+    "7bea1286976fdc8142a16041": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B372",
+      "excluded": false,
+      "text_hash": "555934991b58f02d9975bb3349ac093dcc6c14937d1b55288b68bbbc455f296b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780844+00:00"
+    },
+    "ce02adce102e9af420093f67": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B373",
+      "excluded": false,
+      "text_hash": "3f1967f812a03aa8c76a72d7ca4007d96c719833616b1e6543001b76f5bf5d26",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780852+00:00"
+    },
+    "17dbbfa753a094888bfdf1e4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B374",
+      "excluded": false,
+      "text_hash": "41252ee7541b00a8c571bffca43e93365c41fcf65d44d688df3b0ff53b444ee9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780859+00:00"
+    },
+    "8091775664034b947cc20da3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B375",
+      "excluded": false,
+      "text_hash": "c12f9f0ee84e0cf397a9f9a4a7566e997599cdd20d8c96814ff4361da95849a2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780867+00:00"
+    },
+    "2b1c3fc95aaca941e2611380": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B376",
+      "excluded": false,
+      "text_hash": "4414674ad5a561e798f6d316f9d9af03fbedd9241267a5faa14874fa03e7f5e5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780874+00:00"
+    },
+    "ec6200975d80a1b4c28ef043": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B377",
+      "excluded": false,
+      "text_hash": "cca59e76a97f77acc28a6badc55ebcb897622fe238d5fa48a18e1b02117c36d2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780882+00:00"
+    },
+    "04e57f8a457d82661bf7da30": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B378",
+      "excluded": false,
+      "text_hash": "baae6ee2830295286a7c1d6eadb292b532bb47053a8febf96f8f6a0309d05eaa",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780890+00:00"
+    },
+    "8bee36d9c58f85683992eafd": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B379",
+      "excluded": false,
+      "text_hash": "bc9d185a01cc82c843a180e5a5eb80d631b4cd696893f680972780097b999204",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780898+00:00"
+    },
+    "e329193082574b569ecdc2da": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B380",
+      "excluded": false,
+      "text_hash": "dbf8cfa450c76123f5025851e99ffa8f837e4323fe9493eb1a9a8782e08942bb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780906+00:00"
+    },
+    "4e7f4610912fd24189d8c01e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B381",
+      "excluded": false,
+      "text_hash": "1914c17bbb09e95e19d44e87f92ad5bc6ca604124e10f019fc12f57903c6be10",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780914+00:00"
+    },
+    "1b2fb94df2d6bce0a44809ab": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B382",
+      "excluded": false,
+      "text_hash": "8b6da887b39584b303353dc839a69ed9f42a8832a9004177aca9e5de46d7acd4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780922+00:00"
+    },
+    "a32d495136d7230b297851b9": {
+      "label": "toxic",
+      "note": "Human confirmed B383 toxic in policy review.",
+      "excluded": false,
+      "text_hash": "3dab764dcaaacf579375da729c5aa49cdd6ae74a63031cc4917aa1f33cae366d",
+      "label_source": "manual",
+      "updated_at": "2026-10-30T16:42:36.238179+00:00"
+    },
+    "2a5c50219285ec447b47ca6c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B384",
+      "excluded": false,
+      "text_hash": "65b55c0731c3bdf4da08a3d41e6affed2353f95a70ff73efe24775ca251b6e5f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780938+00:00"
+    },
+    "2665cd96fe0789ac9f54bfab": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B385",
+      "excluded": false,
+      "text_hash": "d64dd657132fdf17c2864526f336e7371e15653e985a5fe2910f7ae5269250a4",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780945+00:00"
+    },
+    "19928a9611cc60e466d961e3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B386",
+      "excluded": false,
+      "text_hash": "334ad38166e69a24b993ed14f18ab58366910b106e14b9bb8fe2c9f074461f64",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780957+00:00"
+    },
+    "20a7e0310bf03fdff21d258c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B387",
+      "excluded": false,
+      "text_hash": "472e91da3163e30b271da484cec6fab45a4656a44f5e33cfb4c7d0a9cb20d6d2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780965+00:00"
+    },
+    "940aee9462cf5cfdb418ff32": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B388",
+      "excluded": false,
+      "text_hash": "97b70e2330d6b30f439b455a04c2c10a78ba7c6f88f3abd46b59d10625c0dc7b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780974+00:00"
+    },
+    "1e4b9a1b579dd8d896c288e2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B389",
+      "excluded": false,
+      "text_hash": "fed2c2dd15c6b2c00305f321534438d178c276fed20ed9db9e2d25a9ce01b35a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780982+00:00"
+    },
+    "76c98c2f61f84603ca78c6ee": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B390",
+      "excluded": false,
+      "text_hash": "1533021bcee3bf525b2d86ef56ac10d08380db23a7a61b8ac3dc71d6339a755c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780989+00:00"
+    },
+    "8005242dd76b26071b30a776": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B391",
+      "excluded": false,
+      "text_hash": "d7a805e6831c964e9baa41fa6e68780c3a3d74840ee1b7eba8fa5dc46159044b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.780997+00:00"
+    },
+    "2f6fc6c027f874054f0a810a": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B392",
+      "excluded": false,
+      "text_hash": "b43ce608d56b773e5ae278fdad132214cb2153506f18c7c142d1515f503b6c6d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781005+00:00"
+    },
+    "757955681f734b740c374203": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B393",
+      "excluded": false,
+      "text_hash": "79c7a92ef1b7728eaddd00257a5970f1196e99fcde65403ee03ca96b334e4226",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781012+00:00"
+    },
+    "209457c7feb0ce7b11a8aadd": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B394",
+      "excluded": false,
+      "text_hash": "9195ea623013d81eacb7535b9b984adb5c40ca2cbc68c498eb1140a9c557e417",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781020+00:00"
+    },
+    "39285e71fc2faab1dd1bad06": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B395",
+      "excluded": false,
+      "text_hash": "df9325d26cc79e63ddc8b80e2f63e3c3fd8dddc8cd929bea3e5f8dac911cf6cf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781028+00:00"
+    },
+    "788de9e2d8a25224da4360ab": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B396",
+      "excluded": false,
+      "text_hash": "94cdee38a53e200f9f0a4d43c82bf85607898d56a54e95a3e5a55226f02f8ec7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781035+00:00"
+    },
+    "ddd897c484a5fb4dbbeff9b1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B397",
+      "excluded": false,
+      "text_hash": "ad8ef418287800fc2a4d761ef721a26dbc88deb631acd67ca5ffa8dbfd30f104",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781043+00:00"
+    },
+    "380102fee1795e36dbf318c8": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B398",
+      "excluded": false,
+      "text_hash": "2f052bd15ab037d2f74039e3e4033c7b60309efbc28dbbd372313c7ea1ad573c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781051+00:00"
+    },
+    "19d3bc9705d0e348331564db": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B399",
+      "excluded": false,
+      "text_hash": "982af7fca8ccbf9708c637c98ae327bfe2196b23552e5dd82f0c223f8d07c3fa",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781059+00:00"
+    },
+    "2dd6c5ba63d071414abe5a30": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B400",
+      "excluded": false,
+      "text_hash": "603dae0749540a4fdb6b721431325af09c56e75bb025f82c8c891a6c4ddf902c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781067+00:00"
+    },
+    "e881005d7b2bb1e0bc56825a": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B401",
+      "excluded": false,
+      "text_hash": "45ace87f3ce21d5f7813ad03f72807e934679ce45f9a5a555fbf63c86bfeda88",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781074+00:00"
+    },
+    "446affb3aeeaf25ae08ea3a5": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B402",
+      "excluded": false,
+      "text_hash": "444ed951f29cd981ba7250a19e99d8d25cb8821776f37354f4d0243891d73a31",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781082+00:00"
+    },
+    "399d67c45f2148574b7acd3e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B403",
+      "excluded": false,
+      "text_hash": "b28dbf6c281513ca5a6f91d45cfe83a24244cf54c2f4259c992f447eabcb6584",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781089+00:00"
+    },
+    "2ae4c0dbad7d4b9055804839": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B404",
+      "excluded": false,
+      "text_hash": "ddbdce3e52472204840c02c1a4a3718d13e84051b77ddb5383ee252ab6255e6a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781097+00:00"
+    },
+    "c3f47236674b01e8ebb6b2e3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B405",
+      "excluded": false,
+      "text_hash": "bce1209ddf68d79378c0ff2ca4e713357b84dea58e7e0ca26cf8ebdb9286318b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781104+00:00"
+    },
+    "aefca76a9396b765d05077d6": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B406",
+      "excluded": false,
+      "text_hash": "adb7656545de871052217b61a0f357c1a139fae8e2fc09b56eecb4d2626dae67",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781112+00:00"
+    },
+    "33765dc269b1c8cc8de16c62": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B407",
+      "excluded": false,
+      "text_hash": "e646ffa9fbd649ed50877bc2ae0fbd077decbbfafcd277633af1929f7786870c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781119+00:00"
+    },
+    "48557e1b6dd287064565e2f2": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B408",
+      "excluded": false,
+      "text_hash": "b4e70345d7ba39bbe9fc3c922b2111cd855be100408077b894819c01d5aad991",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781127+00:00"
+    },
+    "7a792122b42fc8a7e92d7ac9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B409",
+      "excluded": false,
+      "text_hash": "134f446af61ed49507d7f4f9fa4bd27310987d6abf0014580ef1152e0cedf8d9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781134+00:00"
+    },
+    "296fe0b1ad0c0261184fd8d0": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B410",
+      "excluded": false,
+      "text_hash": "14eea40da70e160305bb2795183b70927b041be5ada65c4d1148f48f89d5feb5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781142+00:00"
+    },
+    "87eba2aeb19d7271d5aadd99": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B411",
+      "excluded": false,
+      "text_hash": "459a8fcb03ea96b1df868463b2d9a2090fba255630928944ab285fb8caaf1991",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781150+00:00"
+    },
+    "64ea50690686cd1891f22476": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B412",
+      "excluded": false,
+      "text_hash": "6021cf95b5c0bb38c6c99ff2e86ef8e70ed33fe8d9b2fe8462631f33b11b831c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781158+00:00"
+    },
+    "d9f7915c79666f9804414d11": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B413",
+      "excluded": false,
+      "text_hash": "eb6025934b84374ca97fd5d551a624b90a43aa97d92b457ea2d2758aa8c5e012",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781165+00:00"
+    },
+    "da291ea1686902c27a90443f": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B414",
+      "excluded": false,
+      "text_hash": "06898f411e25921991de338ff7a6683eef7e1103e731963fa7ac8ae6b8ecf9c9",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781172+00:00"
+    },
+    "54932da5ac85cffb7adee8bf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B415",
+      "excluded": false,
+      "text_hash": "dd15360310b3dcf6f65c4c65912d59bf33a7ba090a38585853c8002c388cb677",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781180+00:00"
+    },
+    "568143ba2023fd1d38e7b1eb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B416",
+      "excluded": false,
+      "text_hash": "9acab0d6e8f0a3e560b71e93c7d9b6ef6f6a9e1b5b9042b97db8e9236147410f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781189+00:00"
+    },
+    "5d21b56202f79d51e69cbd6d": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B417",
+      "excluded": false,
+      "text_hash": "54b8f44a8b69c0684977faeb154d0b46971e778a6aefe854733401eb762d4dcc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781197+00:00"
+    },
+    "6912e2184c88b567190c527f": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B418",
+      "excluded": false,
+      "text_hash": "b92d936a91f33b1acdf284dd62ef59e54bb6f46ca714051a5d6b15f4b508f901",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781204+00:00"
+    },
+    "f11a7997b9777f7ddd7dc2d2": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B419",
+      "excluded": false,
+      "text_hash": "c429da2f52a1726545dbde8189b7a1f52bc9493855c3c19cf725ece349ccdd7b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781211+00:00"
+    },
+    "e5651dd1339fb91653449c87": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B420",
+      "excluded": false,
+      "text_hash": "fc97b0d09bbb675b41a5b2d9f5468bfb46accc7803016ced35305b08d059af11",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781219+00:00"
+    },
+    "bd52e1c4c5fd2f5c15a35ae5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B421",
+      "excluded": false,
+      "text_hash": "255c4089c337f0c7058ccd5257768fe0e3549512a6b1ff349deeb780ca82428f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781226+00:00"
+    },
+    "533c9f926d1d0eba5ddf5454": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B422",
+      "excluded": false,
+      "text_hash": "27d56424b4a25f9fa872312b3c19dded163d112457a917affdbebe70d1d6f8fb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781234+00:00"
+    },
+    "e5c9b6412024b3e99b9bab5b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B423",
+      "excluded": false,
+      "text_hash": "1cc99bc32c4e0b69442f6250772cb864761b50ecc74fd3a34decaa84161bae1a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781245+00:00"
+    },
+    "af635f7f1adbe69b395c0d00": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B424",
+      "excluded": false,
+      "text_hash": "465abd58668207522aa52acef931abadc6054d6577e6d0cfc7975a42063c333b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781255+00:00"
+    },
+    "4ad88b2752b8ce737aad016b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B425",
+      "excluded": false,
+      "text_hash": "2147d807444477b9ff5f88a969fcc905cc0fe41115d1d0d37194d62a77b5c71f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781265+00:00"
+    },
+    "ccf42eb880740154068442c1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B426",
+      "excluded": false,
+      "text_hash": "70a461c6ec36ef9f3efacffb9a7589a44438bf583c0fe9b559e68b3cc3461d7b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781275+00:00"
+    },
+    "a7268cf588b6ec17018868f4": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B427",
+      "excluded": false,
+      "text_hash": "13534b40bac3b0d37abec58ceae1ef631f44b4591c4456769ce8156eea4b04b3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781282+00:00"
+    },
+    "19d627be0ce3efd68e263d37": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B428",
+      "excluded": false,
+      "text_hash": "08a1f1893b873364a2b477b902de835455d75ce39abb8b007ae2af3ae39e4325",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781291+00:00"
+    },
+    "52842fb9bb885d41b5cbff17": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B429",
+      "excluded": false,
+      "text_hash": "08836335e3605fe0272f80c09fa554a1a00548dced0b1c0eddc61a82f6db0edc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781299+00:00"
+    },
+    "3a0bfd1946fce4306052dadb": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B430",
+      "excluded": false,
+      "text_hash": "f0dd4e11d367d9f71fed5f08453c16c988939ce4986502aead38e229c0174f18",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781308+00:00"
+    },
+    "ceef315a951a2680745949cc": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B431",
+      "excluded": false,
+      "text_hash": "76ca9794bfb1b4c6699d3567362fcddd1d43146b659ac5c1991683378003e8fb",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781315+00:00"
+    },
+    "391fd860cbfd53d59ab2bd59": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B432",
+      "excluded": false,
+      "text_hash": "e0521abcc0c92f6ec22d35016429a688424eb6d6f02a7c92f159a6f6aaed782d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781323+00:00"
+    },
+    "7911f7fa9c856379b7ceefea": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B433",
+      "excluded": false,
+      "text_hash": "186a7362c5af7040874b8cbc70f496ae63237a40426261518dda0899455cbe83",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781331+00:00"
+    },
+    "33c430320e4f76ab99aa8145": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B434",
+      "excluded": false,
+      "text_hash": "f8398acd3021f40964d21047235941d4039891c37c99446ce3b696026d9690f3",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781338+00:00"
+    },
+    "763e72d3f27a711523a00f94": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B435",
+      "excluded": false,
+      "text_hash": "e01cef7820ad287a53d5a888cfe00ef07dfa2bc6c4c3bc2529b24232c32b6cd1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781346+00:00"
+    },
+    "a1dc226b4e8fd36a6454a3ed": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B436",
+      "excluded": false,
+      "text_hash": "1b48ac1ef5769c1e5c5f0a7abe2542f854de0e94ff100da35d3a3eb85c44e6ee",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781353+00:00"
+    },
+    "bf822f07aeeeb422aa163f60": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B437",
+      "excluded": false,
+      "text_hash": "69552388a0b7e1237512879f155835a7de28f783011dff5d95084a2748157813",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781362+00:00"
+    },
+    "6cf34b6d3564ae3fa4e50ea5": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B438",
+      "excluded": false,
+      "text_hash": "bbc25c7e8eb7cbcb57b4eaba94196465f901faa075f43c564a436e3f1c8f920d",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781370+00:00"
+    },
+    "320ca4d3eef99da2ba7ba8d1": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B439",
+      "excluded": false,
+      "text_hash": "d67dc266890bb2c961daeb83a7ff4896dac333e4fff9619869f21d7d8a222a85",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781377+00:00"
+    },
+    "3897343ff0c9563296a6da73": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B440",
+      "excluded": false,
+      "text_hash": "e6f2d79e31b382b4210b333d9f42c46b8d86ec15a0feb35e9b2263adac972f2f",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781385+00:00"
+    },
+    "f06d49356bf33c110fa57b6b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B441",
+      "excluded": false,
+      "text_hash": "8bf33dc721b60db25292e02db261f318c0593358d7bfbbdebc608c1916418c2c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781402+00:00"
+    },
+    "5932ce945270b05a5e7e8749": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B442",
+      "excluded": false,
+      "text_hash": "7e3817bdd675182e41a56f0eb9c43e2beac2be667c6848b2366ae1557a6dcaa2",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781411+00:00"
+    },
+    "e015a7cc18c59cfdf9c093a8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B443",
+      "excluded": false,
+      "text_hash": "0adb4a5d8657721273e1dff2d56a0f51afac875c3ddf90bd8e5cd31fed072cbf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781419+00:00"
+    },
+    "965e42e3fd0046983da91559": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B444",
+      "excluded": false,
+      "text_hash": "b27c5d8d8bf95b195a85f8605542174351f6a775e0265f68e9db79f8b528aaea",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781427+00:00"
+    },
+    "59ecd7e034b14d4c242aafc9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B445",
+      "excluded": false,
+      "text_hash": "9030f71e9af04db4fb3dee3be5e79f83b55b1b91f40aae0eee9370fbb01d3637",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781435+00:00"
+    },
+    "acab6b8a807aac865d81f04e": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B446",
+      "excluded": false,
+      "text_hash": "f32debac5e1589c9c4cfdd79492e2aa5aaf26476125e1065dfe3fde04f2f97e5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781443+00:00"
+    },
+    "f21eb997fc6eaa623f27f9bf": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B447",
+      "excluded": false,
+      "text_hash": "6e479ee202b47848337036b8190a401f391816a72af47da25e27260d4e09158a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781451+00:00"
+    },
+    "41bb49967d5760ccf60d6985": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B448",
+      "excluded": false,
+      "text_hash": "0e1558e626336aa6313649d7a3fb016ad95e2abda59c6d1531f9068040e81086",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781459+00:00"
+    },
+    "1cc30811b2166dd5fddcde34": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B449",
+      "excluded": false,
+      "text_hash": "6990a6ac3282a6f8922c393310320c1dee98ecfd92da4714301036ef8256471c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781466+00:00"
+    },
+    "b66060db82306904013f6ae0": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B450",
+      "excluded": false,
+      "text_hash": "6acde072bff42360c60211f22d10c5ecfbf81ea1604e5cb37d3990f6aeed2302",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781474+00:00"
+    },
+    "fc6adbe7036bffdb09908619": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: excel_review_20261030.json Can_duyet!B451",
+      "excluded": false,
+      "text_hash": "085c24e36ab789e517916dbc05b6ff7ebb5c82f5c046e79ead25573d4e9e0fc1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781482+00:00"
+    },
+    "f8b467515f37b0f72188a0cf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "6fe25ee89d241b6538b6963b6c63ea9b1d97fd00c2dfd596493e8354a879ca9a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781490+00:00"
+    },
+    "8b69d4b339cadef6c5f0bee8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "7a7b95864a38e5f22864c1ed6f03e1b4ab3678e8e5b821d380c30a863b07b1b1",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781498+00:00"
+    },
+    "efe1f16bda41472ccca41dd7": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "ee0cb5153740b503228858cbd73c2b698662f6e2d43158f87330a6c0d98c5fb7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781507+00:00"
+    },
+    "2ebaab48e53128171b9f92af": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "2c676ab96003b6e6e1c47e4c165fc0a4c04408653717be6b78241392dffb993a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781515+00:00"
+    },
+    "c0ac4052e4d56f229d3fdb99": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "470b2da06fe1275e07dd690fe53d771d744004d150fd0a7c33e528ea6367b7cd",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781523+00:00"
+    },
+    "6fdb60d51279e3caf465881b": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "fb80829efb641e6d9618bb1af4ad4a2e704990f48f060e21077b75ebd1aa849e",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781531+00:00"
+    },
+    "2820624c7139c77bdb4072f3": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "3e7b4f6715a7a8f5745e9eebc33a5470a564194cc14aa9a7dc762a00479757bf",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781540+00:00"
+    },
+    "32e96f425bcd49eef9e07226": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "56ee32eb7d3c2e627455b309912054839876a2916a2b34b9021f6a2dc41a4ab0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781547+00:00"
+    },
+    "3de4d4270861d1974c780abc": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "f138121b46f910180cac0ba63cfcf5d97edc9233bba1bf05f5b65bc88bda4804",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781555+00:00"
+    },
+    "754a69ba1af2858301c0075c": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "8e11a126da3c8873eb02544708dba1983b10591559a50038633d7013ac79b918",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781563+00:00"
+    },
+    "cba44325aa79ee6ec17941c9": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "fb7f50ea7d405e9f37cc75dfb76068f444cbe044726612944da8dbf2f8e074bd",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781571+00:00"
+    },
+    "b4816c7242491d231d0f9add": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "d66d149dbffa7040a71e4cae69a9758de60cf8ea805e4b15f66e347ff724613a",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781580+00:00"
+    },
+    "e1a5cccc81f32254f75b77ee": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "905a2581d5472cbf06dd0393686abea5264a461d55b5248a7b12418a95b9473b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781587+00:00"
+    },
+    "d41c590ddc3cacb4f913964f": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "cbe5a20f7131ddec876a39e78c571d6a3b2b8766bc9e56c45a23764a82ce6a30",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781595+00:00"
+    },
+    "3f9dcd6161f30d42c4e91415": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "60602b0b17a9e18ef000700ac451dfc04749d90dd2864ac8a62f0de9214b70b8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781604+00:00"
+    },
+    "e9f0d5e4d7ea544271a29bf8": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "3a16e1984ffda7e9a4ff017fddbc6146ebb1cc2eb77b01576c2cdd93150b1710",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781612+00:00"
+    },
+    "0c33eac2250e9336256532fc": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "5a2a271e29f46633f2b182a769b7bf70a2ed775369138112b4dcad1d1ecd9297",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781621+00:00"
+    },
+    "22e2b70e086b0adb0b6ace75": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "9f54f9540b9f72cd52bdeac2eefca18c36f841e36da3ae52823640f0f097e0c0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781628+00:00"
+    },
+    "11c7024be30a4078a7fccd65": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "67fd7feb0a29ee544c5bebfa7bff82fd690404b873c875cde249c4c761b4f5e8",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781639+00:00"
+    },
+    "c0ab5ea006035a0719f4b4df": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: pilot20_v1.json",
+      "excluded": false,
+      "text_hash": "216c0aca7093705e42b57799b4a8170784dbe0c9962f00db20a798d6b3ccafa7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781648+00:00"
+    },
+    "8a312d34ca8ff66ddc7c4065": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: diagnostic10_v1.json",
+      "excluded": false,
+      "text_hash": "c67ad78f7d73f19402d00a2891a7652c597d4e54b8c25b52c891c7e81be2f2bc",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781657+00:00"
+    },
+    "f722fcb92bbe27d0977fe9e5": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: priority_context5.json",
+      "excluded": false,
+      "text_hash": "902fc29ead95155cd55e44e668f9a83c68c4be8750fc6319a5f3957edc2980d5",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781665+00:00"
+    },
+    "385b7a006523ffc3bd44a81f": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: priority_context5.json",
+      "excluded": false,
+      "text_hash": "bc39c86ba23f498ea9862a139afbb8dfac6b59e03f64fcb6f403680bb317bbc7",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781673+00:00"
+    },
+    "4eaddf5376f010b9007ffd41": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: priority_context5.json",
+      "excluded": false,
+      "text_hash": "865f0107a0f149d99ac4685dcfd132df60efedbd44f7fb2f94945f246c2fe7b0",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781682+00:00"
+    },
+    "d6648c7c37b31b9d12974790": {
+      "label": "toxic",
+      "note": "Human-confirmed reference: priority_context5.json",
+      "excluded": false,
+      "text_hash": "368f8f3c3069d05cdaa9afba458a486cd75a0c37acf59fdb9a26fa9ea193c43b",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781690+00:00"
+    },
+    "e08e40ed2b018149b9471eaf": {
+      "label": "non-toxic",
+      "note": "Human-confirmed reference: priority_context5.json",
+      "excluded": false,
+      "text_hash": "e2adefec59dbc000e307c3acbf39e68b5864d52f4b2e1583110b18b2b0cd908c",
+      "label_source": "imported",
+      "updated_at": "2026-10-30T16:18:46.781697+00:00"
+    }
+  },
+  "imported": [],
+  "suggestions": {}
+}

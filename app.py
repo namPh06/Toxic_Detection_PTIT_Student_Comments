@@ -13,6 +13,8 @@ from urllib.parse import urlparse, parse_qs
 
 from dataset import atomic_json, csv_bytes, text_hash
 from lab import Lab
+from collection_filter import CollectionFilter, MODES
+from post_context import load_context, enrich_posts
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
@@ -21,10 +23,35 @@ BROWSER_THREAD = None
 STOP = threading.Event()
 LOCK = threading.RLock()
 STATE = dict(phase='idle', message='Dữ liệu đã sẵn sàng. Mở Chrome khi cần thu thập thêm.', ready=False, running=False, posts=0, comments=0, target=20, source='', results=[])
+STATE['collection_filter'] = 'all'
+STATE['filter_counts'] = {}
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
 HELPERS = (ROOT / 'helpers.js').read_text(encoding='utf-8')
 DOM = (ROOT / 'dom.js').read_text(encoding='utf-8')
+POST_MESSAGE = 'return (' + (ROOT / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'
+POST_CONTEXT = load_context(DATA / 'post_context.json')
+
+def capture_post_context(driver, post):
+    """Save context separately; a failed read never erases a successful capture."""
+    with LOCK:
+        known = [r['comment_id'] for r in ROWS.values() if r['post_id'] == post['id']]
+    captured = driver.execute_script(POST_MESSAGE, dict(id=post['id'], known=known))
+    if not isinstance(captured, dict) or captured.get('status') not in ('collected', 'partial'):
+        return
+    if not captured.get('identity_verified') or not captured.get('post_text_raw'):
+        return
+    with LOCK:
+        old = POST_CONTEXT.get(post['id'], {})
+        if old.get('text_complete') and not captured.get('text_complete'):
+            return
+        if old.get('post_text_raw') == captured['post_text_raw'] and old.get('text_complete') == captured.get('text_complete'):
+            return
+        POST_CONTEXT[post['id']] = dict(old, **captured)
+        POST_CONTEXT[post['id']].update(post_id=post['id'], url=post['url'],
+                                      collected_at=datetime.now(timezone.utc).isoformat())
+        atomic_json(DATA / 'post_context.json', dict(schema_version=1, completeness='not_verified',
+                                                  posts=list(POST_CONTEXT.values())))
 
 def update(**values):
     with LOCK:
@@ -32,7 +59,7 @@ def update(**values):
 
 def payload():
     with LOCK:
-        return dict(schema_version=1, source=STATE['source'], completeness='not_verified', posts=[dict(r) for r in STATE['results']], rows=[dict(r) for r in ROWS.values()])
+        return dict(schema_version=1, source=STATE['source'], completeness='not_verified', posts=enrich_posts(STATE['results'], POST_CONTEXT), rows=[dict(r) for r in ROWS.values()])
 
 def save():
     with LOCK:
@@ -113,6 +140,48 @@ def scope_url(url):
     parts = parsed.path.strip('/').split('/')
     return bool(parts[0]) and not any(x in parts for x in ('posts', 'permalink', 'login', 'checkpoint', 'watch', 'reel', 'reels')) and (parts[0] != 'groups' or len(parts) >= 2)
 
+
+def ingest_filtered(items, post, gate, observed, original_keys, deadline=None):
+    """Keep context in memory; only passing new comments enter ROWS."""
+    changed = False
+    for item in items:
+        cid = item['comment_id']
+        old = observed.get(cid)
+        if old is None or len(item['text_raw']) > len(old['text_raw']) or (old.get('text_complete') is False and item.get('text_complete') is True):
+            changed = changed or old != item
+            observed[cid] = dict(item)
+    for position, (cid, item) in enumerate(list(observed.items()), 1):
+        if STOP.is_set() or (deadline is not None and time.monotonic() >= deadline):
+            break
+        key = (post['id'], cid)
+        if key in original_keys:
+            continue
+        parents, seen = [], {cid}
+        parent = item.get('parent_comment_id')
+        while parent and parent not in seen:
+            seen.add(parent)
+            row = observed.get(parent)
+            if row is None:
+                parents.insert(0, dict(comment_id=parent, missing=True))
+                break
+            parents.insert(0, dict(comment_id=parent,text_raw=row['text_raw'],text_complete=row.get('text_complete')))
+            parent = row.get('parent_comment_id')
+        context = POST_CONTEXT.get(post['id'], {})
+        update(message=f'Đang lọc bình luận {position}/{len(observed)} của bài hiện tại · đã xét {len(gate.decisions)} câu trong phiên. Mỗi câu có thể mất vài giây; chờ mô hình tối đa 60 giây.')
+        decision = gate.evaluate(item, context, parents)
+        gate.decisions[key] = decision['label']
+        with LOCK:
+            previous = ROWS.get(key)
+            if decision['label'] == gate.mode and (key in ROWS or len(ROWS) < 10000):
+                ROWS[key] = dict(item,post_id=post['id'],post_url=post['url'],collection_method='selenium_auto',collected_at=datetime.now(timezone.utc).isoformat(),comment_filter='unknown',**gate.metadata(decision,context,parents))
+            else:
+                ROWS.pop(key, None)
+            STATE.update(comments=len(ROWS),filter_counts=gate.counts())
+            persisted_changed = previous != ROWS.get(key)
+        if persisted_changed:
+            save()
+    return changed
+
 def run_batch(driver):
     target = STATE['target']
     source = driver.current_url
@@ -128,12 +197,16 @@ def run_batch(driver):
     posts = {}
     stale = 0
     try:
+        gate = CollectionFilter(STATE.get('collection_filter', 'all'))
+        original_keys = set(ROWS)
+        update(filter_counts={}, discovered=0, discovery_stop_reason='')
+        discovery_reason = 'iteration_limit'
         for _ in range(max(60, target * 3)):
             if STOP.is_set():
                 break
             driver.execute_script(HELPERS)
             result = driver.execute_script(DOM, 'feed', '')
-            if not result.get('blocked') and not any(p['id'] not in posts for p in result.get('posts', [])):
+            if not result.get('blocked'):
                 # Facebook can populate the timestamp href only after pointer hover.
                 from selenium.webdriver.common.action_chains import ActionChains
                 for element in driver.execute_script(DOM, 'feed_hover', ''):
@@ -151,23 +224,34 @@ def run_batch(driver):
             for post in result.get('posts', []):
                 posts.setdefault(post['id'], post)
             diag = result.get('diagnostics', {})
+            update(discovery_diagnostics=diag)
             update(message=f'Tìm được {min(len(posts),target)}/{target} bài · đọc {diag.get("anchors",0)} link, {diag.get("articles",0)} khối bài, {diag.get("candidates",0)} permalink nhận diện.')
             if len(posts) >= target:
+                discovery_reason = 'target_reached'
                 break
             step = driver.execute_script(DOM, 'feed_scroll', '')
+            update(discovery_scroll=step)
             if step.get('blocked'):
                 raise RuntimeError('Facebook yêu cầu đăng nhập/xác minh hoặc đang hạn chế. Đã dừng.')
             stale = stale + 1 if len(posts) == before and not step.get('moved') else 0
-            if stale >= 5:
+            if stale in (3, 6, 9):
+                update(message=f'Đang thử tải tiếp danh sách bài ({len(posts)}/{target}); Facebook chưa cung cấp thêm liên kết…')
+                driver.execute_script(DOM, 'feed_retry', '')
+                if STOP.wait(5):
+                    break
+            if stale >= 12:
+                discovery_reason = 'feed_no_progress'
                 break
             if STOP.wait(2.5):
                 break
+        update(discovered=min(len(posts), target), discovery_stop_reason='user_stop' if STOP.is_set() else discovery_reason)
         chosen = list(posts.values())[:target]
         if not chosen and not STOP.is_set():
-            raise RuntimeError('Không nhận diện được link bài trong nhóm/trang. Chưa thu thập bài nào.')
+            raise RuntimeError(f'Không nhận diện được link bài trong nhóm/trang: đọc {diag.get("anchors", 0)} link, {diag.get("articles", 0)} khối bài, {diag.get("candidates", 0)} permalink. Hãy kiểm tra trang Facebook đã tải danh sách bài viết, đóng hộp thoại che trang và chọn mục Bài viết. Chưa thu thập bài nào.')
         for index, post in enumerate(chosen, 1):
             if STOP.is_set():
                 break
+            observed = {}
             reason = 'time_limit'
             post_error = None
             update(phase='collecting', message=f'Bài {index}/{len(chosen)}: đang tải bình luận…')
@@ -196,31 +280,37 @@ def run_batch(driver):
                                 break
                             continue
                         missing = 0
+                        capture_post_context(driver, post)
                         before = len(ROWS)
-                        with LOCK:
-                            for item in result.get('rows', []):
-                                key = (post['id'], item['comment_id'])
-                                if key in ROWS:
-                                    old = ROWS[key]
-                                    if len(item['text_raw']) > len(old['text_raw']) or (old.get('text_complete') is False and item.get('text_complete') is True):
-                                        if item['text_raw'] != old['text_raw'] and old.get('label'):
-                                            old['invalidated_raw_label'] = dict(label=old['label'], text_hash=text_hash(old['text_raw']))
-                                            old['label'] = ''
-                                        old['text_raw'] = item['text_raw']
-                                        old['text_complete'] = item.get('text_complete')
-                                    elif item['text_raw'] == old['text_raw'] and item.get('text_complete') is True:
-                                        old['text_complete'] = True
-                                    continue
-                                if len(ROWS) >= 10000:
-                                    break
-                                ROWS[key] = dict(item, post_id=post['id'], post_url=post['url'], label='', annotation_note='', collection_method='selenium_auto', collected_at=datetime.now(timezone.utc).isoformat(), comment_filter='unknown')
-                            STATE['comments'] = len(ROWS)
+                        if gate.mode != 'all':
+                            observed_changed = ingest_filtered(result.get('rows', []), post, gate, observed, original_keys, deadline=started + 180)
+                        else:
+                            with LOCK:
+                                for item in result.get('rows', []):
+                                    key = (post['id'], item['comment_id'])
+                                    if key in ROWS:
+                                        old = ROWS[key]
+                                        if len(item['text_raw']) > len(old['text_raw']) or (old.get('text_complete') is False and item.get('text_complete') is True):
+                                            if item['text_raw'] != old['text_raw'] and old.get('label'):
+                                                old['invalidated_raw_label'] = dict(label=old['label'], text_hash=text_hash(old['text_raw']))
+                                                old['label'] = ''
+                                            old['text_raw'] = item['text_raw']
+                                            old['text_complete'] = item.get('text_complete')
+                                        elif item['text_raw'] == old['text_raw'] and item.get('text_complete') is True:
+                                            old['text_complete'] = True
+                                        continue
+                                    if len(ROWS) >= 10000:
+                                        break
+                                    ROWS[key] = dict(item, post_id=post['id'], post_url=post['url'], label='', annotation_note='', collection_method='selenium_auto', collected_at=datetime.now(timezone.utc).isoformat(), comment_filter='unknown')
+                                STATE['comments'] = len(ROWS)
                         save()
                         if len(ROWS) >= 10000:
                             reason = 'dataset_limit'
                             STOP.set()
                             break
                         if STOP.is_set():
+                            break
+                        if time.monotonic() - started >= 180:
                             break
                         step = driver.execute_script(DOM, 'advance', post['id'])
                         if step.get('blocked') or step.get('wrong_source'):
@@ -229,7 +319,7 @@ def run_batch(driver):
                             if STOP.wait(2.5):
                                 break
                             continue
-                        stale = stale + 1 if len(ROWS) == before and not step.get('moved') and not step.get('clicked') else 0
+                        stale = stale + 1 if (len(ROWS) == before if gate.mode == 'all' else not observed_changed) and not step.get('moved') and not step.get('clicked') else 0
                         if stale >= 5:
                             reason = 'no_progress'
                             break
@@ -262,7 +352,8 @@ def run_batch(driver):
                 raise post_error
             if STOP.wait(2):
                 break
-        update(phase='ready', message='Đã dừng theo yêu cầu.' if STOP.is_set() else f'Đã xử lý {STATE["posts"]}/{len(chosen)} bài. Không xác nhận đã lấy đủ bình luận.')
+        discovery_note = ('Facebook không tải thêm bài hoặc công cụ chưa nhận diện thêm link sau 12 lần thử và 3 lượt kích hoạt tải lại danh sách.' if discovery_reason == 'feed_no_progress' else 'Đã hết số lượt tìm bài của phiên.') if len(chosen) < target else ''
+        update(phase='ready', message='Đã dừng theo yêu cầu.' if STOP.is_set() else f'Đã xử lý {STATE["posts"]}/{target} bài yêu cầu; tìm được {len(chosen)} link bài. {discovery_note} Chưa xác nhận lấy đủ bình luận.')
     except Exception as error:
         update(phase='error', message=str(error))
         save()
@@ -475,6 +566,9 @@ class Handler(BaseHTTPRequestHandler):
     def post_route(self, body):
         if self.path == '/start':
             target, source = body.get('target'), body.get('source', '')
+            mode = body.get('collection_filter', 'all')
+            if mode not in MODES:
+                raise ValueError('Chế độ lọc không hợp lệ.')
             if type(target) is not int or not 1 <= target <= 500:
                 raise ValueError('Số bài phải là số nguyên từ 1 đến 500.')
             if not isinstance(source, str) or len(source) > 2000 or (source and not scope_url(source)):
@@ -483,6 +577,8 @@ class Handler(BaseHTTPRequestHandler):
                 if not STATE['ready'] or STATE['running']:
                     self.send(b'Not ready', 'text/plain', 409)
                     return
+                STATE['collection_filter'] = mode
+                STATE['filter_counts'] = {}
                 STATE['target'] = target
                 STATE['requested_source'] = source
                 STATE['running'] = True

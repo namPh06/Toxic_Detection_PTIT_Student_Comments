@@ -1,3 +1,5 @@
+> Tiến độ 31/10/2026: đã có 981 nhãn người dùng, gồm 946 phát triển và 35 giữ riêng để chẩn đoán. Đã chạy bốn baseline với tách từ Pyvi bằng baseline_v32.py; xem [báo cáo mới](outputs/baselines_v32_20261031/BAO_CAO.md). Pipeline giao diện và số liệu bàn giao bên dưới là lịch sử; chưa có test độc lập hoặc mô hình mới đủ tốt để triển khai.
+
 # PTIT Comment Lab
 
 Ứng dụng chạy trên máy cá nhân cho bài tập lớn **phân loại toxic / non-toxic từ bình luận Facebook liên quan đến sinh viên PTIT**. Tận dụng crawler Selenium có sẵn, bổ sung giao diện, tiền xử lý, gán nhãn, thí nghiệm và báo cáo.

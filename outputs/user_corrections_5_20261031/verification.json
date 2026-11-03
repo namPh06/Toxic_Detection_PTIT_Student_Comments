@@ -1,0 +1,82 @@
+{
+  "workbook_output": "outputs\\user_corrections_5_20261031\\Ra_soat_4275_cau_da_sua.xlsx",
+  "corrected": 5,
+  "remaining_clarifications": 0,
+  "user_435_counts": {
+    "non-toxic": 405,
+    "toxic": 30
+  },
+  "canonical_rows": 946,
+  "canonical_counts": {
+    "non-toxic": 832,
+    "toxic": 114
+  },
+  "excel_changes": [
+    [
+      "Can_bo_sung_435",
+      "B85",
+      [
+        "n",
+        null
+      ],
+      [
+        "t",
+        null
+      ]
+    ],
+    [
+      "Can_bo_sung_435",
+      "B122",
+      [
+        "n",
+        null
+      ],
+      [
+        "t",
+        null
+      ]
+    ],
+    [
+      "Can_bo_sung_435",
+      "B113",
+      [
+        "n",
+        null
+      ],
+      [
+        "t",
+        null
+      ]
+    ],
+    [
+      "Can_bo_sung_435",
+      "B68",
+      [
+        "n",
+        null
+      ],
+      [
+        "t",
+        null
+      ]
+    ],
+    [
+      "Can_bo_sung_435",
+      "B81",
+      [
+        "n",
+        null
+      ],
+      [
+        "t",
+        null
+      ]
+    ]
+  ],
+  "excel_other_values_unchanged": true,
+  "excel_tables_validation_panes_preserved": true,
+  "workspace_sha256": "4e6086ace65247fc7ab3edc316b3e3269a85d8d8ad3e462adeb5bace6ff705c3",
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "workbook_sha256": "3b191d80d5594839035085be8a96b840339b3c5802c6bb7b9a658a2d7dc4af91",
+  "new_training": false
+}

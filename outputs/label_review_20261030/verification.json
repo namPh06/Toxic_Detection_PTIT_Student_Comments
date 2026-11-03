@@ -1,0 +1,12 @@
+{
+  "checked_rows": 5085,
+  "priority": 450,
+  "others": 4635,
+  "confirmed_excluded": 26,
+  "all_label_cells_blank": true,
+  "all_ids_and_text_hashes_match": true,
+  "formula_cells": 0,
+  "validation": "t,n or blank; stop on invalid entry",
+  "source_unchanged": true,
+  "file_bytes": 608155
+}

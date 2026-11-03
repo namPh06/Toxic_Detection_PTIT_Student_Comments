@@ -1,0 +1,102 @@
+{
+  "purpose": "targeted_policy_practice_not_representative_accuracy_test",
+  "policy_version": "ptit-v1-20261030",
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "sampling": "one profanity example followed by nine deterministic selections from machine review queue; not random corpus sample",
+  "rows": [
+    {
+      "id": "8a312d34ca8ff66ddc7c4065",
+      "post_id": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "text_raw": "Về số 1 xong mới xuống nhé ad, đi số 4 ngã lộn cổ đấy. Đèo mẹ tầng 3 cái thềm bé tí :))) hốt vcl, trời mưa trơn khéo ko dám đi luôn",
+      "text_hash": "c67ad78f7d73f19402d00a2891a7652c597d4e54b8c25b52c891c7e81be2f2bc",
+      "reference_label": "non-toxic",
+      "human_verified": true,
+      "note": "User confirmed context-based policy: profanity alone does not make the comment toxic. Existing non-toxic selection retained.",
+      "review_method": "user_confirmed_in_chat",
+      "reviewed_at": "2026-10-30T13:57:02.217Z",
+      "policy_consistency": "resolved_under_v2",
+      "confirmed_policy_version": "ptit-v2-context-20261030"
+    },
+    {
+      "id": "e881005d7b2bb1e0bc56825a",
+      "post_id": "1267483575460817",
+      "text_raw": "ThoughtfulCrocodile1520 Bê dái chạy luôn",
+      "text_hash": "45ace87f3ce21d5f7813ad03f72807e934679ce45f9a5a555fbf63c86bfeda88",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "a46d6085e8267c7e66dc648e",
+      "post_id": "1308575578018283",
+      "text_raw": "=)))) vl thật á làm cài gờ giảm tốc này cho sv khỏi lên tầng 2 à",
+      "text_hash": "6fa1bae27069f9ca2430c8cb2a7bd37bb66ae6ad1e84be90f762fd7e5ef56681",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "f8269cac3ef5eb12ca10e582",
+      "post_id": "pfbid0VsVgLZuhG5deFHm3SytjuxjSc8A9U7Q7X9E1T4ZgRMKotU64n2JKtXDx2SFos5Nxl",
+      "text_raw": "Anti nhưng hôm nay yêu trường à",
+      "text_hash": "923f7c44c3bf51764312c2b7e42795e4becc1acdddbeba2f3ad69e5ca932de1b",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "a57a3b3e9c0724886d58d842",
+      "post_id": "pfbid02wC3RScvwcg7wma4JCBfpufi8bBqU5uv51yhBVcZHmg8T1h2bqdJVNtBrU1NHjSPVl",
+      "text_raw": "hamster mà?",
+      "text_hash": "92116d52f0ddbf824945ca670bc70d3f5b0619ce35e3b7c714271a169f2c5a45",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "cc1fa06dc8796faa4b884f42",
+      "post_id": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "text_raw": "Nguyễn Duy Hoàng m thi biet cai j",
+      "text_hash": "002b55299f4896f4d7c5a76a28f4c79f8e2c2be91c981fda5bf6b465c6b4f5d6",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "ec12e44f83fae575feb33d25",
+      "post_id": "pfbid0sqDiPHFt7Eap8uyiHHAGMfkGeQzodaQrcvQnKYSmMJ41RnuyHfMjTg9HRp5fUoxhl",
+      "text_raw": "Vô hạn content",
+      "text_hash": "0379d45c60e1b8f51c4a8759c690233dc180e00ab07ff9264738e14672a3f199",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "2a5c50219285ec447b47ca6c",
+      "post_id": "1306403111568863",
+      "text_raw": "Có những người không tệ, có những người tệ mà không nhận ra được vì vấn đề nằm ở nhân cách của họ",
+      "text_hash": "65b55c0731c3bdf4da08a3d41e6affed2353f95a70ff73efe24775ca251b6e5f",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "c2b38936ff7439d9a7d9ffc4",
+      "post_id": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "text_raw": "Xuân Hạnh hết thời nên sợ là đúng rồi",
+      "text_hash": "9463c5307c13b3ed1ac09202521ba601ec227661101bac0c7b7efc5f0d0b9c5e",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    },
+    {
+      "id": "df9cdf18bb503d3e72b51b8c",
+      "post_id": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "text_raw": "dm đúng ông tổ ngành đè tem",
+      "text_hash": "a921a8f2e89d8aa540828d90c86ac4ece94e2326fbe12e9cb99aca0efb91dfc6",
+      "reference_label": "",
+      "human_verified": false,
+      "note": ""
+    }
+  ]
+}

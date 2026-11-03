@@ -1,0 +1,1960 @@
+{
+  "workspace_sha256": "54330037502ba61a964c5c268ec633df98b7af5407afe5220a8d65cf59d2c521",
+  "rows": [
+    {
+      "number": 1,
+      "id": "4cab82ea5654e379536822d9",
+      "text_hash": "2882447c7f6e309beb4e4ec4ce9c24ccc34a13b0c99b18d0a3bba4ed42e37245",
+      "comment": "Hà_Dũng_Anh bố m Nguyễn Văn Thành giỏi chan bố m đi",
+      "label": "",
+      "reason": "",
+      "post": "Cho mình hỏi ở đây được để xe à mọi người, mình thấy nhiều người để ở đây được, có mất tiền không ạ @nêu bật",
+      "parents": [
+        "Sao bảo kh up ẩn danh ?"
+      ],
+      "post_reference": "1296642605878247",
+      "comment_reference": "1296777905864717",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 2,
+      "id": "32848890c46f9078c99bca64",
+      "text_hash": "7b0f292bdfc2b60109f528bf46a971d303bec9c595141a37fb86fdde5bcb9b79",
+      "comment": "Người tham gia ẩn danh 304 thg đb nào cứ tag a vào mấy bài này vậy:))",
+      "label": "",
+      "reason": "",
+      "post": "mng ơi e d26 tháng sau học quân sự mà e gặp vấn đề này thì xin hoãn được ko ạ",
+      "parents": [
+        "Võ Thanh Quang bạn đúng k"
+      ],
+      "post_reference": "1290583203150854",
+      "comment_reference": "1290779219797919",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 3,
+      "id": "cc45f96ccf1ec322ccbe2af2",
+      "text_hash": "9344b2404d7725c49a6db75138a9e37a90bb3efe7a92d938dc2359d6f782a7d3",
+      "comment": "Mày thích giở giọng ông cụ không",
+      "label": "",
+      "reason": "",
+      "post": "Ủa gomen nasai ???😄Lm wibu thì có nani là sai desuka ???😄Bộ fan anime thì zutto phải thân thiện còn wibu thì warui à?😁Xàm manko quá v nè, chắc j fan anime đã sẵn sàng mamoru bn như wibu??Tuy karera có thể nói tiếng romaji, nhưg ít ra karera có thể hi sinh cả sekai 🙂bớt khinh hito lại ik mấy tomodachi, sasuga kuchi lưỡi hito đời, haizzz😲họ suki làm wibu, là quyền no họ, dare cấm???🙂🙂dare wakaru đc kokoro no naka họ đã trãi qua nhữg nani… Haiz đi học đại học làm một thủ khoa khối A(nime) như em cô đơn quá, ước gì cóa clb nào có nhiều bạn thic anime như em hihihihi",
+      "parents": [],
+      "post_reference": "1296674869208354",
+      "comment_reference": "1296719835870524",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 4,
+      "id": "cd1a7d137233712c8a8db805",
+      "text_hash": "a2e4753bd0f61850a353aafffb6edcbd471837a479d1cee06f5d54e77d61509e",
+      "comment": "Trường kỳ này xếp lịch ngáo vc, trùng mất mấy cái thực hành",
+      "label": "",
+      "reason": "",
+      "post": "anh chị cho em hỏi nếu bị trùng như này thì sao ạ",
+      "parents": [],
+      "post_reference": "1297220252487149",
+      "comment_reference": "1297474885795019",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 5,
+      "id": "7e001b70ce18ba2cd989dba4",
+      "text_hash": "a9329d7ec8bc20ce2ae1747fd7ea5f77df39466bdd7d56212c056e092520d891",
+      "comment": "Đỗ vào PTIT thì có gì tự hào (ai bt sẽ bt )",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [],
+      "post_reference": "pfbid0gqY1E98DvaS4C1GdB4VGRB3xDgX24ieByvNJSoFx9U3C8AzUAJmzVyEcg9vcJEScl",
+      "comment_reference": "Y29tbWVudDoxNjY2NjkxMjYyMTM3MTI2XzIwOTEyNzIyMDg0MjkyMTQ=",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 6,
+      "id": "40bbffb8d1302f11c7b8ef40",
+      "text_hash": "0d37b10f65d2af857785ebb2a5c42215e423a6c8e1631c020a1f9ae610f89166",
+      "comment": "Trường bé như cái lõ ý.",
+      "label": "",
+      "reason": "",
+      "post": "Demo chào tân ngày mai với công nghệ sân khấu vòng cung\n\nƯu điểm: Giúp ngăn chặn sinh viên xem chùa khi đứng ở 2 bên\nNhược điểm: Ngăn chặn sinh viên xem chùa khi đứng ở 2 bên",
+      "parents": [],
+      "post_reference": "pfbid0fZpRqLgMGt5EyphxM2t5XU42V8ep5SDg1BPRWjb6tdBAiu6x3z91pqiE7oJYrnHil",
+      "comment_reference": "Y29tbWVudDoxNjYwMzQ5MjYyNzcxMzI2XzEwOTAwNDE0NTAzNDQxMzY=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 7,
+      "id": "ef8e532dac9dc1012bf98d91",
+      "text_hash": "fdd537669d9ad3cc15c233212814543d08789cc1649f809f3c21d89ab32a9de8",
+      "comment": "Trường thuê tts bên kiến trúc sang cho tiết kiệm đấy à",
+      "label": "",
+      "reason": "",
+      "post": "Mn ơi quanh đây có ai nhận dịch vụ cẩu xe từ tầng 3 xuống không ạ\nMình đứng im như này 15p rồi chưa dám xuống",
+      "parents": [],
+      "post_reference": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "comment_reference": "Y29tbWVudDoxNjU0Mzg3MDI2NzAwODgzXzk2MjI2MTU2MDI0MDExNw==",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 8,
+      "id": "d4e0e2eac7026ab8c36cf3d0",
+      "text_hash": "f74eca13148bbe0e5c7533fcd0a0395e69732b77e9761fe1ca855a49aa5dc470",
+      "comment": "Ko nha ít thì cũng phải jack cho t ko thì sơn tùng mtp chứ này chưa đủ cho cái hp của trường",
+      "label": "",
+      "reason": "",
+      "post": "ĐƠN XIN LỖI TRƯỜNG BƯU ĐIỆN\n\nKính gửi trường Bưu Điện Hà Đông\nEm là hội anti trường mình\n\nHôm nay em viết đơn này vì lý do sau đây:\nGiữa vô vàn những chỉ trích tràn lan trên mxh trong buổi tối qua, em là một sinh viên/cựu sinh viên của trường mình, đã lỡ hùa theo số đông ngoài kia mà không suy nghĩ kĩ.\n\nEm đã lên bài trêu trường vì công bố nghệ sĩ đầu tiên không nằm trong danh sách khảo sát của bài trước. Em đã kể xấu trường với bạn bè đồng trang lứa, hội đồng quản trị, hội đồng hương,.... Hôm nay, nghe tin nghệ sĩ khách mời thứ 2 là ca sĩ MIN, em đã vô cùng ân hận, giằng xé lương tâm của mình. Em đã tự phạt mình ăn 3 bát cơm, tắm rửa sạch sẽ mới được đi ngủ.\n\nVà hơn thế, em làm đơn này trước hết là để xin lỗi trường và cảm ơn trường đã mang chị MIN đến. Em mong trường có thể tha thứ cho em và vẫn cho phép em cùng ae trên page tham dự buổi chào tân với tư cách sinh viên yêu trường.\n\nXin chân thành cảm ơn và mãi yêu trường!",
+      "parents": [],
+      "post_reference": "pfbid02k786JkSp9K5CBSZP4jtWBPhcmJ8RmpPcdszPEKQi877TJ4JGQht7xhoiy8JcDju6l",
+      "comment_reference": "Y29tbWVudDoxNjUzNjgxNzkwMTA0NzQwXzkxMzc0ODE3MTQ0ODYxMQ==",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 9,
+      "id": "3b6b8a27fb3357d0c6482a84",
+      "text_hash": "11a8451e0811f63771f06087269af960960a744d9d39b2cdde4e583ace7fe339",
+      "comment": "2026 r mà vẫn truyền thông bẩn thế thì chịu :)))",
+      "label": "",
+      "reason": "",
+      "post": "Điều D26 muốn nói đến nhất khi công bố \"NGÔI SAO, CA SỸ nào đang được mong chờ sẽ tỏa sáng trên sân khấu của PTIT năm nay. \"",
+      "parents": [],
+      "post_reference": "pfbid09HiiLSYM6J2pqLuKZGufabF3Z88U9LXMGw3dLsbrXnhS51rxu5KaGwWh7wVqrKELl",
+      "comment_reference": "Y29tbWVudDoxNjUzNTMzMzAzNDUyOTIyXzE2NTcxMjc2NjI2NjA3Mzg=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 10,
+      "id": "327d1ae9c296a4d3c0cd92a8",
+      "text_hash": "486463e916a8cf759a5b95f0083fe699b997d920ee3cddcdc370a9d3aee70574",
+      "comment": "Quaq Tam cao đẳng bưu điện hà đông trường to bự học phí rẻ csvc quá tốt quá tuyệt vời",
+      "label": "",
+      "reason": "",
+      "post": "Mn ơi, môn này mình không điểm danh 2 lần rồi, ưu tiên cho mình với 😭",
+      "parents": [],
+      "post_reference": "pfbid02e7ciDrsx5B6oZ28Kg15yGABcbHBn8X9QX1tkjcxcE4ofW1XXAH2M26yczmZb8moYl",
+      "comment_reference": "Y29tbWVudDoxNjUzMjIxMzYwMTUwNzgzXzEwNTYzNjg3MjA1MTU1Njg=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 11,
+      "id": "29f264be818b2eb0dcf1a8ca",
+      "text_hash": "c947168ce3c0c739023df93eb521f8ea84469ae0acb5fe51a4f467ec6beea263",
+      "comment": "Kkk, có nhà xe \"xịn\" rồi mà các em còn tắc đường hơn thời anh nữa , bõ 1 củ 1 tín thật\nÀ mà ko biết trường còn giữ nếp sống ko cho sinh viên vào cổng chính mà phải leo lên vỉa hè để cho ô tô đi vào cổng chính để xe nữa ko nhỉ?",
+      "label": "",
+      "reason": "",
+      "post": "Mn ơi, môn này mình không điểm danh 2 lần rồi, ưu tiên cho mình với 😭",
+      "parents": [],
+      "post_reference": "pfbid02e7ciDrsx5B6oZ28Kg15yGABcbHBn8X9QX1tkjcxcE4ofW1XXAH2M26yczmZb8moYl",
+      "comment_reference": "Y29tbWVudDoxNjUzMjIxMzYwMTUwNzgzXzE3MTE1MTQwNzk5MDU2OTQ=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 12,
+      "id": "a907a5d48ba21f2bbe189ad7",
+      "text_hash": "0cc3b592a61f18c1016d8ba9bcd619cffdfc13b977b9b4d85f7b985eba14b292",
+      "comment": "Tuan Anh Học viện hoàng gia lại win kèo trường nghề hạng2 ròi :))))",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [],
+      "post_reference": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "comment_reference": "Y29tbWVudDoxNjQ5ODA1MTU3MTU5MDcwXzEwODg2ODgwMjM3MTM1ODU=",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 13,
+      "id": "a2f503221f152dc0494667a7",
+      "text_hash": "f8cad89605709f89636a7c1edab264d039fd7f0b12b86017a9b70f0da4d52b9b",
+      "comment": "Bk= bố khỉ :))",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [],
+      "post_reference": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "comment_reference": "Y29tbWVudDoxNjQ5ODA1MTU3MTU5MDcwXzEzODAwNDA2OTcwMzU1Nzc=",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 14,
+      "id": "8df3e901acc46a65e2592e21",
+      "text_hash": "825bceb2278d733a9a54e5dc07779aa7713172e7c2a332c2ba746e26f1dac526",
+      "comment": "Nguyễn Duy Hoàng đừng nhờn với trường nghề hạng 2",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [],
+      "post_reference": "pfbid02ZicPNdaCL5VhhZxeN55EjpbuHphoRHFZD9aZW74FbajPoD7ZKiHvAFQ3KvqXLBfRl",
+      "comment_reference": "Y29tbWVudDoxNjQ5ODA1MTU3MTU5MDcwXzE1NDU4ODA2NTAxMzM5NzE=",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 15,
+      "id": "74f54078b1de558c6207fc63",
+      "text_hash": "f371f9602d52fb43e07931865c156c9582b66dc7c0dbaaf8bb097484e886cd47",
+      "comment": "Chan trường H đi ae, sợ gì trường nghề hạng 2",
+      "label": "",
+      "reason": "",
+      "post": "AE CHAN NHAU CĂNG RỒI, ĐẠI CHIẾN CLB GIỮA 2 TRƯỜNG ÁO ĐỎ !!\n\nMột ngày cuối tuần đẹp trời cho màn tỉ thí anh tài, S trường P ❌ i trường H\nvà cũng đẹp trời cho ae hóng drama\n\nHồi thứ nhất: Bên S tố bên i là ăn trộm thiết kế của họ, nhắn tin không rep và ae S khiển quân vào phẫn nộ + cmt đòi bản quyền\n\nHồi thứ hai: Anh i lên tiếng rằng, Đây là thiết kế bọn tôi tham khảo trên Pinterest, các bạn không có quyền, các bạn sẽ phải chịu trách nhiệm trước hành động khiển quân của mình.\n\nHồi thứ ba: Tưởng bên S sẽ phải rút quân vì hành động hồ đồ của mình, nhưng bên S đã chứng minh mình k chỉ là CLB truyền thông, mà còn biết cả tí trick công nghệ, khiển quân check api ảnh đó trên pin thì thấy mấy ông bạn i nghệ vãi, up vội cái ảnh lên Pin vào đêm qua để lấy lý do phòng thủ.\n\nSau đó 2 bên k đi được đến dĩ hòa vi quý, chan nhau từ tối qua đến giờ.\n*Chú ý: câu chuyện mang tính chất giải trí, không có thật, không chịu trách nhiệm cho sự thật trong câu chuyện 🥳",
+      "parents": [],
+      "post_reference": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_reference": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzE4MDkxNTAxMTAyNDE2ODc=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 16,
+      "id": "0512d7a45da3fb4798104418",
+      "text_hash": "dd7c26866b399a06a7194118e550e67986b4c77f4cb37d7e88fac0c317363164",
+      "comment": "Bảo Nguyễn trường nghề hạng 2:))",
+      "label": "",
+      "reason": "",
+      "post": "AE CHAN NHAU CĂNG RỒI, ĐẠI CHIẾN CLB GIỮA 2 TRƯỜNG ÁO ĐỎ !!\n\nMột ngày cuối tuần đẹp trời cho màn tỉ thí anh tài, S trường P ❌ i trường H\nvà cũng đẹp trời cho ae hóng drama\n\nHồi thứ nhất: Bên S tố bên i là ăn trộm thiết kế của họ, nhắn tin không rep và ae S khiển quân vào phẫn nộ + cmt đòi bản quyền\n\nHồi thứ hai: Anh i lên tiếng rằng, Đây là thiết kế bọn tôi tham khảo trên Pinterest, các bạn không có quyền, các bạn sẽ phải chịu trách nhiệm trước hành động khiển quân của mình.\n\nHồi thứ ba: Tưởng bên S sẽ phải rút quân vì hành động hồ đồ của mình, nhưng bên S đã chứng minh mình k chỉ là CLB truyền thông, mà còn biết cả tí trick công nghệ, khiển quân check api ảnh đó trên pin thì thấy mấy ông bạn i nghệ vãi, up vội cái ảnh lên Pin vào đêm qua để lấy lý do phòng thủ.\n\nSau đó 2 bên k đi được đến dĩ hòa vi quý, chan nhau từ tối qua đến giờ.\n*Chú ý: câu chuyện mang tính chất giải trí, không có thật, không chịu trách nhiệm cho sự thật trong câu chuyện 🥳",
+      "parents": [],
+      "post_reference": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_reference": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzIzMzY3MDM5OTM4MDI5OTQ=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 17,
+      "id": "08a2988d09aefbf72ec5994a",
+      "text_hash": "7e21b8a4fd48e0a21c087eb8d5a573604912213d604c8c6c34aad05e400253fd",
+      "comment": "Trg dán tem sang chan truyền thống đè tem à",
+      "label": "",
+      "reason": "",
+      "post": "AE CHAN NHAU CĂNG RỒI, ĐẠI CHIẾN CLB GIỮA 2 TRƯỜNG ÁO ĐỎ !!\n\nMột ngày cuối tuần đẹp trời cho màn tỉ thí anh tài, S trường P ❌ i trường H\nvà cũng đẹp trời cho ae hóng drama\n\nHồi thứ nhất: Bên S tố bên i là ăn trộm thiết kế của họ, nhắn tin không rep và ae S khiển quân vào phẫn nộ + cmt đòi bản quyền\n\nHồi thứ hai: Anh i lên tiếng rằng, Đây là thiết kế bọn tôi tham khảo trên Pinterest, các bạn không có quyền, các bạn sẽ phải chịu trách nhiệm trước hành động khiển quân của mình.\n\nHồi thứ ba: Tưởng bên S sẽ phải rút quân vì hành động hồ đồ của mình, nhưng bên S đã chứng minh mình k chỉ là CLB truyền thông, mà còn biết cả tí trick công nghệ, khiển quân check api ảnh đó trên pin thì thấy mấy ông bạn i nghệ vãi, up vội cái ảnh lên Pin vào đêm qua để lấy lý do phòng thủ.\n\nSau đó 2 bên k đi được đến dĩ hòa vi quý, chan nhau từ tối qua đến giờ.\n*Chú ý: câu chuyện mang tính chất giải trí, không có thật, không chịu trách nhiệm cho sự thật trong câu chuyện 🥳",
+      "parents": [],
+      "post_reference": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_reference": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzE5NTQ1ODE4NjIxNzk5OTU=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 18,
+      "id": "522d9250f820ff1b2ba1ca35",
+      "text_hash": "c628e1c7ce4cee45fdd7028d3b98517f939ce8ec8c33901c8e0208e9b1ab6138",
+      "comment": "Trần Đức Vương ái dà đúng trường đè tem của a đây r",
+      "label": "",
+      "reason": "",
+      "post": "AE CHAN NHAU CĂNG RỒI, ĐẠI CHIẾN CLB GIỮA 2 TRƯỜNG ÁO ĐỎ !!\n\nMột ngày cuối tuần đẹp trời cho màn tỉ thí anh tài, S trường P ❌ i trường H\nvà cũng đẹp trời cho ae hóng drama\n\nHồi thứ nhất: Bên S tố bên i là ăn trộm thiết kế của họ, nhắn tin không rep và ae S khiển quân vào phẫn nộ + cmt đòi bản quyền\n\nHồi thứ hai: Anh i lên tiếng rằng, Đây là thiết kế bọn tôi tham khảo trên Pinterest, các bạn không có quyền, các bạn sẽ phải chịu trách nhiệm trước hành động khiển quân của mình.\n\nHồi thứ ba: Tưởng bên S sẽ phải rút quân vì hành động hồ đồ của mình, nhưng bên S đã chứng minh mình k chỉ là CLB truyền thông, mà còn biết cả tí trick công nghệ, khiển quân check api ảnh đó trên pin thì thấy mấy ông bạn i nghệ vãi, up vội cái ảnh lên Pin vào đêm qua để lấy lý do phòng thủ.\n\nSau đó 2 bên k đi được đến dĩ hòa vi quý, chan nhau từ tối qua đến giờ.\n*Chú ý: câu chuyện mang tính chất giải trí, không có thật, không chịu trách nhiệm cho sự thật trong câu chuyện 🥳",
+      "parents": [],
+      "post_reference": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_reference": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzQ0MzM4NTkyMzAxOTY4NDE=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 19,
+      "id": "3a23e0ab706f1bdafc1e2cd1",
+      "text_hash": "c57f0321032a150acd9cd724ad0a2f67e17e49c7445ac926f516bdb5622d6bc0",
+      "comment": "Cao đẳng var trường nghề hạng 2",
+      "label": "",
+      "reason": "",
+      "post": "AE CHAN NHAU CĂNG RỒI, ĐẠI CHIẾN CLB GIỮA 2 TRƯỜNG ÁO ĐỎ !!\n\nMột ngày cuối tuần đẹp trời cho màn tỉ thí anh tài, S trường P ❌ i trường H\nvà cũng đẹp trời cho ae hóng drama\n\nHồi thứ nhất: Bên S tố bên i là ăn trộm thiết kế của họ, nhắn tin không rep và ae S khiển quân vào phẫn nộ + cmt đòi bản quyền\n\nHồi thứ hai: Anh i lên tiếng rằng, Đây là thiết kế bọn tôi tham khảo trên Pinterest, các bạn không có quyền, các bạn sẽ phải chịu trách nhiệm trước hành động khiển quân của mình.\n\nHồi thứ ba: Tưởng bên S sẽ phải rút quân vì hành động hồ đồ của mình, nhưng bên S đã chứng minh mình k chỉ là CLB truyền thông, mà còn biết cả tí trick công nghệ, khiển quân check api ảnh đó trên pin thì thấy mấy ông bạn i nghệ vãi, up vội cái ảnh lên Pin vào đêm qua để lấy lý do phòng thủ.\n\nSau đó 2 bên k đi được đến dĩ hòa vi quý, chan nhau từ tối qua đến giờ.\n*Chú ý: câu chuyện mang tính chất giải trí, không có thật, không chịu trách nhiệm cho sự thật trong câu chuyện 🥳",
+      "parents": [],
+      "post_reference": "pfbid02okfQoKNGPnWEw9pxNafpJqk1Zn1SXeD3mncrfaf7fuTxXGAUAUat6L9dqV9yYsRbl",
+      "comment_reference": "Y29tbWVudDoxNjQ5Njc5NDgwNTA0OTcxXzEwNzg4MzE2OTQ3MzI0Mzk=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 20,
+      "id": "930ae76eede3eb5c266d3feb",
+      "text_hash": "928e9ac4feb14e04f33ed4e21722db3f5c2e4df2c40d21be5a38db06c7a633ad",
+      "comment": "??? Cao đẳng đưa thư mà",
+      "label": "",
+      "reason": "",
+      "post": "Thằng nào làm ra cái này?",
+      "parents": [],
+      "post_reference": "pfbid0xpQDewvPACtqwJMtggfZ8ZQNjMmukZCLveCReaH6iz346PNFhoYo3Woid5Xa68Fql",
+      "comment_reference": "Y29tbWVudDoxNjQ1OTM5MzA3NTQ1NjU1XzE2MzExNDIxNzg1NDMzODM=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 21,
+      "id": "3ec38d5eff0d48b6d653b546",
+      "text_hash": "2ecf38aebc04ab2f522679880883a86900848986e4b221d6b15eb1dee0c6bed8",
+      "comment": "Bùi Nguyên Lượng down xuống cđ r b",
+      "label": "",
+      "reason": "",
+      "post": "Thằng nào làm ra cái này?",
+      "parents": [],
+      "post_reference": "pfbid0xpQDewvPACtqwJMtggfZ8ZQNjMmukZCLveCReaH6iz346PNFhoYo3Woid5Xa68Fql",
+      "comment_reference": "Y29tbWVudDoxNjQ1OTM5MzA3NTQ1NjU1XzM4MTU3ODYzODQwNTIzNjU1",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 22,
+      "id": "b17077ff6aa13a0f5d08acad",
+      "text_hash": "454e802b747e8cbc8f2b1a7f246fa2a249065dab72b34e62f150aea123b15172",
+      "comment": "Khả năng người sai là em và gia đình, trường luôn đúng em nhé",
+      "label": "",
+      "reason": "",
+      "post": "Không có chuyện đó đâu em ơi\nEm có biết đây là trường công nghệ sẽ nằm trong top 150 châu Á vào năm 2030 không em? 🐧",
+      "parents": [],
+      "post_reference": "pfbid06spcxpj3rN8q8MWzq1RyAF8jnxFzEfV4UnX6WyBwG2TZ627PKo5HrnYh1cPt8dYfl",
+      "comment_reference": "Y29tbWVudDoxNjQ1OTA3ODQ0MjE1NDY4XzE2MTc4NTE0OTk3MzQ0OTI=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 23,
+      "id": "8b4290ce5646a023d1f481de",
+      "text_hash": "75076f4452dd06dd86f18682f434a9a961d0652616aa81d851d499a9b4cd0d7d",
+      "comment": "Trường top 150 đại học hàng đầu của Châu Á vào năm 2030 mà làm vậy",
+      "label": "",
+      "reason": "",
+      "post": "Giờ mình làm đơn xin trường trừ 20k vào học phí kì này thì có được không ạ\n- Bạn Q giấu tên hỏi pết -",
+      "parents": [],
+      "post_reference": "pfbid0WNyuhHgqvTvL4k3K4Ci2P3PffMwTr4mtA3YN2d1nmMFvnT4aEEtAZdfjRvgZey1cl",
+      "comment_reference": "Y29tbWVudDoxNjQzMTU2ODU0NDkwNTY3XzI4NzIwMDIzNjk4NTEyMjY=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 24,
+      "id": "8ca33cf336badff33996d7c7",
+      "text_hash": "9be2bd439a7c39dc40429073d98b368a4d71801c12e0c11b353f087fbfdd4a83",
+      "comment": "Nguyen Thai Nguyen Đúng là mấy bọn ảo mxh, cần thì ra gọi chú bảo vệ hay người có uỷ quyền của cái tủ cậy ra là xong chuyện, đăng bài này lên để thành sigma à hay câu tương tác hay ragebait tao",
+      "label": "",
+      "reason": "",
+      "post": "Giờ mình làm đơn xin trường trừ 20k vào học phí kì này thì có được không ạ\n- Bạn Q giấu tên hỏi pết -",
+      "parents": [],
+      "post_reference": "pfbid0WNyuhHgqvTvL4k3K4Ci2P3PffMwTr4mtA3YN2d1nmMFvnT4aEEtAZdfjRvgZey1cl",
+      "comment_reference": "Y29tbWVudDoxNjQzMTU2ODU0NDkwNTY3XzE3NTYwOTMwMTIxMzc1NDI=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 25,
+      "id": "261e4ead9d633eeffa3ffbbf",
+      "text_hash": "00ffb7d47fa60e9cd2df181e94f266d39cab5a57e754cbd9697b0f99c59bd171",
+      "comment": "Quaq Tam trường ko bao giờ đớp đây là ảnh AI Chat GPT tạo Gemini",
+      "label": "",
+      "reason": "",
+      "post": "Giờ mình làm đơn xin trường trừ 20k vào học phí kì này thì có được không ạ\n- Bạn Q giấu tên hỏi pết -",
+      "parents": [],
+      "post_reference": "pfbid0WNyuhHgqvTvL4k3K4Ci2P3PffMwTr4mtA3YN2d1nmMFvnT4aEEtAZdfjRvgZey1cl",
+      "comment_reference": "Y29tbWVudDoxNjQzMTU2ODU0NDkwNTY3XzE0MTI5ODc2MTQwOTE1MzU=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 26,
+      "id": "3b64a20aa99df74c6ae57faf",
+      "text_hash": "fba7a753cfed0beb27d0c1c341861e8bf2ef2d5c0f1b55dabf9ce82959e3db1d",
+      "comment": "Trang Huyen Nguyen mày còn tech hơn trường nữa",
+      "label": "",
+      "reason": "",
+      "post": "Phần quà bí mật trường dành tặng cho tân sinh viên D26 !!!!\n\nSau khi gây thất vọng với bộ quà chào tân có mỗi cái quyển sổ tay mà ít ai đọc, trường đã tung ra át chủ bài đó chính là tặng bộ GOOGLE AI PLUS\n\nVới gói này, sinh viên sẽ sở hữu gói gg drive 5TB, truy cập AI Gemini Pro miễn phí trong vòng 1 năm\n\nD26 cứ chê quà ít nữa đi\n(Thực ra đây là chương trình của google, sinh viên trường nào cũng được nhận 🐧)",
+      "parents": [],
+      "post_reference": "pfbid02BoJ6i94fLXrz1XfohM7fLNCyZ7DGTGzUtNzHWWynFynFR4fTCHNt7iKW4i6mjBDgl",
+      "comment_reference": "Y29tbWVudDoxNjQyMDQwMDU3OTM1NTgwXzE3MDU0MTczMjcxODI4OTE=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 27,
+      "id": "d4e725447677dcc5b532162f",
+      "text_hash": "b14880b9cdb08c128c3e624df448f97139730044d0fcad8b76a92371b9c47b69",
+      "comment": "Ngoc Bao Nguyen này gemini phát mà trg nói như trường làm ý :))",
+      "label": "",
+      "reason": "",
+      "post": "Phần quà bí mật trường dành tặng cho tân sinh viên D26 !!!!\n\nSau khi gây thất vọng với bộ quà chào tân có mỗi cái quyển sổ tay mà ít ai đọc, trường đã tung ra át chủ bài đó chính là tặng bộ GOOGLE AI PLUS\n\nVới gói này, sinh viên sẽ sở hữu gói gg drive 5TB, truy cập AI Gemini Pro miễn phí trong vòng 1 năm\n\nD26 cứ chê quà ít nữa đi\n(Thực ra đây là chương trình của google, sinh viên trường nào cũng được nhận 🐧)",
+      "parents": [],
+      "post_reference": "pfbid02BoJ6i94fLXrz1XfohM7fLNCyZ7DGTGzUtNzHWWynFynFR4fTCHNt7iKW4i6mjBDgl",
+      "comment_reference": "Y29tbWVudDoxNjQyMDQwMDU3OTM1NTgwXzEwMjQ3ODc4MjA1NTgyODg=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 28,
+      "id": "c69fc96d39d3d79a8e1b8c27",
+      "text_hash": "07ae16e76b365d1ac257507da4929523e899a9bf179a33f617bbd493bf704cc6",
+      "comment": "Học viện hoàng gia hạng phổ thông kk",
+      "label": "",
+      "reason": "",
+      "post": "POV: Bạn phải đóng học phí 1m2/tín để trường xây nhà xe nhưng vẫn phải để ở ngoài dầm mưa dãi nắng 🤣🫵",
+      "parents": [],
+      "post_reference": "pfbid0yXMZeBay8oduhVm5XnYcBdFn8JuHEi16edoccU9Yw62Cz3tGsnE2v2PHUM7yvHXPl",
+      "comment_reference": "Y29tbWVudDoxNjQxMDcxODg0Njk5MDY0XzE2MTU0NzY0NjM1MjYzNTI=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 29,
+      "id": "2a2b3865b4949ec80f995f72",
+      "text_hash": "fcaa0ac94d9a8a739376ec6eed0b6eb9df6ae923068792f4335f6f70485a5a88",
+      "comment": "Nhà xe tầng 3 thiết kế để ko lên dc",
+      "label": "",
+      "reason": "",
+      "post": "POV: Bạn phải đóng học phí 1m2/tín để trường xây nhà xe nhưng vẫn phải để ở ngoài dầm mưa dãi nắng 🤣🫵",
+      "parents": [],
+      "post_reference": "pfbid0yXMZeBay8oduhVm5XnYcBdFn8JuHEi16edoccU9Yw62Cz3tGsnE2v2PHUM7yvHXPl",
+      "comment_reference": "Y29tbWVudDoxNjQxMDcxODg0Njk5MDY0XzIzMjQ4OTUzMTE2NDcyNzM=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 30,
+      "id": "96a9f4c5891ecb7d6602f53c",
+      "text_hash": "29700098a717e501534f4f5c9b03f606d831e9e048e80e5ed2edafaf097a6a71",
+      "comment": "Nói thế trường thiết kế thêm cái nhà xe nữa, tăng thêm học phí bây h",
+      "label": "",
+      "reason": "",
+      "post": "POV: Bạn phải đóng học phí 1m2/tín để trường xây nhà xe nhưng vẫn phải để ở ngoài dầm mưa dãi nắng 🤣🫵",
+      "parents": [],
+      "post_reference": "pfbid0yXMZeBay8oduhVm5XnYcBdFn8JuHEi16edoccU9Yw62Cz3tGsnE2v2PHUM7yvHXPl",
+      "comment_reference": "Y29tbWVudDoxNjQxMDcxODg0Njk5MDY0XzExMTI1NDQ4Mjc3NjYzMjk=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 31,
+      "id": "0ba4a6fee412018fcfb8e17d",
+      "text_hash": "2480dcc68d0407f393bee99d7ce9eec64e3970f7d2d840ca034c79b73927d207",
+      "comment": "Hồi anh học thì vẫn có chỗ để xe có mái che. Giờ tín chỉ \"có giá\" hơn thì các em lại được để xe tại \"khách sạn ngàn sao\"",
+      "label": "",
+      "reason": "",
+      "post": "POV: Bạn phải đóng học phí 1m2/tín để trường xây nhà xe nhưng vẫn phải để ở ngoài dầm mưa dãi nắng 🤣🫵",
+      "parents": [],
+      "post_reference": "pfbid0yXMZeBay8oduhVm5XnYcBdFn8JuHEi16edoccU9Yw62Cz3tGsnE2v2PHUM7yvHXPl",
+      "comment_reference": "Y29tbWVudDoxNjQxMDcxODg0Njk5MDY0Xzk1NTI2NTkyNzU5Mjk1NA==",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 32,
+      "id": "95aba2ed18909420d7973bcb",
+      "text_hash": "f89480c8ef0b288e75cf4c564ba45dcb939d38d532a446fbab083ce7147624fb",
+      "comment": "Chả đứa nào xinh mà đi đăng ẩn danh cả. Chưa kể còn có gai",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [],
+      "post_reference": "1468516765385483",
+      "comment_reference": "1469236881980138",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 33,
+      "id": "16123b35ffdf8f6e31f71e6b",
+      "text_hash": "ea8e839a0e65713d2b1412cc045d09ff1342a79067c7131c258a8579f749a977",
+      "comment": "chân_đèn_trừ_nửa thằng lớp trưởng chơi bẩn, nó xóa. Hoặc bạn đánh giá nhầm, thiếu, cái phần đó tự đièn",
+      "label": "",
+      "reason": "",
+      "post": "gpa 3.63 mà drl có 73 thì có xin cvht để chấm lên xíu để xét hb dc ko ạ 🥲 e chỉ ko đi các sự kiện thôi còn share bài, từ thiện đầy đủ hết",
+      "parents": [
+        "Vậy thì ko có chuyện 73 đâu. Bạn coi lại đi chứ có vấn đề đấy. Năm ngoái mk ko đi sự kiện, chỉ share bài + đóng góp gpa xs cũng đã 83 drl rồi. Chênh nhau tận 10 điểm như này khả năng bạn bị sao r"
+      ],
+      "post_reference": "1472092325027927",
+      "comment_reference": "1472754198295073",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 34,
+      "id": "87c11a2e984ca1da230eedc7",
+      "text_hash": "eaa02a93870fa4a93ca9670ed095b99ee301b88b77d3fb35d7f7fe2ad3b89918",
+      "comment": "Thằng gay bệnh này",
+      "label": "",
+      "reason": "",
+      "post": "Nam sinh viên trường mình sắp tới đi quân sự là tắm riêng hay chung vậy các anh chị?",
+      "parents": [],
+      "post_reference": "1473019894935170",
+      "comment_reference": "1474020268168466",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 35,
+      "id": "91dda59ca88038ee17121655",
+      "text_hash": "a6f7e924cd1588d11e17f9e1bcdfbc5040a6a274e29a84937ce3dce888aeabac",
+      "comment": "Bùi Ngọc Bích dcmm",
+      "label": "",
+      "reason": "",
+      "post": "",
+      "parents": [
+        "Pham Huyen làm thử đi"
+      ],
+      "post_reference": "1480584067512086",
+      "comment_reference": "1481262287444264",
+      "context_gaps": [
+        "post_text_unavailable"
+      ],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 36,
+      "id": "1f09acbf62bac57ab780bb7c",
+      "text_hash": "61d7cab8b296b2977b186bc0839d864ec0048d014505e1ec935014b15f5378f4",
+      "comment": "Ptitệ ?",
+      "label": "",
+      "reason": "",
+      "post": "giữa hôn má và hôn môi, tôi chọn trai Ptit 💩",
+      "parents": [
+        "Khắc Thịnh khai nhanh, ông anh là ng đăng bài này đúng k"
+      ],
+      "post_reference": "1480584614178698",
+      "comment_reference": "1480744260829400",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 37,
+      "id": "27b7cbe0fae191387595cdc4",
+      "text_hash": "55d0aeab2ceae8bc883a1e5512dca66c88f14c8496e753ae036a1394803f4994",
+      "comment": "Hải Nam đcu m bia rượu thì k rủ\nbánh kem k có\nm có tin t cho m tập tễnh cả đời k",
+      "label": "",
+      "reason": "",
+      "post": "Ad đã nhận được lời chúc 20/10 rui, ce PTIT nhận được hết chưa z🌝",
+      "parents": [
+        "mình được r nhé ae"
+      ],
+      "post_reference": "1479260607644432",
+      "comment_reference": "1480530954184064",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 38,
+      "id": "4be81b55abef3ddba435a8e4",
+      "text_hash": "39545bbaa322a69faa5c8f7ac50dd5a8b9e161862ba7955b9b90f1e434574a5b",
+      "comment": "SpiritedKale3576 mẹo mày bé",
+      "label": "",
+      "reason": "",
+      "post": "Thi giữa kì toán cao cấp dc dùng điện thoại ko ạ:))",
+      "parents": [
+        "Chỉ bạn 1 mẹo nhé"
+      ],
+      "post_reference": "1479846394252520",
+      "comment_reference": "1480588410844985",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 39,
+      "id": "4164b5737c5684d07651624b",
+      "text_hash": "87bd430883baf3f902622167b01e4e3eb659feaa9c7e9e8b21e6842c38b24e2d",
+      "comment": "Quaq Tam bưu điện đớp học phí",
+      "label": "",
+      "reason": "",
+      "post": "Tôi không biết nhưng coi như làm phước cho ae nào lấy được nhé!!. ### trời nóng đang mệt bực gặp quả này nữa. Lần 3 r nhé máy bán nước TOÀ B5",
+      "parents": [],
+      "post_reference": "1476551934581966",
+      "comment_reference": "1476605394576620",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 40,
+      "id": "d7816b5a403081d98adb29b4",
+      "text_hash": "03c75355bf1fe892c3464bbfa4c96e585ee00182721e81046d75d2e61b42379f",
+      "comment": "vnpt ptit đúng ae ruột thừa :)))",
+      "label": "",
+      "reason": "",
+      "post": "Kính gửi trường Bưu Điện,\nKỳ trước em có lỡ đóng muộn học phí 1 chút thôi ạ, sau đó em đã đóng bù đầy đủ.\nNếu là do em, xin hãy để 1 mình em chịu, các bạn khác vô tội ạ.",
+      "parents": [],
+      "post_reference": "pfbid0sqDiPHFt7Eap8uyiHHAGMfkGeQzodaQrcvQnKYSmMJ41RnuyHfMjTg9HRp5fUoxhl",
+      "comment_reference": "Y29tbWVudDoxNjcxNzg5MDY4Mjk0MDEyXzExMTMwNTE2MTE2ODM5NTE=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 41,
+      "id": "67eade54ba1e44378cd9993b",
+      "text_hash": "58d6fcb87a83672acbcb5dda46222d4f43a65bff9b0a30633c1d5a80d5865733",
+      "comment": "Trường viễn thông nhưng bị ngắt viễn thông :)))",
+      "label": "",
+      "reason": "",
+      "post": "Kính gửi trường Bưu Điện,\nKỳ trước em có lỡ đóng muộn học phí 1 chút thôi ạ, sau đó em đã đóng bù đầy đủ.\nNếu là do em, xin hãy để 1 mình em chịu, các bạn khác vô tội ạ.",
+      "parents": [],
+      "post_reference": "pfbid0sqDiPHFt7Eap8uyiHHAGMfkGeQzodaQrcvQnKYSmMJ41RnuyHfMjTg9HRp5fUoxhl",
+      "comment_reference": "Y29tbWVudDoxNjcxNzg5MDY4Mjk0MDEyXzEyODI3ODk3MDM5MjMyMzU=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 42,
+      "id": "4c1ec04cd6dcd392f73fa62a",
+      "text_hash": "73c3abbecc67b5fb97446d7fcd63abad7430709eb28a50fcf84a24db2f3a5855",
+      "comment": "Trường tôi đấy bổ túc thế mà lại hay",
+      "label": "",
+      "reason": "",
+      "post": "Kính gửi trường Bưu Điện,\nKỳ trước em có lỡ đóng muộn học phí 1 chút thôi ạ, sau đó em đã đóng bù đầy đủ.\nNếu là do em, xin hãy để 1 mình em chịu, các bạn khác vô tội ạ.",
+      "parents": [],
+      "post_reference": "pfbid0sqDiPHFt7Eap8uyiHHAGMfkGeQzodaQrcvQnKYSmMJ41RnuyHfMjTg9HRp5fUoxhl",
+      "comment_reference": "Y29tbWVudDoxNjcxNzg5MDY4Mjk0MDEyXzE0NDgyNTYwNTA0ODc1ODg=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 43,
+      "id": "c7cd6255e4ee9811499be6f4",
+      "text_hash": "1cf7ae9bc84c311fff5ac242837d4781bd34617d1b44e726ce24e141cc8b687e",
+      "comment": "Người tham gia ẩn danh 742 giọng ông cụ à",
+      "label": "",
+      "reason": "",
+      "post": "Đức Minh với Ngọc Vi chiều mai gặp mình ở Không gian xanh PTIT mình trả lại nho 🫰🏻",
+      "parents": [
+        "Nó chia tay vứt đi r m còn đăng lên đây , bán nhà nó cũng phải tìm dc m"
+      ],
+      "post_reference": "1307111234831384",
+      "comment_reference": "1307728504769657",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 44,
+      "id": "9e0230d73f5994582f19dcc8",
+      "text_hash": "1e42158370520ca356b0b5581f6299201b1b37895ebae51631b4b9755f76cd8c",
+      "comment": "Người tham gia ẩn danh 742 m đừng có ba hoa chích choè, t ko chấp nhận con người mày cut",
+      "label": "",
+      "reason": "",
+      "post": "Đức Minh với Ngọc Vi chiều mai gặp mình ở Không gian xanh PTIT mình trả lại nho 🫰🏻",
+      "parents": [
+        "Nó chia tay vứt đi r m còn đăng lên đây , bán nhà nó cũng phải tìm dc m"
+      ],
+      "post_reference": "1307111234831384",
+      "comment_reference": "1307813798094461",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 45,
+      "id": "b4409e89ef9b8aebd18f88bc",
+      "text_hash": "8123b1ccc65f5ad65b4f268b734799953a9958c25ab75a76a0160ba018f02e9c",
+      "comment": "Người tham gia ẩn danh 742 giọng ông cụ",
+      "label": "",
+      "reason": "",
+      "post": "Đức Minh với Ngọc Vi chiều mai gặp mình ở Không gian xanh PTIT mình trả lại nho 🫰🏻",
+      "parents": [
+        "Nó chia tay vứt đi r m còn đăng lên đây , bán nhà nó cũng phải tìm dc m"
+      ],
+      "post_reference": "1307111234831384",
+      "comment_reference": "1308157284726779",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 46,
+      "id": "30f1dee7417dd6c280903754",
+      "text_hash": "03585b89a43e2fad89c4699f1ac075f94efcb7da81b0a7f94ae5607bc43138d0",
+      "comment": "Người tham gia ẩn danh 742 m thích lắm mồm k",
+      "label": "",
+      "reason": "",
+      "post": "Đức Minh với Ngọc Vi chiều mai gặp mình ở Không gian xanh PTIT mình trả lại nho 🫰🏻",
+      "parents": [
+        "Nó chia tay vứt đi r m còn đăng lên đây , bán nhà nó cũng phải tìm dc m"
+      ],
+      "post_reference": "1307111234831384",
+      "comment_reference": "1308616904680817",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 47,
+      "id": "c30a3b7c5ecbc031ea986dd0",
+      "text_hash": "c8ff57ac1bf1c285d49988a2078f5bef13ec97f74245a6293931418e1cb2dcd0",
+      "comment": "Quân Xin nỗi các anh các chị,bạn bè các em hoặc và các cháu!Có người ae học PTIT của mình đây!Mình cũng đã từng nói dồi.Kể cả người ae đó chỉ còn 1 bộ quần áo,1 bộ đồng phục PTIT không thôi!Khi PTIT đã nấy để nấy nàm sinh viên…kể cả e không có cái gì trong tay,chỉ 1 bộ quần áo PTIT sẽ cõng e đi hết con đường còn nại“\nĐấy nà nói thật nhá không phải vì tham tiền tham bạc!Kể cả nhà nầu xe hơi?Cái quan trọng cái định hướng nó đến với mình nó phải chuẩn chứ không phải ới dời ơi?Còn không có ngành học hot thì PTIT chỉ là cát bụi thôi!Mới sinh viên của PTIT đơn giản nà như vậy…",
+      "label": "",
+      "reason": "",
+      "post": "Em d26 muốn chuyển ngành khác bên HUS-VNU ( điểm thpt em cao hơn đ chuẩn) thì có được chuyển trường k ạ",
+      "parents": [
+        "thi lại HUS mà vào ngành học trên Hoà Lạc thì thôi,học ở PTIT còn ổn hơn"
+      ],
+      "post_reference": "1305108191698355",
+      "comment_reference": "1305477514994756",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 48,
+      "id": "8709f88de963c260b8518ec5",
+      "text_hash": "e615f47f531a7a2633d03cb6e224c132ecad7eb8393e1004621de20c9d18e19d",
+      "comment": "Chạy đi em ơi đừng vào hus",
+      "label": "",
+      "reason": "",
+      "post": "Em d26 muốn chuyển ngành khác bên HUS-VNU ( điểm thpt em cao hơn đ chuẩn) thì có được chuyển trường k ạ",
+      "parents": [],
+      "post_reference": "1305108191698355",
+      "comment_reference": "1305474014995106",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 49,
+      "id": "bfe21661b49e2a16b98a1907",
+      "text_hash": "004efae275b5024e8318ef61975e9bc1c9c145650e0b55a3c726e47baca5e714",
+      "comment": "Ccho trộm",
+      "label": "",
+      "reason": "",
+      "post": "Chịu rồi:)) nghỉ có ngày mà mất cãi mũ, đợi nửa ngày trời giờ thấy nó ở xe ae 14, xe ai tự cmt ở dưới nhé đừng làm nhau căng b ơi",
+      "parents": [],
+      "post_reference": "1308047284737779",
+      "comment_reference": "1308176488058192",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 50,
+      "id": "dfb92e44da1b56fcb901cfed",
+      "text_hash": "05e51c0da12999e447779ae8193e39ad7ff077cc960370982674b4453085d265",
+      "comment": "Hp 1củ1 mà trường đối xử với tôi như thế này đây",
+      "label": "",
+      "reason": "",
+      "post": "Không biết là do t đen hay là trường giảm rate nữa nma cả tháng nay không trúng cái nào💀 có ai giống t kh",
+      "parents": [],
+      "post_reference": "1305053335037174",
+      "comment_reference": "1306019714940536",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 51,
+      "id": "c01844e56868ee0ca32443e0",
+      "text_hash": "eab1793f886597a1a4a6dc9e44345467c79eaee9757c7ef795463879b8847851",
+      "comment": "FriendlyNarwhal4424 vãi mịa thật cái trg này lười chấm bài tự luận đến thế hả, môn này mà thi trắc nghiệm mk cx đến ạ",
+      "label": "",
+      "reason": "",
+      "post": "dạ ac có tài liệu về môn lý thuyết mạch k ạ cho e xin vs ạ ( tại năm nay e thi tự luận ấy ạ)",
+      "parents": [
+        "Tưởng năm nào cx thi tự luận, môn này thi trắc nghiệm kiểu gì dc ?"
+      ],
+      "post_reference": "1307152334827274",
+      "comment_reference": "1307428114799696",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 52,
+      "id": "1416897afea21922d62cd580",
+      "text_hash": "e54bb681fde4516bdb66e1b15096fc78d4756bdcaca3d57932f3c2aca0bf5190",
+      "comment": "Giang Nguyễn cmm",
+      "label": "",
+      "reason": "",
+      "post": "Em mới trở thành coin thủ , ko bt ptit mình có CLB Chứng khoán ko ạ 😭",
+      "parents": [
+        "Phong Phi phù thủy crypto số 2 của VN đng muốn nhận học viên , các bạn thít thì đki nha :))))"
+      ],
+      "post_reference": "1305609888314852",
+      "comment_reference": "1306824894860018",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 53,
+      "id": "8342ae6d838e9ac0bd1b1631",
+      "text_hash": "dcc028c785ce9c52e5ea7e44a667e5ef261e04788aff9293a325139e3a9a5ec2",
+      "comment": "bổ túc chỉ thế thôi",
+      "label": "",
+      "reason": "",
+      "post": "Ôi vch, trc cũng cao r, bây h ko ngờ top 1",
+      "parents": [],
+      "post_reference": "1311310171078157",
+      "comment_reference": "1311357611073413",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 54,
+      "id": "1451346c4b7e012313378aff",
+      "text_hash": "cf1f793cbb3257cdc0fd83c754272bcd700661e383dacbf8e658626469844433",
+      "comment": "Trước khi mở mồm chửi trường thì xem lại bản thân nhé. Gặp quả mấy ô năm 4 chán del tả được, làm cho 90% rồi vẫn ko ra hồn.",
+      "label": "",
+      "reason": "",
+      "post": "Ôi vch, trc cũng cao r, bây h ko ngờ top 1",
+      "parents": [],
+      "post_reference": "1311310171078157",
+      "comment_reference": "1311389164403591",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 55,
+      "id": "97105c56f4ca3aaa6d6539eb",
+      "text_hash": "99f1aa0d017b5c678a54c771eafa704891fb18e7533f358bae3cde36378ffca1",
+      "comment": "Ricon cặc giờ cha phế quá phải tự sục bằng mấy cái này thôi",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311298137746027",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 56,
+      "id": "78f654d17cf64a7135935ff4",
+      "text_hash": "5930c5e6d4dde3905121d3b935aca4c8c4d516f63860a39dc56c3a8a100b5064",
+      "comment": "mấy th fan si mà thấy th kia mà fan a7 vào cắn ngay h cmt vào bênh cha lắm fan si 10 th thì 9 th lùn k biết đá bóng",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311305767745264",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 57,
+      "id": "af955d0de3b0205cc8d49bc7",
+      "text_hash": "1e41c173e969be4c0ff8fc2baf47a90a45f6490dc8158dd8b7611fe2480b9e4f",
+      "comment": "Có 150k cũng tranh chấp\nPhèn cả người ra",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311398351069339",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 58,
+      "id": "e02a61b08eede0aef1bed674",
+      "text_hash": "ff8d7f8ac4a16305a4fe5cafcca9170851c30971ab068ccdf71982fe022593bf",
+      "comment": "Trần Quang Anh anh đánh giá fan machsi thì cá mè 1 lứa hết nhé",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [
+        "Trần Quang Anh chịu"
+      ],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311428791066295",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 59,
+      "id": "17d2589aefe1b0d39cbff87f",
+      "text_hash": "a9728260ab8a074cd564dee21470fde2a7fd379f68bb381276a7d6676254c6ad",
+      "comment": "Triệu TuấnAnh Bùi Nam Hưng rác sita",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311346681074506",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 60,
+      "id": "6b41af4a0535d2c557b1f770",
+      "text_hash": "66041627ddf7486c6e2aa62e1b8a6812ed71d6c8fe2412f83ff0a9bb10c7c389",
+      "comment": "lũ l râu con ăn cứt à",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311318241077350",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 61,
+      "id": "45f148cb10f38522e4e8904a",
+      "text_hash": "efa59cb46c962f389664e5fce36f4aa7971bd02cc1d60fff8b7110e75fa74683",
+      "comment": "Public thông tin nó lên đây xem nào , học viện hoàng gia tôi đấy =)))) đhs lạc thằng loser vào đây",
+      "label": "",
+      "reason": "",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311346677741173",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 62,
+      "id": "f91b4398f23781b406c77e0c",
+      "text_hash": "ae9a74a6b17c823c0716b9f95de660289921fccc8c5c8f7a8cb8fe45b024d04c",
+      "comment": "Người tham gia ẩn danh b cứ chép dài dài chút chữ đẹp là điểm cao rồi chứ t nghĩ k giảng viên triết nào rảnh để đọc hết bài ktra 1 lớp đâu",
+      "label": "",
+      "reason": "",
+      "post": "Có ac nào có tip học môn triết ko ạ . e sắp ktra giữa kì ( tự luận) mà nhìn quyển bài giảng ko bt bắt đầu từ đâu . E học thầy Phan Hải Cường ạ",
+      "parents": [
+        "T cũng mới ktra xog mà thường mấy môn này giữa kìa thầy cô thả cho làm lấy điểm ấy nên k phải lo quá đâu cầm cái đt theo là ổn rồi"
+      ],
+      "post_reference": "1311360977739743",
+      "comment_reference": "1311378334404674",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 63,
+      "id": "b9d875a64036fb89c06362a4",
+      "text_hash": "5f0de0b6f1c11a799170de0a0dd12144bdadefdf395913ce9030665ffe484a25",
+      "comment": "Pham Van Kien confirm là thằng Nguyễn Sỹ Hoàng trap boiz, tệ, xấu xa nhỉ",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306461484896359",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 64,
+      "id": "d94fb170f0c34bbf4ce25a86",
+      "text_hash": "ee2506a843b9ca52162e88ba47a4d99d0fd97bfb8df8c22cb8d7ee60a58238c2",
+      "comment": "Nguyễn Quang Vua tộc chuyên lừa gái nhà lành , 20-10 r đừng gây đau khổ cho phụ nữ",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [
+        "Nguyễn Quang M tày rồi"
+      ],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1307327228143118",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 65,
+      "id": "afb935ef9fa16fd457cd8638",
+      "text_hash": "625a4c3d60b6de3c8279cce96d85e6d1b72f5c7da1d7a5d0aa26b4ed9144cdad",
+      "comment": "Người tham gia ẩn danh 586 clm lòi thêm thg đb nào đây",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [
+        "Võ Thanh Quang Trần Đức Trung chịu 2 bạn rồi"
+      ],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306432811565893",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 66,
+      "id": "6a5f593f8f0758fa2372eb42",
+      "text_hash": "c4ed7775afc7b5e53ccb0c145dbf5bca6f67c086783381487f104ed45af29202",
+      "comment": "Ly Duy Nhien haiz khổ quá khoa tiếng tai nhất ptit",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [
+        "Long Bao làm gì gái lành nhà ngta như này"
+      ],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306465378229303",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 67,
+      "id": "9b96301c1ab9fd67c25fc9b2",
+      "text_hash": "89db6a12ce563a182f72197b2e24e1fd57067b7a822d92592dd9cd451f90cdde",
+      "comment": "thế có 2 anh này Phạm Đức Việt Nguyễn Tuấn Phong cũng tệ nhưng là CNĐPT này:))",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306536408222200",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 68,
+      "id": "138fdd4db62f5993feda3c6b",
+      "text_hash": "4cc1fa59da9bc2ddd2b01f9271a18021c0f4841cd6e0291796af783d551ffc40",
+      "comment": "Xấu cái l, thế giờ bố nói gái it ptit tệ lắm thì có ớt ko, có đỏ hết cả l lên k:))?",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1307763031432871",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 69,
+      "id": "16c36a8b29a8bcb9c30f96f4",
+      "text_hash": "b82fc46ea2feaf83fde527d36d7a3fc2f52a6d64e7ec37acbfbda0da22f6271e",
+      "comment": "Chuẩn cơm mẹ nấu trai PTIT đa phần là PHÚC BOY",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306811881527986",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 70,
+      "id": "f6cebe9980ece73a009568f1",
+      "text_hash": "b4ac0038298bcbe6a51e809e5428697dbbce74d6a75629501694f03a68afe27b",
+      "comment": "không hiểu sao dạo này lắm phốt IT trường mình vch\nnhưng thật sự qua trải nghiệm thì mình thấy trai IT có vde thật, không tệ thì cũng dở hơi",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306794114863096",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 71,
+      "id": "76c1091afda1627a2b60a656",
+      "text_hash": "997bb60e2eee776b3d39cc92d8d751f07261fd91dfd975a9b76a2d441a73342c",
+      "comment": "có b học tên Ba ở đấy, xa thì ch thấy, nma xấu cả người cả nết",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306467141562460",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 72,
+      "id": "00db8be09662ff6a180d0cb4",
+      "text_hash": "ddb925d32b53aa352631318feb0c098f754d59b8f296259d8d26f603ceec633d",
+      "comment": "Hiểu s lốp cntt vs hust vs uet r đấy",
+      "label": "",
+      "reason": "",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306534411555733",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 73,
+      "id": "4aaa5fe3d1c0cd83b33636b3",
+      "text_hash": "5d0a7302ca072668773524b59da4120e92b7832b6b080af0b9fea5b40e3f500d",
+      "comment": "MemorableCrocodile1438 kém thì biết cái gì t làm chính thức luôn đây",
+      "label": "",
+      "reason": "",
+      "post": "mn ơi em đang d23 cntt gpa khoảng 2.8 thì nếu cứ như này đến kì thực tập thì có khó để đc đi tt ở công ty ngoài k ạ tại em thấy mấy ac bảo gpa phải cao mới đc đi ấy ạ🥲🥲",
+      "parents": [
+        ":))) hc công nghệ phần mềm thì giờ trường cũng k xin đi thực tập đc\nVì chả đâu nhận\nCó nhận thì chỉ làm culi thui\nChứ chả liên quan j tới chuyên ngành\nCho đi chỉ để lấy cái chữ kí thực tập cho xong"
+      ],
+      "post_reference": "1297550519120789",
+      "comment_reference": "1298068505735657",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 74,
+      "id": "b3eeb0e64a3eeb38a9c44fad",
+      "text_hash": "255e21906d1b29174955d09ec8efe8d922bc82adc44655db87d7137bd7ee6cd5",
+      "comment": "lgbg là làm gái bất tỉnh hả",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267581258784382",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 75,
+      "id": "2813aaa1e201d92231b9d52c",
+      "text_hash": "21f113c589df6ad9b82912ad6976872dbf2b930121ff60e2a8278f8a88207a1d",
+      "comment": "Bug này fix lâu rồi, giờ phải kèm clip bù khu để xác thực 2 lớp nhé.",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267948078747700",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 76,
+      "id": "f27022b1a1e415e3365547ef",
+      "text_hash": "a4c77bc0af5b5e7a315775031e4d2512ead0e6c5d787c049e9328f7c3ffb8ecc",
+      "comment": "Tuấn Đạt có mà làm gái bay tr*nh ấy",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "lgbg là làm gái bất tỉnh hả"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267699765439198",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 77,
+      "id": "9efda566b0c9c82c7115d8db",
+      "text_hash": "ed483ec5ad0208e517a5067e1046aef1aa6106791ce484d7495ad7f3d27cfe36",
+      "comment": "Nguyen Giang viết tắt cái đ gì thế? Rõ ràng là Loz Gayy Biến Thái",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "tôi có IGBT đây"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267995025409672",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 78,
+      "id": "aef716a51a3ef82a5e0139c7",
+      "text_hash": "afedcd81ce64dc0730b2cbebe41bf2cb56f89ade7ab0095c70e8d9f580ace83f",
+      "comment": "ThoughtfulCrocodile1520 đừng ăn thịt bạn ấy",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267735348768973",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 79,
+      "id": "49566f93cb146d878a0568e8",
+      "text_hash": "464943203019ed12a3c526fb16f6eb783ac3afa85ca1cb2b8c511cf0c8465933",
+      "comment": "ThoughtfulCrocodile1520 sập giường lúc nào ko hay",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267770405432134",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 80,
+      "id": "7b0e4501e1e3c83a98d45089",
+      "text_hash": "68053670fb439f74b357363e94b7cbbbbefb70e758b64b929b20eef331d2a7f7",
+      "comment": "ThoughtfulCrocodile1520 1m40 95kg thì nó loại ngay, phải là 1m6 nặng 45kg thì nó mới lgbt(làm gái bất tỉnh dc)",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267787042097137",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 81,
+      "id": "b59c3e405f614fd975eda13d",
+      "text_hash": "61ea3dc7cef606737dee4a831711fe74569d4428b2a89a4cfb6190253e0083a2",
+      "comment": "ThoughtfulCrocodile1520 ông biết truyện con rắn vuông không :))",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267807042095137",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 82,
+      "id": "ba47647d70dafb3d0be6acb1",
+      "text_hash": "a88da10251eeec6427d2e2a87eec9ec6fb126bbed11589703b696671bbc642a9",
+      "comment": "ThoughtfulCrocodile1520 lợn nhà t nuôi cũng không được cân tới vậy",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267821078760400",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 83,
+      "id": "843f5e17b067a107aff382dc",
+      "text_hash": "f1df742f9e6ba09e17e591172b1de804674a76887af40947cf33e05ee874ce24",
+      "comment": "ThoughtfulCrocodile1520 bro phát triển chiều ngang à",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267834108759097",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 84,
+      "id": "3fbc48bafae13f1ca0d8ede2",
+      "text_hash": "32d33eb7da501452b9114631056b6ce75ac1f44730de9bb28aa637a8d7b279bc",
+      "comment": "ThoughtfulCrocodile1520 built like a tungsten cube",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267840418758466",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 85,
+      "id": "fba270a591c04d49cd10c78c",
+      "text_hash": "d50385ab3fd2e9a3ab1174558feb47dd1f7595d35cc30a613beb41731e6cfb24",
+      "comment": "Người tham gia ẩn danh 238 95k thì biết ai bất tỉnh roi do ;))",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267840938758414",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 86,
+      "id": "c968523a1dffb12aa13e53d4",
+      "text_hash": "2251965f59198dcaf2be1ed0f39e108d4a8c6af001d922e1f285bf3152cb7ca7",
+      "comment": "ThoughtfulCrocodile1520 Hết đồ ăn liệu có ăn luôn chủ tus không ạ mình hỏi hộ",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267869495422225",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 87,
+      "id": "9adf094549784e414d0c7614",
+      "text_hash": "45d67f37622b1bc6dee7e7434f3ebb529e90e3af44da2a4af9e32a1136817679",
+      "comment": "ThoughtfulCrocodile1520 bề ngang bao nhiêu",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267895125419662",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 88,
+      "id": "1be85b25062ced1cd691bdfa",
+      "text_hash": "ad98eb92a880cc0373390fb45905df3bc51b0df18a7454639c530722f544424e",
+      "comment": "ThoughtfulCrocodile1520 1m4 là chiều ngang thế chiều cao bao nhiêu ạ",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267898852085956",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 89,
+      "id": "56be1b396b379e74dc84340d",
+      "text_hash": "7f615b64aff65b5bc36610a96c9189e4d137eb38c64646ad75db11cd5bcdc42e",
+      "comment": "ThoughtfulCrocodile1520 hình vuông à",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267929162082925",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 90,
+      "id": "2f95b8a46254c200dff68133",
+      "text_hash": "af29cddffd11da760c4b99f85d419af0e7b08dd2b5fa82043356bc1360bca82c",
+      "comment": "ThoughtfulCrocodile1520 m4 nặng 95kg người như viên mọc à :)))",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Nữ 1m40 nặng 95kg muốn ở ghép với bạn ạ, bạn đồng ý kB nha"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267951512080690",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 91,
+      "id": "064ba943670d91aa84f740a1",
+      "text_hash": "0bb7bbabf3f933ffd9308a340e9bde0e72474f99bef817b0d1df1f55a358f822",
+      "comment": "Nguyễn Văn Đạt t chịu tư tưởng bẩn thỉu của mày r, bài gay nào cũng có mặt mày là sao",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Bạn Trần Đức Lợi gay ,femboy,theorian đc k bạn"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267582358784272",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 92,
+      "id": "40b7992aeaadc22ff76cdd02",
+      "text_hash": "d709b0d206b2b8a6ef41f25012e68bfbc42772059be3089415f821472634bb91",
+      "comment": "Người tham gia ẩn danh 944 ị đùn dưới da hay gì mà lồi lõm ghê v",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Lẹ lên đừng để chị đợi lâu nhá cưng"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268171662058675",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 93,
+      "id": "7152ec50460370291149b488",
+      "text_hash": "69a71a694ccad880bd9fe48a68adfc3e58c5c0b1d067895dd1047371d50ffb6a",
+      "comment": "Mặt này đi cảnh rõ",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267519975457177",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 94,
+      "id": "28ade01a90eca5985102c7b6",
+      "text_hash": "68ec234016a1d781b4423aa71374fbb9a460359c2e63a976868bb2dce9e84abf",
+      "comment": "Mặt này nghẹo chứ lgbt gì",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267708498771658",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 95,
+      "id": "94100284302f1c8f3e56aa4d",
+      "text_hash": "6f9adc96bec4f3cc3afd47ddb2b98514604d885506a2663d4b237be5a18bbb6e",
+      "comment": "Nguyễn Hoàng Thiên nó đăng bài thế chứ có rủ đứa nào à mà so với việc giả gái chui vào nvs? Đ pbiet đc đùa với thật thì ra ngoài đường chạm cỏ nhiều vào",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "tư duy bẩn vcl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267997148742793",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 96,
+      "id": "58a6423b17f076c2fd106c79",
+      "text_hash": "7fcb382feaebea3c65e72331394de29f375e9ac47cc61cf75dcd3f728129cbc3",
+      "comment": "Babybuu241 cắn người còn phải ẩn danh à :))",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267819368760571",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 97,
+      "id": "580fd83e1cd2a60b0f166d91",
+      "text_hash": "b4aa5ff38f558b8256cfb8ed68af0e5cb8f1f2ffb9d5a72a23db775bd12f9c6f",
+      "comment": "Người tham gia ẩn danh 773 ok joke bại não thất học đc chưa?",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267950322080809",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 98,
+      "id": "df56bae35fe53ba2a2518142",
+      "text_hash": "ec7c2f6de218eadf3eb28b9bdc97b90bf64d888e8b7e3d1327d5ce57619981ee",
+      "comment": "“Joke không hề vui” ừ, kệ mẹ m , m ko vui thì để ngta vui , joke có ng thích ng không, có ng hiểu ng ko , dume từ cái joke nó xuất hiện từ đời nào mà h đào lên sài lại thì bị chửi là “ nó đem lại cái nhìn sai lệch của số đông với cộng đồng lgbt” ,con đến lạy bố đấy bố thiên hạ ạ",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268024042073437",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 99,
+      "id": "62005d64cf7d9cfe84fe6812",
+      "text_hash": "12fa033827de0136b45a1de07ea7befdbb665e2cfa0603531a19b86f73c4f73f",
+      "comment": "Người tham gia ẩn danh 773 làm khùng làm điên r lấy joke làm khiên à",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268156838726824",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 100,
+      "id": "76606980585fb1793f6c7418",
+      "text_hash": "fe86a5d4b2127d5fb954f01a303a0bde0d14b5f80362111ef798a533bca12f34",
+      "comment": "Người tham gia ẩn danh 773 joke con cặc bố mày chứ joke",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268186752057166",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 101,
+      "id": "28fe8220061ad9c3b6518dd9",
+      "text_hash": "a65c7f3b4315432ae9944e6a0c462be275b684cff27e819f76c27778e99a706b",
+      "comment": "An Trần cặc bố bố quản đi đem ra khoe lmj))",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268364322039409",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 102,
+      "id": "041c692ef1392732f3bb55b4",
+      "text_hash": "cb1b04a4753e304447ea7d5798399b6fa862529c57c30f928435ac1d8e385be3",
+      "comment": "Babybuu241 tội bạn toàn lũ thất học gắng mác sinh viên đại học vô cắn",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [
+        "Tư duy bại não thất học vl"
+      ],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1268400695369105",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 103,
+      "id": "57fa5d5408303e4e95bcb462",
+      "text_hash": "a07a6769d2ebfbfbef9f7d64813723720939a7b2409eb91dbd4d7bd5310dc877",
+      "comment": "Như sida ai dám ở",
+      "label": "",
+      "reason": "",
+      "post": "Em là lgbt muốn kiếm bạn nữ ở ghép cùng ạ",
+      "parents": [],
+      "post_reference": "1267483575460817",
+      "comment_reference": "1267836312092210",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 104,
+      "id": "da90886a2cd645726eb5d703",
+      "text_hash": "fb958782da7705b8f77f803362f64bb978d47fbe1b03aec4573402722012f2d5",
+      "comment": "Nguyễn Tuấn Phong rác thượng đẳng",
+      "label": "",
+      "reason": "",
+      "post": "Có 1 thằng loser nuôi vợ thằng khác tên Phong Nguyễn(Kaze) thích tỏ vẻ thượng đẳng🤣🤣",
+      "parents": [],
+      "post_reference": "1305271928348648",
+      "comment_reference": "1305330775009430",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ]
+    },
+    {
+      "number": 105,
+      "id": "ac1e2ce883707c10fa91b45b",
+      "text_hash": "8f5e3e82650e240648feae59bf1f6054e69fea5f77f357ed1cade02943e655e2",
+      "comment": "Phạm Hoàn Phạm Đức Việt djtmechungmay",
+      "label": "",
+      "reason": "",
+      "post": "Có 1 thằng loser nuôi vợ thằng khác tên Phong Nguyễn(Kaze) thích tỏ vẻ thượng đẳng🤣🤣",
+      "parents": [
+        "Nổ thêm thông tin đi bro"
+      ],
+      "post_reference": "1305271928348648",
+      "comment_reference": "1305381375004370",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    },
+    {
+      "number": 106,
+      "id": "a10a5ee90d4eeed716411cb7",
+      "text_hash": "7c5bcbe77b24f1ec31bfdd13de32cc8e6bdfeb8627a9fc8f43f2b1dd93a6224c",
+      "comment": "Phạm Đức Việt djtmemay",
+      "label": "",
+      "reason": "",
+      "post": "Có 1 thằng loser nuôi vợ thằng khác tên Phong Nguyễn(Kaze) thích tỏ vẻ thượng đẳng🤣🤣",
+      "parents": [
+        "Nguyễn Tuấn Phong rác thượng đẳng"
+      ],
+      "post_reference": "1305271928348648",
+      "comment_reference": "1305382841670890",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ]
+    }
+  ]
+}

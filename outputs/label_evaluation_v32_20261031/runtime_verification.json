@@ -1,0 +1,186 @@
+{
+  "n": 16,
+  "selection": "fixed hash without labels",
+  "max_score_delta": 0.0,
+  "seconds": 2.088673699996434,
+  "offline_local_model": true,
+  "passed": true,
+  "rows": [
+    {
+      "id": "3a69204dd4b3297230ecec69",
+      "text_hash": "9106f21fa08bd0dbcf7ef3b9a125babf842baa6c770caa0ac5c565212f52c75b",
+      "suggested_label": "",
+      "model_score": 0.2124357912255856,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:49.931114+00:00"
+    },
+    {
+      "id": "dfd19ea549e273c9f323e932",
+      "text_hash": "4b1a404a92ca0642875beaeecc0a3e084e8d3b68dcf2d66e1e0c5558e70b797e",
+      "suggested_label": "non-toxic",
+      "model_score": 0.010718782904960873,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:49.953265+00:00"
+    },
+    {
+      "id": "6643eaa85a21ae8a2aadbc13",
+      "text_hash": "19adf18f755bb27a76e3f5b9e59273e8f2697d22605e126090135bfec7199d77",
+      "suggested_label": "non-toxic",
+      "model_score": 0.02784058345158259,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.014603+00:00"
+    },
+    {
+      "id": "1c7114e3b21c60d0f6088ae6",
+      "text_hash": "a8682d11eb53f51a821a7af2f98d750bc2ee8782e3c17b9d1f254e6ede09b6da",
+      "suggested_label": "",
+      "model_score": 0.2037301172826408,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.034273+00:00"
+    },
+    {
+      "id": "4b2bddfc61071e6e310ca02e",
+      "text_hash": "71fca006a0105744af581491c1adf6779c3b65c28816d4c540589d9d90a867a3",
+      "suggested_label": "toxic",
+      "model_score": 0.9912664012102645,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.047675+00:00"
+    },
+    {
+      "id": "6b09b77f4a67aa4c27b15947",
+      "text_hash": "d10e3e680ff6601ae473ee61f1b2b4f6e47c3d261669b0c686b798c3b9815c94",
+      "suggested_label": "non-toxic",
+      "model_score": 0.02727213750464785,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.061403+00:00"
+    },
+    {
+      "id": "23cd49e41d44bc869b977053",
+      "text_hash": "bc94c16e8ec20d8aa54b9304ba5c7848169c3b2169a0007b495ad738258ca145",
+      "suggested_label": "",
+      "model_score": 0.7455703906164147,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.070232+00:00"
+    },
+    {
+      "id": "6e74aeb4879ae9feaa2ec2ad",
+      "text_hash": "9e3f88ed7eb41b1e7026adb3630104164cdb07ba785e1ec8170311b8ca8967c3",
+      "suggested_label": "non-toxic",
+      "model_score": 0.017696053598632494,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.093018+00:00"
+    },
+    {
+      "id": "998c63c6332eee2017bff373",
+      "text_hash": "c5cbc343b06458eb9e8daf762cefb900055cb5929299674ada5e0b2944ce4baf",
+      "suggested_label": "non-toxic",
+      "model_score": 0.027727712521556567,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.113798+00:00"
+    },
+    {
+      "id": "86c2c506c7a57dd98e506b96",
+      "text_hash": "44ec5d9f38cba66f1ecdf86296cb84b8ad106ecb33f962b108c924b9d91db61e",
+      "suggested_label": "",
+      "model_score": 0.2944689637036653,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.125197+00:00"
+    },
+    {
+      "id": "e5da3e404f186c6930ad932c",
+      "text_hash": "13a599b177f392ecbb04bc67a71ae1c51cfeeeef475a3484db6560d0366b4ad4",
+      "suggested_label": "non-toxic",
+      "model_score": 0.046164703894920604,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.199493+00:00"
+    },
+    {
+      "id": "f8269cac3ef5eb12ca10e582",
+      "text_hash": "923f7c44c3bf51764312c2b7e42795e4becc1acdddbeba2f3ad69e5ca932de1b",
+      "suggested_label": "",
+      "model_score": 0.428090271745311,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.224351+00:00"
+    },
+    {
+      "id": "272418cc23c664c85ecf5327",
+      "text_hash": "eda92b2e2ad8ee4d62e2d3151a6c36205b785d049f76633c9da24783b80236ce",
+      "suggested_label": "",
+      "model_score": 0.5529564044785639,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.252907+00:00"
+    },
+    {
+      "id": "cc923a7327d9f280bb3a5ec1",
+      "text_hash": "a57e110bed0bfeab53166582ee6c76dab65cad8f1993899c37e50f8e2a8a87f3",
+      "suggested_label": "",
+      "model_score": 0.7960691128891494,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.285313+00:00"
+    },
+    {
+      "id": "094b7f2cb23d715be7cca54f",
+      "text_hash": "5c93bf1fa66e23d3d7a59e4ea3dcc4a13e77ac468f6a1f2d81112f1995ef117c",
+      "suggested_label": "non-toxic",
+      "model_score": 0.019027958109294234,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "",
+      "created_at": "2026-10-31T07:27:50.313941+00:00"
+    },
+    {
+      "id": "65447ae140faba59f71e4c45",
+      "text_hash": "4129f523b74a7bb353960fe2a02395e7a87b022c56b82a7825857ad8073049ea",
+      "suggested_label": "",
+      "model_score": 0.7775265857313778,
+      "model": "dangvansam/vietnamese-toxicity",
+      "revision": "bac60f3e162d3a06003bf561a9f8365982ccc67a",
+      "truncated": false,
+      "abstain_reason": "uncertain",
+      "created_at": "2026-10-31T07:27:50.391027+00:00"
+    }
+  ]
+}

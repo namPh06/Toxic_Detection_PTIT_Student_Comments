@@ -1,3 +1,5 @@
+> Cập nhật 31/10/2026: số liệu bên dưới là snapshot lịch sử, không dùng để nộp. Kết quả mới trên 946 nhãn phát triển: [Bốn baseline theo đề](outputs/baselines_v32_20261031/BAO_CAO.md). Đây là CV phát triển, chưa có test độc lập; mô hình mới chưa triển khai.
+
 # Phân loại bình luận toxic và non-toxic trong các nhóm Facebook liên quan đến sinh viên PTIT
 
 

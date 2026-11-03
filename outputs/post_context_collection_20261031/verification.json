@@ -1,0 +1,17 @@
+{
+  "tests_passed": 38,
+  "original_rows_preserved": 5936,
+  "original_posts": 392,
+  "posts_with_text": 381,
+  "posts_unavailable": 8,
+  "posts_media_only": 3,
+  "rows_with_post_text": 5649,
+  "canonical_post_groups": 369,
+  "parent_status": {
+    "no_parent": 4231,
+    "available": 1702,
+    "parent_without_text": 3
+  },
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "model_retrained": false
+}

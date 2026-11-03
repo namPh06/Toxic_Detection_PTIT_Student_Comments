@@ -1,0 +1,49 @@
+{
+  "version": "ptit-context-preserve-v1-20261101",
+  "pyvi_version": "0.1.1",
+  "summary": {
+    "rows": 5936,
+    "canonical_post_groups": 369,
+    "rows_with_post_text": 5649,
+    "rows_with_parent": 1705,
+    "rows_with_context_gaps": 294,
+    "context_gaps": {
+      "post_text_unavailable": 287,
+      "parent_parent_without_text": 3,
+      "parent_ancestors_unverified": 7
+    },
+    "source_warnings": {
+      "target_completeness_unknown": 5936,
+      "comment_filter_unknown": 5936,
+      "parent_completeness_unknown": 1698
+    },
+    "target_usable": 5936,
+    "human_development_labels": {
+      "non-toxic": 832,
+      "toxic": 114
+    },
+    "labels_changed": false,
+    "model_trained": false
+  },
+  "input_hashes": {
+    "data\\progress_with_context.json": "ac9af61818de0a698e574ca8812984eae1248f7118a3feab78a5c8a7df8ff049",
+    "data\\manual_review\\canonical_development_v32_20261031.json": "2167b38096a7adb98e15559e44ce990cace9b38f6fc74f7482c2b344a73202b2",
+    "data\\progress.json": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+    "data\\workspace.json": "4e6086ace65247fc7ab3edc316b3e3269a85d8d8ad3e462adeb5bace6ff705c3"
+  },
+  "settings": {
+    "remove_stopwords": false,
+    "expand_teencode": false,
+    "preserve_punctuation": true,
+    "preserve_emoji_zwj": true,
+    "truncate": false,
+    "deduplicate": false
+  },
+  "limitations": [
+    "Media text has not been transcribed.",
+    "No recorded parent ID does not prove the comment has no conversational context.",
+    "No context gaps does not guarantee complete context or a correct label.",
+    "Word segmentation does not infer sarcasm, friendship or toxicity.",
+    "human development labels are not an independent blind test."
+  ]
+}

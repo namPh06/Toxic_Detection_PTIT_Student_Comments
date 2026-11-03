@@ -1,0 +1,1955 @@
+{
+  "policy_version": "ptit-v3.1-school-feedback-20261030",
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "seed": "ptit-review-round2-20261031-v1",
+  "status": "frozen_before_new_human_labels",
+  "deployment_approved": false,
+  "model_sha256": "7639d31c0d4425f2f5b94a5cb8085e85def5873dcd1c3e7cc26944761bbacc9e",
+  "candidate_evaluation_sha256": "c1ca6b7c2cbe47eedb7ada7496b01362cd13d5d58860ad1abdff339c64a3f0f0",
+  "baseline_predictions_sha256": "f912584c9094badd9ec5b7fe9e49b7727b7de1d6f6ec86259612f62cb700c162",
+  "threshold": 0.35,
+  "training_ids": [
+    "010a885724869430a2470d56",
+    "026c86de7fbd35e9bba9bfb6",
+    "03ce60a88b396bdbfe32fe1e",
+    "04e57f8a457d82661bf7da30",
+    "05200da529815591702fa4e4",
+    "054772b0ac0cf11ae2602424",
+    "0b77060329a52ce3a9e89fe9",
+    "0c0bbb2893712877196118e2",
+    "0c3414db25295e8495799005",
+    "0d40414e13622a1dbbe32640",
+    "0ea1fa58d139b220ed071f10",
+    "0eedb2dc116f6d100cb20dbd",
+    "0f162455aebd804098dc2d07",
+    "0f2ae92351bc05e4a6789a83",
+    "1023e36c3cf0234b567cdb41",
+    "1198a1295fc93d43c9b91e8e",
+    "145c472961c3315912941e57",
+    "145f15e432c0d730df22b66a",
+    "158506c2a21983adc456c0b8",
+    "15e6602cbf547260ca3d224a",
+    "161c98139560a94ed32e2003",
+    "1740d67eae2611cde5052866",
+    "1784d6d55f5f15988daf20eb",
+    "17dbbfa753a094888bfdf1e4",
+    "18385b9cdd77946a44dbc79e",
+    "1847d1f6dd97e157094d2294",
+    "1936b9deaedf569783c680f0",
+    "194feb633ed071066df43d62",
+    "1978770a7b1085bb7f4b73ce",
+    "19928a9611cc60e466d961e3",
+    "199bdf263c251a27e9ee45b3",
+    "19d3bc9705d0e348331564db",
+    "19d627be0ce3efd68e263d37",
+    "1b0194013510a6ca83ddd348",
+    "1b172db90447faeb8903611e",
+    "1b2fb94df2d6bce0a44809ab",
+    "1cc30811b2166dd5fddcde34",
+    "1da481d00c4666096061ff37",
+    "1e4b9a1b579dd8d896c288e2",
+    "1e7e692db2f582d17da9ab39",
+    "1ed6481213bbe5fb50032427",
+    "1fecafd0f6d9dce28affd769",
+    "209457c7feb0ce7b11a8aadd",
+    "20a7e0310bf03fdff21d258c",
+    "21c5f9e28add936150d7c77b",
+    "2237f92d6124a1348ad3fc80",
+    "2362325fd5e57305f6159755",
+    "23cd49e41d44bc869b977053",
+    "23ebf3a634ee403c0bced651",
+    "24f717fee68552b8a06539e5",
+    "25aa8d27242b7fb028cbf0bc",
+    "2665cd96fe0789ac9f54bfab",
+    "28924fd50e3a1065add647c0",
+    "296fe0b1ad0c0261184fd8d0",
+    "2a5c50219285ec447b47ca6c",
+    "2a97446dd415f492e7368bcd",
+    "2a9a5f95aadef5fd576d19a4",
+    "2adca5ba27c553686e69bec9",
+    "2ae4c0dbad7d4b9055804839",
+    "2b1c3fc95aaca941e2611380",
+    "2cc21db5e1d63680cf7695c8",
+    "2d887b8a35e0d098e72cb2f7",
+    "2dd6c5ba63d071414abe5a30",
+    "2e55bd22867b84ccad48406f",
+    "2edce08d746394b086a406ab",
+    "2ee2fc1f3de4b412e146e0d1",
+    "2f6fc6c027f874054f0a810a",
+    "320ca4d3eef99da2ba7ba8d1",
+    "32609d36617b05e90f003089",
+    "3296753aa192186b1565fa9f",
+    "32cfff8dd68c391cf5ce78a0",
+    "330c83a3bc25a70e4b4e6143",
+    "334cdaa1115fc908e083eb4a",
+    "33765dc269b1c8cc8de16c62",
+    "33c430320e4f76ab99aa8145",
+    "35274d42c5df1d7f8eac6fa1",
+    "3534a1d3e86ea4a511112320",
+    "364eac93dafbeb056b85e585",
+    "380102fee1795e36dbf318c8",
+    "3897343ff0c9563296a6da73",
+    "391fd860cbfd53d59ab2bd59",
+    "39285e71fc2faab1dd1bad06",
+    "399d67c45f2148574b7acd3e",
+    "39dff5b42e03db2efeec5c27",
+    "39ea1c81ce5687ef707983ea",
+    "3a0bfd1946fce4306052dadb",
+    "3a84b90dbb4cc644917f8660",
+    "3ad84a3431eab1ee335b4108",
+    "3b6aefc59bc572f0d032c8b5",
+    "3bfdf63baa551c09b6775141",
+    "3c3f5eff6fa1ae427a6f3ce4",
+    "3c58f8059cb9e8318f774df1",
+    "3c76586ae5e461675574cd7b",
+    "3d65d5b8a70156be7daad70c",
+    "3edb235bdd3ef4a6d753e7a6",
+    "3f0411651390e06f7cd5cbdf",
+    "3f0c743eb461d1fdd539a96f",
+    "3f7705b4962bcaf2de2d8be1",
+    "40b26e27e2ae423641d9353c",
+    "412b258561b0cbd3a95bffd6",
+    "43eaa9ac95e48c3f46b2ab7a",
+    "446affb3aeeaf25ae08ea3a5",
+    "48557e1b6dd287064565e2f2",
+    "49f8796e62a75bdc2ade1e12",
+    "4ad88b2752b8ce737aad016b",
+    "4b2bddfc61071e6e310ca02e",
+    "4b927a710a49f14f343d411d",
+    "4d3ceb59362d1531e0187057",
+    "4e7f4610912fd24189d8c01e",
+    "4e8e6f2e20df32e6cbceec6d",
+    "4ea890ceecae2d44601dfbcf",
+    "4f944d57a956060b294fd386",
+    "50246f546abb9b21b8811528",
+    "5262cb41cfe2a8c2d4552208",
+    "52842fb9bb885d41b5cbff17",
+    "533c9f926d1d0eba5ddf5454",
+    "53c9bb6ec0704d0082e74ca2",
+    "547099b9eb16c36aa01a9139",
+    "54932da5ac85cffb7adee8bf",
+    "553d615cacd1a86def2f25df",
+    "567812ba9bdb074f66199dfb",
+    "568143ba2023fd1d38e7b1eb",
+    "57b4208e28e453b6d73269ff",
+    "586888fc16f6c163066870e8",
+    "590ca4cb59313566f31ee2e7",
+    "5932ce945270b05a5e7e8749",
+    "5a846fd4ab0759a71b5434c9",
+    "5b967643c15c12e505de6fa5",
+    "5cc5abf9f33b6e95654d75e4",
+    "5cf02c02eaaee00571008f51",
+    "5d21b56202f79d51e69cbd6d",
+    "5ed35e051246fc62f17ebd39",
+    "5f28d330d3a7996c27f3dc74",
+    "6004e2323e5cd93e14e61bac",
+    "606c6dcf31ebecc83715b947",
+    "6108a2971c9955b6b2855f5b",
+    "61708a561719293727df2dad",
+    "636f15a7cc69536f4bfdaf88",
+    "6403c5e05f89e7e0a4197f2e",
+    "64ea50690686cd1891f22476",
+    "68bea2049a00078bb254e695",
+    "6912e2184c88b567190c527f",
+    "6a61f7df4f5c2d4c1eb8aebd",
+    "6c00d2cf11d43c1f0ea51de7",
+    "6c21b13ec8ae68445cc9dd71",
+    "6c9de29cc3bfb6e5679f9091",
+    "6cf34b6d3564ae3fa4e50ea5",
+    "6d655d8612aa60f2b5fd8438",
+    "6e96cc5b3036ac0473f8894b",
+    "6f3f753b827313421e316226",
+    "709221bd7c8d76480a2e2b3d",
+    "70a7a1850c44f66f61583ba0",
+    "70ff1c01a49c9ece722e9d81",
+    "724743078a2c55b9910c7fc6",
+    "7399bedfee024e8dcc995d58",
+    "74f73c77fde78d407b08d477",
+    "757955681f734b740c374203",
+    "763e72d3f27a711523a00f94",
+    "764cdefa36e2a697e010c92c",
+    "76c98c2f61f84603ca78c6ee",
+    "774251434db1ea42fb0bdd89",
+    "77c5b469c2d95d3637f0ae1f",
+    "788de9e2d8a25224da4360ab",
+    "78c3625a7b52b5bcdf76d67f",
+    "7911f7fa9c856379b7ceefea",
+    "7a792122b42fc8a7e92d7ac9",
+    "7a94e76a7fe13d480ba6d402",
+    "7aa844b55627c518b601e63d",
+    "7bea1286976fdc8142a16041",
+    "7d6c2bfafd2759f9180f964c",
+    "7db3f8e9d4ddf49433f8f3af",
+    "7dc8d488de39005e2f0c6943",
+    "8005242dd76b26071b30a776",
+    "8091775664034b947cc20da3",
+    "80d1a8c0044ab7ef7c1df933",
+    "81aa1651cf1d464baa45f83d",
+    "836c610085aaeb9e0d80859d",
+    "846726d3fdfe3af77bd039dd",
+    "84b4cc5ca88ce0ae28cdccae",
+    "85d7985d1536ca82ba70841e",
+    "8676a9eb7cb8e5257c7b1930",
+    "86d1163289db7101db7d82fb",
+    "870f0fc12cceb0bd4b943d02",
+    "8747cc8da43c5b908a7660f8",
+    "87eba2aeb19d7271d5aadd99",
+    "881f326a0a59c36dde5d4c76",
+    "896c6a6c06d2229a590e06e4",
+    "8ade84991360ce073b0316ba",
+    "8bee36d9c58f85683992eafd",
+    "8d360d22ee8630a2bddb84f9",
+    "8e7c50024bc165b66e112a42",
+    "8f2ac86b0a89ed1159be9357",
+    "8f47b2cdb3e2e94a58c1dade",
+    "901fdd9487483101a60c2f28",
+    "908ce501b013e3b9a6d394e6",
+    "90cff8297d52e27ba3c7beed",
+    "9203e9785bb683305b255008",
+    "927e1b069c863dd36db358c0",
+    "9339b21ef1a17ebbf63cb3a8",
+    "940aee9462cf5cfdb418ff32",
+    "94621e5a427daf990068dafc",
+    "947df13f3c9c4b03686de76f",
+    "965e42e3fd0046983da91559",
+    "9a4f34fb8bd806ce7ff6e911",
+    "9ac13920864439504b594242",
+    "9bd1a37fe4ef92dbbb147fa8",
+    "9c7e9b7f5cbb33f8756c4bd2",
+    "9ce8c6c3447b33eaa486b424",
+    "9cf13f8531398a03cd5da9fe",
+    "9cf856dba2409f6586044749",
+    "9d10e73e525290f1e1aaf31b",
+    "9e5b63796ebaa1774d50cc8b",
+    "9f5a8d74a1aa7024d8c62d6d",
+    "9fcf6427eb35e0dcb723c6ec",
+    "a030d8551affb65156afa184",
+    "a09e9d8b94b727e4951d4491",
+    "a1dc226b4e8fd36a6454a3ed",
+    "a206352761bb4295d112b953",
+    "a2c90f83ba3fb162b04aa322",
+    "a32d495136d7230b297851b9",
+    "a39e53b92987f8e4093ddf11",
+    "a46d6085e8267c7e66dc648e",
+    "a57a3b3e9c0724886d58d842",
+    "a7268cf588b6ec17018868f4",
+    "a726fe041222e3738393f053",
+    "a7a649a1d3d883f17406a5b7",
+    "a8233e1154bfeeb18e96720b",
+    "a830967c692b32573d1f108f",
+    "a9a46e404b9685a478adcd06",
+    "aa22e4ca45e7506b6c95c5d6",
+    "abec9c7a589e4f160f3b8867",
+    "ae20a5f800219a36151faad1",
+    "ae4524affcc36792693b4c33",
+    "ae6aa21cf7095a6689699c00",
+    "aefca76a9396b765d05077d6",
+    "af34d38af0cdb342fc85dfe0",
+    "af635f7f1adbe69b395c0d00",
+    "afa6b487334a3a82c8fdd34b",
+    "b392732e73e5666217222fa3",
+    "b3d5c6c2ae9bcde590db8737",
+    "b4800eba84d7724c32fd4c9e",
+    "b4aa0fba91565e026130cfd6",
+    "b4c09632d8f1f8104d8f405f",
+    "b5636f73395fdf3cf1b673b0",
+    "b574e8ee32b84ec8525eef8f",
+    "b5c7bdff5918c0717ec3c9ef",
+    "b66060db82306904013f6ae0",
+    "bafabef4b9e11bf78f3d92c6",
+    "bb436b5bc779fda0f4fe1ecb",
+    "bb4a1e2fda861f695412b702",
+    "bcedbe583e4498159e221d02",
+    "bd52e1c4c5fd2f5c15a35ae5",
+    "be692afdd83a7ae21909fe75",
+    "bf5a4a0143dff20c945d3da1",
+    "bf822f07aeeeb422aa163f60",
+    "c0c9e9dcc2d1e6fe331f258f",
+    "c11bc04755361d6175d61753",
+    "c2371767e4edd7183e361787",
+    "c2b38936ff7439d9a7d9ffc4",
+    "c3479ff92797681e5c54d30d",
+    "c3f47236674b01e8ebb6b2e3",
+    "c62262cad61cc5cf90d6732a",
+    "c694cc8e1e7dff3de27854fe",
+    "ca7ca8d33a25f6773028af45",
+    "cb2fd080e601053e1bc5e5cd",
+    "cc1fa06dc8796faa4b884f42",
+    "cc923a7327d9f280bb3a5ec1",
+    "ccf42eb880740154068442c1",
+    "cd4bfbe257951f1691d47490",
+    "ce02adce102e9af420093f67",
+    "ceef315a951a2680745949cc",
+    "cf040d11c49dcae2ec74ce2d",
+    "cf1e289f268aca6c333ba62c",
+    "cf27671a33514ea08a253283",
+    "cfa06509762195cb4778d17d",
+    "d01e4492390d1ae555747576",
+    "d04104f1e3abb57b8809ad2e",
+    "d0fa0365204737dcf4fbc9b3",
+    "d215752c70fbd8ceb8a5ac00",
+    "d39afc8e1052bcbd4f2ca067",
+    "d5259386ca1381fa5b5971ff",
+    "d55f8cc49a456048c4e82f26",
+    "d6d4f8d0f43faf54a028a6dd",
+    "d745b2c0d1b8900dc35e8397",
+    "d8a75e0646bd0be62f5e86b5",
+    "d8eb90f03094db10ccedad5c",
+    "d913d9bb54f46e3bffcb2743",
+    "d9f7915c79666f9804414d11",
+    "da291ea1686902c27a90443f",
+    "daca1ef4edd4d167d5faa835",
+    "db409722812fbadda126c63e",
+    "db97172d8ebec88aef25097a",
+    "dc2f8494c95b58d276399140",
+    "ddd897c484a5fb4dbbeff9b1",
+    "ddda020163613b6e40fdfe66",
+    "ddda98edf4e6e6be4417b6e8",
+    "dea22a2912e7b59fd5090b58",
+    "dea67c8df2300e6e9221a187",
+    "df94f12868980dd970c47a7d",
+    "df9cdf18bb503d3e72b51b8c",
+    "e015a7cc18c59cfdf9c093a8",
+    "e31fe9c4d6f79c48785c3f0f",
+    "e329193082574b569ecdc2da",
+    "e5651dd1339fb91653449c87",
+    "e5c9b6412024b3e99b9bab5b",
+    "e6b225248e9b0824c240f04f",
+    "e881005d7b2bb1e0bc56825a",
+    "e9a3bd60e4598589bb9792f0",
+    "e9bbacc730cdc5edbec58d9d",
+    "eac1186e94de6ca204b6e64a",
+    "eae237ab4486e10aca7c4a73",
+    "ec12e44f83fae575feb33d25",
+    "ec6200975d80a1b4c28ef043",
+    "ec68af3584a3fb30f6144161",
+    "ed7b261b2db20e79d83a9e54",
+    "edf7dc118537ba41ef3a3928",
+    "ee131ba9dd1d3166369aca4a",
+    "eebc8a3aa04a74f2d0bb2395",
+    "ef186c403c6aacbfab050fec",
+    "f06d49356bf33c110fa57b6b",
+    "f115e02e68a7995f654d6f48",
+    "f11a7997b9777f7ddd7dc2d2",
+    "f165c972571e3a52d8d32149",
+    "f1e8675b02e0eeb7c5aa7532",
+    "f206b920e5405426c66b44be",
+    "f21eb997fc6eaa623f27f9bf",
+    "f26897c79ba8e560bbb99eca",
+    "f39f18f1ac2b0f6476d92d7f",
+    "f44a7f9e00409af9bd99fae9",
+    "f781df2f48dd0aee1b163472",
+    "f79695ea92132c23b721dbcd",
+    "f8269cac3ef5eb12ca10e582",
+    "fb0d7b995d5427978249c5db",
+    "fbc585be19836933902e2cc0",
+    "fc4054ed3f46e185510171ba",
+    "fc6adbe7036bffdb09908619",
+    "fc85b3ba50d6154df953b752",
+    "fe8e96e4353705499ab7b291",
+    "ffd0a96b833211820b5a6db8",
+    "ffe706de1cd0e0e7612eb9c4"
+  ],
+  "rows": [
+    {
+      "id": "c6de4d21c2c16d6913074f58",
+      "text_hash": "17000bf7cadcd9b5a41e32d08806bd8e84b4eb21821d158de9fec52aab545dda",
+      "baseline_score": 0.011029641665213698,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08239587829261501,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "33037c95426b336b8f620a89",
+      "text_hash": "3ab70237ab5adb1aaca455bab1ca8067112aaccd1adda203bd6ff3c6d419cef7",
+      "baseline_score": 0.006050730338753824,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07327266945951492,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b6e0604f0449282256d9362b",
+      "text_hash": "8f1a0577b66f3f10749bb35fa2c1bccea039e68ae6114aab063bc12578daad97",
+      "baseline_score": 0.012355793537571871,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1683832229056762,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e12253535457bc052e7435ac",
+      "text_hash": "656badc2fa8e1539512cad9c2297a8ab402994fecefcfae1611c87c5c6e3c4eb",
+      "baseline_score": 0.019288926853730834,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.14840593622138185,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "67dc46662d7ed1c2d9b4f89a",
+      "text_hash": "a986ae25da01c94a2f5ea7aa4c93c8fa6536725959dd396be446a75f41aedfa0",
+      "baseline_score": 0.01762235140001233,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07539220106927316,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d9c2f0875010abcdb24a4a0c",
+      "text_hash": "8270a1c6d2dc94af99c3bb3f98edf28708b8b84040e59f70a73be43020aa625d",
+      "baseline_score": 0.01238095064351271,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09064691807885454,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7bf6336a1e7b4406f1ecd959",
+      "text_hash": "273b806b25962ab36c816f9c21e98b7d2a90771b19b4fa24e192ffe8c380e253",
+      "baseline_score": 0.01787276981890103,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08432502268825415,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "57ed2d5c9c40de94036b4467",
+      "text_hash": "34da452e10a59ff19c3816f9137f76fd34f12649a878026de9d33571c0a791ba",
+      "baseline_score": 0.032710152461440226,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1652057433470441,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "85b21e9e5dcd9e5c16c0df6d",
+      "text_hash": "fd6bf5f393112d58ddadb18d0dda1beb649fe5e6a684c1ace53ab78edca138ed",
+      "baseline_score": 0.029096387203320376,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10807410061580415,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "f82c1eba8c6af6debfb0973e",
+      "text_hash": "b82c39206757409104c56c87ed6cd51500ab584b94497e0c166d3c3a0b387858",
+      "baseline_score": 0.1373473897293388,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.16947554797833217,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0571d42ff6c44c56d6e60d0c",
+      "text_hash": "afb57ef3fa4640e575bd4d194ee4036d3d867ec278c5a7f0c0f682e7ca058b3c",
+      "baseline_score": 0.015911819032325164,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11837666702760391,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "5ec3d62e057b3a5a94bb2b30",
+      "text_hash": "7761f7db3a3000e835392ea18c90b201b4e06830e76c2f343dac01f1e87c49fb",
+      "baseline_score": 0.014085912799135328,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07910096358459681,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a4cdf459e4d719ea815e5b01",
+      "text_hash": "eb5d045a072ba36a0038141052e14daab9a97392f849a62ec7cdab8c162117bd",
+      "baseline_score": 0.01378504678278211,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15729214571710753,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c50f39db117b59d86a838de1",
+      "text_hash": "08493a97926913945ad17f8f8bc52979db8cd4c29b92fcbea844eeab23a6a2cc",
+      "baseline_score": 0.0057613307244903985,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.048390849846922906,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0623193cd91ff0fb614b2f34",
+      "text_hash": "47e503464bd05d31eca3a25893be29b1fcb187a560e6b0d5f8f8b58db80a97e0",
+      "baseline_score": 0.005671359868632874,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06573967989863873,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e78f03896b1ab39a87bcb9d3",
+      "text_hash": "10fe85884d8c50c1cedb202b003b7a01a461e052a4512f855d60efc84e90bd66",
+      "baseline_score": 0.01866881632880724,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08130299203121441,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "812756c9899f5e1f6063bae1",
+      "text_hash": "4b2c309a59cb032aab52a4f14aadf80b5be057ae33099e77123e9237cb1f0968",
+      "baseline_score": 0.010313204981501475,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06462833503767061,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "bc092001eba100ffc5009291",
+      "text_hash": "19c8ad7f54153f3703dd0d1395d2814730fac31d8a6639b49a4474dc8cae5d69",
+      "baseline_score": 0.9900857684986487,
+      "baseline_label": "toxic",
+      "candidate_score": 0.7390814508035127,
+      "candidate_label": "toxic"
+    },
+    {
+      "id": "e1ad912b4731c37f04c7b68c",
+      "text_hash": "0f68ce254c9a12080a8da65f048281236de7ded98a35d4e25313af42874b81fb",
+      "baseline_score": 0.013050403189668103,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07601604996675534,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "09688a35596f4ded70e28e32",
+      "text_hash": "71effa9e073ad18daa12dffaef04053e277921f19317faafde917aaecbda8e31",
+      "baseline_score": 0.02560132650851676,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1206220667252009,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b69d3e67e624314eab398d2c",
+      "text_hash": "b356001672ae17f660bebcff5124dc3e3b45317552fd3045a21207a4f5dfb78c",
+      "baseline_score": 0.021715417493082482,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08395818080979374,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "99f867df0ef592888a48158d",
+      "text_hash": "fc9bbe1cfb44a8dec3cab74f58a9bf44a637b674393cdc6cdb352bf859576564",
+      "baseline_score": 0.021435025524449296,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1710038910895209,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1eecd0b615eb0015d3e41094",
+      "text_hash": "11bb519ad5bb789e4a59c4643f1eda411bee4c0361bf166ede0bc5665ebcb71f",
+      "baseline_score": 0.0888866527365619,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.16837887982898497,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9ff7df0e139dcbee3a096ac5",
+      "text_hash": "ac7cb5ca91d8d7b3bae67e33a6fe1479e114f03b2db10b001d6a5dc60843aea2",
+      "baseline_score": 0.007643595033302458,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10768474976101246,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3ee37a3fdb9459d62280ff41",
+      "text_hash": "f5ba474edc8310b65247e9d30ad8bca0f38e7f0e1d5fc7085615ab2b6f4e40b1",
+      "baseline_score": 0.00583846040561965,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.14360864611405985,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "4ce19470e67b4fcbfec5982a",
+      "text_hash": "837820ce8529bcb8183fc4f8d009f6c3db514ecf75bf07b1e59a539ffcb159de",
+      "baseline_score": 0.027450990079498763,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11564650100730843,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b4362a902a30f8fc04a9eb01",
+      "text_hash": "6305aef919fddc46315d7e1b07bca42a7f7fe422b3675fda8d4cee1c87935ea0",
+      "baseline_score": 0.014335857987087596,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0745824682773474,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3042be172775db256b1cbb9c",
+      "text_hash": "c26313dbcb0b635f5f7a2e47f2d21fb27dd26e6f1f02389065daf9d58574c64c",
+      "baseline_score": 0.03505536172317365,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11464412362019712,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7047fe44d42bd572779d8f33",
+      "text_hash": "86b76c32557363490ea2ba49befdb20228e35a390dc30684f0138391fadbc31c",
+      "baseline_score": 0.040888900694108464,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.18502869105925457,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7b95a6c1f5df57dcde87131b",
+      "text_hash": "1bcb4ef361f78ed19427be1033987421402f675df2ff4c44bea4ab567c1c35c3",
+      "baseline_score": 0.03855372955059698,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.18102113171663056,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "ac8461d4791e8761f6b8eb24",
+      "text_hash": "71908e778e6614b5e40b41c59e638f45b300ee10f3d0613347e827304ef96ee6",
+      "baseline_score": 0.00751251501770523,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06854154200843247,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "fc34efd3088a98f9be1993d8",
+      "text_hash": "ee843ca214c5a38eb35c6fe425477a1989a769cd100981410190ecc336520dec",
+      "baseline_score": 0.009023681537237874,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1524159017131905,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d38c918c2cad92aa0e9d3c37",
+      "text_hash": "c728fdd83ba7a87eb2b15211425390d29bea8d92f228d874a94b3f7a913709ee",
+      "baseline_score": 0.012702880334259621,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1680304278300392,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "890b44bba9413439dae6ac5a",
+      "text_hash": "c668d8cfc7d86aeea35ec87082738cb93731b339e82ae4a483592093ea008ede",
+      "baseline_score": 0.009602924102498843,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.20158404173959082,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d4f37ac4de217ab6bdb66532",
+      "text_hash": "596133117211c3cad2aed1fad90bc40b156c5046f6792d8edf454d96192e3be9",
+      "baseline_score": 0.010937394696798036,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0876110257441873,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c56cd75e1015ef9294efaed5",
+      "text_hash": "be952ee5c5cc083ec5a6f14ae5846109989be41590091f13d107635b4ac9eeeb",
+      "baseline_score": 0.013134534632119112,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.084133643315024,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "f739d84ca632858ce1b5a9ae",
+      "text_hash": "d1caad9dfebff92459783924e72b8d23de50e32fd7c025d8f317f6fc67ff27e5",
+      "baseline_score": 0.10585620318477794,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10792491675169755,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "148344305d700456d4d92ddf",
+      "text_hash": "15990295d40edba83529c96e40526acda26559597300580857d599a649876624",
+      "baseline_score": 0.11557832253330592,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.19863743581377302,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "5cbbb45fe07d7079739a3ae6",
+      "text_hash": "19181748b2931e7bfc281d6090a72579d21b510f0fac407cb3e5a797ce75380f",
+      "baseline_score": 0.0047911319588825226,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.14631976295322643,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "76ed3777d7770ce61423efcc",
+      "text_hash": "b66396d05c64247816e1e1988a387f8750eca1d614897aa1ea9e31c91f6d94ba",
+      "baseline_score": 0.014156073184311864,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13667420963202978,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6b59685fa859c219e8b7f464",
+      "text_hash": "49de2a35685aa6e1dff93ef3cde54f06a0ee59654096806ddad331e13b530fd4",
+      "baseline_score": 0.016457296645402755,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1836280959360098,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d8b08a9dfbf4ac618b1ad15c",
+      "text_hash": "c5bd43b89262f19b0d7c71fc85dec86d10a57b52f877cd145333795eb5462e74",
+      "baseline_score": 0.01566827380270046,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09247715625886951,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2fe62861dcb81c7ec856bd87",
+      "text_hash": "580c489f707494910b3c185cd15124bc3fd58407af6f1c99936abe57b7fcd7b4",
+      "baseline_score": 0.006324773070311591,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12127193369014869,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "ff0d7872426caa990f5ed59c",
+      "text_hash": "561ccf2a69eb8866d307a75358b18e7837560d877812440f518b6ac771692328",
+      "baseline_score": 0.06745457763289264,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15741324668316184,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "4ddbb115b3d3cfdd96a78f4c",
+      "text_hash": "2f63409a33c4ceae94b48546c744eb00be9e93a88788aa13f4f141c34a83fc1c",
+      "baseline_score": 0.014179609756176971,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12583005946446923,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7f6e1f79a92f7b4f9556498a",
+      "text_hash": "3a1d7d28a6291c78e2dc9d7310176e49d0d07202584f54199aa85453fe419fee",
+      "baseline_score": 0.008921332395347608,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12575225809189491,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8ca67af032ed83f1106190bb",
+      "text_hash": "24ca5b69b769c7a3a41d9377c7ac24c2125b1e52342e3150cf01aca19da34d36",
+      "baseline_score": 0.021009224803320622,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.060945675255098815,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "06a6d79d3f44a38e3fa6177b",
+      "text_hash": "3e86fe01bf19a3b7a20002f44327ba9ff1c091d53f91c437d5be47ad75a97a77",
+      "baseline_score": 0.01900234577220784,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.17696963440626406,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8d322a6063eb7785af9ff1a0",
+      "text_hash": "d66f5235060fa66471b00b3169c67423a0012daff9b83d39eb36c16f46070379",
+      "baseline_score": 0.006954515895068042,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.17549520305143387,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "97c83ce1b40f60c563ac30a7",
+      "text_hash": "24eb0dc860c3fbf1a3bc76cb5ab26de223a414841f3ea30e468f228270ddfc14",
+      "baseline_score": 0.010358571418323418,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11749835782872362,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "88f43b31facca0ee44a9743e",
+      "text_hash": "57a7e1d74117b48874f688eef8e8be6fda4f5f4a3f36d2bbaae61364cd72b505",
+      "baseline_score": 0.12713885806425754,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.19515448083564702,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2978f902ffda3ae5e5e05758",
+      "text_hash": "5c96b9caf966151f9b00d933702cd8dea9166389cc646bdf5d59edca260705ff",
+      "baseline_score": 0.05810840230470653,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.20593651040338382,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "856b1c566669fb70435eff6a",
+      "text_hash": "b6154267b608c213b54e6d5ed2a8a2960cb6f80ebb4c04b3ac11f6ec7f752c19",
+      "baseline_score": 0.006179715724441181,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08589171755863535,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "075c4c56f94d2f7a51d73c25",
+      "text_hash": "d08dad8c2d7d91b7d181e4fc2b80d0194a58c512014c6e0c10a283388aada295",
+      "baseline_score": 0.0071875618241405564,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13141744989250398,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6519e55c75abdbfb501dd649",
+      "text_hash": "722ec73f6a38df684253e5c035c2678faffc5aa79f4d8335903761bd78e38c19",
+      "baseline_score": 0.01688510934200192,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08823405523926811,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "474c2879b211370d7d2cdf55",
+      "text_hash": "95d66d3e0a572eec3587958d5120e615675663344733e22005620e3827f50f61",
+      "baseline_score": 0.02449466674106588,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.17994382356066982,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c17b5c986bb578a57ea90f3b",
+      "text_hash": "9a1983c5519547861d74fdafc10f811768f5517a8bd81d6696e96d3f26c8213b",
+      "baseline_score": 0.10971806972348126,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1215500312408279,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "aa69ad3c0e14eb1c0cbfb069",
+      "text_hash": "f9d13369eeec9e51a93dba21d2f4a7c5100a9b4c3240159c5f080c1fb564c134",
+      "baseline_score": 0.007287507833793628,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1073059892414347,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "16b3da2eb69923ed73ddc7fb",
+      "text_hash": "73375b80c9fc9051613c3eb7b9d61dd7ab50709df1b1bc32d086481f822235ca",
+      "baseline_score": 0.005633119606938353,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07729232747637381,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7cb9f525ee6a053097004912",
+      "text_hash": "e6e2bf514705b25c873fcd7c0a000301f8cb4295c26c094ae1f99f2f0cde3220",
+      "baseline_score": 0.00612527144010834,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15505223577628532,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d4f8a122a0bb4e4c0741af57",
+      "text_hash": "c81de79da796e5227dc5cae7295353347af768d94ac74132d557d77f5241d024",
+      "baseline_score": 0.1830311664384477,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1807373696602644,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6db064ee9b79f5523d82fbf5",
+      "text_hash": "199219c0e255b28e904fa8a661fc60860f698873b6285a2dafa4682656193c32",
+      "baseline_score": 0.007758120498558871,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12880162673312356,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "22fb44138f2e68b6c83a0c78",
+      "text_hash": "ecc9d79e0df2f12abba5ab1d2270b07a982fbfed07eed966e380a878e7ecdd8b",
+      "baseline_score": 0.04162573893611675,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12665020399801483,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "5f272955a93daa0e8ac33d27",
+      "text_hash": "cfcf168f461d281f25b88da2f8d45f1797800633bd72aee9c6ff47ef444bad67",
+      "baseline_score": 0.0246551928226277,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11493359196535217,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6c3e0ce7e157f4017aefedbc",
+      "text_hash": "d469de1f819cd11c5da2c86619231173e65c11039736f44a0dbd275e6da7965a",
+      "baseline_score": 0.011408068258024892,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0890004764578612,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "fdc461c19a9bb940cd5192c6",
+      "text_hash": "f3ad69251e8518dae43ea1665a5a61aaff118fd65ac80d72507c6fa821781009",
+      "baseline_score": 0.008605139881024895,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.125148775838139,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9d6c4c7c490dd2b61f9e4d32",
+      "text_hash": "12e96f61f769c32e5218daaaa9c3b8375c083476ebb4809868b6803499cd98ba",
+      "baseline_score": 0.007425184609647264,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06910399110935896,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "332225c4b60bcef6876f5a28",
+      "text_hash": "4810e44c21f2e5fd2e9fb8f72ae07c9c20f06fd07d81c5ab5859fc6edfe3c550",
+      "baseline_score": 0.005418639117574072,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12642582605264868,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a064a481ec46db86cfecac64",
+      "text_hash": "107f724e385abe5dcd5c40f6634fe61dabf21b467d0d6e363ebff70de8e4808b",
+      "baseline_score": 0.07548606373463669,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13160513501385632,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "bec96ebbc93374a58bfc1a4e",
+      "text_hash": "0fc835a6784cab847b047285048bfaed87e263a93b132a0b467ac25b4827ad19",
+      "baseline_score": 0.005731966466206142,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06546083674290096,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "202e17d129313ab711e8898c",
+      "text_hash": "ff670ccc60b5a6acbefb71bffd1a129a12ae8ca6930676444d1b71a5683577f1",
+      "baseline_score": 0.04038430086237355,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09827248782333578,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "48d8302240666e285ad5f3c3",
+      "text_hash": "58d12048bb8b956238e0a9b89d6bee0b337c2d026e43eaecdc316433b03db888",
+      "baseline_score": 0.01112026132846764,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.16805487018949317,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a513bc093719688985662176",
+      "text_hash": "967eed6127a2d9727efbf1808851deee7fc2fe6c473abba34988ef48d10345d9",
+      "baseline_score": 0.01320879280684172,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13978908254893332,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9890d1b95e6f4e283f17db84",
+      "text_hash": "d9261421e2e43c68d64300d57b7932de8122e4090eb43e8af77bd2e0472154c8",
+      "baseline_score": 0.008001389389930004,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07805921042289571,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c32775ff8340ec92e18ba22c",
+      "text_hash": "2e19b8003e65b42012f726d33026d21a6c5131149f29e6303c18ccc14f8a5ada",
+      "baseline_score": 0.025565433681853322,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08393649137630686,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3f21940931ba779a3150418e",
+      "text_hash": "29297aa44878a6ef1001eb7854cde96116854395df0216fb58befc744acc6296",
+      "baseline_score": 0.00689107346147789,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15265826497206542,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6176fbc0e0776151d1ab6410",
+      "text_hash": "542a7baf03f99fa3bd4d5cf3ab2273682f516c6d16697f5fa56c51fe12aec03f",
+      "baseline_score": 0.01567248093459502,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09103283878923409,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3808e21a340f5992e8dc9dc0",
+      "text_hash": "8ea391989b5162def645a6e623e081020b78232d1a8fa6d559ab8e960621e769",
+      "baseline_score": 0.005144858246008773,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11439937793823955,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b3901a5e1879da745622be46",
+      "text_hash": "d9085ecbb48825285e6134f27b2f27e357a655f541a0bf229e1f279119d7ed37",
+      "baseline_score": 0.014154855446662864,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0777172974110689,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2f2638c5e5c690ff7868513e",
+      "text_hash": "470a1d8f93f176ab7a3dc4a6ef19b9fbbe44c511c8d3b6d28c074195592ac7b9",
+      "baseline_score": 0.011048658331751532,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12412464110773376,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "bfe4653b8f141634c0175ebe",
+      "text_hash": "efc9f2cd3b503cef09f5c1b0adae32769497aa06aa7db7676dc107e78bcdbda3",
+      "baseline_score": 0.053712192424017355,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12172052041910053,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "603fc3f3fce8e439130fdb9a",
+      "text_hash": "b06679ea64ca9be30f873b44a2385013517fe6dcbd3720026fd4d5bb64d8d843",
+      "baseline_score": 0.010852138282325861,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1123551862802904,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1a9a2fd3e513b4d661cae9af",
+      "text_hash": "f6f4b936cac2265133143d9b68edef133df4ec32e6b0b9eb2fc972496ad6e8de",
+      "baseline_score": 0.05505099889595118,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.20577735960575033,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0d012db2f9665e92affa29d9",
+      "text_hash": "e508f1a98b91d602febf0c1dc0749cae27838041b6db572d9606be25de2da6c3",
+      "baseline_score": 0.010333500647679501,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05930732203350252,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "55f1304f2392a46144b256f2",
+      "text_hash": "5a4214ad727134ac0de7522ba24ad773db89baddbdaf9100536c90987da8d944",
+      "baseline_score": 0.19790988319789143,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11261428348484719,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "083e5dd36714e329ac271e37",
+      "text_hash": "dcf1a545f209f328833159503e3f515f5214e967f04131ca343b1b7c8c0dde8e",
+      "baseline_score": 0.018610768320934768,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.20442275601467463,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2fbf14b10a0b68dcfa2c86f3",
+      "text_hash": "95baea28f18907421f2632c8d36938cfeed521235dcdea2c305b5fac922a5412",
+      "baseline_score": 0.01152655217916695,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08021320028874433,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "608a125dccc98e6f4a3f5853",
+      "text_hash": "cabd0d2ec7ddf86acd267428e519b2dd03b85c93e9a922a9120a3390fc96d412",
+      "baseline_score": 0.0260136101426871,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10949077061394,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a10b9c23e921a4d77e0a1aad",
+      "text_hash": "fc64cb510bb27d12da5f6505c11fd950f3c23d3ba0c78960ba717e913be8586d",
+      "baseline_score": 0.005110045538552466,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05028383481163409,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2f18be5a3ba676df832dd367",
+      "text_hash": "040148f6f72c99a4dd820a5e8e576926c3858570b5fd6aa5d29ec792ffb1410b",
+      "baseline_score": 0.015940920192558255,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08580930736154085,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b47e6c4974a084f471f725c9",
+      "text_hash": "32f42d93e2f9509e9bcfd7bebdb29d2605d8c4aaab34ff57ea052a45296f8c64",
+      "baseline_score": 0.01094387027562679,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08581585099398387,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "dbda03127a141693f88a1bbc",
+      "text_hash": "b995b1201199c0391772912e9dd3d28806243ec575bad3e2faf6441315190f47",
+      "baseline_score": 0.033382069117142636,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10386256111059852,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a77e51cc0c172db95e28ab01",
+      "text_hash": "a3c78d931a14c1974acdd427d7278730e3e3f8910bc65076307c1b286592787c",
+      "baseline_score": 0.1616388689711199,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.23182821105773163,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "fa9b307a979f23d3225654d3",
+      "text_hash": "1c06d9227e51ec5e566c38865c137f01527f26a22f3084ef730f6ce0b711909c",
+      "baseline_score": 0.008556518221827012,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1348672446323158,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "bd3f2b762967c66fa86740b3",
+      "text_hash": "31d23cfd8e8744d9dd7363c8acc19b39485b7c6c788d4e4470ae34e5972c17be",
+      "baseline_score": 0.031198911848710896,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11614042258249528,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e77ecc3c38ba163fbf98098e",
+      "text_hash": "cb697199b89e8c2e73ef2d19ff0676904c5ecc1a7bccd1882a3ae90f892f5290",
+      "baseline_score": 0.01859867517023279,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10981309484701113,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0ee29d600571628214e84a7d",
+      "text_hash": "803e83f71d9dcaa3a6d3a0068a0436219b9b66df00c99514baaafe258a7c083f",
+      "baseline_score": 0.008305682486475634,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05846793177278933,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b820ee1c60879a57263a134e",
+      "text_hash": "9001e57dd018eb9817e30636bce05ae19c07b62feada4009792ec099f082e5e1",
+      "baseline_score": 0.006248103630640208,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10362079752214341,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7230538f3fc00e1a05770ece",
+      "text_hash": "190b08624b3ecfc59837c6c2d72ff93271165d0b8dfee8a4e97c7749a8aa6334",
+      "baseline_score": 0.010126199922124492,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06075374943758286,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "4b0f1b5d6f629939203a0c47",
+      "text_hash": "6297b10c6d4b4e733db41546639d5c5e662da6fa02b029c5302e6db26dacd720",
+      "baseline_score": 0.008745847210283682,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0621924517829944,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "542a25d7c1f3ef43f8a12313",
+      "text_hash": "751045659be07c1b0524e8aba0bbc411e73574d951ade9dc80fd1732114bc9ae",
+      "baseline_score": 0.009240531361807148,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08273781380911023,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "dbf86ff1814fc27413dc587c",
+      "text_hash": "cea664492811f0ee777a8f7398f47e4790ad7421d5fb93f9d5090059dcbced03",
+      "baseline_score": 0.03749168408539724,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.17402593920820414,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "166327d523b7b6e889220eee",
+      "text_hash": "f429856b240547b8bde5f30e0dea79c39d261ec96848563b99292302f2d46a03",
+      "baseline_score": 0.0249035330900003,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13609011957212475,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "47e15425a5bb7f8a9bc66c81",
+      "text_hash": "4e43b1f39fe7e4792ed5865f9447107bc6977b183878ee8aba8833786d8b27d7",
+      "baseline_score": 0.009197482284351308,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0903684566651128,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "984c9576245b13ed3cf027ec",
+      "text_hash": "c3ecf9aee82792038da928b4bb91be5399f9b4afc819048be4c64c4fcf5e6c36",
+      "baseline_score": 0.06277525004333882,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10990102280659055,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a6cd0c6c4f8ecf527016c4f8",
+      "text_hash": "985656bfe4c12c08255b7fdb0e17900cc929017ed4b4b5a3ce57ad0552c33789",
+      "baseline_score": 0.013160599709837816,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0660310521619985,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "dae67a6835eccff16003a538",
+      "text_hash": "e969197209849d39dfc1c31c6f418428b85a9abf660b90d0d448e79580cde2ca",
+      "baseline_score": 0.0047560642940779815,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0500990642097142,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9b5b700582663d7ccee9bd9c",
+      "text_hash": "6b24dff72a4645bfa443b9a4c33a87f12f3c8506fd87062517913a571c9e4c08",
+      "baseline_score": 0.029999595096344468,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15866695453816693,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "80eb7a3c0983392372df2fb6",
+      "text_hash": "3a39141fd157763961ae8c07c72aa2ef1ed2a1feecfb503c65bcf3c9f9ba247a",
+      "baseline_score": 0.010724270410966687,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09340263908443931,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b7a64959ee83abec2035d645",
+      "text_hash": "6cf2cbcefc20089aa36e4cb01d464189a6cf997a7892a4bbedf47073db960a45",
+      "baseline_score": 0.005386787309401997,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11007038463824355,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3c308a6dd0b5fd7ec061a65c",
+      "text_hash": "0df57fa498e890e2848426b4ce964e1e784e3a3812a6cb3fb365c76b1f2e5e02",
+      "baseline_score": 0.011325232595863514,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11721524263659798,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d6aac1c6ec4d013ef6a4bf3d",
+      "text_hash": "2f2a01598c4610b601639ba068d138a3a6609a33252fa43eb1e458649f87c79c",
+      "baseline_score": 0.011378330128070678,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10185179423948176,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7326841dd5c9445410530c75",
+      "text_hash": "3507056985e7e09753a598ec4f1a3889d1eecc1df93ddb36f80553cace9ee447",
+      "baseline_score": 0.006800873981663364,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1278057457503835,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "261f507f7600fbf344b5261e",
+      "text_hash": "d035e8b20456ba017619ffbeac8389a792beed0f6437e93f204da5ac787b1dc4",
+      "baseline_score": 0.005879504831948836,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11843045226859478,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "93e505956f7b0fa5adb27a04",
+      "text_hash": "89bf2ff0d4a4d183a17ea2382638ae817ac2806d54988551ee711f3eaf5bbbab",
+      "baseline_score": 0.008851541668648811,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07399270925479932,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "846f9c4cd0dad71eeb3b2cd5",
+      "text_hash": "a7602a08b99449856eb25ced3e95256868b81ddc840e1b4579383c48fe510fd4",
+      "baseline_score": 0.0045988028315351315,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.14846040590334955,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1064f79c049dd8dafa2e7919",
+      "text_hash": "ca6e6aa119430e1be863c70858428728bb8ef219c31dc635c24dda32ee06238e",
+      "baseline_score": 0.019162191682425573,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10210697114826447,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c25c1d3a18aed2ea82f1dc48",
+      "text_hash": "ff8f06fd1e117145589b5de8bc77666eea1a47bc882edfa1ad2c72fb82bce683",
+      "baseline_score": 0.022190848880775157,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1477048801624304,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c4349dbe5349b7e632fad215",
+      "text_hash": "7e974edd77d515a242b0c1be09b12756a6d3174707443622010c78f739162827",
+      "baseline_score": 0.021687355263380222,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08162552074433915,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8a9c3035fe0859b3ef329733",
+      "text_hash": "3fd8025ca57446814488166f20de118477f5205c9ea88ce58b82386fc5b3efb7",
+      "baseline_score": 0.005088805030667868,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.04871271620787735,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a449b7337001bcd8bda99f36",
+      "text_hash": "bbaafea3e071895218974adccad12d67cbfb3359d3929c01af8889030d680410",
+      "baseline_score": 0.005417755175420925,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06851789768821782,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d7d243229e1170fcf3654384",
+      "text_hash": "6c3375f849f315100c402bb9582e46dd995479f1a094675f584810663172a3c9",
+      "baseline_score": 0.019052998266768047,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13468010490534388,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "81f23d1f8616a87dc34b960e",
+      "text_hash": "dc46e8b1eb5f80bc5ea0acac356d9705d6931977af8477981ca4146dfe81f352",
+      "baseline_score": 0.006538890026462591,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07397921886729568,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "dc3dec8d23667cb7baaceddb",
+      "text_hash": "98aac1dab88e798c70d31f044f680d1556d31b82a044b28fdf39d87b38edfea4",
+      "baseline_score": 0.013587185029283301,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07213082857697764,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "f870fe1fe4fb35b717bb6fc8",
+      "text_hash": "d25e36ce6e58e5199f07d09658377f81d23c2699fcd770f8a107ef629129fcde",
+      "baseline_score": 0.023266515727023315,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07518283078811905,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7d083a83dac81b4eddd62f30",
+      "text_hash": "c76387b7592882a3a8b019eb958c42dd35e5eef9b52fecf29dd135b79b2b9955",
+      "baseline_score": 0.009259186365920196,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1218689620498745,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "058dead8d9a80b35ae9f6156",
+      "text_hash": "99db3b75e488779cb6e50892c2777b9d275cbb05b4ff4ba19c6ad30677da5502",
+      "baseline_score": 0.012302402946786818,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1881529766217415,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c3df997aee462dbb9401c1fc",
+      "text_hash": "0479077d721526a1dfa639b7fdc500e4860556fef8d3460db4d85ebfa2ab3ef9",
+      "baseline_score": 0.021620582214469518,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.19169745805318483,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d4cf7fcb9c02560b5e379a00",
+      "text_hash": "8dbdaa720a0975fabcd2032ec1e5dab9202c9bd96342b17d7aafa9b282919f9f",
+      "baseline_score": 0.017198247454085634,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15143280542116427,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a835a4a1f78f422713e25b1f",
+      "text_hash": "5b8d48f9653476dd543362eba73ca2e271d2477fcd542d40aa52aa2d96ab4691",
+      "baseline_score": 0.009134049107894542,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06504517984281621,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "156c108409f9a51bb1a2e0ab",
+      "text_hash": "339cf293205e76158da115c96b3f891e7a913af4345e5a46cdf34a7d6372c112",
+      "baseline_score": 0.007930870124623273,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15308628224909424,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c36d23b2f38dfa93991e0ba8",
+      "text_hash": "983cb6bdbfdfe1f503404d76bf692475729b7b7d54712d17496c78d2ba0dcf87",
+      "baseline_score": 0.020578221403363493,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.15258246206211873,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "cac301881bb56488d37d1549",
+      "text_hash": "a0ac6b8306607e25dc170825827400b3ce6d0630fdf698b3bc1e557836160b1f",
+      "baseline_score": 0.006068406986611316,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06412233772891107,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c8c755f4974fcd59f5a9c1ae",
+      "text_hash": "a4f2a3e770cdab18498f2952e113316e71058547fd01836f42d3ca18916d1872",
+      "baseline_score": 0.005129964994095346,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09538331815066102,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9b7d1418c91b427a1ce856e6",
+      "text_hash": "ffdf71bd5b62eaee27d38c686b4b4a453d06346328d9fd23a60e0c7260c4cbee",
+      "baseline_score": 0.03609221959048077,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1271415060062837,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "c44896d0b9af95692b1ab8ae",
+      "text_hash": "b92f2f5c93a5333587d222f0111491a8a33296c5a3dc4e4045d80f7715c6ec1d",
+      "baseline_score": 0.007743532238503488,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08676050007030245,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8a5326c6bc1966a95df1eefc",
+      "text_hash": "7db1e1b79ce4314d2bae59edc4da1cd5185df573b7e10b410ae6afe0d88795fb",
+      "baseline_score": 0.006807902270294991,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06709467720967911,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "32fca0843b79061ac06d1724",
+      "text_hash": "e93e6efc7e3b910cc69273bf3fb7add63b565d66e54816c3e51a7b44c559d908",
+      "baseline_score": 0.006887419554280464,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05983166930658414,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "4e705a054249151798eb1ec8",
+      "text_hash": "d65d44f54dbb9d9aa465859c16084a386582055e619a0ac1c68a9ea1b8f4dd00",
+      "baseline_score": 0.005431271495514151,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11629143230609988,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e2b919fa5de932d1c665afcb",
+      "text_hash": "356e24b48655d8735ef193f792f43038eac84f343a34e1d9502714b3e0dbb3ea",
+      "baseline_score": 0.004473359045903036,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0666245388583166,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1580a6fcb3a2d96bfcc103ce",
+      "text_hash": "ef937305c4400d6b7018183aa31fb3b0783a8e2ef639ffbbcfa464e7d55546b5",
+      "baseline_score": 0.06787213471007596,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13102491047196252,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0d44afaad0ff3912656d32ab",
+      "text_hash": "e2f29263214d65b0bd803dca3b78bd1c36d1e7da80b785893eca33de814585f6",
+      "baseline_score": 0.007974965437657305,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0778756538240676,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "ed66ec0d47f1200b130e4dd1",
+      "text_hash": "74c6badfe3080dba63af96227a035833bf8c34b39db060054e689c71f848e724",
+      "baseline_score": 0.05809772907567269,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13331271512768564,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "add4fdd59464ad55fdc4bf07",
+      "text_hash": "5faa4efc551edbfc0b10b7733254336b104ec64f06b5bf7437d0ac76886777ca",
+      "baseline_score": 0.01641813355839786,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06668702867313611,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "916503490e9b1985495595e2",
+      "text_hash": "5deab9a1ba49e59945f87326c0eeca20b09729aa04bb6f3d2ff3f4c70d90410e",
+      "baseline_score": 0.15685731256968297,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13826808241138622,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6d372b78ab32c1345cf8d886",
+      "text_hash": "d7594a3d067f2a082bbf9ea4020a6671cb64e8b6013a0dd2d6fd144434e06ab4",
+      "baseline_score": 0.014145443091390944,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0743214290987999,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "16feee28cfd82daf1d5a693a",
+      "text_hash": "02fd8fb0dfad852e99102c2d1587fc2b958faf45535777fa5513a48d4d9f1b3d",
+      "baseline_score": 0.021072674880339006,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12644980407547268,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8cb615d5d54d391539e725f9",
+      "text_hash": "5bddda008b672eda3b1562a6d8cdc1c8410fea527a12e2c1a85da26c69df26de",
+      "baseline_score": 0.006833077493110006,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.050857680365007554,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d3c7433478fdf6c9e7e4ea06",
+      "text_hash": "125d1aa9ca9a96042020f49d21a8e58432af3fb6f5e63eecf0b457f72873d79c",
+      "baseline_score": 0.005848798702278003,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1286889817255304,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a14aa86890da74f674ce3b4e",
+      "text_hash": "be1cf2e9ded345373d49fa5d7fdfe8804ca799a0e56ebb6cb995f69fcf5105d8",
+      "baseline_score": 0.007299505092877088,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08275436567661157,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1388680e383720b6caf94b7f",
+      "text_hash": "f80f66caa266d6a5385f9ad8fb0119babf90e75655f7c3f7d3e30ed72f5f57e0",
+      "baseline_score": 0.02593254514110112,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07590244093493449,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9ab935785fc363ac1926c075",
+      "text_hash": "ff7bfe92dddd734216a70eccac40b9e9f1b9e27323639088b4c54eeb647cceee",
+      "baseline_score": 0.006094684611585733,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06905550626270045,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d01098f1e4a48f276ffd1dc0",
+      "text_hash": "047a82568f985dbd3dada84086cab6bee389c34f148de889ba6c664b216afc48",
+      "baseline_score": 0.015850827527773968,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08354964816581316,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d4fe948f9b20dabd8645b598",
+      "text_hash": "26c0c2528002c7a7d8de8591854380bc4f4a6dca191c0859f0600e93accbc650",
+      "baseline_score": 0.00958973152828459,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.055516512729434676,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "9bebb8b0c9cd4d8cb17050cd",
+      "text_hash": "7c320748d2bc94d18602836190f5a25acf63002f25916f96e50d14f0bb352c59",
+      "baseline_score": 0.03015535966392142,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0929581936083348,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "aa77a2132bb4c9dd8dd9ec9d",
+      "text_hash": "0374efbd443c051bddffe56dec64025eab94e37ec1daab1818c94bab36237d77",
+      "baseline_score": 0.007495972371252167,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06395473633578841,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "07fedf6c1851db32162b2349",
+      "text_hash": "bddb87cf3304df359d44bb39dfe831ffad9d8f2963a1be551b6628d00d7aa666",
+      "baseline_score": 0.05958629988002349,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.14670904604611348,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "effbdc3804654de49d21b503",
+      "text_hash": "d4e9681356f009a1ef8bca0e670294361f85c2cfb1a34e531e8f2a01625aee82",
+      "baseline_score": 0.014249319162452352,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06902047815689151,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e434e07db92cd50917afc96d",
+      "text_hash": "6f603d5c749e484430bd82236d9564ff2570a1c58935e6f5a10249bdf8e97c30",
+      "baseline_score": 0.009094052172670888,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06561691757191267,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3ec73577c040e76a7cb2a4fb",
+      "text_hash": "85a66b9fce5c718c345012b8d013cb96aa335cfbb7c8fef3956cb090737ea155",
+      "baseline_score": 0.021016508113892475,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13131038622222221,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "df670b0696a5216656a69ff4",
+      "text_hash": "dea04cfce3c57a44b41c895802133a5db3a138c1fcbe88bd4dfdc5d22f80eb7b",
+      "baseline_score": 0.03758959510617282,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12360828017824775,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b596672d7325739b6b304432",
+      "text_hash": "4fc5bb3283e10bdb29d070bac39b7ae0bb9b1e813d759a8cd0317197feb7bc22",
+      "baseline_score": 0.006801431212215351,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1212994625555839,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "7d4472acdf162b1e3217e582",
+      "text_hash": "b6ed30add753efeb0a887cd9abc3f8a7030d504314c21cdd4a90f8f6f61971b0",
+      "baseline_score": 0.013075903536749632,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0712725476705727,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "bb72911989d76d8411d17677",
+      "text_hash": "cf5216a44e2a2e29ff772970dbbcc7ea0597837a2c526d9f42b788d05d67ddd9",
+      "baseline_score": 0.008807482537945147,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07952580429723188,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "4bf2a3446460c2ef991ef2b1",
+      "text_hash": "fa2fd5968de2fc98c58dd0c7aecb19f757a87bde1a59747ee3f9c1b5567bc0db",
+      "baseline_score": 0.09096561518954069,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1865235471698623,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "90f5a662de59678965448cd1",
+      "text_hash": "1c3262ac3b6ddffc99584c62329a04ac4c23ae76c1282e456da0050100da8baa",
+      "baseline_score": 0.061553508781322465,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11301818075254783,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "f16b7b2e4d97ca3e685b2ed6",
+      "text_hash": "391c56fafa2b3fa1955f0af31aeee0ce5b09d7f1ee5d5c2b17a1d3c47709f8f3",
+      "baseline_score": 0.021933124831954164,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13432500103865566,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "176d956b8a825068061655d2",
+      "text_hash": "347ba22d575023e4fa99957c82b0f5a87bab1a19f53ce12b856687fa929f7c64",
+      "baseline_score": 0.01006919943086265,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1272464714941845,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "90bf2337c254f46222e9ffd8",
+      "text_hash": "46705ec9de0827680e77c805420ebcf40c01be5e88528d8af78c592257b46337",
+      "baseline_score": 0.038058574053651255,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10292630987938535,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "eb14dcee7f7ec667a86ab074",
+      "text_hash": "d58b6c259f644d3106386da6e7728e5c1a4dda45ad858d989fc19d353fc6f210",
+      "baseline_score": 0.01883874345051263,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.22386099389179853,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "e4839ca32ab57954208cde05",
+      "text_hash": "38d80e7b900b636e2b64c9f4efc2b8542aa168b20ff422a864196725fd9bd0f6",
+      "baseline_score": 0.0053920015765831445,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12731943069695087,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "75a08cfa2c31e8c4896876ab",
+      "text_hash": "672d50afb815629e1414f8acb97e33869bd5e907578c25157b17d59f18759090",
+      "baseline_score": 0.011763582259638531,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12653375148837168,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b198c28e255bcd9dcf6d1efe",
+      "text_hash": "07446f8e09922feba79b25085c1d32e36192a47acd13db156c3e70aaada5a7ad",
+      "baseline_score": 0.015341257440711803,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1370332060847309,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "8c1d256c5fbcfbf86ee689b4",
+      "text_hash": "ec0c1c04e0e53b0812c8e5f61e83e2d0c07ea3cd6eb028351e53310498305f41",
+      "baseline_score": 0.006989728421201699,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13145930057132024,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d9ea50dba4c24ef33712a0a5",
+      "text_hash": "55dc0bc1724399bd6efaa2a740792befabcc9ae1a0ae447f5f71ee678a0dc91e",
+      "baseline_score": 0.007265838251185587,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12301813964200037,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3478e20ba6a4e0501a200480",
+      "text_hash": "95d7d6a83327676c40162ff7b9153c3137b30d3b05bc20025c500b209cb31113",
+      "baseline_score": 0.9835121032196663,
+      "baseline_label": "toxic",
+      "candidate_score": 0.5110588958635817,
+      "candidate_label": "toxic"
+    },
+    {
+      "id": "acd3230b5f802f83ffef2c0f",
+      "text_hash": "70886299f1ee2c85a2b0a773a61aff7d4999ba55cd4c7e535391efce66bada99",
+      "baseline_score": 0.017318742083750005,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11738557872125557,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "0e82c5496f495ce89f4504fe",
+      "text_hash": "8248be1a34049e744dcd11fff92bf9d43f32d857e379da81829e4fd7b846b184",
+      "baseline_score": 0.04242486110303524,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.2302487433120946,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2c9939474096654d6a1edfd5",
+      "text_hash": "20e2553c8792b656dfaf38078256b8651a6b82c09f317e5efa99f3ef910bc146",
+      "baseline_score": 0.00792701801480589,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.055335624274456256,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "ff2a134c06cb7947e97e5a2e",
+      "text_hash": "a6af1283bcea40fd8a5dbd55af44b5e4c0b618382c1209df183bc4016c8115f4",
+      "baseline_score": 0.01062920816704333,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07498562765986463,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "06386527e15db207ae08a75e",
+      "text_hash": "3a9288c878eee9cf20e76b94b2ffe7f8c30b64d74f20cbfbdceba2bca33b559e",
+      "baseline_score": 0.0038760058309273778,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11924071384565048,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "b0084bf0b05fe1f9097fa8a9",
+      "text_hash": "7746c78123fef9293da643e1fb0728ca129100a75a6a3f0855662e63c062e559",
+      "baseline_score": 0.007959238477539637,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13069461134398822,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6cd01caef5965a41b61ffcbe",
+      "text_hash": "13ecd5e06fc81059fbf8f938b6a4f8e7a02c7185e843fa74d77256c372eebcb7",
+      "baseline_score": 0.02334422398818129,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10943782158007008,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "1ef4e0f2714b33c0754de7e4",
+      "text_hash": "6b0ef7edba342188bd3fb1cad37d605e541b3fd7783980d55a3ee51d8fad247e",
+      "baseline_score": 0.01333587239332228,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09555258951306847,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "d3ac4dd4af0b0c72474979f4",
+      "text_hash": "b6b65d647cca54b648e11d97fe968555977abc832f024b637f43679548f6253e",
+      "baseline_score": 0.00440458122736429,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05820862512841079,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "965b4c66f2a06507d10f9bfd",
+      "text_hash": "ba118867f80d1fc1b2b29f96931f2e6e81c7d16b914ba032f1db52e621f01354",
+      "baseline_score": 0.00886366077985847,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.0926749973358176,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "cc8d31bd902c7940528a56a6",
+      "text_hash": "534b8818d40b3ec86d7836beb4cfa66e33acbb30d7ecbea9d9f453d0b53b0630",
+      "baseline_score": 0.006897031497174009,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05777457006956005,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "ced9e7a3860384cffdd11148",
+      "text_hash": "2cd020f5a6332c01e3dc54f6d9995e7f53d51a2d11ee21920f757e12802a4f14",
+      "baseline_score": 0.005332260979336802,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.12752513982533736,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "256b6fb175108df746fabf70",
+      "text_hash": "a166e9e9e01a583c5749694e406d38ebb5111ea6724d3f2d9a6c8285de109308",
+      "baseline_score": 0.013715216062911451,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.05732348819353313,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2dcb2d98b81e13b0bc011183",
+      "text_hash": "9dadd6a90765c2936937a92e6e5c600efd1c3ffbb99ac0f4207ebe3086f00822",
+      "baseline_score": 0.05255914342533515,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.22584977136251796,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "40a887f2f6ecc47668fdba98",
+      "text_hash": "48a947674bf261837ac765424327272cd75f3aa0c2f45cd7abfcf6882fa397dd",
+      "baseline_score": 0.031128036351934868,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08009838718722208,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "32f686b1dce08dacb3d48a62",
+      "text_hash": "fdd6de2bc3885fa98f81b38aeaa8c525e3651ad53eb39534bdd5f9081d9139a4",
+      "baseline_score": 0.017427037919469063,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.09578760690587747,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "edf3d4a1b9115d518ea9955b",
+      "text_hash": "39cdcb81d84a73541cdfde9a7f9f0c33ca51c55f8c8fdc095c9a03976d973e3b",
+      "baseline_score": 0.012097285354059177,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.085281750646922,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "12be4e300057597166c0ca37",
+      "text_hash": "a8b192cf039adbd054e43f58fceb6fc646b84fe47c2414a4762416f08e94da68",
+      "baseline_score": 0.03894726245840403,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.11842010361838455,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "30180fd358887dab5f4ab89d",
+      "text_hash": "f0c3d6f37c5efe6d1576d9959fb811c787291323a29eaa2196c91a3a42e80822",
+      "baseline_score": 0.009667773635921096,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.06811906288223968,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "3dc38b9e42a4f620b96aff69",
+      "text_hash": "5e50e33a3bd997895ac4fdf600ade35ca57604e032e561ac11b2d8d90fbdae9b",
+      "baseline_score": 0.006552493224138324,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.10847375533833056,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "2432b9a61a21cdad6a1df017",
+      "text_hash": "4ad5cee0fcb924c098b25c01b4a0d6931c75759e5edee5b3ff197313832d1d59",
+      "baseline_score": 0.012362108642420678,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.07163212591747842,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "6ed9dbf2d98446b15c49f96f",
+      "text_hash": "5140ddf468b2b31d3eb800c0a03322ee7f85745ee3787799b4d94f506d64521f",
+      "baseline_score": 0.009847415104921766,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.1742313472035829,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "a9c96bd27b57db9611ebeb1d",
+      "text_hash": "be9e802707e48ba27eed1229b697f76804805df21c644697a812963cdbae6ae8",
+      "baseline_score": 0.010701610064519617,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.08777971675207558,
+      "candidate_label": "non-toxic"
+    },
+    {
+      "id": "fe9b6024e8268155e966f768",
+      "text_hash": "4dcbde6234972ae0fc791937033e7927d65d65b88ea1b6aa0bb31df9ea2d3974",
+      "baseline_score": 0.03671749371152629,
+      "baseline_label": "non-toxic",
+      "candidate_score": 0.13047497472500771,
+      "candidate_label": "non-toxic"
+    }
+  ]
+}

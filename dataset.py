@@ -8,68 +8,16 @@ import re
 import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
-from functools import lru_cache
-from threading import RLock
 
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
-# Keep function words that express permission, negation or relations in a comment.
-STOP_WORDS = frozenset('các những'.split())
-TEENCODE = {'ko': 'không', 'khum': 'không', 'hong': 'không',
+STOP_WORDS = frozenset('và là của các những một được với thì mà ở này đó'.split())
+TEENCODE = {'ko': 'không', 'k': 'không', 'khum': 'không', 'hong': 'không',
             'hok': 'không', 'dc': 'được', 'đc': 'được', 'mn': 'mọi người',
             'mik': 'mình', 'mk': 'mình', 'bn': 'bạn', 'ntn': 'như thế nào'}
 UI_ONLY = re.compile(r'^(?:thích|like|trả lời|reply|xem bản dịch|see translation|'
                      r'\d+\s*(?:phút|giờ|ngày|tuần|tháng|năm)(?: trước)?)$', re.I)
-PREPROCESS_VERSION = 'ptit-v4-canonical-normalization'
-TOKENIZER_VERSION = 'underthesea-9.5.0-word-v1'
-MONEY_PATTERN = r'\d+(?:[.,]\d+)?(?:[-–—]\d+(?:[.,]\d+)?)?k'
-MONEY_INPUT = re.compile(r'(?<!\w)(\d+(?:[.,]\d+)?(?:\s*[-–—]\s*\d+(?:[.,]\d+)?)?)\s*k\b')
-EMOTICON = re.compile(r'[:;=]-?\)+|[:;=]-?\(+')
-EMOJI_UNIT = r'[\u2600-\u27bf\U0001f000-\U0001faff][\ufe0e\ufe0f]?[\U0001f3fb-\U0001f3ff]?'
-EMOJI_PATTERN = rf'(?:[\U0001f1e6-\U0001f1ff]{{2}}|{EMOJI_UNIT}(?:\u200d{EMOJI_UNIT})*)'
-# Keep J-prefixed names/codes intact so a later pass cannot expand J-Hope to gì hope.
-TOKEN_PATTERN = re.compile(rf'{EMOJI_PATTERN}|{MONEY_PATTERN}|\bj[.-]\w+(?:[.-]\w+)*\b|\w+|[^\w\s]')
-PROTECTED_WORDS = re.compile(rf'\b(?:urltoken|emailtoken|phonetoken|emoticon_smile|emoticon_sad)\b|(?<!\w){MONEY_PATTERN}\b|{EMOJI_PATTERN}')
-WORD_TOKENIZER_LOCK = RLock()
-CONTEXT_NORMALIZATIONS = (
-    (re.compile(r'\b(làm|nói|cái|kiểu|biết|còn|chắc)\s+j(?!\w|[.-]\w)'), r'\1 gì'),
-    (re.compile(r'\b(đi|vừa)\s+hc(?!\w|[.-]\w)'), r'\1 học'),
-    (re.compile(r'\bhc\s+(lại|phí|quân\s+sự)\b'), r'học \1'),
-)
-MASKED_CU = re.compile(r'(?<![\w./])c[ \t]*[.*_][ \t]*u(?!\w|[./]\w)')
-REPEATED_LETTER = re.compile(r'([^\W\d_])\1{2,}')
-# Reviewed words only: a global repeat replacement would corrupt account names.
-ELONGATED_WORDS = frozenset('gấp vậy ngon chịu không kìa rồi tui đi tao ơi cái lắm nha đấy'.split())
-
-
-@lru_cache(maxsize=8192)
-def _word_tokens(text):
-    from underthesea import word_tokenize
-
-    tokens = []
-
-    def segment(value):
-        if value.strip():
-            tokens.extend(word.replace(' ', '_') for word in
-                          word_tokenize(value, use_token_normalize=False) if word.strip())
-
-    # Underthesea can split joined emoji and money. Preserve these established
-    # cleaning markers while segmenting all surrounding Vietnamese text.
-    with WORD_TOKENIZER_LOCK:
-        start = 0
-        for match in PROTECTED_WORDS.finditer(text):
-            segment(text[start:match.start()])
-            tokens.append(match[0])
-            start = match.end()
-        segment(text[start:])
-    return tuple(tokens)
-
-
-def word_tokens(text):
-    """Shared word units for features, TextCNN and inference; no fallback splitter."""
-    if not text or not text.strip():
-        return []
-    return list(_word_tokens(text))
+PREPROCESS_VERSION = 'ptit-v1-syllable-negation-emoji'
 
 
 def atomic_json(path, value):
@@ -88,44 +36,18 @@ def text_hash(value):
     return hashlib.sha256(str(value or '').encode('utf-8')).hexdigest()
 
 
-def normalize_social_text(text):
-    text = MASKED_CU.sub('cu', text)
-
-    def shorten(match):
-        token = match[0]
-        candidate = REPEATED_LETTER.sub(r'\1', token)
-        if candidate != token and candidate in ELONGATED_WORDS:
-            return candidate
-        return token
-
-    return re.sub(r'\w+', shorten, text)
-
-
-def clean_text(value):
+def clean_text(value, *, remove_stopwords=True):
     text = unicodedata.normalize('NFC', html.unescape(str(value or ''))).lower()
     text = re.sub(r'<(?:/?(?:div|span|p|br|a|b|i|strong))\b[^>]*>', ' ', text)
-    text = re.sub(r'[\u200b\u200c\ufeff]', '', text)
-    # Remove hidden joiners inside words, but preserve joined emoji such as 👩‍💻.
-    text = re.sub(r'(?<=\w)\u200d|\u200d(?=\w)', '', text)
+    text = re.sub(r'[\u200b-\u200d\ufeff]', '', text)
     text = re.sub(r'(?:https?://|www\.)\S+', ' urltoken ', text)
     text = re.sub(r'\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b', ' emailtoken ', text)
     text = re.sub(r'(?<!\w)(?:\+84|0)(?:[ .-]?\d){9,10}(?!\w)', ' phonetoken ', text)
-    text = MONEY_INPUT.sub(lambda m: re.sub(r'\s+', '', m[1]).replace('–', '-').replace('—', '-') + 'k', text)
-    text = EMOTICON.sub(lambda m: ' emoticon_smile ' if m[0].endswith(')') else ' emoticon_sad ', text)
-    text = normalize_social_text(text)
-    tokens = TOKEN_PATTERN.findall(text)
+    tokens = re.findall(r'\w+|[^\w\s]', text, flags=re.UNICODE)
     # Keep negation, accents, profanity and emoji: they can change the target label.
     tokens = [expanded for t in tokens for expanded in TEENCODE.get(t, t).split()
-              if expanded not in STOP_WORDS and not all(unicodedata.category(c)[0] == 'P' or
-                                                       unicodedata.category(c) == 'Cf' for c in expanded)]
-    # A leftover symbol such as '=' is not a meaningful comment on its own.
-    if not any(re.search(r'\w', t) or re.fullmatch(EMOJI_PATTERN, t) for t in tokens):
-        return ''
-    text = ' '.join(tokens).strip()
-    # Apply phrase rules after shortening and punctuation removal, in the same pass.
-    for pattern, replacement in CONTEXT_NORMALIZATIONS:
-        text = pattern.sub(replacement, text)
-    return text
+              if (not remove_stopwords or expanded not in STOP_WORDS) and not all(unicodedata.category(c).startswith('P') for c in expanded)]
+    return ' '.join(tokens).strip()
 
 
 def prepare(rows, annotations=None):
@@ -182,14 +104,12 @@ def summary(rows):
     usable = [r for r in rows if r['quality'] == 'ready']
     labels = Counter(r['label'] or 'unlabeled' for r in usable)
     sources = Counter(r['label_source'] for r in usable if r['label'] in LABELS)
-    tokenized = [word_tokens(r['text_clean']) for r in usable]
-    terms = Counter(t for tokens in tokenized for t in tokens if len(t) > 1)
-    lengths = [len(tokens) for tokens in tokenized]
+    terms = Counter(t for r in usable for t in r['text_clean'].split() if len(t) > 1)
+    lengths = [len(r['text_clean'].split()) for r in usable]
     return dict(total=len(rows), usable=len(usable), quality=dict(quality), labels=dict(labels),
                 labeled=sum(labels[x] for x in LABELS), label_sources=dict(sources), posts=len({r.get('post_id') for r in rows}),
                 avg_tokens=round(sum(lengths) / max(1, len(lengths)), 1),
-                top_terms=terms.most_common(12), preprocess_version=PREPROCESS_VERSION,
-                tokenizer='Underthesea', tokenizer_version=TOKENIZER_VERSION)
+                top_terms=terms.most_common(12), preprocess_version=PREPROCESS_VERSION)
 
 
 def fingerprint(rows):
@@ -202,10 +122,14 @@ def csv_bytes(rows):
     columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_clean',
                'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
-               'collection_method', 'collected_at', *LABEL_METADATA]
+               'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', *LABEL_METADATA]
     writer = csv.DictWriter(output, fieldnames=columns, extrasaction='ignore')
     writer.writeheader()
     for row in rows:
+        row = dict(row)
+        for key in ('parent_context', 'filter_evidence'):
+            if isinstance(row.get(key), (list, dict)):
+                row[key] = json.dumps(row[key], ensure_ascii=False)
         safe = {k: ("'" + str(v) if str(v).lstrip().startswith(('=', '+', '-', '@')) else v)
                 for k, v in row.items() if k in columns}
         writer.writerow(safe)
@@ -262,7 +186,15 @@ def parse_import(content, filename):
         if automatic:
             if row.get('text_hash') != text_hash(row['text_raw']):
                 raise ValueError(f'Dòng {index + 1}: nhãn tự động phải có hash đúng với nội dung.')
+            # Reconciled semantic decisions and SVM labels have no calibrated
+            # probability. Preserve missing scores rather than inventing one.
+            unscored = (row.get('model_score') in (None, '') and row.get('label_threshold') in (None, '')
+                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic')
+                        and row.get('needs_review') in (True, 'True', 'true'))
             for name in ('model_score', 'label_threshold'):
+                if unscored:
+                    label_metadata[name] = None
+                    continue
                 value = row.get(name)
                 if is_csv:
                     try:

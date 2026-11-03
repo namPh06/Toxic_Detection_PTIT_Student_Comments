@@ -1,0 +1,160 @@
+{
+  "policy_version": "ptit-v3.2-friendly-banter-20261031",
+  "method": "Frozen predictions and previously trained candidate, no fit or threshold tuning; only user-confirmed labels",
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "workspace_sha256": "4e6086ace65247fc7ab3edc316b3e3269a85d8d8ad3e462adeb5bace6ff705c3",
+  "canonical_sha256": "2167b38096a7adb98e15559e44ce990cace9b38f6fc74f7482c2b344a73202b2",
+  "baseline_predictions_sha256": "f912584c9094badd9ec5b7fe9e49b7727b7de1d6f6ec86259612f62cb700c162",
+  "candidate_sha256": "7639d31c0d4425f2f5b94a5cb8085e85def5873dcd1c3e7cc26944761bbacc9e",
+  "model_assets": {
+    "model.onnx": true,
+    "tokenizer.json": true
+  },
+  "total_human": 981,
+  "development": {
+    "n": 946,
+    "accuracy": 0.7399577167019028,
+    "precision": 0.2421875,
+    "recall": 0.543859649122807,
+    "macro_f1": 0.5867528500905637,
+    "confusion_matrix": [
+      [
+        638,
+        194
+      ],
+      [
+        52,
+        62
+      ]
+    ],
+    "toxic_support": 114,
+    "non_toxic_support": 832,
+    "correct": 700,
+    "accuracy_wilson95": [
+      0.7110739891510979,
+      0.766900514682077
+    ],
+    "toxic_recall_wilson95": [
+      0.45249119322970494,
+      0.6323685844756601
+    ],
+    "review_routing": {
+      "flagged": 449,
+      "unflagged": 497,
+      "errors_flagged": 183,
+      "errors_unflagged": 63,
+      "unflagged_accuracy": 0.8732394366197183
+    }
+  },
+  "reserved_posts": {
+    "n": 35,
+    "accuracy": 0.9714285714285714,
+    "precision": 0.5,
+    "recall": 1.0,
+    "macro_f1": 0.8258706467661692,
+    "confusion_matrix": [
+      [
+        33,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "toxic_support": 1,
+    "non_toxic_support": 34,
+    "correct": 34,
+    "accuracy_wilson95": [
+      0.8546691276638682,
+      0.9949385081445558
+    ],
+    "toxic_recall_wilson95": [
+      0.20654931437724644,
+      0.9999999999999999
+    ],
+    "review_routing": {
+      "flagged": 0,
+      "unflagged": 35,
+      "errors_flagged": 0,
+      "errors_unflagged": 1,
+      "unflagged_accuracy": 0.9714285714285714
+    }
+  },
+  "all_human_diagnostic": {
+    "n": 981,
+    "accuracy": 0.7482161060142711,
+    "precision": 0.2441860465116279,
+    "recall": 0.5478260869565217,
+    "macro_f1": 0.5911789666558123,
+    "confusion_matrix": [
+      [
+        671,
+        195
+      ],
+      [
+        52,
+        63
+      ]
+    ],
+    "toxic_support": 115,
+    "non_toxic_support": 866,
+    "correct": 734,
+    "accuracy_wilson95": [
+      0.7201229482596585,
+      0.7743728872255391
+    ],
+    "toxic_recall_wilson95": [
+      0.4567842714432987,
+      0.6357760194615497
+    ],
+    "review_routing": {
+      "flagged": 449,
+      "unflagged": 532,
+      "errors_flagged": 183,
+      "errors_unflagged": 64,
+      "unflagged_accuracy": 0.8796992481203008
+    }
+  },
+  "old_candidate_reserved": {
+    "n": 35,
+    "accuracy": 0.9714285714285714,
+    "precision": 0.5,
+    "recall": 1.0,
+    "macro_f1": 0.8258706467661692,
+    "confusion_matrix": [
+      [
+        33,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "toxic_support": 1,
+    "non_toxic_support": 34,
+    "correct": 34,
+    "accuracy_wilson95": [
+      0.8546691276638682,
+      0.9949385081445558
+    ],
+    "toxic_recall_wilson95": [
+      0.20654931437724644,
+      0.9999999999999999
+    ]
+  },
+  "frozen_200_human_labeled": 11,
+  "frozen_200_unlabeled": 189,
+  "no_training_post_overlap": true,
+  "no_source_or_workspace_changes": true,
+  "new_training": false,
+  "deployment_approved": false,
+  "limitations": [
+    "Human rows selected for difficult cases; not representative corpus accuracy.",
+    "Human labels were reviewed with AI assistance, not a fresh blind independent test.",
+    "Only part of the fixed 200-row validation sample has human labels. Do not fill others with AI labels.",
+    "Reserved diagnostic has small toxic support.",
+    "Old candidate uses v3.1 training, evaluated diagnostically against current v3.2 labels."
+  ]
+}

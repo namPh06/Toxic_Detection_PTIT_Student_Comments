@@ -1,0 +1,44 @@
+{
+  "rows": 4275,
+  "unique_ids": 4275,
+  "source_sha256": "e478f195be50d8fd842f22e49c2b4d19f54563d3c00d4b30a6b180f1f006df00",
+  "workspace_sha256": "84d02604495558fe8206a642ce10ace5d45fe745621564647facdd7c51d86c24",
+  "counts": {
+    "non-toxic": 3755,
+    "needs_context": 416,
+    "toxic": 104
+  },
+  "queue_new": 416,
+  "queue_previous": 19,
+  "queue_total": 435,
+  "comparison": {
+    "agree": 3748,
+    "unresolved": 416,
+    "disagree": 111
+  },
+  "overlap_previous": 0,
+  "corpus_union": 5111,
+  "all_ai_unverified": true,
+  "all_content_hashes_match": true,
+  "new_training": false,
+  "paid_services_used": false,
+  "workspace_unchanged": true,
+  "source_unchanged": true,
+  "canonical_rows": 535,
+  "workbook": {
+    "exported": true,
+    "sheets": [
+      "Can_bo_sung_435",
+      "AI_4275",
+      "Huong_dan"
+    ],
+    "data_rows": [
+      435,
+      4275,
+      10
+    ],
+    "blank_user_inputs": true,
+    "visual_review": "All three sheets rendered and inspected; A-D detail ranges and full guide.",
+    "formula_error_scan_matches": 0
+  }
+}

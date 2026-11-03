@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "rows_checked": 5936,
+  "human_labels_verified": 946,
+  "checks": [
+    "source hashes unchanged",
+    "all target texts and parent order preserved",
+    "all punctuation and emoji preserved through segmentation",
+    "model input hashes verified",
+    "canonical labels matched exactly",
+    "negation/profanity/emoticon/ZWJ edge cases preserved"
+  ],
+  "model_accuracy_evaluated": false
+}

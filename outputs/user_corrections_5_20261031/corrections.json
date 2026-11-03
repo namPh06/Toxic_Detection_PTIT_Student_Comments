@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "id": "31ca8d1b701fd49c513388d5",
+      "text_hash": "0e0101cb0eeb4037449b12e2a589c26acafe64d3b2663f38b33b9c07d6b1da3b",
+      "review_cell": "Can_bo_sung_435!B68",
+      "previous_label": "non-toxic",
+      "reference_label": "toxic",
+      "human_verified": true,
+      "reason": "Explicit user correction in chat",
+      "updated_at": "2026-10-31T07:24:08.544224+00:00"
+    },
+    {
+      "id": "8780f878b985a9d323a915bd",
+      "text_hash": "4c2fe52c20f7685bfde22cf33774687d781b45b55068abf1e7f5ce051a9ea565",
+      "review_cell": "Can_bo_sung_435!B81",
+      "previous_label": "non-toxic",
+      "reference_label": "toxic",
+      "human_verified": true,
+      "reason": "Explicit user correction in chat",
+      "updated_at": "2026-10-31T07:24:08.544224+00:00"
+    },
+    {
+      "id": "17df834229ca71ce98c213e2",
+      "text_hash": "f37629b655af5c6d61b440a5e14a6756424fc9d29eb082d8c3663a5aa388aaa2",
+      "review_cell": "Can_bo_sung_435!B85",
+      "previous_label": "non-toxic",
+      "reference_label": "toxic",
+      "human_verified": true,
+      "reason": "Explicit user correction in chat",
+      "updated_at": "2026-10-31T07:24:08.544224+00:00"
+    },
+    {
+      "id": "47952a186f83394ac7fb434c",
+      "text_hash": "b649725a57d97a23df99563c030fa845fc79a69fe86325e6bed1a739e6f5c8e8",
+      "review_cell": "Can_bo_sung_435!B113",
+      "previous_label": "non-toxic",
+      "reference_label": "toxic",
+      "human_verified": true,
+      "reason": "Explicit user correction in chat",
+      "updated_at": "2026-10-31T07:24:08.544224+00:00"
+    },
+    {
+      "id": "6e53260e9af885896e587e7e",
+      "text_hash": "b800f293dc4afa65ef07cd2580d23fe5d03bb68f28498693dd935ae913971151",
+      "review_cell": "Can_bo_sung_435!B122",
+      "previous_label": "non-toxic",
+      "reference_label": "toxic",
+      "human_verified": true,
+      "reason": "Explicit user correction in chat",
+      "updated_at": "2026-10-31T07:24:08.544224+00:00"
+    }
+  ],
+  "workbook_sha256": "3b191d80d5594839035085be8a96b840339b3c5802c6bb7b9a658a2d7dc4af91"
+}

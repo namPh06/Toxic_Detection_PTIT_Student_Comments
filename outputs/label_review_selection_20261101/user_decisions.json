@@ -1,0 +1,189 @@
+{
+  "decisions": [
+    {
+      "number": 1,
+      "id": "4cab82ea5654e379536822d9",
+      "comment": "Hà_Dũng_Anh bố m Nguyễn Văn Thành giỏi chan bố m đi",
+      "previous_label": "toxic",
+      "label": "toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 2,
+      "id": "32848890c46f9078c99bca64",
+      "comment": "Người tham gia ẩn danh 304 thg đb nào cứ tag a vào mấy bài này vậy:))",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": true
+    },
+    {
+      "number": 3,
+      "id": "80891c23d3e10b37765ae0ff",
+      "comment": "Nguyễn Nam bạn bị lâu chưa",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Đây là câu đùa",
+      "changed": false
+    },
+    {
+      "number": 4,
+      "id": "cd1a7d137233712c8a8db805",
+      "comment": "Trường kỳ này xếp lịch ngáo vc, trùng mất mấy cái thực hành",
+      "previous_label": "toxic",
+      "label": "toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 5,
+      "id": "327d1ae9c296a4d3c0cd92a8",
+      "comment": "Quaq Tam cao đẳng bưu điện hà đông trường to bự học phí rẻ csvc quá tốt quá tuyệt vời",
+      "previous_label": "toxic",
+      "label": "toxic",
+      "reason": "Mỉa mai gọi trường là cao đẳng",
+      "changed": false
+    },
+    {
+      "number": 6,
+      "id": "da0ed21b11e7091c07ccd812",
+      "comment": "Huyền Trangg học phí :))))",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Chưa có dấu hiệu chê",
+      "changed": false
+    },
+    {
+      "number": 7,
+      "id": "a14aa86890da74f674ce3b4e",
+      "comment": "Quaq Tam trường bé tí hạnh phúc to rời xa trường tớ cảm thấy nhớ bưu điện ôi bưu điện ơiii",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Chưa đủ để cấu thành toxic",
+      "changed": false
+    },
+    {
+      "number": 8,
+      "id": "96a9f4c5891ecb7d6602f53c",
+      "comment": "Nói thế trường thiết kế thêm cái nhà xe nữa, tăng thêm học phí bây h",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Chỉ là một câu phàn nàn",
+      "changed": true
+    },
+    {
+      "number": 9,
+      "id": "1aa4efe3cb31a6016989ff82",
+      "comment": "Vậy thì ko có chuyện 73 đâu. Bạn coi lại đi chứ có vấn đề đấy. Năm ngoái mk ko đi sự kiện, chỉ share bài + đóng góp gpa xs cũng đã 83 drl rồi. Chênh nhau tận 10 điểm như này khả năng bạn bị sao r",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 10,
+      "id": "16123b35ffdf8f6e31f71e6b",
+      "comment": "chân_đèn_trừ_nửa thằng lớp trưởng chơi bẩn, nó xóa. Hoặc bạn đánh giá nhầm, thiếu, cái phần đó tự đièn",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": true
+    },
+    {
+      "number": 11,
+      "id": "4fd3143cb3ad6c56798dd416",
+      "comment": "Pham Hai Minh học bố minh dc ko :)))",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 12,
+      "id": "e56094018b6ef220b3e8217c",
+      "comment": "Thành An m miệt thị giọng cười t à",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 13,
+      "id": "b9d875a64036fb89c06362a4",
+      "comment": "Pham Van Kien confirm là thằng Nguyễn Sỹ Hoàng trap boiz, tệ, xấu xa nhỉ",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Câu đùa",
+      "changed": true
+    },
+    {
+      "number": 14,
+      "id": "afb935ef9fa16fd457cd8638",
+      "comment": "Người tham gia ẩn danh 586 clm lòi thêm thg đb nào đây",
+      "previous_label": "toxic",
+      "label": "toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 15,
+      "id": "d7d243229e1170fcf3654384",
+      "comment": "Xem và nộp học phí ở đâu vậy các bạn nhỉ, app thông báo khó nhìn quá.",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 16,
+      "id": "90190743d4e4d5fbebd4a997",
+      "comment": "Vũ Huy nghèo lớm tiền đâu nuôi vợ thằng khác",
+      "previous_label": "non-toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": false
+    },
+    {
+      "number": 17,
+      "id": "17d2589aefe1b0d39cbff87f",
+      "comment": "Triệu TuấnAnh Bùi Nam Hưng rác sita",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": true
+    },
+    {
+      "number": 18,
+      "id": "ef8e532dac9dc1012bf98d91",
+      "comment": "Trường thuê tts bên kiến trúc sang cho tiết kiệm đấy à",
+      "previous_label": "toxic",
+      "label": "non-toxic",
+      "reason": "Người phụ trách xác nhận trực tiếp",
+      "changed": true
+    }
+  ],
+  "changed": 6,
+  "labels": {
+    "non-toxic": 4897,
+    "toxic": 214
+  },
+  "human_labels": {
+    "non-toxic": 846,
+    "toxic": 118
+  },
+  "automatic_labels": {
+    "non-toxic": 4051,
+    "toxic": 96
+  },
+  "total_ready": 5111,
+  "toxic_percent": 4.187047544511837,
+  "workspace_before_sha256": "54330037502ba61a964c5c268ec633df98b7af5407afe5220a8d65cf59d2c521",
+  "verification": {
+    "unrelated_annotations_unchanged": true,
+    "quality_counts_unchanged": true,
+    "raw_unchanged": true
+  },
+  "audit_note": "Targeted decisions are development annotations, not independent blind test results. Frozen audit manifests remain historical; do not overwrite their source hashes.",
+  "workspace_after_sha256": "29bcf725166ac9ab5b4f57d7c9bc74b8b3b556d993cbd65a03d1f5b737b2684d"
+}

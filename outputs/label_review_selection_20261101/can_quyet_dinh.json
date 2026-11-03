@@ -1,0 +1,369 @@
+{
+  "workspace_sha256": "54330037502ba61a964c5c268ec633df98b7af5407afe5220a8d65cf59d2c521",
+  "rows": [
+    {
+      "number": 1,
+      "id": "4cab82ea5654e379536822d9",
+      "text_hash": "2882447c7f6e309beb4e4ec4ce9c24ccc34a13b0c99b18d0a3bba4ed42e37245",
+      "comment": "Hà_Dũng_Anh bố m Nguyễn Văn Thành giỏi chan bố m đi",
+      "label": "toxic",
+      "reason": "Cách gọi bố m là công kích hay trêu đùa có căn cứ?",
+      "post": "Cho mình hỏi ở đây được để xe à mọi người, mình thấy nhiều người để ở đây được, có mất tiền không ạ @nêu bật",
+      "parents": [
+        "Sao bảo kh up ẩn danh ?"
+      ],
+      "post_reference": "1296642605878247",
+      "comment_reference": "1296777905864717",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 2,
+      "id": "32848890c46f9078c99bca64",
+      "text_hash": "7b0f292bdfc2b60109f528bf46a971d303bec9c595141a37fb86fdde5bcb9b79",
+      "comment": "Người tham gia ẩn danh 304 thg đb nào cứ tag a vào mấy bài này vậy:))",
+      "label": "non-toxic",
+      "reason": "Lời tục nhắm vào người quen: công kích hay đùa?",
+      "post": "mng ơi e d26 tháng sau học quân sự mà e gặp vấn đề này thì xin hoãn được ko ạ",
+      "parents": [
+        "Võ Thanh Quang bạn đúng k"
+      ],
+      "post_reference": "1290583203150854",
+      "comment_reference": "1290779219797919",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 3,
+      "id": "80891c23d3e10b37765ae0ff",
+      "text_hash": "3760b98fa88cdad78d9751353e5f31d0f3c3c5e2142d01dd0f3a4f51d6a03b6b",
+      "comment": "Nguyễn Nam bạn bị lâu chưa",
+      "label": "non-toxic",
+      "reason": "Hỏi tình trạng sức khỏe thật hay câu mỉa mai?",
+      "post": "mng ơi e d26 tháng sau học quân sự mà e gặp vấn đề này thì xin hoãn được ko ạ",
+      "parents": [],
+      "post_reference": "1290583203150854",
+      "comment_reference": "1291277629748078",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Đây là câu đùa"
+    },
+    {
+      "number": 4,
+      "id": "cd1a7d137233712c8a8db805",
+      "text_hash": "a2e4753bd0f61850a353aafffb6edcbd471837a479d1cee06f5d54e77d61509e",
+      "comment": "Trường kỳ này xếp lịch ngáo vc, trùng mất mấy cái thực hành",
+      "label": "toxic",
+      "reason": "Chê trường hay góp ý cụ thể về lịch thực hành bị trùng?",
+      "post": "anh chị cho em hỏi nếu bị trùng như này thì sao ạ",
+      "parents": [],
+      "post_reference": "1297220252487149",
+      "comment_reference": "1297474885795019",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 5,
+      "id": "327d1ae9c296a4d3c0cd92a8",
+      "text_hash": "486463e916a8cf759a5b95f0083fe699b997d920ee3cddcdc370a9d3aee70574",
+      "comment": "Quaq Tam cao đẳng bưu điện hà đông trường to bự học phí rẻ csvc quá tốt quá tuyệt vời",
+      "label": "toxic",
+      "reason": "Khen thật hay mỉa mai học phí và cơ sở vật chất?",
+      "post": "Mn ơi, môn này mình không điểm danh 2 lần rồi, ưu tiên cho mình với 😭",
+      "parents": [],
+      "post_reference": "pfbid02e7ciDrsx5B6oZ28Kg15yGABcbHBn8X9QX1tkjcxcE4ofW1XXAH2M26yczmZb8moYl",
+      "comment_reference": "Y29tbWVudDoxNjUzMjIxMzYwMTUwNzgzXzEwNTYzNjg3MjA1MTU1Njg=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Mỉa mai gọi trường là cao đẳng"
+    },
+    {
+      "number": 6,
+      "id": "da0ed21b11e7091c07ccd812",
+      "text_hash": "dcda1c0d76051082fdac9153b2af9a2a89f42defac775e783a1a4c96fe2891ed",
+      "comment": "Huyền Trangg học phí :))))",
+      "label": "non-toxic",
+      "reason": "Chỉ nhắc học phí hay ngầm chê?",
+      "post": "PLS 😭😭😭",
+      "parents": [],
+      "post_reference": "pfbid0emBjNoQart8Pib3HGKprm35YoD6DELgFq4b99Dit7GdibLN3517qwJXRcB7u15krl",
+      "comment_reference": "Y29tbWVudDoxNjUyNzc4ODIwMTk1MDM3XzEzOTc3NTczODg0MzQ3ODk=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Chưa có dấu hiệu chê"
+    },
+    {
+      "number": 7,
+      "id": "a14aa86890da74f674ce3b4e",
+      "text_hash": "be1cf2e9ded345373d49fa5d7fdfe8804ca799a0e56ebb6cb995f69fcf5105d8",
+      "comment": "Quaq Tam trường bé tí hạnh phúc to rời xa trường tớ cảm thấy nhớ bưu điện ôi bưu điện ơiii",
+      "label": "non-toxic",
+      "reason": "Đùa trìu mến về trường hay chê trường bé?",
+      "post": "❌ NÓNG ❌\nChiều nay ghi nhận nhiều bạn tân sinh viên D26 khóc mũi khóc dãi rời xa trường về quê sau 3 ngày gắn bó 😭",
+      "parents": [],
+      "post_reference": "pfbid02diFCJVNBQDY3yiVMaf7NxPr3o2YMii4EEinBk5DXu9kw1mysscMv1n3EH2cqVZiSl",
+      "comment_reference": "Y29tbWVudDoxNjQxNjQzODc0NjQxODY1XzEzOTc3OTEwNjkxNjU4NTI=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Chưa đủ để cấu thành toxic"
+    },
+    {
+      "number": 8,
+      "id": "96a9f4c5891ecb7d6602f53c",
+      "text_hash": "29700098a717e501534f4f5c9b03f606d831e9e048e80e5ed2edafaf097a6a71",
+      "comment": "Nói thế trường thiết kế thêm cái nhà xe nữa, tăng thêm học phí bây h",
+      "label": "non-toxic",
+      "reason": "Nhận xét dự đoán hay mỉa mai trường tăng học phí?",
+      "post": "POV: Bạn phải đóng học phí 1m2/tín để trường xây nhà xe nhưng vẫn phải để ở ngoài dầm mưa dãi nắng 🤣🫵",
+      "parents": [],
+      "post_reference": "pfbid0yXMZeBay8oduhVm5XnYcBdFn8JuHEi16edoccU9Yw62Cz3tGsnE2v2PHUM7yvHXPl",
+      "comment_reference": "Y29tbWVudDoxNjQxMDcxODg0Njk5MDY0XzExMTI1NDQ4Mjc3NjYzMjk=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Chỉ là một câu phàn nàn"
+    },
+    {
+      "number": 9,
+      "id": "1aa4efe3cb31a6016989ff82",
+      "text_hash": "899b2dd02b5ef5b210dab0c34b5150200517ff44abb74a68abf19d3d06e992a8",
+      "comment": "Vậy thì ko có chuyện 73 đâu. Bạn coi lại đi chứ có vấn đề đấy. Năm ngoái mk ko đi sự kiện, chỉ share bài + đóng góp gpa xs cũng đã 83 drl rồi. Chênh nhau tận 10 điểm như này khả năng bạn bị sao r",
+      "label": "non-toxic",
+      "reason": "Hướng dẫn kiểm tra điểm hay công kích ở câu kết?",
+      "post": "gpa 3.63 mà drl có 73 thì có xin cvht để chấm lên xíu để xét hb dc ko ạ 🥲 e chỉ ko đi các sự kiện thôi còn share bài, từ thiện đầy đủ hết",
+      "parents": [],
+      "post_reference": "1472092325027927",
+      "comment_reference": "1472590144978145",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 10,
+      "id": "16123b35ffdf8f6e31f71e6b",
+      "text_hash": "ea8e839a0e65713d2b1412cc045d09ff1342a79067c7131c258a8579f749a977",
+      "comment": "chân_đèn_trừ_nửa thằng lớp trưởng chơi bẩn, nó xóa. Hoặc bạn đánh giá nhầm, thiếu, cái phần đó tự đièn",
+      "label": "non-toxic",
+      "reason": "Nêu khả năng để giải thích hay cáo buộc, công kích lớp trưởng?",
+      "post": "gpa 3.63 mà drl có 73 thì có xin cvht để chấm lên xíu để xét hb dc ko ạ 🥲 e chỉ ko đi các sự kiện thôi còn share bài, từ thiện đầy đủ hết",
+      "parents": [
+        "Vậy thì ko có chuyện 73 đâu. Bạn coi lại đi chứ có vấn đề đấy. Năm ngoái mk ko đi sự kiện, chỉ share bài + đóng góp gpa xs cũng đã 83 drl rồi. Chênh nhau tận 10 điểm như này khả năng bạn bị sao r"
+      ],
+      "post_reference": "1472092325027927",
+      "comment_reference": "1472754198295073",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 11,
+      "id": "4fd3143cb3ad6c56798dd416",
+      "text_hash": "660f84928e73f4c2de512bbf93a427bb0489430ae676cb54eb4485a5c720dc07",
+      "comment": "Pham Hai Minh học bố minh dc ko :)))",
+      "label": "non-toxic",
+      "reason": "Đùa giữa người quen hay chế giễu?",
+      "post": "1. Linh kiện và mạch điện tử\n- Nguyễn Đức Minh\n- Nguyễn Tài Tuyên\n- Phạm Văn Sự\n2. Chủ nghĩa xã hội\n- Nguyễn Tài Quang\n3. Lý thuyết mạch\n- Nguyễn Thị Hương Thảo\n- Trương Minh Đức\n- Trần Thị Thục Linh + Trần Tuấn Anh\n4. Kỹ năng thuyết trình\n- Chung Hải Bằng\n- Vương Khánh Ly\n- Tạ Quốc Đạt\n5. Vật lý 2 và thí nghiệm\n- Hoàng Thị Thúy Liễu\n- Tô Thị Thảo\n- Hoàng Thị Lan Hương\n- Vũ Thị Hồng Nga\n6. Tín hiệu và hệ thống\n- Ngô Thị Thu Trang\n- Khuất Thị Hương\n- Nguyễn Thị Thu Hằng\nMng cho e xin ít review để chọn với ạ...",
+      "parents": [
+        "Pham Hai Minh linh kiện học ai đó :)))"
+      ],
+      "post_reference": "1207743941434781",
+      "comment_reference": "1208344434708065",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 12,
+      "id": "e56094018b6ef220b3e8217c",
+      "text_hash": "8ebdacfd709ce22d352193922b6169cee78446bfa7d4aba65c304e98028ba745",
+      "comment": "Thành An m miệt thị giọng cười t à",
+      "label": "non-toxic",
+      "reason": "Phản đối bị miệt thị hay tiếp tục công kích?",
+      "post": "OFFICIAL | CÔNG BỐ CUỘC THI \"ĐỊ BÁ KHÓ\" - ĐỌ BÁ KHÍ\nTổ chức bởi: Hội anti HV công nghệ BƯU ĐIỆN\n\n🔹 Thời gian sự kiện:\n➖ Từ ngày 20/9 -> 23:59 27/9\n\n🔹 Thể lệ tham gia:\n➖ Bước 1: Thực hiện chụp ảnh/quay video/... làm qq gì cũng được, miễn là thể hiện bá khí ngút trời. Trong đó nhân vật chính phải mặc áo đồng phục PTIT (bắt buộc).\n➖ Bước 2: Up ảnh + caption ngầu lòi bá khí tại group Hội Anti PTIT - Chuyên troll trường, joke trường và nói xấu trường. Không đăng ẩn danh. Cuối bài viết đính kèm <Hội anti PTIT>\n➖ Bước 3: Kêu gọi tương tác, và chờ t công bố kết quả\n\n🔹 Đối tượng tham gia:\n➖ Ai cũng được, miễn là có áo PTIT\n\n🔹 Phương thức chấm điểm:\n➖ 90% số điểm phụ thuộc vào lượt tương tác bài viết đó tại group\n➖ 10% số điểm sẽ do tôi chấm\nVà kết quả cuối cùng sẽ do tôi quyết định\n\n🔹 Phần quà:\n🥇 Giải nhất: 200k + 1 móc khóa\n🥈 Giải nhì: 100k + 1 móc khóa\n🥉 Giải bét: 50k + 1 móc khóa\nNếu người thắng giải là con trai, tặng thêm 1 nụ hôn lốc xoáy từ admin\n\n❗ Chú ý:\n1. Đây là cuộc thi mêm lỏ, wibu lỏ,... nên càng bựa càng hay\n2. T phát hiện tk nào dùng AI hay là buff tương tác là loại luôn\n3. FB sẽ cần thời gian phân phối các bài viết, vì vậy nên tham gia càng sớm càng tốt để có tg kéo tương tác\n4. Đây là cuộc thi giải trí do cá nhân tổ chức, không đại diện cho một tập thể hay tổ chức nào hết!\n\nChúc mn có 1 bài thi thật là bá khí !!",
+      "parents": [],
+      "post_reference": "pfbid02kDM7h4psDm69FVSn3NTv1Di8NT8yGbtLzqWBGGf4rvvvXYdD4aCdpJBZ4k9WvAGRl",
+      "comment_reference": "Y29tbWVudDoxNjYzMDM2OTQ1ODM1ODkxXzEwNjEzOTMxNzY4MDg4MjY=",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 13,
+      "id": "b9d875a64036fb89c06362a4",
+      "text_hash": "5f0de0b6f1c11a799170de0a0dd12144bdadefdf395913ce9030665ffe484a25",
+      "comment": "Pham Van Kien confirm là thằng Nguyễn Sỹ Hoàng trap boiz, tệ, xấu xa nhỉ",
+      "label": "non-toxic",
+      "reason": "Bêu xấu cá nhân hay trêu bạn có căn cứ?",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306461484896359",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Câu đùa"
+    },
+    {
+      "number": 14,
+      "id": "afb935ef9fa16fd457cd8638",
+      "text_hash": "625a4c3d60b6de3c8279cce96d85e6d1b72f5c7da1d7a5d0aa26b4ed9144cdad",
+      "comment": "Người tham gia ẩn danh 586 clm lòi thêm thg đb nào đây",
+      "label": "toxic",
+      "reason": "Công kích hay trêu đùa trong chuỗi hội thoại?",
+      "post": "Trai CNTT PTIT tệ lắm , xấu xa lắm 😞",
+      "parents": [
+        "Võ Thanh Quang Trần Đức Trung chịu 2 bạn rồi"
+      ],
+      "post_reference": "1306403111568863",
+      "comment_reference": "1306432811565893",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 15,
+      "id": "d7d243229e1170fcf3654384",
+      "text_hash": "6c3375f849f315100c402bb9582e46dd995479f1a094675f584810663172a3c9",
+      "comment": "Xem và nộp học phí ở đâu vậy các bạn nhỉ, app thông báo khó nhìn quá.",
+      "label": "non-toxic",
+      "reason": "Góp ý app khó nhìn hay chê dịch vụ của trường theo quy tắc riêng?",
+      "post": "Cái hạn 26/10 nộp học phí là năm nhất thôi đúng ko ạ, em năm 2 chưa thấy có thông báo nộp học phí",
+      "parents": [
+        "Cả trường mà b:)))"
+      ],
+      "post_reference": "1310634027812438",
+      "comment_reference": "1310768504465657",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 16,
+      "id": "90190743d4e4d5fbebd4a997",
+      "text_hash": "c7b6fef36c8913784861aa28fc9ad07d470ed8240975e7f98d4130f0610eea7e",
+      "comment": "Vũ Huy nghèo lớm tiền đâu nuôi vợ thằng khác",
+      "label": "non-toxic",
+      "reason": "Tự trào/đùa với người quen hay hạ nhục người khác?",
+      "post": "Có 1 thằng loser nuôi vợ thằng khác tên Phong Nguyễn(Kaze) thích tỏ vẻ thượng đẳng🤣🤣",
+      "parents": [
+        "Nguyễn Tuấn Phong á à"
+      ],
+      "post_reference": "1305271928348648",
+      "comment_reference": "1305382681670906",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown",
+        "parent_completeness_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 17,
+      "id": "17d2589aefe1b0d39cbff87f",
+      "text_hash": "a9728260ab8a074cd564dee21470fde2a7fd379f68bb381276a7d6676254c6ad",
+      "comment": "Triệu TuấnAnh Bùi Nam Hưng rác sita",
+      "label": "non-toxic",
+      "reason": "Từ rác đang công kích ai, hay là cách gọi/đùa có ngữ cảnh khác?",
+      "post": "râu nhí là như này à mọi người? hic hic còn khoa cntt",
+      "parents": [],
+      "post_reference": "1311271074415400",
+      "comment_reference": "1311346681074506",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    },
+    {
+      "number": 18,
+      "id": "ef8e532dac9dc1012bf98d91",
+      "text_hash": "fdd537669d9ad3cc15c233212814543d08789cc1649f809f3c21d89ab32a9de8",
+      "comment": "Trường thuê tts bên kiến trúc sang cho tiết kiệm đấy à",
+      "label": "non-toxic",
+      "reason": "Mỉa mai trường hay góp ý có lý do về thiết kế lối xuống?",
+      "post": "Mn ơi quanh đây có ai nhận dịch vụ cẩu xe từ tầng 3 xuống không ạ\nMình đứng im như này 15p rồi chưa dám xuống",
+      "parents": [],
+      "post_reference": "pfbid0uFzdb97SP4mVRzVbbyRsVJ6GTU8GXHVqi49UoojnBaDk1watKr7yTMpFe1NUwmy8l",
+      "comment_reference": "Y29tbWVudDoxNjU0Mzg3MDI2NzAwODgzXzk2MjI2MTU2MDI0MDExNw==",
+      "context_gaps": [],
+      "source_warnings": [
+        "target_completeness_unknown",
+        "comment_filter_unknown"
+      ],
+      "human_verified": true,
+      "user_reason": "Người phụ trách xác nhận trực tiếp"
+    }
+  ],
+  "decisions_file": "user_decisions.json"
+}
