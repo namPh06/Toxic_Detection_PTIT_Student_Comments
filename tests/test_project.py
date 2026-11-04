@@ -129,28 +129,27 @@ class ExperimentTests(unittest.TestCase):
         self.assertEqual(m['recall'], 1)
         self.assertAlmostEqual(m['precision'], 2 / 3)
 
-    def test_all_five_models_save_reload_predict_and_report(self):
+    def test_all_four_baselines_save_reload_predict_and_report(self):
         import joblib
         rows = prepare(fixture())
         with tempfile.TemporaryDirectory() as temp:
             directory = Path(temp) / 'experiment'
-            result = train_experiment(rows, directory, epochs=2)
-            self.assertEqual(len(result['models']), 5)
+            result = train_experiment(rows, directory)
+            self.assertEqual(len(result['models']), 4)
             self.assertEqual(result['selected_model'], max(result['models'], key=lambda m: m['validation']['f1_macro'])['name'])
             split = json.loads((directory / 'split.json').read_text())
             train_ids = {r['id'] for r in split['train']}
             train_tokens = {t for r in rows if r['id'] in train_ids for t in word_tokens(r['text_clean'])}
-            vocabulary = json.loads((directory / 'vocabulary.json').read_text(encoding='utf-8'))
-            self.assertEqual(set(vocabulary), train_tokens)
+            self.assertFalse((directory / 'vocabulary.json').exists())
             for model in result['models']:
                 prediction = predict('cảm ơn bạn chia sẻ thông tin', directory, model['name'])
                 self.assertIn(prediction['label'], ('toxic', 'non-toxic'))
                 self.assertEqual(sum(map(sum, model['test']['confusion_matrix'])), result['split']['test']['count'])
-                if model['name'] != 'TextCNN':
-                    fitted = joblib.load(directory / (model['name'] + '.joblib'))
-                    self.assertTrue(set(fitted['vectorizer'].vocabulary_) <= train_tokens | {a+' '+b for r in rows if r['id'] in train_ids for a,b in zip(word_tokens(r['text_clean']),word_tokens(r['text_clean'])[1:])})
+                fitted = joblib.load(directory / (model['name'] + '.joblib'))
+                self.assertTrue(set(fitted['vectorizer'].vocabulary_) <= train_tokens | {a+' '+b for r in rows if r['id'] in train_ids for a,b in zip(word_tokens(r['text_clean']),word_tokens(r['text_clean'])[1:])})
             report = (directory / 'report.md').read_text(encoding='utf-8')
-            self.assertIn('TextCNN', report)
+            self.assertEqual({m['name'] for m in result['models']}, {'BoW-NB', 'BoW-SVM', 'TF-IDF-NB', 'TF-IDF-SVM'})
+            self.assertIn('ViSoBERT', report)
             self.assertIn('|\n|---', report)
             self.assertIn('đã thay đổi', build_report(prepare(fixture()[:-1]), result))
             result['summary']['label_sources'] = {'automatic': len(rows)}
@@ -331,9 +330,13 @@ class HTTPTests(unittest.TestCase):
     def test_bulk_endpoint_and_automatic_exports(self):
         import time
         from tests.test_bulk_labeling import BulkLabelingTests
+        from labeling import automatic_annotation
+        def contextual_fixture(selected, *_):
+            for row, item in zip(selected, BulkLabelingTests.generate(selected)):
+                yield row, dict(automatic_annotation(item), excluded=False)
         rows = [dict(r, label='') for r in fixture()[:30]]
         with tempfile.TemporaryDirectory() as temp, patch.object(self.app, 'LAB', Lab(Path(temp), lambda: rows)), \
-                patch('labeling.generate_suggestions', side_effect=BulkLabelingTests.generate):
+                patch('contextual_annotation.generate_annotations', side_effect=contextual_fixture):
             self.assertEqual(self.request('/api/auto-label', {}, origin=False)[0], 403)
             status, body = self.request('/api/auto-label', {})
             self.assertEqual(status, 200)
@@ -343,7 +346,7 @@ class HTTPTests(unittest.TestCase):
                 time.sleep(.02)
             self.assertFalse(self.app.LAB.annotation_job['running'])
             self.assertFalse(self.app.LAB.annotation_job['error'])
-            self.assertEqual(self.request('/api/dataset.json')[0], 400)
+            self.assertEqual(self.request('/api/dataset.json')[0], 200)
             status, body = self.request('/api/dataset-auto.json')
             self.assertEqual(status, 200)
             exported = json.loads(body)

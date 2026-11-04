@@ -14,11 +14,11 @@ LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
 STOP_WORDS = frozenset(('các', 'những'))
 TEENCODE = {'ko': 'không', 'khum': 'không', 'hong': 'không',
-            'hok': 'không', 'dc': 'được', 'đc': 'được', 'mn': 'mọi người',
-            'mik': 'mình', 'mk': 'mình', 'bn': 'bạn', 'ntn': 'như thế nào'}
+            'hok': 'không', 'đc': 'được', 'mn': 'mọi người',
+            'mik': 'mình', 'ntn': 'như thế nào', 'khg': 'không', 'k0': 'không'}
 UI_ONLY = re.compile(r'^(?:thích|like|trả lời|reply|xem bản dịch|see translation|'
                      r'\d+\s*(?:phút|giờ|ngày|tuần|tháng|năm)(?: trước)?)$', re.I)
-PREPROCESS_VERSION = 'ptit-v2-preserve-meaning-20261103'
+PREPROCESS_VERSION = 'ptit-v4-contextual-dc-20261105'
 TOKENIZER_VERSION = 'underthesea-9.5.0-v1'
 
 
@@ -55,8 +55,26 @@ def input_fingerprint(rows):
     return text_hash(json.dumps(sorted((r['id'], r.get('text_raw', '')) for r in rows), ensure_ascii=False))
 
 
+def normalize_teencode(value):
+    """A separate view, never overwrite raw input; leave unknown meanings intact."""
+    text = unicodedata.normalize('NFC', str(value or ''))
+    # Narrow local cues only. In particular m is never inferred as mình/mày.
+    patterns = (
+        (r'\b(?P<prefix>quên\s+)mk(?=\s+(?:đăng nhập|tài khoản)\b)', r'\g<prefix>mật khẩu'),
+        (r'\bmk(?=\s+(?:đang học|đi học)\b)', 'mình'),
+        (r'\bbn(?=\s+(?:tiền|tín chỉ)\b)', 'bao nhiêu'),
+        (r'\bbn(?=\s+có đi học\b)', 'bạn'),
+        (r'\b(?P<prefix>làm\s+)dc(?=\s+bài\b)', r'\g<prefix>được'),
+        (r'\b(?P<prefix>(?:xin|tìm)\s+)dc(?=\s+việc\b)', r'\g<prefix>được'),
+        (r'\b(?P<prefix>(?:đổi|học|thi|đăng ký|đăng kí|nhận|vào|ra)\s+)dc(?=\s|[?.!,]|$)', r'\g<prefix>được'),
+    )
+    for pattern, replacement in patterns:
+        text = re.sub(pattern, replacement, text, flags=re.I)
+    return re.sub(r'\b\w+\b', lambda m: TEENCODE.get(m[0].lower(), m[0]), text)
+
+
 def clean_text(value, *, remove_stopwords=True):
-    text = unicodedata.normalize('NFC', html.unescape(str(value or ''))).lower()
+    text = normalize_teencode(html.unescape(str(value or ''))).lower()
     text = re.sub(r'<(?:/?(?:div|span|p|br|a|b|i|strong))\b[^>]*>', ' ', text)
     text = re.sub(r'[\u200b\u200c\ufeff]', '', text)
     text = re.sub(r'(?<=\w)\u200d(?=\w)', '', text)
@@ -69,7 +87,7 @@ def clean_text(value, *, remove_stopwords=True):
     text = re.sub(r'[:=]-?\({2,}', ' emoticon_sad ', text)
     # Preserve emoji modifiers, variation selectors and joined emoji sequences.
     modifier = r'[\ufe0e\ufe0f\U0001f3fb-\U0001f3ff]?'
-    tokens = re.findall(r'[0-9#*]\ufe0f?\u20e3|[\U0001f1e6-\U0001f1ff]{2}|\w+|'
+    tokens = re.findall(r'[0-9#*]\ufe0f?\u20e3|[\U0001f1e6-\U0001f1ff]{2}|\w+(?:\+\+|#)?|'
                         rf'[^\w\s\u200d]{modifier}(?:\u200d[^\w\s]{modifier})*', text)
     # Keep negation, accents, profanity and emoji: they can change the target label.
     tokens = [expanded for t in tokens for expanded in TEENCODE.get(t, t).split()
@@ -101,6 +119,7 @@ def prepare(rows, annotations=None):
             row[key] = (annotation.get(key) if annotation else row.get(key)) if row['label_source'] == 'automatic' else None
         row['annotation_note'] = annotation.get('note', row.get('annotation_note', ''))
         row['excluded'] = annotation.get('excluded', row.get('excluded', False))
+        row['text_normalized'] = normalize_teencode(row.get('text_raw', ''))
         row['text_clean'] = clean_text(row.get('text_raw', ''))
         raw = str(row.get('text_raw', '')).strip()
         if row['excluded']:
@@ -150,7 +169,7 @@ def fingerprint(rows):
 
 def csv_bytes(rows):
     output = io.StringIO(newline='')
-    columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_clean',
+    columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_normalized', 'text_clean',
                'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
                'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', 'label_policy_version', 'human_verified', 'label_usable', 'label_approved', 'label_approval_method', *LABEL_METADATA]

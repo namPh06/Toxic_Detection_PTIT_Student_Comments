@@ -457,6 +457,51 @@ class Handler(BaseHTTPRequestHandler):
     def json(self, body, code=200):
         self.send(json.dumps(body, ensure_ascii=False).encode(), 'application/json;charset=utf-8', code)
 
+    def send_video(self, path, download=False):
+        """Stream MP4 with byte ranges so native players can seek."""
+        import re
+        size = path.stat().st_size
+        start, end, code = 0, size - 1, 200
+        requested = self.headers.get('Range')
+        if requested:
+            match = re.fullmatch(r'bytes=(\d*)-(\d*)', requested)
+            if not match or not any(match.groups()):
+                self.send(b'Invalid range', 'text/plain', 416)
+                return
+            left, right = match.groups()
+            if left:
+                start = int(left)
+                end = min(int(right), end) if right else end
+            else:
+                start = max(0, size - int(right))
+            if start > end or start >= size:
+                self.send_response(416)
+                self.send_header('Content-Range', f'bytes */{size}')
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
+            code = 206
+        self.send_response(code)
+        self.send_header('Content-Type', 'video/mp4')
+        self.send_header('Accept-Ranges', 'bytes')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('Cache-Control', 'no-store')
+        if code == 206:
+            self.send_header('Content-Range', f'bytes {start}-{end}/{size}')
+        if download:
+            self.send_header('Content-Disposition', 'attachment; filename="pipeline.mp4"')
+        self.send_header('Content-Length', str(end - start + 1))
+        self.end_headers()
+        with path.open('rb') as stream:
+            stream.seek(start)
+            remaining = end - start + 1
+            while remaining:
+                block = stream.read(min(65536, remaining))
+                if not block:
+                    break
+                self.wfile.write(block)
+                remaining -= len(block)
+
     def valid_host(self):
         if self.headers.get('Host') != f'127.0.0.1:{self.server.server_port}':
             self.send(b'Forbidden host', 'text/plain', 403)
@@ -481,6 +526,8 @@ class Handler(BaseHTTPRequestHandler):
         static = {
             '/': ('index.html', 'text/html'),
             '/ui.js': ('ui.js', 'text/javascript'),
+            '/pipeline.js': ('pipeline.js', 'text/javascript'),
+            '/report-video.js': ('report-video.js', 'text/javascript'),
             '/style.css': ('style.css', 'text/css'),
             '/assets/fonts/be-vietnam-pro-400.ttf': ('assets/fonts/be-vietnam-pro-400.ttf', 'font/ttf'),
             '/assets/fonts/be-vietnam-pro-500.ttf': ('assets/fonts/be-vietnam-pro-500.ttf', 'font/ttf'),
@@ -490,6 +537,19 @@ class Handler(BaseHTTPRequestHandler):
         if path in static:
             filename, kind = static[path]
             self.send((ROOT / filename).read_bytes(), kind + ';charset=utf-8')
+        elif path == '/api/system-report-video':
+            from system_report_video import STORE
+            self.json(STORE.status())
+        elif path == '/api/system-report-video.mp4':
+            from system_report_video import STORE
+            self.send_video(STORE.video_path(query.get('id', [''])[0]), download='download' in query)
+        elif path == '/api/pipeline-video':
+            import pipeline_video
+            self.json(pipeline_video.status(query.get('id', [''])[0]))
+        elif path == '/api/pipeline-video.mp4':
+            import pipeline_video
+            video = pipeline_video.video_path(query.get('id', [''])[0])
+            self.send_video(video, download='download' in query)
         elif path == '/favicon.ico':
             self.send(b'', 'image/x-icon', 204)
         elif path == '/status':
@@ -623,6 +683,15 @@ class Handler(BaseHTTPRequestHandler):
             return LAB.start_features(body)
         elif self.path == '/api/predict':
             return LAB.predict(body)
+        elif self.path == '/api/system-report-video':
+            from system_report_video import STORE
+            return STORE.enqueue(retry=True)
+        elif self.path == '/api/pipeline-video':
+            import pipeline_video
+            answer = LAB.predict(dict(text=body.get('text'), model=body.get('model'), explain=True))
+            if answer['trace']['run'] != body.get('run'):
+                raise ValueError('Mô hình đã thay đổi. Phân loại lại trước khi tạo video.')
+            return pipeline_video.start(answer['trace'])
         else:
             self.send(b'Not found', 'text/plain', 404)
             return
@@ -638,6 +707,13 @@ if __name__ == '__main__':
         print('Cong 8767 dang bi chiem. Hay dong cua so MO_CONG_CU.cmd cu (Ctrl+C), roi mo lai. Dong tab web khong tat chuong trinh cu.')
         raise SystemExit(1)
     restore()
+    # Rendering runs in one background worker; a cached report is immediately playable.
+    try:
+        from system_report_video import STORE
+        if (DATA / 'latest.json').exists():
+            STORE.enqueue()
+    except Exception as error:
+        print(f'Video bao cao chua san sang: {error}', flush=True)
     if not args.no_browser:
         webbrowser.open('http://127.0.0.1:8767/')
     print('PTIT Comment Lab: http://127.0.0.1:8767/', flush=True)

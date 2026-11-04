@@ -7,13 +7,15 @@ let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, to
 const reviewDrafts = new Map();
 let featureConfigInitialized=false, featurePreviewRequest=0, featurePreviewVersion='', featurePreviewIndex=0;
 function featureSettings(){
-  return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),embedding:'word2vec',word2vec_path:'',embedding_trainable:true};
+  return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),char_features:$('feature-char').checked};
 }
 function featureConfigDirty(state){
-  return !!state?.result&&JSON.stringify(featureSettings())!==JSON.stringify(state.result.settings);
+  if(!state?.result)return false;
+  const current=featureSettings(),saved={char_features:false,...state.result.settings};
+  return Object.keys(current).some(key=>JSON.stringify(current[key])!==JSON.stringify(saved[key]));
 }
 function featuresReady(status){return !!status?.features?.ready&&!featureConfigDirty(status.features);}
-function selectedAlgorithms(){return [['training-nb','NB'],['training-svm','SVM'],['training-cnn','TextCNN'],['training-visobert','ViSoBERT']].filter(([id])=>$(id).checked).map(([,name])=>name);}
+function selectedAlgorithms(){return [['training-nb','NB'],['training-svm','SVM'],['training-visobert','ViSoBERT']].filter(([id])=>$(id).checked).map(([,name])=>name);}
 function trainingDisabled(status){return !selectedAlgorithms().length||!status||status.job.running||status.annotation_job?.running||status.features?.job.running||status.dataset_health?.training_ready===false||!featuresReady(status);}
 function automaticCandidates(status){return status?.dataset_health?.automatic_candidates??Math.max(0,(status?.summary?.usable||0)-(status?.summary?.labeled||0));}
 function updateDataActions(status){
@@ -72,12 +74,12 @@ function renderStatus(status) {
   const s=status.summary, result=status.result;
   renderFeatureStatus(status);
   const methods=status.features?.result?.settings.methods||['BoW','TF-IDF'];
-  const algorithms=selectedAlgorithms(),nb=Number(algorithms.includes('NB')),svm=Number(algorithms.includes('SVM')),cnn=Number(algorithms.includes('TextCNN'));
-  const configCount=methods.length*(nb+svm)+cnn+Number(algorithms.includes('ViSoBERT'));
-  ['training-nb','training-svm','training-cnn'].forEach(id=>$(id).disabled=status.job.running);
+  const algorithms=selectedAlgorithms(),nb=Number(algorithms.includes('NB')),svm=Number(algorithms.includes('SVM'));
+  const configCount=methods.length*(nb+svm)+Number(algorithms.includes('ViSoBERT'));
+  ['training-nb','training-svm'].forEach(id=>$(id).disabled=status.job.running);
   $('training-visobert').disabled=status.job.running;
   const compute=status.compute||{device:'cpu',name:'CPU'};
-  $('training-device').textContent=`TextCNN / ViSoBERT: ${compute.device==='cuda'?'GPU · '+compute.name:'CPU (CUDA chưa khả dụng)'}. Naive Bayes / SVM: CPU.`;
+  $('training-device').textContent=`ViSoBERT: ${compute.device==='cuda'?'GPU · '+compute.name:'CPU (CUDA chưa khả dụng)'}. Naive Bayes / SVM: CPU.`;
   $('total').textContent=number(s.total);$('usable').textContent=number(s.usable);$('labeled').textContent=number(s.labeled);
   $('post-count').textContent=`Từ ${number(s.posts)} bài viết`;
   $('label-percent').textContent=`${s.usable?(100*s.labeled/s.usable).toFixed(1):0}% mẫu sạch đã có nhãn`;
@@ -101,11 +103,8 @@ function renderStatus(status) {
   $('train').disabled=trainingDisabled(status);
   $('train').textContent=status.job.running?'Đang huấn luyện…':`Huấn luyện ${configCount} cấu hình`;
   $('training-config-count').textContent=`${configCount} cấu hình`;
-  $('training-feature-names').textContent=$('training-config-features').textContent=[...(nb||svm?methods:[]),...(cnn?['Embeddings']:[]),...(algorithms.includes('ViSoBERT')?['ViSoBERT tokenizer']:[])].join(' · ');
-  const embedding=status.features?.result?.embedding;
-  $('training-embedding').textContent=embedding?`TextCNN sẽ dùng ${embedding.source}, ${embedding.dimensions} chiều, ${embedding.trainable?'cho embedding học tiếp':'giữ cố định embedding'}.`:'Trích xuất lại đặc trưng để chuẩn bị Word2Vec cho TextCNN. Công cụ tự tải PhoW2V nếu máy chưa có và cho embedding học tiếp khi huấn luyện.';
-  $('training-embedding').hidden=!cnn;
-  document.querySelectorAll('.model-cards article').forEach((card,i)=>{card.hidden=i<4?(!methods.includes(i<2?'BoW':'TF-IDF')||!algorithms.includes(i%2?'SVM':'NB')):!algorithms.includes(i===4?'TextCNN':'ViSoBERT');});
+  $('training-feature-names').textContent=$('training-config-features').textContent=[...(nb||svm?methods:[]),...(algorithms.includes('ViSoBERT')?['ViSoBERT tokenizer']:[])].join(' · ');
+  document.querySelectorAll('.model-cards article').forEach((card,i)=>{card.hidden=i<4?(!methods.includes(i<2?'BoW':'TF-IDF')||!algorithms.includes(i%2?'SVM':'NB')):!algorithms.includes('ViSoBERT');});
   $('stale-warning').hidden=!status.stale;
   $('automatic-training-warning').hidden=!(health?.automatic||result?.summary?.label_sources?.automatic);
   $('model-empty').hidden=!!result;$('model-results').hidden=!result;$('predict-button').disabled=!result||status.job.running;
@@ -129,7 +128,7 @@ function renderResults(result) {
   const names=result.models.map(m=>m.name);
   if($('matrix-model').dataset.run!==result.created_at){$('matrix-model').innerHTML=names.map(n=>`<option>${esc(n)}</option>`).join('');$('matrix-model').value=result.selected_model;$('matrix-model').dataset.run=result.created_at;}
   if($('predict-model').dataset.run!==result.created_at){$('predict-model').innerHTML='<option value="">Mô hình chọn theo validation</option>'+names.map(n=>`<option>${esc(n)}</option>`).join('');$('predict-model').dataset.run=result.created_at;}
-  $('split-info').textContent=`Train ${result.split.train.count} · Validation ${result.split.validation.count} · Test ${result.split.test.count} mẫu. Chọn: ${result.selected_model}. Embedding của lần chạy này: ${result.cnn_embedding?.source||'ngẫu nhiên'}, ${result.settings.cnn_embedding||64} chiều.`;
+  $('split-info').textContent=`Train ${result.split.train.count} · Validation ${result.split.validation.count} · Test ${result.split.test.count} mẫu. Chọn: ${result.selected_model}.`;
   $('metrics-rows').innerHTML=result.models.map(m=>`<tr><td class="${m.name===result.selected_model?'selected-model':''}">${esc(m.name)}${m.name===result.selected_model?' ★':''}${m.retained?'<br><small>Giữ kết quả cũ</small>':''}<br><small>${esc(m.device||m.parameters?.device||'cpu')}${typeof m.threshold==='number'?` · Ngưỡng ${m.threshold.toFixed(4)}`:''}</small></td><td>${m.validation.f1_macro.toFixed(3)}</td>${['accuracy','precision','recall','f1','f1_macro'].map(k=>`<td>${m.test[k].toFixed(3)}</td>`).join('')}<td>${m.seconds.toFixed(1)}s</td></tr>`).join('');
   $('score-bars').innerHTML=result.models.map(m=>`<div><div class="bar-head"><span>${esc(m.name)}</span><b>${m.test.f1_macro.toFixed(3)}</b></div><div class="bar-track"><div class="bar-fill" style="width:${100*m.test.f1_macro}%"></div></div></div>`).join('');
   renderMatrix();
@@ -156,19 +155,19 @@ async function refresh() {
 function renderFeatureStatus(status){
   const state=status.features, result=state?.result,s=status.experiment_summary||status.summary;
   if(!featureConfigInitialized){
-    if(result){const config=result.settings;$('feature-bow').checked=config.methods.includes('BoW');$('feature-tfidf').checked=config.methods.includes('TF-IDF');$('feature-ngram').value=config.ngram;$('feature-max').value=config.max_features;}
+    if(result){const config=result.settings;$('feature-bow').checked=config.methods.includes('BoW');$('feature-tfidf').checked=config.methods.includes('TF-IDF');$('feature-ngram').value=config.ngram;$('feature-max').value=config.max_features;$('feature-char').checked=!!config.char_features;}
     featureConfigInitialized=true;
   }
   $('feature-eligible').textContent=number(s.labeled);$('feature-non-toxic').textContent=number(s.labels['non-toxic']);$('feature-toxic').textContent=number(s.labels.toxic);$('feature-unused').textContent=number(status.summary.total-s.labeled);
   const busy=!!(state?.job.running||status.job.running||status.annotation_job?.running),dirty=featureConfigDirty(state),stale=!!(state?.stale||dirty);
-  for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).disabled=busy;
+  for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max','feature-char'])$(id).disabled=busy;
   $('feature-extract').disabled=busy||status.dataset_health?.training_ready===false;
   $('feature-extract').textContent=state?.job.running?'Đang trích xuất…':result?'Trích xuất lại đặc trưng':'Trích xuất đặc trưng';
   $('feature-form').setAttribute('aria-busy',String(!!state?.job.running));
   $('feature-progress').hidden=!state?.job.running;
   $('feature-status').textContent=state?.job.running?state.job.message:state?.job.error?state.job.message:stale?'Cần trích xuất lại đặc trưng':result?'Đã có bộ đặc trưng phù hợp với dữ liệu hiện tại':'Chưa trích xuất đặc trưng';
   $('feature-status').classList.toggle('annotation-error',!!state?.job.error);
-  $('feature-status-note').textContent=status.dataset_health?.training_ready===false?status.dataset_health.training_message:state?.job.running?'Lần đầu tải PhoW2V có thể mất vài phút. Giữ cửa sổ công cụ mở; tiến độ tải và ghép vector sẽ tự cập nhật.':'Tách từ bằng Underthesea. Từ vựng và IDF chỉ học trên train. PhoW2V tự tải nếu máy chưa có; TextCNN dùng ma trận đã lưu và cho embedding học tiếp.';
+  $('feature-status-note').textContent=status.dataset_health?.training_ready===false?status.dataset_health.training_message:state?.job.running?'Đang tạo BoW và TF-IDF từ tập train. Giữ cửa sổ công cụ mở.':'Tách từ bằng Underthesea. Từ vựng và IDF chỉ học trên train. ViSoBERT dùng tokenizer riêng khi huấn luyện.';
   $('feature-stale').hidden=!stale;$('feature-results').hidden=!result;$('feature-preview').hidden=!result||stale;
   $('step-features').textContent=state?.job.running?'Đang trích xuất':stale?'Cần trích xuất lại':result?'Đã trích xuất':'Chưa trích xuất';
   if(!result)return;
@@ -176,9 +175,7 @@ function renderFeatureStatus(status){
   if($('feature-results').dataset.version!==version){
     $('feature-results').dataset.version=version;
     $('feature-created').textContent='Tách từ: '+result.tokenizer+' · Đã lưu: '+new Date(version).toLocaleString('vi-VN');
-    $('feature-dimensions').innerHTML=Object.entries(result.methods).map(([name,data])=>`<article class="panel"><div class="panel-heading"><h3>${esc(name)}</h3><span class="pill">${esc(({unigram:'Unigram',bigram:'Bigram',both:'Unigram + bigram'})[result.settings.ngram])}</span></div><div class="panel-body"><strong class="feature-dimension">${number(data.dimensions)}</strong><span> đặc trưng thực tế</span><p class="muted">Giới hạn ${number(result.settings.max_features)} · ${number(data.matrices.train[0])} dòng train × ${number(data.dimensions)} cột.</p></div></article>`).join('');
-    const embedding=result.embedding;
-    $('feature-dimensions').innerHTML+=`<article class="panel"><div class="panel-heading"><h3>Embedding · TextCNN</h3><span class="pill">${embedding?'Word2Vec':'Ngẫu nhiên'}</span></div><div class="panel-body">${embedding?`<strong class="feature-dimension">${number(embedding.dimensions)}</strong><span> chiều / từ</span><p class="muted">${esc(embedding.source)} · ${embedding.trainable?'Cho học tiếp':'Giữ cố định'}</p><p>${number(embedding.matched_words)} / ${number(embedding.vocabulary_size)} từ train có vector (${(100*embedding.word_coverage).toFixed(1)}%). Bao phủ ${(100*embedding.token_coverage).toFixed(1)}% lượt từ trong từ vựng train.</p><p class="muted">${number(embedding.oov_words)} từ khởi tạo ngẫu nhiên. Ma trận ${(number(embedding.vocabulary_size+2))} × ${number(embedding.dimensions)}, gồm PAD và UNK.</p>`:'<p>Embedding 64 chiều được khởi tạo ngẫu nhiên khi huấn luyện; chưa có vector Word2Vec.</p>'}</div></article>`;
+    $('feature-dimensions').innerHTML=Object.entries(result.methods).map(([name,data])=>`<article class="panel"><div class="panel-heading"><h3>${esc(name)}</h3><span class="pill">${esc(({unigram:'Unigram',bigram:'Bigram',both:'Unigram + bigram'})[result.settings.ngram])}</span></div><div class="panel-body"><strong class="feature-dimension">${number(data.dimensions)}</strong><span> đặc trưng thực tế</span><p class="muted">${result.settings.char_features?'Từ + cụm ký tự 3–5 · Giới hạn mỗi nhánh':'Giới hạn'} ${number(result.settings.max_features)} · ${number(data.matrices.train[0])} dòng train × ${number(data.dimensions)} cột.</p></div></article>`).join('');
     $('feature-splits').innerHTML=Object.entries(result.split).map(([part,data])=>`<tr><td>${esc(part==='train'?'Train':part==='validation'?'Validation':'Test')}</td><td>${number(data.count)}</td><td>${number(data.labels['non-toxic'])}</td><td>${number(data.labels.toxic)}</td><td>${number(data.groups)}</td></tr>`).join('');
   }
   if(currentTab==='features'&&!stale&&featurePreviewVersion!==version){featurePreviewVersion=version;loadFeaturePreview(0);}
@@ -196,17 +193,11 @@ async function loadFeaturePreview(index){
     $('feature-sample-tokens').textContent=data.tokens.join(' · ');
     $('feature-terms').innerHTML=data.terms.length?data.terms.map(term=>`<tr><td>${esc(term.term)}</td><td>${term.bow===null?'—':number(term.bow)}</td><td>${term.tfidf===null?'—':term.tfidf.toFixed(6)}</td></tr>`).join(''):'<tr><td colspan="3" class="no-rows">Bình luận này không có đặc trưng nằm trong từ vựng đã học.</td></tr>';
     $('feature-term-note').textContent=`${number(data.term_count)} đặc trưng khác 0${data.term_count>200?' · Hiển thị 200 đặc trưng đầu tiên theo thứ tự chữ cái':''}. Dấu “—” nghĩa là phương pháp chưa được chọn hoặc đặc trưng không thuộc từ vựng của phương pháp đó.`;
-    $('embedding-preview').hidden=!data.embedding;
-    if(data.embedding){
-      const item=data.embedding;
-      $('embedding-sample-note').textContent=`Đầu vào ${item.shape[0]} vị trí × ${item.dimensions} chiều. ${item.truncated?'Chỉ dùng 128 từ đầu.':'Các vị trí còn thiếu được đệm vector 0.'} Đây là vector trước huấn luyện; nếu cho học tiếp, vector trong mô hình sẽ thay đổi. UNK dùng cho từ ngoài từ vựng train.`;
-      $('embedding-rows').innerHTML=item.tokens.map(token=>`<tr><td>${esc(token.token)}</td><td>${esc(({word2vec:'Word2Vec có sẵn',random:'Ngẫu nhiên · thiếu Word2Vec',unknown:'UNK · ngoài từ vựng train'})[token.origin])}</td><td><details><summary>${token.vector.slice(0,5).map(v=>v.toFixed(4)).join(', ')}… (${token.vector.length} chiều)</summary><p class="embedding-values">${token.vector.map(v=>v.toFixed(6)).join(', ')}</p></details></td></tr>`).join('');
-    }
   }catch(error){if(request===featurePreviewRequest){featurePreviewVersion='';$('feature-terms').innerHTML='<tr><td colspan="3" class="no-rows">Không tải được đặc trưng. Hãy thử chọn lại bình luận.</td></tr>';toast(error.message,true);}}
   finally{if(request===featurePreviewRequest)$('feature-preview').setAttribute('aria-busy','false');}
 }
 $('feature-form').onsubmit=event=>{event.preventDefault();action($('feature-extract'),async()=>{await api('/api/features',featureSettings());renderStatus(await api('/api/status'));toast('Đã bắt đầu trích xuất đặc trưng.');});};
-for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
+for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max','feature-char'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
 $('feature-split').onchange=()=>loadFeaturePreview(0);
 $('feature-index').onchange=()=>{const value=Number($('feature-index').value);if(Number.isInteger(value)&&value>=1)loadFeaturePreview(value-1);};
 $('feature-prev').onclick=()=>loadFeaturePreview(Math.max(0,featurePreviewIndex-1));
@@ -318,9 +309,9 @@ $('clean-save').onclick=()=>action($('clean-save'),async()=>{
 $('browser-open').onclick=()=>action($('browser-open'),async()=>{await api('/api/browser',{});toast('Đang mở Chrome. Bạn tự đăng nhập Facebook trong cửa sổ đó.');});
 $('crawl-form').onsubmit=event=>{event.preventDefault();action($('start'),async()=>{await api('/start',{target:Number($('target').value),source:$('source-url').value.trim(),collection_filter:$('collection-filter').value});toast('Đã bắt đầu thu thập.');});};
 $('stop').onclick=()=>action($('stop'),async()=>{await api('/stop',{});toast('Đã gửi yêu cầu dừng; chờ thao tác hiện tại kết thúc.');});
-for(const id of ['training-nb','training-svm','training-cnn','training-visobert'])$(id).onchange=()=>{if(lastStatus)renderStatus(lastStatus);};
+for(const id of ['training-nb','training-svm','training-visobert'])$(id).onchange=()=>{if(lastStatus)renderStatus(lastStatus);};
 $('train').onclick=()=>action($('train'),async()=>{await api('/api/train',{mode:'optimized',algorithms:selectedAlgorithms()});renderStatus(await api('/api/status'));toast('Đã bắt đầu huấn luyện các mô hình đã chọn. Giữ cửa sổ máy chủ mở.');});
-$('predict-form').onsubmit=event=>{event.preventDefault();action($('predict-button'),async()=>{const r=await api('/api/predict',{text:$('predict-text').value,model:$('predict-model').value});$('prediction').textContent=`${r.label.toUpperCase()} · ${r.model} — Bản chuẩn hóa: ${r.text_clean}${r.stale?' · Mô hình dùng snapshot dữ liệu cũ.':''}`;});};
+$('predict-form').onsubmit=event=>{event.preventDefault();action($('predict-button'),async()=>{window.pipelineReset?.();const traceRevision=window.pipelineRevision?.();const r=await api('/api/predict',{text:$('predict-text').value,model:$('predict-model').value,explain:true});if(traceRevision!==window.pipelineRevision?.())return;window.pipelineShow?.(r.trace);$('prediction').textContent=`${r.label.toUpperCase()} · ${r.model} — Bản chuẩn hóa: ${r.text_clean}${r.stale?' · Mô hình dùng snapshot dữ liệu cũ.':''}`;});};
 $('import-file').onchange=async()=>{
   const file=$('import-file').files[0];if(!file)return;
   try{if(file.size>10_000_000)throw Error('Tệp tối đa 10 MB.');const r=await api('/api/import',{filename:file.name,content:await file.text()});toast(`Đã nhập ${r.added} mẫu mới và cập nhật ${r.labels_updated} nhãn.`);page=1;await loadRows();renderStatus(await api('/api/status'));}catch(error){toast(error.message,true);}finally{$('import-file').value='';}

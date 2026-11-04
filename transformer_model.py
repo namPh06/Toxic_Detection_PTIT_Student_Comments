@@ -66,6 +66,19 @@ def token_batches(tokenizer, texts, batch_size, max_length):
                         padding=True, truncation=True, max_length=max_length, return_tensors='pt')
 
 
+def runtime_settings(device, config):
+    """Keep the effective batch while reducing activation memory on small GPUs."""
+    import math
+    import torch
+    batch, accumulation = config['batch_size'], config['accumulation']
+    small_gpu = str(device).startswith('cuda') and torch.cuda.get_device_properties(device).total_memory <= 6 * 1024**3
+    if small_gpu:
+        actual = min(batch, 2)
+        accumulation = math.ceil(batch * accumulation / actual)
+        batch = actual
+    return batch, accumulation, small_gpu
+
+
 def score_transformer(model, tokenizer, texts, max_length=128, batch_size=16):
     import torch
     model.eval()
@@ -90,6 +103,8 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
     set_seed(config['seed'])
     torch.set_num_threads(2)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    batch_size, accumulation, checkpointing = runtime_settings(device, config)
+    notify(f'ViSoBERT: thiết bị {torch.cuda.get_device_name(device) if device.type == "cuda" else "CPU"}; batch {batch_size}, tích lũy {accumulation}')
     tokenizer = AutoTokenizer.from_pretrained(base_directory, local_files_only=True)
     model = AutoModelForSequenceClassification.from_pretrained(
         base_directory, local_files_only=True, num_labels=2,
@@ -101,6 +116,8 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
             for parameter in layer.parameters():
                 parameter.requires_grad = True
     model.to(device)
+    if checkpointing:
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
     groups = [dict(params=[p for p in model.base_model.parameters() if p.requires_grad], lr=config['learning_rate']),
               dict(params=model.classifier.parameters(), lr=config['head_learning_rate'])]
     optimizer = torch.optim.AdamW(groups, weight_decay=0.01)
@@ -116,7 +133,7 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
     for epoch in range(config['epochs']):
         model.train()
         optimizer.zero_grad(set_to_none=True)
-        chunks = list(torch.randperm(len(labels)).split(config['batch_size']))
+        chunks = list(torch.randperm(len(labels)).split(batch_size))
         total = 0.0
         for step, indexes in enumerate(chunks):
             records = [{k: v[int(i)] for k, v in encoded.items()} for i in indexes]
@@ -124,15 +141,15 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
             logits = model(**{k: v.to(device) for k, v in batch.items()}).logits
             loss = loss_fn(logits, labels[indexes.to(device)])
             total += loss.item() * len(indexes)
-            window_size = min(config['accumulation'], len(chunks) - (step // config['accumulation']) * config['accumulation'])
+            window_size = min(accumulation, len(chunks) - (step // accumulation) * accumulation)
             (loss / window_size).backward()
-            if (step + 1) % config['accumulation'] == 0 or step + 1 == len(chunks):
+            if (step + 1) % accumulation == 0 or step + 1 == len(chunks):
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                 optimizer.step()
                 optimizer.zero_grad(set_to_none=True)
             if step % 25 == 0:
                 notify(f'ViSoBERT: epoch {epoch+1}/{config["epochs"]}, batch {step+1}/{len(chunks)} ({device.type})')
-        scores = score_transformer(model, tokenizer, val_text, config['max_length'])
+        scores = score_transformer(model, tokenizer, val_text, config['max_length'], batch_size=batch_size)
         score = float(f1_score(val_y, np.asarray(scores) >= 0.5, average='macro', zero_division=0))
         history.append(dict(epoch=epoch+1, loss=total/len(labels), val_f1_macro=score))
         notify(f'ViSoBERT: epoch {epoch+1}, validation macro-F1 = {score:.4f}')
@@ -145,6 +162,7 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
     del optimizer, model
     model = AutoModelForSequenceClassification.from_pretrained(output, local_files_only=True).to(device)
     metadata = dict(source=source, config=config, device=device.type, input='raw_unicode_v1',
+                    runtime=dict(batch_size=batch_size, accumulation=accumulation, gradient_checkpointing=checkpointing),
                     fine_tuning='last_two_encoder_layers_and_head' if device.type == 'cpu' and config['cpu_layers'] == 2 else
                     f'last_{config["cpu_layers"]}_encoder_layers_and_head' if device.type == 'cpu' else 'full_encoder_and_head',
                     best_epoch=best_epoch, history=history, seconds=round(time.monotonic()-started, 3))
@@ -153,9 +171,20 @@ def train_transformer(train_text, train_y, val_text, val_y, base_directory, outp
 
 
 def predict_transformer(directory, texts):
+    import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
     directory = Path(directory)
     metadata = json.loads((directory / 'training.json').read_text(encoding='utf-8'))
     tokenizer = AutoTokenizer.from_pretrained(directory, local_files_only=True)
     model = AutoModelForSequenceClassification.from_pretrained(directory, local_files_only=True)
-    return score_transformer(model, tokenizer, texts, metadata['config']['max_length'])
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model.to(device)
+    batch_size, _, _ = runtime_settings(device, validate_config(metadata['config']))
+    return score_transformer(model, tokenizer, texts, metadata['config']['max_length'], batch_size=batch_size)
+
+
+def compute_info():
+    """Report CUDA availability for the optional transformer model."""
+    import torch
+    return (dict(device='cuda', name=torch.cuda.get_device_name(0)) if torch.cuda.is_available()
+            else dict(device='cpu', name='CPU'))

@@ -11,9 +11,9 @@ def validate_settings(settings):
     methods = settings.get('methods', ['BoW', 'TF-IDF'])
     ngram = settings.get('ngram', 'both')
     maximum = settings.get('max_features', 20000)
-    embedding = settings.get('embedding', 'random')
-    word2vec_path = settings.get('word2vec_path', '')
-    trainable = settings.get('embedding_trainable', True)
+    char_features = settings.get('char_features', False)
+    if type(char_features) is not bool:
+        raise ValueError('Tùy chọn đặc trưng ký tự phải là boolean.')
     if (not isinstance(methods, list) or not methods or
             any(method not in ('BoW', 'TF-IDF') for method in methods) or len(set(methods)) != len(methods)):
         raise ValueError('Chọn ít nhất một phương pháp: BoW hoặc TF-IDF.')
@@ -21,13 +21,8 @@ def validate_settings(settings):
         raise ValueError('Chọn unigram, bigram hoặc kết hợp cả hai.')
     if type(maximum) is not int or not 1 <= maximum <= 100000:
         raise ValueError('Số đặc trưng tối đa phải là số nguyên từ 1 đến 100.000.')
-    if embedding not in ('random', 'word2vec') or type(trainable) is not bool:
-        raise ValueError('Cấu hình embedding không hợp lệ.')
-    if not isinstance(word2vec_path, str) or len(word2vec_path) > 4096:
-        raise ValueError('Đường dẫn Word2Vec không hợp lệ.')
     return dict(methods=[name for name in ('BoW', 'TF-IDF') if name in methods], ngram=ngram, max_features=maximum,
-                embedding=embedding, word2vec_path=word2vec_path.strip() if embedding == 'word2vec' else '',
-                embedding_trainable=trainable if embedding == 'word2vec' else True)
+                char_features=char_features)
 
 
 def feature_key(rows):
@@ -40,6 +35,7 @@ def feature_key(rows):
 def build_features(rows, settings, notify=lambda message: None):
     from experiments import split_dataset
     from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+    from sklearn.pipeline import FeatureUnion
 
     settings = validate_settings(settings)
     eligible, split, groups = split_dataset(rows)
@@ -51,25 +47,25 @@ def build_features(rows, settings, notify=lambda message: None):
         vectorizer = (CountVectorizer if name == 'BoW' else TfidfVectorizer)(
             tokenizer=word_tokens, token_pattern=None, lowercase=False,
             ngram_range=ngrams, max_features=settings['max_features'])
+        if settings['char_features']:
+            characters = (CountVectorizer if name == 'BoW' else TfidfVectorizer)(
+                analyzer='char_wb', ngram_range=(3, 5), lowercase=False,
+                max_features=settings['max_features'])
+            vectorizer = FeatureUnion([('word', vectorizer), ('char', characters)])
         try:
             matrices = {'train': vectorizer.fit_transform(texts['train'])}
         except ValueError as error:
             raise ValueError('Không tạo được từ vựng. Thử unigram hoặc kết hợp cả hai; kiểm tra nội dung tập train.') from error
         matrices.update({part: vectorizer.transform(texts[part]) for part in ('validation', 'test')})
         features[name] = dict(vectorizer=vectorizer, matrices=matrices)
-    embedding = None
-    if settings['embedding'] == 'word2vec':
-        from embedding import prepare_embeddings
-        embedding = prepare_embeddings(texts['train'], settings['word2vec_path'], settings['embedding_trainable'], notify)
     return dict(schema_version=1, created_at=datetime.now(timezone.utc).isoformat(), key=feature_key(rows),
                 fingerprint=fingerprint(rows), preprocess_version=PREPROCESS_VERSION, settings=settings,
                 tokenizer='Underthesea', tokenizer_version=TOKENIZER_VERSION,
-                rows=eligible, split=split, groups=groups, texts=texts, labels=labels, features=features, embedding=embedding)
+                rows=eligible, split=split, groups=groups, texts=texts, labels=labels, features=features)
 
 
 def feature_summary(bundle):
-    return dict(created_at=bundle['created_at'], settings=bundle['settings'],
-                embedding=bundle['embedding']['metadata'] if bundle.get('embedding') else None,
+    return dict(created_at=bundle['created_at'], settings=validate_settings(bundle['settings']),
                 tokenizer=bundle.get('tokenizer', 'Khoảng trắng'), tokenizer_version=bundle.get('tokenizer_version'),
                 split={name: dict(count=len(ids), labels=dict(Counter(bundle['rows'][i]['label'] for i in ids)),
                                       groups=len({bundle['groups'][i] for i in ids}))
@@ -95,20 +91,7 @@ def preview_features(bundle, index=0, split='all'):
             term = names[column]
             terms.setdefault(term, dict(term=term, bow=None, tfidf=None))[
                 'bow' if name == 'BoW' else 'tfidf'] = int(value) if name == 'BoW' else float(value)
-    embedding = None
-    if bundle.get('embedding'):
-        item = bundle['embedding']
-        matched = set(item['matched'])
-        tokens = word_tokens(row['text_clean'])
-        vectors = []
-        for token in tokens[:128]:
-            token_id = item['vocabulary'].get(token, 1)
-            vectors.append(dict(token=token, id=token_id,
-                                origin='word2vec' if token_id in matched else 'unknown' if token_id == 1 else 'random',
-                                vector=item['weights'][token_id].tolist()))
-        embedding = dict(dimensions=item['metadata']['dimensions'], tokens=vectors, truncated=len(tokens) > 128,
-                         shape=[128, item['metadata']['dimensions']])
-    return dict(index=index, total=len(positions), split=part, text_clean=row['text_clean'], embedding=embedding,
+    return dict(index=index, total=len(positions), split=part, text_clean=row['text_clean'],
                 tokens=word_tokens(row['text_clean']),
                 label=row['label'], id=row['id'], terms=[terms[key] for key in sorted(terms)[:200]],
                 term_count=len(terms), created_at=bundle['created_at'])

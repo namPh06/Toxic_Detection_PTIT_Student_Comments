@@ -12,11 +12,11 @@ Nguồn dữ liệu: bình luận văn bản do Selenium thu thập từ các nh
 
 Toxic: công kích cá nhân/nhóm, lăng mạ, đe dọa, quấy rối hoặc miệt thị. Non-toxic: hỏi đáp, trao đổi thông tin, phản biện lịch sự và ý kiến tiêu cực không công kích. Từ tục trong trích dẫn hoặc đùa thân mật cần xét ngữ cảnh, không dùng từ khóa đơn lẻ làm nhãn chuẩn.
 
-BoW biểu diễn số lần xuất hiện token/ngram. TF-IDF giảm trọng số token phổ biến và tăng trọng số token đặc trưng. Với cấu hình mặc định: idf(t)=log((1+n)/(1+df(t)))+1, sau đó chuẩn hóa L2. Mặc định dùng unigram/bigram, tối đa 20.000 đặc trưng; có thể chọn lại trên trang Trích xuất đặc trưng. Từ vựng và IDF chỉ học trên train; NB/SVM dùng lại ma trận đã trích xuất.
+BoW biểu diễn số lần xuất hiện token/ngram. TF-IDF giảm trọng số token phổ biến và tăng trọng số token đặc trưng. Với cấu hình mặc định: idf(t)=log((1+n)/(1+df(t)))+1, sau đó chuẩn hóa L2. Mặc định dùng unigram/bigram từ, tối đa 20.000 đặc trưng cho nhánh từ. Khi bật char_features, ghép thêm nhánh char_wb 3–5 ký tự, tối đa 20.000 đặc trưng riêng; tổng hai nhánh có thể tới 40.000. Có thể chọn lại cấu hình trên trang Trích xuất đặc trưng. Từ vựng và IDF chỉ học trên train; NB/SVM dùng lại ma trận đã trích xuất.
 
-Multinomial Naive Bayes dùng xác suất có điều kiện với giả định độc lập đặc trưng và làm trơn alpha=1. LinearSVC là SVM tuyến tính với C=1, class_weight=balanced để giảm tác động mất cân bằng lớp.
+Multinomial Naive Bayes dùng xác suất có điều kiện với giả định độc lập đặc trưng và làm trơn alpha=1. LinearSVC là SVM tuyến tính, cấu hình ban đầu C=1, class_weight=balanced. Khi tối ưu, alpha/C/trọng số lớp được chọn bằng validation; bảng cấu hình thực tế bên dưới ghi giá trị cuối cùng.
 
-Mô hình học sâu bổ sung: TextCNN theo hướng Kim (2014), có thể khởi tạo embedding bằng Word2Vec tiền huấn luyện hoặc embedding ngẫu nhiên 64 chiều để so sánh. Với Word2Vec: ghép vector với từ vựng chỉ tạo từ train, từ không có vector được khởi tạo ngẫu nhiên; validation/test dùng token UNK cho từ ngoài từ vựng train. Có thể giữ cố định embedding hoặc cho học tiếp khi huấn luyện TextCNN. 3 cửa sổ convolution 2/3/4 token, mỗi cửa sổ 48 bộ lọc, ReLU, global max pooling, dropout 0,3 và lớp tuyến tính 2 nhãn. Adam, learning rate 0,001; batch 32; tối đa 12 epoch; chọn epoch bằng macro-F1 validation. TextCNN vẫn phải học phân loại trên dữ liệu đã gán nhãn, kể cả khi embedding đã tiền huấn luyện.
+Mô hình học sâu bổ sung: ViSoBERT, encoder Transformer tiền huấn luyện cho văn bản mạng xã hội tiếng Việt. Dùng tokenizer riêng và tinh chỉnh bộ phân loại trên nhãn train; chọn checkpoint và ngưỡng bằng validation.
 
 
 ## 3. Thực nghiệm và kết quả
@@ -24,11 +24,11 @@ Mô hình học sâu bổ sung: TextCNN theo hướng Kim (2014), có thể kh�
 
 ### 3.1. Thu thập và tiền xử lý
 
-Dữ liệu hiện tại: **5453 bình luận**, **541 bài**; **4868 mẫu sạch duy nhất**, **4868 mẫu sạch đã gán nhãn**. Phân bố nhãn trong mẫu sạch: {"non-toxic": 4162, "toxic": 706}. Kiểm tra chất lượng: {"ready": 4868, "duplicate": 585}.
+Dữ liệu hiện tại: **5786 bình luận**, **622 bài**; **5199 mẫu sạch duy nhất**, **5199 mẫu sạch đã gán nhãn**. Phân bố nhãn trong mẫu sạch: {"non-toxic": 4162, "toxic": 1037}. Kiểm tra chất lượng: {"ready": 5199, "duplicate": 587}.
 
-Nguồn nhãn: {"automatic": 4867, "manual": 1}. Số mẫu sạch có nhãn dùng được: 4868. Nhãn máy đã lưu được dùng trực tiếp, không yêu cầu duyệt. Nguồn automatic và xác nhận riêng được giữ để truy vết.
+Nguồn nhãn: {"automatic": 5198, "manual": 1}. Số mẫu sạch có nhãn dùng được: 5199. Nhãn máy đã lưu được dùng trực tiếp, không yêu cầu duyệt. Nguồn automatic và xác nhận riêng được giữ để truy vết.
 
-Quy trình: chuẩn hóa Unicode NFC, chữ thường, giải mã HTML; ẩn URL/email/số điện thoại bằng token; bỏ ký tự vô hình trong chữ và dấu câu; chuẩn hóa một số teencode; chỉ loại stop words các/những. Giữ dấu tiếng Việt, từ phủ định, được/thì/mà, từ tục và emoji. Giữ k/cc khi mơ hồ; dạng tiền 10-50 k thành 10-50k; ko đc thành không được. Biểu cảm :))/=))) thành emoticon_smile, :(( thành emoticon_sad; không dùng biểu cảm làm nhãn. Phiên bản tiền xử lý hiện tại: ptit-v2-preserve-meaning-20261103. Tách từ bằng Underthesea trước trích xuất đặc trưng, phiên bản underthesea-9.5.0-v1. Từ đa âm tiết được nối bằng dấu gạch dưới (sinh viên → sinh_viên); unigram là một từ, bigram là hai từ liền nhau. Giữ nguyên token ẩn thông tin, biểu cảm, emoji ghép và dạng tiền. NB/SVM, TextCNN và dự đoán dùng cùng bộ tách từ. Không xóa bản gốc. Văn bản trùng sau chuẩn hóa chỉ giữ một mẫu; nhãn mâu thuẫn bị loại khỏi train cho tới khi rà soát. Mẫu còn nội dung thu gọn được đánh dấu incomplete và không dùng huấn luyện; độ đầy đủ của bản crawl cũ thiếu thông tin này chưa được xác minh.
+Quy trình: chuẩn hóa Unicode NFC, chữ thường, giải mã HTML; ẩn URL/email/số điện thoại bằng token; bỏ ký tự vô hình trong chữ và dấu câu; chuẩn hóa một số teencode; chỉ loại stop words các/những. Giữ dấu tiếng Việt, từ phủ định, được/thì/mà, từ tục và emoji. Giữ k/cc khi mơ hồ; dạng tiền 10-50 k thành 10-50k; ko đc thành không được. Biểu cảm :))/=))) thành emoticon_smile, :(( thành emoticon_sad; không dùng biểu cảm làm nhãn. Phiên bản tiền xử lý hiện tại: ptit-v4-contextual-dc-20261105. Tách từ bằng Underthesea trước trích xuất đặc trưng, phiên bản underthesea-9.5.0-v1. Từ đa âm tiết được nối bằng dấu gạch dưới (sinh viên → sinh_viên); unigram là một từ, bigram là hai từ liền nhau. Giữ nguyên token ẩn thông tin, biểu cảm, emoji ghép và dạng tiền. NB/SVM và dự đoán baseline dùng cùng bộ tách từ; ViSoBERT dùng tokenizer riêng. Không xóa bản gốc. Văn bản trùng sau chuẩn hóa chỉ giữ một mẫu; nhãn mâu thuẫn bị loại khỏi train cho tới khi rà soát. Mẫu còn nội dung thu gọn được đánh dấu incomplete và không dùng huấn luyện; độ đầy đủ của bản crawl cũ thiếu thông tin này chưa được xác minh.
 
 
 ### 3.2. Quy trình gán nhãn
@@ -46,7 +46,7 @@ Gợi ý, điểm, model/revision và dấu vân tay văn bản được lưu t�
 
 Chia theo nhóm bài viết độc lập, mục tiêu khoảng 60% train / 20% validation / 20% test theo số nhóm (tỷ lệ bình luận thực tế có thể khác). Các bài chứa bình luận trùng được nối cùng nhóm. Không có bài hoặc văn bản chuẩn hóa trùng giữa các tập. Seed 42; seed 43 cho validation. Chọn lần chia đầu tiên mà cả hai lớp xuất hiện trong mỗi tập; không chọn theo điểm mô hình. Tối thiểu 10 mẫu mỗi lớp và 5 nhóm độc lập chỉ là điều kiện chạy kỹ thuật; cần nhiều dữ liệu hơn cho kết luận đáng tin cậy.
 
-Mỗi phương pháp đặc trưng được chọn được dùng cho hai baseline NB và SVM; TextCNN dùng cùng các tập chia. Chọn mô hình theo macro-F1 validation, không chọn theo test. Test được dùng để so sánh cuối cùng. Không cân bằng mẫu hoặc học từ vựng trên toàn bộ dữ liệu trước khi chia.
+Mỗi phương pháp đặc trưng được chọn được dùng cho hai baseline NB và SVM; ViSoBERT dùng cùng các tập chia. Chọn mô hình theo macro-F1 validation, không chọn theo test. Test được dùng để so sánh cuối cùng. Không cân bằng mẫu hoặc học từ vựng trên toàn bộ dữ liệu trước khi chia.
 
 Nhãn validation/test cần được người đọc gán độc lập, không xem gợi ý tự động, rồi kiểm tra chéo và khóa trước đánh giá. Việc này phải thực hiện bằng quy trình nhóm/bản xuất riêng; giao diện chưa tự che gợi ý hay khóa bộ test. Cần công bố phần dữ liệu có hỗ trợ tự động và quy trình duyệt; chưa có bằng chứng về độ chính xác của mô hình gợi ý trên corpus PTIT.
 
@@ -55,61 +55,74 @@ Accuracy=(TP+TN)/N; Precision=TP/(TP+FP); Recall=TP/(TP+FN); F1=2PR/(P+R). Lớp
 
 ### 3.4. Kết quả
 
-Kết quả dưới đây thuộc snapshot huấn luyện 03/11/2026 22:46 (UTC+7). Dữ liệu hoặc cách tách từ hiện tại đã thay đổi; cần chạy lại để cập nhật.
+Kết quả dưới đây thuộc snapshot huấn luyện 05/11/2026 01:29 (UTC+7). Snapshot trùng với dữ liệu và cách tách từ hiện tại.
 
 **Lần huấn luyện này dùng nhãn tự động.** Nếu validation/test có nhãn máy, các chỉ số đo mức khớp với nhãn máy, chưa đo độ chính xác thực trên PTIT. Xem automatic_labels trong thống kê từng tập.
 
-Snapshot: b437f70a6891cd6c527e9c036989747f3f371b0076775e30ac918529b4fe5716. Phiên bản thư viện: {"python": "3.12.6", "sklearn": "1.9.1", "torch": "2.14.1+cpu", "transformers": "4.57.6"}.
+Snapshot: 198fa5414698434128a9595c0a6b4f871f695ada0743eb93053844ccbd967492. Phiên bản thư viện: {"python": "3.13.2", "sklearn": "1.9.1", "torch": "2.10.0+cu128", "transformers": "4.57.6"}.
 
 Bộ tách từ của lần chạy: Underthesea; phiên bản: underthesea-9.5.0-v1.
 
-Cấu hình thực tế: {"ngram_range": [1, 2], "max_features": 20000, "feature_methods": ["BoW", "TF-IDF"], "nb_alpha": 1, "svm_C": 1, "cnn_embedding": 100, "cnn_embedding_source": "PhoW2V_words_100dims", "cnn_embedding_trainable": true, "cnn_filters": 48, "cnn_kernels": [2, 3, 4], "cnn_max_length": 128, "cnn_dropout": 0.3, "cnn_epochs": 12, "cnn_learning_rate": 0.001, "cnn_batch_size": 32}.
+Cấu hình thực tế: {"ngram_range": [1, 2], "max_features": 20000, "char_features": true, "feature_methods": ["BoW", "TF-IDF"], "nb_alpha": 1, "svm_C": 1}.
 
-Embedding TextCNN: {"source": "PhoW2V_words_100dims", "source_url": "https://github.com/datquocnguyen/PhoW2V", "sha256": "41b1a7fe6d3c7f0146df2efdcf5f256d822ec7212eb790abea4e22c319623454", "dimensions": 100, "trainable": true, "vocabulary_size": 4996, "matched_words": 3754, "oov_words": 1242, "word_coverage": 0.7514011208967174, "token_coverage": 0.934478888501877, "vocabulary_limit": 20000, "max_length": 128}. Các vector xem ở trang đặc trưng là giá trị khởi tạo; nếu học tiếp, vector trong mô hình sau huấn luyện sẽ thay đổi.
-
-Phân chia thực tế: {"train": {"count": 1743, "groups": 199, "labels": {"non-toxic": 1282, "toxic": 461}, "automatic_labels": 1743}, "validation": {"count": 636, "groups": 67, "labels": {"non-toxic": 559, "toxic": 77}, "automatic_labels": 635}, "test": {"count": 810, "groups": 67, "labels": {"non-toxic": 698, "toxic": 112}, "automatic_labels": 810}}.
+Phân chia thực tế: {"train": {"count": 2175, "groups": 248, "labels": {"non-toxic": 1570, "toxic": 605}, "automatic_labels": 2174}, "validation": {"count": 699, "groups": 83, "labels": {"non-toxic": 517, "toxic": 182}, "automatic_labels": 699}, "test": {"count": 646, "groups": 83, "labels": {"non-toxic": 452, "toxic": 194}, "automatic_labels": 646}}.
 
 | Cấu hình | Val macro-F1 | Accuracy | Precision toxic | Recall toxic | F1 toxic | Macro-F1 | Giây |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| BoW-NB | 0.6283 | 0.8802 | 0.6087 | 0.3750 | 0.4641 | 0.6983 | 0.016 |
-| BoW-SVM | 0.6206 | 0.8901 | 0.6322 | 0.4911 | 0.5528 | 0.7451 | 0.015 |
-| TF-IDF-NB | 0.4673 | 0.8630 | 1.0000 | 0.0089 | 0.0177 | 0.4720 | 0.016 |
-| TF-IDF-SVM | 0.6554 | 0.8667 | 0.5139 | 0.6607 | 0.5781 | 0.7495 | 0.016 |
-| TextCNN | 0.6901 | 0.8765 | 0.5395 | 0.7321 | 0.6212 | 0.7737 | 36.875 |
-| ViSoBERT | 0.7491 | 0.8963 | 0.6045 | 0.7232 | 0.6585 | 0.7987 | 3164.172 |
+| BoW-NB | 0.7220 | 0.7755 | 0.6339 | 0.5979 | 0.6154 | 0.7285 | 0.047 |
+| BoW-SVM | 0.7518 | 0.7817 | 0.6532 | 0.5825 | 0.6158 | 0.7317 | 1.954 |
+| TF-IDF-NB | 0.7208 | 0.7678 | 0.5846 | 0.7835 | 0.6696 | 0.7453 | 0.059 |
+| TF-IDF-SVM | 0.7266 | 0.8050 | 0.6868 | 0.6443 | 0.6649 | 0.7637 | 0.565 |
+| ViSoBERT | 0.7994 | 0.8437 | 0.7541 | 0.7113 | 0.7321 | 0.8109 | 781.296 |
 
-Mô hình được chọn theo validation: **ViSoBERT**. TextCNN lấy epoch 3.
+Mô hình được chọn theo validation: **ViSoBERT**.
 
-Thiết bị huấn luyện: BoW-NB: cpu, BoW-SVM: cpu, TF-IDF-NB: cpu, TF-IDF-SVM: cpu, TextCNN: cpu, ViSoBERT: cpu.
+Thiết bị huấn luyện: BoW-NB: cpu, BoW-SVM: cpu, TF-IDF-NB: cpu, TF-IDF-SVM: cpu, ViSoBERT: cuda.
 
-ViSoBERT dùng uitnlp/visobert, revision 196a62afad9cbe4f52a54aabad828b13f0eec59a; chiến lược last_two_encoder_layers_and_head, thiết bị cpu, checkpoint epoch 3. Chuẩn hóa Unicode/URL/email, giữ dấu câu và emoji; dùng tokenizer tiền huấn luyện, không tách từ Underthesea. Bộ phân loại được học trên nhãn train, chọn checkpoint và ngưỡng bằng validation.
+### Tối ưu tham số và ngưỡng
 
-Với BoW, chênh lệch test macro-F1 của SVM so với NB là +0.0467.
+Cột Giây của mô hình tối ưu gồm thời gian tìm kiếm tham số trong nhóm; không dùng để so trực tiếp tốc độ huấn luyện một cấu hình hay tốc độ dự đoán.
 
-Với TF-IDF, chênh lệch test macro-F1 của SVM so với NB là +0.2775.
+Giữ nguyên nhãn, không bổ sung ngữ cảnh. Mỗi mô hình chỉ giữ một kết quả cuối cùng. NB/SVM dùng đúng ma trận và từ vựng đã tạo ở bước trích xuất, không fit lại vectorizer. NB thử alpha 0,1/0,3/1/3; SVM thử C 0,03/0,1/0,3/1/3, có/không class_weight balanced. Unigram/bigram, phương pháp và số đặc trưng tối đa do bước trích xuất quyết định. Từ vựng và IDF chỉ fit train. search.json lưu các lượt chọn tham số phân loại.
 
-Với NB, chênh lệch test macro-F1 của TF-IDF so với BoW là -0.2263.
+Sau khi chốt tham số bằng ngưỡng mặc định, chọn ngưỡng macro-F1 trên validation, không dùng test. Điểm SVM là decision score, không phải xác suất/độ tin cậy đã hiệu chỉnh. Các xác suất NB/ViSoBERT cũng chưa được kiểm định hiệu chỉnh. Ngưỡng chỉ thay đổi quyết định, không tự cải thiện khả năng xếp hạng của mô hình.
 
-Với SVM, chênh lệch test macro-F1 của TF-IDF so với BoW là +0.0044.
+| Cấu hình | Ngưỡng | Val macro-F1 mặc định → tối ưu | Test precision mặc định → tối ưu | Test recall mặc định → tối ưu |
+|---|---:|---:|---:|---:|
+| BoW-NB | 0.20137 | 0.7163 → 0.7220 | 0.6667 → 0.6339 | 0.5773 → 0.5979 |
+| BoW-SVM | -0.06920 | 0.7460 → 0.7518 | 0.6687 → 0.6532 | 0.5722 → 0.5825 |
+| TF-IDF-NB | 0.17393 | 0.7047 → 0.7208 | 0.6508 → 0.5846 | 0.6340 → 0.7835 |
+| TF-IDF-SVM | 0.09515 | 0.7204 → 0.7266 | 0.6385 → 0.6868 | 0.7010 → 0.6443 |
+| ViSoBERT | 0.99836 | 0.7846 → 0.7994 | 0.6831 → 0.7541 | 0.8557 → 0.7113 |
 
-- BoW-NB: confusion matrix `[[671, 27], [70, 42]]`.
+Test đã được xem ở các thực nghiệm trước; cần dữ liệu độc lập cho kết luận tổng quát hóa cuối cùng. Điểm validation sau tìm kiếm có thể lạc quan; các kết quả test ở đây mang tính so sánh trên bộ tham chiếu hiện tại.
 
-- BoW-SVM: confusion matrix `[[666, 32], [57, 55]]`.
+ViSoBERT dùng uitnlp/visobert, revision 196a62afad9cbe4f52a54aabad828b13f0eec59a; chiến lược full_encoder_and_head, thiết bị cuda, checkpoint epoch 4. Chuẩn hóa Unicode/URL/email, giữ dấu câu và emoji; dùng tokenizer tiền huấn luyện, không tách từ Underthesea. Bộ phân loại được học trên nhãn train, chọn checkpoint và ngưỡng bằng validation.
 
-- TF-IDF-NB: confusion matrix `[[698, 0], [111, 1]]`.
+Với BoW, chênh lệch test macro-F1 của SVM so với NB là +0.0032.
 
-- TF-IDF-SVM: confusion matrix `[[628, 70], [38, 74]]`.
+Với TF-IDF, chênh lệch test macro-F1 của SVM so với NB là +0.0184.
 
-- TextCNN: confusion matrix `[[628, 70], [30, 82]]`.
+Với NB, chênh lệch test macro-F1 của TF-IDF so với BoW là +0.0168.
 
-- ViSoBERT: confusion matrix `[[645, 53], [31, 81]]`.
+Với SVM, chênh lệch test macro-F1 của TF-IDF so với BoW là +0.0320.
+
+- BoW-NB: confusion matrix `[[385, 67], [78, 116]]`.
+
+- BoW-SVM: confusion matrix `[[392, 60], [81, 113]]`.
+
+- TF-IDF-NB: confusion matrix `[[344, 108], [42, 152]]`.
+
+- TF-IDF-SVM: confusion matrix `[[395, 57], [69, 125]]`.
+
+- ViSoBERT: confusion matrix `[[407, 45], [56, 138]]`.
 
 Các chênh lệch trên chỉ mô tả một lần chia; chưa chứng minh ý nghĩa thống kê. Xem *-predictions.json cùng dataset.json trong thư mục run để phân tích các lỗi FP/FN.
 
 
 ## 4. Kết luận và hạn chế
 
-Hệ thống cung cấp luồng thu thập → làm sạch → gán nhãn → trích chọn đặc trưng → huấn luyện → đánh giá → dự đoán. Hạn chế: số bài ít, thiên lệch chọn nhóm, chưa xác minh danh tính sinh viên, mỉa mai và hội thoại cần ngữ cảnh, ảnh/sticker bị bỏ qua, tách từ có thể sai với tiếng lóng, TextCNN cắt ở 128 token. Cần tăng số nhóm/bài và nhãn được kiểm tra chéo; mở rộng đánh giá sang dữ liệu ở thời điểm khác. Tránh điều chỉnh lặp lại dựa trên test. Bản gốc vẫn có thể chứa thông tin cá nhân; ẩn tên và định danh trước khi chia sẻ corpus, không chia sẻ chrome-profile.
+Hệ thống cung cấp luồng thu thập → làm sạch → gán nhãn → trích chọn đặc trưng → huấn luyện → đánh giá → dự đoán. Hạn chế: số bài ít, thiên lệch chọn nhóm, chưa xác minh danh tính sinh viên, mỉa mai và hội thoại cần ngữ cảnh, ảnh/sticker bị bỏ qua, tách từ có thể sai với tiếng lóng, ViSoBERT giới hạn độ dài đầu vào theo cấu hình đã lưu. Cần tăng số nhóm/bài và nhãn được kiểm tra chéo; mở rộng đánh giá sang dữ liệu ở thời điểm khác. Tránh điều chỉnh lặp lại dựa trên test. Bản gốc vẫn có thể chứa thông tin cá nhân; ẩn tên và định danh trước khi chia sẻ corpus, không chia sẻ chrome-profile.
 
 
 ## Tài liệu tham khảo
@@ -122,16 +135,12 @@ Hệ thống cung cấp luồng thu thập → làm sạch → gán nhãn → tr
 
 4. GroupShuffleSplit: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
 
-5. Kim, Y. (2014). Convolutional Neural Networks for Sentence Classification. EMNLP. https://aclanthology.org/D14-1181/
+5. PyTorch: https://docs.pytorch.org/docs/stable/nn.html
 
-6. PyTorch: https://docs.pytorch.org/docs/stable/nn.html
+6. Selenium: https://www.selenium.dev/documentation/webdriver/
 
-7. Selenium: https://www.selenium.dev/documentation/webdriver/
+7. Model gợi ý: [dangvansam/vietnamese-toxicity](https://huggingface.co/dangvansam/vietnamese-toxicity), revision bac60f3e162d3a06003bf561a9f8365982ccc67a.
 
-8. Model gợi ý: [dangvansam/vietnamese-toxicity](https://huggingface.co/dangvansam/vietnamese-toxicity), revision bac60f3e162d3a06003bf561a9f8365982ccc67a.
+8. Nguyen et al. (2023), [ViSoBERT](https://aclanthology.org/2023.emnlp-main.315/); [model card và phạm vi nghiên cứu](https://huggingface.co/uitnlp/visobert).
 
-9. Nguyen et al. (2023), [ViSoBERT](https://aclanthology.org/2023.emnlp-main.315/); [model card và phạm vi nghiên cứu](https://huggingface.co/uitnlp/visobert).
-
-10. Underthesea: https://github.com/undertheseanlp/underthesea
-
-11. PhoW2V (Nguyen et al., 2020): https://github.com/datquocnguyen/PhoW2V. Vector theo từ 100 chiều; dùng cho nghiên cứu/giáo dục, không phân phối lại vector.
+9. Underthesea: https://github.com/undertheseanlp/underthesea

@@ -4,8 +4,8 @@ import re
 import threading
 from datetime import datetime, timezone
 
-from dataset import LABELS, LABEL_METADATA, atomic_json, csv_bytes, fingerprint, input_fingerprint, parse_import, prepare, row_id, summary, text_hash
-from experiments import build_report, predict, publish_run, split_dataset, train_experiment, validate_algorithms
+from dataset import LABELS, LABEL_METADATA, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, input_fingerprint, parse_import, prepare, row_id, summary, text_hash
+from experiments import active_result, build_report, predict, publish_run, split_dataset, train_experiment, validate_algorithms
 from features import build_features, feature_key, feature_summary, preview_features, validate_settings
 from shared_dataset import POLICY, apply_approval, digest, reviewed, training_rows, usable_label
 
@@ -82,15 +82,17 @@ class Lab:
             latest = self.read('latest.json', {}).get('run', '')
             if re.fullmatch(r'run-\d{8}T\d{12}Z', latest):
                 self.run = latest
-            return self.read(f'runs/{self.run}/metrics.json', None) if self.run else None
+            return active_result(self.read(f'runs/{self.run}/metrics.json', None)) if self.run else None
 
     @staticmethod
     def result_stale(result, rows):
         return bool(result and (result['fingerprint'] != fingerprint(rows) or
+                    result.get('preprocess_version') != PREPROCESS_VERSION or
+                    result.get('tokenizer_version') != TOKENIZER_VERSION or
                     (result.get('input_fingerprint') and result['input_fingerprint'] != input_fingerprint(rows))))
 
     def status(self):
-        from neural import compute_info
+        from transformer_model import compute_info
         with self.lock:
             rows = self.rows()
             result = self.result()
@@ -407,6 +409,13 @@ class Lab:
                 result = publish_run(result, self.directory / 'runs' / run, self.directory, rows)
                 self.run = run
                 self.job.update(message=f'Đã chạy {len(result["trained_models"])} cấu hình, giữ {len(result["retained_models"])} kết quả cũ phù hợp. Chọn mô hình bằng validation.', error=False)
+            # A report failure must never turn successful model training into a failure.
+            try:
+                from system_report_video import STORE
+                if self.directory.resolve() == STORE.data.resolve():
+                    STORE.enqueue(run)
+            except Exception:
+                pass
         except Exception as error:
             with self.lock:
                 self.job.update(message=f'Huấn luyện thất bại: {error}', error=True)
@@ -426,6 +435,9 @@ class Lab:
             raise ValueError('Chưa có mô hình; hãy gán nhãn và huấn luyện trước.')
         answer = predict(text, self.directory / 'runs' / run, body.get('model') or result['selected_model'])
         answer['stale'] = self.result_stale(result, self.experiment_rows())
+        if body.get('explain'):
+            from pipeline_trace import build_trace
+            answer['trace'] = build_trace(text, self.directory / 'runs' / run, answer)
         return answer
 
     def report(self):

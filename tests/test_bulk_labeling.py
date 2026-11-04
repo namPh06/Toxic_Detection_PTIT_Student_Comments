@@ -26,12 +26,17 @@ class BulkLabelingTests(unittest.TestCase):
         return [dict(suggestion(r), model_score=.9 if r['comment_id'].endswith('-toxic') and
                      not r['comment_id'].endswith('-non-toxic') else .1) for r in rows]
 
+    @classmethod
+    def contextual_generate(cls, rows, *_):
+        for row, item in zip(rows, cls.generate(rows)):
+            yield row, dict(automatic_annotation(item), excluded=False)
+
     def run_bulk(self):
-        with patch('labeling.generate_suggestions', side_effect=self.generate):
+        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertFalse(self.lab.annotation_job['error'], self.lab.annotation_job)
 
-    def test_entire_dataset_reuses_cache_preserves_manual_and_filters_bad_rows(self):
+    def test_contextual_dataset_ignores_legacy_suggestions_preserves_manual_and_filters_bad_rows(self):
         raw_before = copy.deepcopy(self.raw)
         manual = self.lab.rows()[0]
         self.lab.annotate(dict(id=manual['id'], text_hash=manual['text_hash'], label='non-toxic', note='Giữ nguyên'))
@@ -41,7 +46,7 @@ class BulkLabelingTests(unittest.TestCase):
         cached = self.lab.rows()[1]
         self.lab.suggestions[cached['id']] = dict(suggestion(cached), model_score=.5, suggested_label='', abstain_reason='uncertain')
         eligible = [r for r in self.lab.rows() if r['quality'] == 'ready' and not r['label']]
-        with patch('labeling.generate_suggestions', side_effect=self.generate) as infer:
+        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate) as infer:
             # start_suggestions selects the whole workspace, not the UI's 25-row page.
             with patch('lab.threading.Thread') as thread:
                 started = self.lab.start_suggestions(automatic=True)
@@ -49,14 +54,14 @@ class BulkLabelingTests(unittest.TestCase):
             self.lab.suggest(selected, automatic)
         self.assertEqual(started['total'], len(eligible))
         self.assertGreater(started['total'], 25)
-        self.assertNotIn(cached['id'], {r['id'] for r in infer.call_args.args[0]})
+        self.assertIn(cached['id'], {r['id'] for r in infer.call_args.args[0]})
         dataset = self.lab.dataset_rows(reviewed_only=False)
         self.assertEqual(len(dataset), len(raw_before))
         self.assertTrue(all(r['label'] for r in dataset))
         self.assertEqual(self.lab.dataset_rows()[0]['annotation_note'], 'Giữ nguyên')
-        self.assertEqual(len(self.lab.dataset_rows()), 1)
+        self.assertEqual(len(self.lab.dataset_rows()), len(dataset))
         uncertain = next(r for r in dataset if r['id'] == cached['id'])
-        self.assertEqual((uncertain['label'], uncertain['needs_review']), ('toxic', True))
+        self.assertEqual((uncertain['label'], uncertain['needs_review']), ('toxic', False))
         self.assertEqual(self.raw[:len(raw_before)], raw_before)
         health = self.lab.status()['dataset_health']
         self.assertEqual((health['automatic'], health['reviewed']), (len(dataset)-1, 1))
@@ -92,8 +97,7 @@ class BulkLabelingTests(unittest.TestCase):
                 self.assertEqual(target.status()['dataset_health']['reviewed'], 0)
                 self.assertEqual(target.dataset_rows(False)[0]['model_score'], rows[0]['model_score'])
                 self.assertEqual(target.dataset_rows(False)[0]['text_raw'], self.raw[0]['text_raw'])
-                with self.assertRaises(ValueError):
-                    target.dataset_rows()
+                self.assertEqual(len(target.dataset_rows()), len(rows))
         before = fingerprint(self.lab.rows())
         row = rows[0]
         self.lab.annotate(dict(id=row['id'], text_hash=row['text_hash'], label=row['label']))
@@ -107,7 +111,7 @@ class BulkLabelingTests(unittest.TestCase):
 
     def test_commit_failure_does_not_partially_label(self):
         before = copy.deepcopy(self.lab.annotations)
-        with patch('labeling.generate_suggestions', side_effect=self.generate), patch('lab.atomic_json', side_effect=OSError('disk full')):
+        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch('lab.atomic_json', side_effect=OSError('disk full')):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertTrue(self.lab.annotation_job['error'])
         self.assertFalse(self.lab.annotation_job['running'])
@@ -115,10 +119,10 @@ class BulkLabelingTests(unittest.TestCase):
         self.assertFalse((self.directory/'workspace.json').exists())
 
     def test_export_failure_keeps_committed_labels_downloadable(self):
-        with patch('labeling.generate_suggestions', side_effect=self.generate), patch.object(self.lab, 'save_cleaned', side_effect=OSError('disk full')):
+        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch.object(self.lab, 'save_cleaned', side_effect=OSError('disk full')):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertTrue(self.lab.annotation_job['error'])
-        self.assertIn('Nhãn đã lưu', self.lab.annotation_job['message'])
+        self.assertIn('được giữ lại', self.lab.annotation_job['message'])
         self.assertEqual(len(self.lab.dataset_rows(False)), len(self.raw))
         self.assertEqual(Lab(self.directory, self.lab.source).annotations, self.lab.annotations)
 
@@ -128,8 +132,8 @@ class BulkLabelingTests(unittest.TestCase):
             self.lab.annotate(dict(id=rows[0]['id'], text_hash=rows[0]['text_hash'], label='toxic'))
             self.lab.annotate(dict(id=rows[1]['id'], text_hash=rows[1]['text_hash'], label='', excluded=True))
             self.raw[2]['text_raw'] += ' mới bổ sung'
-            return self.generate(rows)
-        with patch('labeling.generate_suggestions', side_effect=generate):
+            return self.contextual_generate(rows)
+        with patch('contextual_annotation.generate_annotations', side_effect=generate):
             self.lab.suggest(snapshot, automatic=True)
         self.assertFalse(self.lab.annotation_job['error'])
         rows = self.lab.rows()

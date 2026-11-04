@@ -62,6 +62,7 @@ def search_baselines(features, train_labels, validation_labels, notify=print, al
     from sklearn.metrics import f1_score
     from sklearn.naive_bayes import MultinomialNB
     from sklearn.pipeline import Pipeline
+    from sklearn.pipeline import FeatureUnion
     from sklearn.svm import LinearSVC
     selected = ['NB', 'SVM'] if algorithms is None else algorithms
     winners, trials = {}, []
@@ -83,7 +84,15 @@ def search_baselines(features, train_labels, validation_labels, notify=print, al
                               LinearSVC(**params, random_state=42, max_iter=20000))
                 classifier.fit(train_x, train_labels)
                 score = float(f1_score(validation_labels, classifier.predict(val_x), average='macro', zero_division=0))
-                config = dict(ngram_range=list(vectorizer.ngram_range), max_features=vectorizer.max_features, **params)
+                if isinstance(vectorizer, FeatureUnion):
+                    branches = dict(vectorizer.transformer_list)
+                    word, char = branches['word'], branches['char']
+                    config = dict(ngram_range=list(word.ngram_range), max_features=word.max_features,
+                                  char_features=True, char_ngram_range=list(char.ngram_range),
+                                  char_max_features=char.max_features, **params)
+                else:
+                    config = dict(ngram_range=list(vectorizer.ngram_range), max_features=vectorizer.max_features,
+                                  char_features=False, **params)
                 trials.append(dict(name=name, parameters=config, validation_f1_macro=score,
                                    seconds=round(time.monotonic()-started, 3)))
                 if name not in winners or score > winners[name]['score']:
@@ -95,18 +104,16 @@ def search_baselines(features, train_labels, validation_labels, notify=print, al
 
 
 def train_improved(rows, output, notify=print, prepared=None, include_visobert=False,
-                   transformer_config=None, epochs=12, algorithms=None):
+                   transformer_config=None, algorithms=None):
     import joblib
-    import torch
-    from neural import encode, score_cnn, train_cnn
     from features import build_features
 
     algorithms = validate_algorithms(algorithms, include_visobert, optimized=True)
     output = Path(output)
     if prepared is None:
-        prepared = build_features(rows, dict(ngram='both', embedding='word2vec' if 'TextCNN' in algorithms else 'random'), notify)
+        prepared = build_features(rows, dict(ngram='both'), notify)
     # Initialize the shared snapshot; each selected family records one final model.
-    result = train_experiment(rows, output, notify, epochs=epochs, prepared=prepared,
+    result = train_experiment(rows, output, notify, prepared=prepared,
                               algorithms=[])
     result['requested_algorithms'] = algorithms
     result['experiment_type'] = 'validation_search'
@@ -152,36 +159,6 @@ def train_improved(rows, output, notify=print, prepared=None, include_visobert=F
         joblib.dump(ThresholdClassifier(estimator, threshold), output / f'{name}.joblib')
     result['search_seconds'] = round(search_seconds, 3)
 
-    if 'TextCNN' in algorithms:
-        dimension = result['settings']['cnn_embedding']
-        best_model, best_score, cnn_trials = None, -1, []
-        candidates = [dict(filters=48, dropout=0.3, learning_rate=0.001, balanced=True,
-                           trainable=prepared['settings'].get('embedding_trainable', True), patience=None),
-                      dict(filters=48, dropout=0.5, learning_rate=0.0003, balanced=True, trainable=True, patience=3),
-                      dict(filters=32, dropout=0.5, learning_rate=0.0003, balanced=False, trainable=True, patience=3)]
-        if prepared.get('embedding'):
-            candidates.insert(0, dict(filters=48, dropout=0.5, learning_rate=0.0003, balanced=True, trainable=False, patience=3))
-        cnn_started = time.monotonic()
-        for index, config in enumerate(candidates, 1):
-            notify(f'TextCNN tối ưu: cấu hình {index}/{len(candidates)}')
-            model, vocab, history, epoch = train_cnn(texts['train'], labels['train'], texts['validation'], labels['validation'],
-                                                    notify, epochs=epochs, prepared_embedding=prepared.get('embedding'), config=config)
-            score = max(h['val_f1_macro'] for h in history)
-            cnn_trials.append(dict(parameters=config, validation_f1_macro=score, best_epoch=epoch, history=history))
-            if score > best_score:
-                best_model, vocabulary, best_score, best_epoch, best_config = model, vocab, score, epoch, config
-                training_device = str(next(model.parameters()).device)
-                result['cnn_history'], result['cnn_best_epoch'] = history, epoch
-        atomic_json(output / 'cnn-search.json', dict(selection_split='validation', trials=cnn_trials))
-        val_scores = score_cnn(best_model, encode(texts['validation'], vocabulary))
-        test_scores = score_cnn(best_model, encode(texts['test'], vocabulary))
-        record('TextCNN', 'Word embeddings', 'TextCNN', val_scores, test_scores, 0.5,
-               dict(best_config, embedding_dim=dimension, best_epoch=best_epoch, device=training_device), dict(kind='cnn', file='TextCNN.pt',
-                                                                                       vocabulary='vocabulary.json'),
-               time.monotonic()-cnn_started)
-        torch.save(best_model.state_dict(), output / 'TextCNN.pt')
-        atomic_json(output / 'vocabulary.json', vocabulary)
-
     if 'ViSoBERT' in algorithms:
         from transformer_model import train_transformer, score_transformer
         raw = {part: [eligible[i]['text_raw'] for i in ids] for part, ids in split.items()}
@@ -204,9 +181,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--include-visobert', action='store_true')
     parser.add_argument('--download-visobert', action='store_true')
-    parser.add_argument('--epochs', type=int, default=12)
     parser.add_argument('--visobert-epochs', type=int, default=4)
-    parser.add_argument('--algorithms', nargs='+', choices=['NB', 'SVM', 'TextCNN', 'ViSoBERT'],
+    parser.add_argument('--algorithms', nargs='+', choices=['NB', 'SVM', 'ViSoBERT'],
                         help='Only train the selected algorithms; retain compatible previous models.')
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
@@ -226,7 +202,7 @@ def main():
     run = 'run-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output = root / 'data' / 'runs' / run
     result = train_improved(rows, output, notify, prepared=prepared, include_visobert=args.include_visobert,
-                            transformer_config=dict(epochs=args.visobert_epochs), epochs=args.epochs, algorithms=args.algorithms)
+                            transformer_config=dict(epochs=args.visobert_epochs), algorithms=args.algorithms)
     current = LAB.experiment_rows()
     if fingerprint(rows) != fingerprint(current) or input_fingerprint(rows) != input_fingerprint(current):
         raise ValueError('Dữ liệu đã thay đổi trong lúc huấn luyện; giữ kết quả cũ và không cập nhật latest.')

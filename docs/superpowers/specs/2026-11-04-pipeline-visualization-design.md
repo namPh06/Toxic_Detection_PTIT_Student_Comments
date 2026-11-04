@@ -1,0 +1,2 @@
+# Minh họa pipeline dự đoán
+Thiết kế theo hướng 2 người dùng đã chọn: thêm minh họa tương tác vào mục thử phân loại; xuất video WebM tại trình duyệt. Dữ liệu lấy từ cùng lần dự đoán và artifact của mô hình, không dùng điểm emoji hay điểm tin cậy giả. NB/SVM hiển thị đặc trưng khác 0; ViSoBERT dùng tokenizer đã lưu. Khi đổi đầu vào/mô hình hoặc run phải xóa kết quả cũ. Không thay dữ liệu hay huấn luyện lại.

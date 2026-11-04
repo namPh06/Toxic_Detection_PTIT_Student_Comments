@@ -49,18 +49,15 @@ Hai thao tác trên giao diện được tách riêng:
    không phụ thuộc nguồn nhãn hoặc phê duyệt. Sửa nhãn làm đặc trưng cũ hết hiệu lực.
    Xuất bản dữ liệu như bên dưới khi chia sẻ cho nhóm.
 
-Mốc 03/11/2026 sau sửa tiền xử lý: **5.453 bình luận**, **541 bài**, **4.868 mẫu sau lọc trùng**,
-585 bản trùng. Bộ nhãn nhận khi pull được người phụ trách xác nhận là bản chuẩn
-để tiếp tục sử dụng; không cần gán nhãn lại. Bộ nhãn có hỗ trợ Qwen, được phê duyệt
-theo bản chụp trong `dataset_approval` của workspace; việc phê duyệt này không
-đồng nghĩa từng mẫu được gán tay. Nguồn nhãn và `human_verified` được giữ nguyên
-để truy vết; `v4` là phiên bản tiêu chí. Trong mẫu sạch có
-4.162 non-toxic và 706 toxic. Các con số này mô tả dữ liệu, không phải độ chính xác nhãn.
+Mốc kiểm tra 05/11/2026: **5.786 bình luận**, **622 bài**, **5.199 mẫu sạch có nhãn**,
+587 bản trùng. Trong mẫu sạch có **4.162 non-toxic** và **1.037 toxic** (19,95%).
+Nguồn nhãn: 5.198 tự động và 1 thủ công; nguồn nhãn và `human_verified` được giữ
+để truy vết. Các con số này mô tả dữ liệu, không chứng minh độ chính xác nhãn.
 
-Bản làm sạch v2 giữ `không được`, giữ `k/cc` khi mơ hồ, chuẩn hóa `50 k` thành
-`50k`, giữ chuỗi emoji và chuyển `:))/=)))`, `:((` thành token biểu cảm. Chỉ bỏ
-hai stop words `các`, `những`. Ba câu trước đây bị gộp do mất từ được giữ riêng;
-bình luận gốc và nhãn không đổi.
+Bản làm sạch hiện tại `ptit-v4-contextual-dc-20261105` chuẩn hóa `dc/đc` thành
+`được` khi ngữ cảnh rõ, giữ dạng viết tắt mơ hồ; giữ phủ định, từ tục, emoji và
+chuyển biểu cảm thành token. Chỉ bỏ hai stop words `các`, `những`. Bình luận gốc
+và nguồn nhãn được bảo toàn.
 
 `label_usable` cho biết mẫu sạch có nhãn dùng được. Không cần chạy lệnh phê duyệt.
 `label_approved`, `label_approval_method` và `dataset_approval` cũ chỉ còn là lịch
@@ -178,16 +175,16 @@ Chạy từ thư mục dự án; dùng `-B` để không sinh cache bytecode:
 .venv\Scripts\python.exe -B shared_dataset.py --check
 ```
 
-Một số kiểm thử gán nhãn tự động cũ còn mock bộ ONNX trong khi ứng dụng đã chuyển
-sang Qwen; cần cập nhật chúng trước khi dùng toàn bộ suite làm tiêu chí nghiệm thu.
+Kiểm tra ngày 05/11/2026: 83 kiểm thử Python, 82 đạt và 1 bỏ qua. Các kiểm thử
+Qwen dùng mô phỏng phản hồi; kết quả này không đo độ chính xác nhãn trên corpus thật.
 Kiểm thử dữ liệu/HTTP dùng dữ liệu tạm, không sửa bộ dữ liệu thật. Các file JavaScript
 trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ kiểm tra trình duyệt.
 
 ## Huấn luyện và tối ưu mô hình
 
-Phạm vi đã chốt: tối ưu NB/SVM, chọn ngưỡng bằng validation, điều chỉnh TextCNN và bổ sung ViSoBERT. Giữ nguyên nhãn, đầu vào bình luận và các nhóm chia; không thực hiện rà/gán lại nhãn hoặc bổ sung ngữ cảnh.
+Phạm vi đã chốt: tối ưu NB/SVM, chọn ngưỡng bằng validation, bổ sung ViSoBERT. Giữ nguyên nhãn, đầu vào bình luận và các nhóm chia; không thực hiện rà/gán lại nhãn hoặc bổ sung ngữ cảnh.
 
-Trong trang **Huấn luyện**, đánh dấu các mô hình cần chạy lại: Naive Bayes, SVM, TextCNN hoặc ViSoBERT. ViSoBERT mặc định không được chọn để tránh chạy lại ngoài ý muốn. Khi dùng cả BoW và TF-IDF, danh sách gồm đúng 6 mô hình: **BoW-NB, BoW-SVM, TF-IDF-NB, TF-IDF-SVM, TextCNN, ViSoBERT**. Nếu chỉ chọn một phương pháp đặc trưng thì NB/SVM chỉ chạy cho phương pháp đó. Không sinh thêm mô hình theo unigram/bigram hoặc hậu tố tuned. Lần đầu cần mạng để tải trọng số ViSoBERT; CPU chạy lâu hơn GPU.
+Trong trang **Huấn luyện**, đánh dấu các mô hình cần chạy lại: Naive Bayes, SVM hoặc ViSoBERT. ViSoBERT mặc định không được chọn để tránh chạy lại ngoài ý muốn. Khi dùng cả BoW và TF-IDF, danh sách gồm đúng 5 mô hình: **BoW-NB, BoW-SVM, TF-IDF-NB, TF-IDF-SVM, ViSoBERT**. Nếu chỉ chọn một phương pháp đặc trưng thì NB/SVM chỉ chạy cho phương pháp đó. Không sinh thêm mô hình theo unigram/bigram hoặc hậu tố tuned. Lần đầu cần mạng để tải trọng số ViSoBERT; CPU chạy lâu hơn GPU.
 
 Chỉ các mô hình được chọn mới huấn luyện. Mô hình khác được giữ từ lượt hoàn tất gần nhất khi nhãn, đầu vào, bộ chia và cấu hình đặc trưng liên quan còn phù hợp; bảng kết quả ghi rõ **Giữ kết quả cũ**. Nếu đổi unigram/bigram hoặc giới hạn đặc trưng thì không ghép lại NB/SVM dùng cấu hình cũ. Không giữ mô hình của phương pháp BoW/TF-IDF đã bỏ chọn. Checkpoint được liên kết cứng trong thư mục run mới khi hệ thống hỗ trợ, tránh nhân đôi trọng số; nếu không thì sao chép.
 
@@ -196,20 +193,29 @@ Có thể chạy cùng quy trình từ dòng lệnh sau khi trích xuất đặc
 ```powershell
 .venv\Scripts\python.exe -B improvements.py --include-visobert
 .venv\Scripts\python.exe -B improvements.py --algorithms NB SVM
-.venv\Scripts\python.exe -B improvements.py --algorithms TextCNN
 .venv\Scripts\python.exe -B improvements.py --algorithms ViSoBERT
 ```
 
-Bỏ `--include-visobert` nếu chỉ cần NB/SVM/TextCNN. Tham số `--epochs` đặt số epoch tối đa của TextCNN (mặc định 12); `--visobert-epochs` đặt số epoch tối đa của ViSoBERT (mặc định 4). Dừng sớm và khôi phục checkpoint theo validation.
+Bỏ `--include-visobert` nếu chỉ cần NB/SVM. Tham số `--visobert-epochs` đặt số epoch tối đa của ViSoBERT (mặc định 4). Dừng sớm và khôi phục checkpoint theo validation.
 
-TextCNN và ViSoBERT tự dùng GPU khi `torch.cuda.is_available()` trả về true; nếu không thì dùng CPU. Giao diện hiển thị thiết bị khả dụng, kết quả lưu thiết bị đã huấn luyện. NB/SVM của scikit-learn vẫn chạy CPU. Máy có GPU NVIDIA cần driver và bản PyTorch hỗ trợ CUDA phù hợp, theo [hướng dẫn chính thức của PyTorch](https://pytorch.org/get-started/locally/); chỉ có card đồ họa nhưng cài bản PyTorch CPU thì vẫn chạy CPU. ViSoBERT trên GPU tinh chỉnh toàn bộ encoder, trên CPU tinh chỉnh hai tầng cuối nên hai chiến lược không bảo đảm cho kết quả giống nhau.
+ViSoBERT tự dùng GPU khi `torch.cuda.is_available()` trả về true; nếu không thì dùng CPU. Giao diện hiển thị thiết bị khả dụng, kết quả lưu thiết bị đã huấn luyện. NB/SVM của scikit-learn vẫn chạy CPU. Máy có GPU NVIDIA cần driver và bản PyTorch hỗ trợ CUDA phù hợp, theo [hướng dẫn chính thức của PyTorch](https://pytorch.org/get-started/locally/); chỉ có card đồ họa nhưng cài bản PyTorch CPU thì vẫn chạy CPU. ViSoBERT trên GPU tinh chỉnh toàn bộ encoder, trên CPU tinh chỉnh hai tầng cuối nên hai chiến lược không bảo đảm cho kết quả giống nhau.
+
+ViSoBERT dùng GPU cả khi huấn luyện và dự đoán. Với GPU tối đa 6 GB, hệ thống giới hạn batch thực tế ở 2, tăng tích lũy gradient tương ứng và bật gradient checkpointing để giảm bộ nhớ. Cấu hình thực tế được lưu trong `training.json`; nhật ký hiển thị tên thiết bị. Bộ nhớ còn phụ thuộc ứng dụng khác và độ dài câu, nên cơ chế này không bảo đảm mọi cấu hình đều vừa GPU.
+
+Ví dụ cài PyTorch CUDA 12.8 trên Windows có driver NVIDIA tương thích (cần tải khoảng 2,9 GB):
+
+```powershell
+.venv\Scripts\python.exe -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
+.venv\Scripts\python.exe -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+```
+
+Sau khi đổi PyTorch, dừng và mở lại hệ thống để tiến trình nạp thư viện mới.
 
 - Unigram/bigram, phương pháp BoW/TF-IDF và giới hạn từ vựng chỉ chọn ở bước **Trích xuất đặc trưng**. NB/SVM dùng lại đúng ma trận và vectorizer đã lưu, không tự trích xuất hay đổi n-gram trong lúc huấn luyện.
 - Huấn luyện tự chọn tham số bằng validation: thử alpha NB, C và trọng số lớp SVM trên cùng bộ đặc trưng, chỉ lưu một mô hình cuối cùng cho mỗi cặp đặc trưng/thuật toán.
 - Chọn tham số bằng macro-F1 validation, rồi chọn ngưỡng trên validation; lưu chỉ số trước/sau ngưỡng và áp dụng lại ngưỡng khi dự đoán. Không chọn cấu hình/ngưỡng theo test.
-- TextCNN chọn cấu hình learning rate/dropout/embedding và trọng số lớp bằng validation, chỉ lưu checkpoint cuối cùng dưới tên TextCNN. N-gram của BoW/TF-IDF không áp dụng cho TextCNN và ViSoBERT.
 - ViSoBERT lưu revision nguồn, tokenizer, cấu hình và checkpoint. CPU tinh chỉnh hai tầng encoder cuối cùng với bộ phân loại; GPU tinh chỉnh toàn bộ encoder với bộ phân loại. Đầu vào giữ dấu câu/emoji và dùng tokenizer riêng của ViSoBERT.
 
-Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json`, `cnn-search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
+Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
 
 Nhãn/dữ liệu dùng chung vẫn được Git theo dõi như phần bàn giao ở trên. Trọng số, cache và kết quả chạy được bỏ qua trong Git; người nhận có sẵn nhãn để chạy bước đặc trưng/huấn luyện, không phải gán lại. Ngưỡng đã tối ưu chỉ dùng được kèm đúng checkpoint của lượt chạy tương ứng.
