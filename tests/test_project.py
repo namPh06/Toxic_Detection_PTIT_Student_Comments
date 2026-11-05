@@ -11,7 +11,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from backend.dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
-from backend.experiments import build_report, metrics, predict, split_dataset, train_experiment
+from backend.experiments import metrics, predict, split_dataset, train_experiment
 from backend.lab import Lab
 
 
@@ -161,7 +161,7 @@ class ExperimentTests(unittest.TestCase):
         self.assertEqual(m['recall'], 1)
         self.assertAlmostEqual(m['precision'], 2 / 3)
 
-    def test_all_four_baselines_save_reload_predict_and_report(self):
+    def test_all_four_baselines_save_reload_and_predict(self):
         import joblib
         rows = prepare(fixture())
         with tempfile.TemporaryDirectory() as temp:
@@ -179,13 +179,8 @@ class ExperimentTests(unittest.TestCase):
                 self.assertEqual(sum(map(sum, model['test']['confusion_matrix'])), result['split']['test']['count'])
                 fitted = joblib.load(directory / (model['name'] + '.joblib'))
                 self.assertTrue(set(fitted['vectorizer'].vocabulary_) <= train_tokens | {a+' '+b for r in rows if r['id'] in train_ids for a,b in zip(word_tokens(r['text_clean']),word_tokens(r['text_clean'])[1:])})
-            report = (directory / 'report.md').read_text(encoding='utf-8')
+            self.assertFalse((directory / 'report.md').exists())
             self.assertEqual({m['name'] for m in result['models']}, {'BoW-NB', 'BoW-SVM', 'TF-IDF-NB', 'TF-IDF-SVM'})
-            self.assertIn('ViSoBERT', report)
-            self.assertIn('|\n|---', report)
-            self.assertIn('đã thay đổi', build_report(prepare(fixture()[:-1]), result))
-            result['summary']['label_sources'] = {'automatic': len(rows)}
-            self.assertIn('Lần huấn luyện này dùng nhãn tự động', build_report(rows, result))
             self.assertIn('automatic_labels', result['split']['test'])
 
 
@@ -314,8 +309,7 @@ class HTTPTests(unittest.TestCase):
 
     def test_frontend_files_are_served_after_reorganization(self):
         for url, filename in (('/', 'index.html'), ('/style.css', 'style.css'),
-                              ('/ui.js', 'ui.js'), ('/pipeline.js', 'pipeline.js'),
-                              ('/report-video.js', 'report-video.js')):
+                              ('/ui.js', 'ui.js'), ('/pipeline.js', 'pipeline.js')):
             with self.subTest(url=url):
                 status, body = self.request(url)
                 self.assertEqual(status, 200)
@@ -337,12 +331,15 @@ class HTTPTests(unittest.TestCase):
             duplicate = self.app.LocalHTTPServer(('127.0.0.1', self.port), self.app.Handler)
             duplicate.server_close()
 
-    def test_annotation_and_report_endpoints(self):
+    def test_annotation_and_training_endpoints(self):
         self.assertEqual(self.request('/api/annotate', dict(id=row_id(fixture()[0]), text_hash=text_hash(fixture()[0]['text_raw']), label='non-toxic', note='test'))[0], 200)
-        status, body = self.request('/api/report')
-        self.assertEqual(status, 200)
-        self.assertIn('Chưa có thực nghiệm', body.decode())
         self.assertEqual(self.request('/api/train', {})[0], 400)
+
+    def test_removed_report_endpoints_return_not_found(self):
+        for path in ('/api/report', '/api/system-report-video', '/api/system-report-video.mp4', '/report-video.js'):
+            with self.subTest(path=path):
+                self.assertEqual(self.request(path)[0], 404)
+        self.assertEqual(self.request('/api/system-report-video', {})[0], 404)
 
     def test_source_url_boundary(self):
         self.assertTrue(self.app.scope_url('https://www.facebook.com/groups/ptit/'))

@@ -5,7 +5,7 @@ import threading
 from datetime import datetime, timezone
 
 from backend.dataset import LABELS, LABEL_METADATA, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, input_fingerprint, parse_import, prepare, row_id, summary, text_hash
-from backend.experiments import active_result, build_report, predict, publish_run, split_dataset, train_experiment, validate_algorithms
+from backend.experiments import active_result, predict, publish_run, split_dataset, train_experiment, validate_algorithms
 from backend.features import build_features, feature_key, feature_summary, preview_features, validate_settings
 from backend.shared_dataset import POLICY, apply_approval, digest, reviewed, training_rows, usable_label
 
@@ -412,13 +412,6 @@ class Lab:
                 result = publish_run(result, self.directory / 'runs' / run, self.directory, rows)
                 self.run = run
                 self.job.update(message=f'Đã chạy {len(result["trained_models"])} cấu hình, giữ {len(result["retained_models"])} kết quả cũ phù hợp. Chọn mô hình bằng validation.', error=False)
-            # A report failure must never turn successful model training into a failure.
-            try:
-                from backend.system_report_video import STORE
-                if self.directory.resolve() == STORE.data.resolve():
-                    STORE.enqueue(run)
-            except Exception:
-                pass
         except Exception as error:
             with self.lock:
                 self.job.update(message=f'Huấn luyện thất bại: {error}', error=True)
@@ -442,8 +435,3 @@ class Lab:
             from backend.pipeline_trace import build_trace
             answer['trace'] = build_trace(text, self.directory / 'runs' / run, answer)
         return answer
-
-    def report(self):
-        experiment = self.experiment_rows()
-        return build_report(self.rows(), self.result(), experiment_fingerprint=fingerprint(experiment),
-                            experiment_input_fingerprint=input_fingerprint(experiment))

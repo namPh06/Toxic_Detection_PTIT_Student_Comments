@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/style.css">
   <script src="/ui.js" defer></script>
   <script src="/pipeline.js" defer></script>
-  <script src="/report-video.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Đến nội dung chính</a>
@@ -20,7 +19,6 @@
     <a href="#data" data-tab="data" aria-label="Làm sạch & gán nhãn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11M13 13h4m-4 3h4"/></svg><span>Làm sạch & gán nhãn</span></a>
     <a href="#features" data-tab="features" aria-label="Trích xuất đặc trưng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 10h16M10 4v16M15 14h2m-2 3h2"/></svg><span>Trích xuất đặc trưng</span></a>
     <a href="#models" data-tab="models" aria-label="Huấn luyện & đánh giá"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v17h17M8 15v-4m5 4V7m5 8V4"/></svg><span>Huấn luyện & đánh giá</span></a>
-    <a href="#report" data-tab="report" aria-label="Báo cáo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h7"/></svg><span>Báo cáo</span></a>
   </nav>
   <div class="sidebar-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14l3 10v6H2v-6L5 4zM2 14h20M16 17h2m-12 0h1"/></svg><div><strong>Dữ liệu lưu trên máy</strong><small>Trong thư mục dự án</small></div></div>
 </aside>
@@ -42,7 +40,6 @@
     <a href="#data"><span class="step">3</span><h3>Gán nhãn</h3><p>Gán nhãn tự động hoặc sửa tay</p><span class="step-state" id="step-label">Cần thực hiện</span></a>
     <a href="#features"><span class="step">4</span><h3>Đặc trưng</h3><p>BoW và TF-IDF</p><span class="step-state" id="step-features">Chưa trích xuất</span></a>
     <a href="#models"><span class="step">5</span><h3>Huấn luyện</h3><p>So sánh các cấu hình</p><span class="step-state" id="step-model">Chờ đặc trưng</span></a>
-    <a href="#report"><span class="step">6</span><h3>Báo cáo</h3><p>Đánh giá và xuất kết quả</p><span class="step-state" id="step-report">Chưa có thực nghiệm</span></a>
   </div>
   <div class="two-col overview-charts">
     <article class="panel"><div class="panel-heading"><div><h2>Phân bố nhãn</h2><p>Trên các mẫu sạch, không trùng</p></div></div><div class="distribution"><div id="donut" class="donut" role="img" aria-label="Chưa có dữ liệu"><div><strong id="donut-total">—</strong><span>mẫu sạch</span></div></div><div id="label-legend" class="legend"></div></div><div class="panel-foot">Phân bố của bộ nhãn hiện hành, gồm cả nhãn máy và nhãn sửa tay.</div></article>
@@ -209,19 +206,6 @@
   </div>
 </section>
 
-<section id="report" class="view" hidden>
-  <div class="page-heading"><div><h1>Báo cáo</h1><p>Tổng hợp phương pháp, thống kê dữ liệu và kết quả thực nghiệm.</p></div><a class="button primary" href="/api/report">Tải báo cáo .md</a></div>
-  <article class="panel" id="system-report-video-panel">
-    <div class="panel-heading"><div><h2>Video báo cáo toàn hệ thống</h2><p>Hành trình dữ liệu, phép tính của năm mô hình và so sánh kết quả. Bản dựng sẵn, phát trực tiếp.</p></div><button id="report-video-retry" class="button small" type="button">Cập nhật video</button></div>
-    <div class="panel-body"><p id="report-video-state" role="status">Đang kiểm tra video…</p>
-      <video id="report-video-player" controls preload="metadata" hidden style="width:100%;border-radius:12px;background:#0b1220" aria-label="Video báo cáo năm mô hình"></video>
-      <nav id="report-video-chapters" class="actions" aria-label="Mục lục video" style="flex-wrap:wrap;margin-top:16px"></nav>
-      <p class="muted">Hai ví dụ cố định dùng cho cả năm mô hình. Nhãn dataset chủ yếu tự động; phần mô phỏng không khẳng định dự đoán luôn đúng.</p>
-    </div>
-  </article>
-  <div class="two-col"><article class="panel"><div class="panel-heading"><h2>Nội dung báo cáo</h2></div><ol class="report-list"><li><span>01</span><div><h3>Giới thiệu bài toán</h3><p>Mục tiêu, phạm vi, nguồn dữ liệu và định nghĩa nhãn.</p></div></li><li><span>02</span><div><h3>Cơ sở lý thuyết</h3><p>BoW, TF-IDF, Naive Bayes, SVM và ViSoBERT.</p></div></li><li><span>03</span><div><h3>Thực nghiệm & kết quả</h3><p>Tiền xử lý, chia tập, siêu tham số, so sánh và ma trận nhầm lẫn.</p></div></li><li><span>04</span><div><h3>Kết luận & tài liệu tham khảo</h3><p>Hạn chế, hướng phát triển và các nguồn tài liệu.</p></div></li></ol></article><article class="panel"><div class="panel-heading"><h2>Trạng thái báo cáo</h2></div><div class="panel-body"><h3 id="report-state">Đang kiểm tra…</h3><p id="report-description"></p><p class="muted">Bổ sung tên thành viên, lớp và phân công trước khi nộp. Ẩn định danh trong dữ liệu trước khi chia sẻ.</p><details class="technical-detail"><summary>Các tệp dữ liệu của project</summary><p><code>data/progress.json</code> — dữ liệu gốc<br><code>data/workspace.json</code> — nhãn và kết quả mô hình<br><code>data/processed.csv</code> — bản xuất làm sạch<br><code>data/runs/</code> — mô hình, dữ liệu và kết quả từng lần chạy</p></details></div></article></div>
-  <article class="panel"><div class="panel-heading"><h2>Xem trước báo cáo</h2><button id="report-refresh" class="button small">Cập nhật</button></div><pre id="report-preview" class="report-preview" tabindex="0" aria-label="Nội dung báo cáo Markdown"></pre></article>
-</section>
 <footer>PTIT Comment Lab</footer>
 </main></div>
 <div id="toast" role="status" aria-live="polite" hidden></div>

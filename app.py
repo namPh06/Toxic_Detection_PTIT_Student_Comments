@@ -585,7 +585,6 @@ class Handler(BaseHTTPRequestHandler):
             '/': ('frontend/index.html', 'text/html'),
             '/ui.js': ('frontend/ui.js', 'text/javascript'),
             '/pipeline.js': ('frontend/pipeline.js', 'text/javascript'),
-            '/report-video.js': ('frontend/report-video.js', 'text/javascript'),
             '/style.css': ('frontend/style.css', 'text/css'),
             '/assets/fonts/be-vietnam-pro-400.ttf': ('assets/fonts/be-vietnam-pro-400.ttf', 'font/ttf'),
             '/assets/fonts/be-vietnam-pro-500.ttf': ('assets/fonts/be-vietnam-pro-500.ttf', 'font/ttf'),
@@ -595,12 +594,6 @@ class Handler(BaseHTTPRequestHandler):
         if path in static:
             filename, kind = static[path]
             self.send((ROOT / filename).read_bytes(), kind + ';charset=utf-8')
-        elif path == '/api/system-report-video':
-            from backend.system_report_video import STORE
-            self.json(STORE.status())
-        elif path == '/api/system-report-video.mp4':
-            from backend.system_report_video import STORE
-            self.send_video(STORE.video_path(query.get('id', [''])[0]), download='download' in query)
         elif path == '/api/pipeline-video':
             from backend import pipeline_video
             self.json(pipeline_video.status(query.get('id', [''])[0]))
@@ -652,8 +645,6 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self.send(json.dumps(dict(schema_version=2, label_policy='includes_automatic', rows=rows), ensure_ascii=False, indent=2).encode(),
                           'application/json;charset=utf-8', filename='ptit_dataset_auto.json')
-        elif path == '/api/report':
-            self.send(LAB.report().encode(), 'text/markdown;charset=utf-8', filename='bao_cao_ptit.md')
         elif path == '/api/results.json':
             self.send(json.dumps(LAB.result(), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='metrics.json')
         elif path == '/api/colab/notebook':
@@ -777,9 +768,6 @@ class Handler(BaseHTTPRequestHandler):
             return LAB.start_features(body)
         elif self.path == '/api/predict':
             return LAB.predict(body)
-        elif self.path == '/api/system-report-video':
-            from backend.system_report_video import STORE
-            return STORE.enqueue(retry=True)
         elif self.path == '/api/pipeline-video':
             from backend import pipeline_video
             answer = LAB.predict(dict(text=body.get('text'), model=body.get('model'), explain=True))
@@ -801,13 +789,6 @@ if __name__ == '__main__':
         print('Cong 8767 dang bi chiem. Hay dong cua so MO_CONG_CU.cmd cu (Ctrl+C), roi mo lai. Dong tab web khong tat chuong trinh cu.')
         raise SystemExit(1)
     restore()
-    # Rendering runs in one background worker; a cached report is immediately playable.
-    try:
-        from backend.system_report_video import STORE
-        if (DATA / 'latest.json').exists():
-            STORE.enqueue()
-    except Exception as error:
-        print(f'Video bao cao chua san sang: {error}', flush=True)
     if not args.no_browser:
         webbrowser.open('http://127.0.0.1:8767/')
     print('PTIT Comment Lab: http://127.0.0.1:8767/', flush=True)

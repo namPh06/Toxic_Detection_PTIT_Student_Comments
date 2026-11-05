@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 
 from backend.dataset import LABELS, atomic_json, fingerprint, input_fingerprint
-from backend.experiments import build_report, metrics, publish_run, train_experiment, validate_algorithms
+from backend.experiments import metrics, publish_run, train_experiment, validate_algorithms
 
 # Existing joblib models refer to improvements.ThresholdClassifier.
 if __name__ != '__main__':
@@ -178,7 +178,6 @@ def train_improved(rows, output, notify=print, prepared=None, include_visobert=F
     result['selected_model'] = max(result['models'], key=lambda m: m['validation']['f1_macro'])['name']
     result['trained_models'] = [m['name'] for m in result['models']]
     atomic_json(output / 'metrics.json', result)
-    (output / 'report.md').write_text(build_report(rows, result), encoding='utf-8')
     return result
 
 
@@ -212,8 +211,6 @@ def main():
     if fingerprint(rows) != fingerprint(current) or input_fingerprint(rows) != input_fingerprint(current):
         raise ValueError('Dữ liệu đã thay đổi trong lúc huấn luyện; giữ kết quả cũ và không cập nhật latest.')
     result = publish_run(result, output, root / 'data', rows)
-    (root / 'docs' / 'Report.md').write_text(build_report(LAB.rows(), result,
-        experiment_fingerprint=fingerprint(current), experiment_input_fingerprint=input_fingerprint(current)), encoding='utf-8')
     print(json.dumps(dict(run=run, selected=result['selected_model'], models=len(result['models'])), ensure_ascii=False), flush=True)
 
 

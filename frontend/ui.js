@@ -63,11 +63,10 @@ async function action(button, fn) {
 }
 function navigate() {
   const name=location.hash.slice(1)||'overview';
-  currentTab=['overview','crawl','data','features','models','report'].includes(name)?name:'overview';
+  currentTab=['overview','crawl','data','features','models'].includes(name)?name:'overview';
   document.querySelectorAll('.view').forEach(view=>view.hidden=view.id!==currentTab);
   document.querySelectorAll('[data-tab]').forEach(link=>{const active=link.dataset.tab===currentTab;link.classList.toggle('active',active);if(active){link.setAttribute('aria-current','page');$('breadcrumb').textContent=link.getAttribute('aria-label');}else link.removeAttribute('aria-current');});
   if(currentTab==='data') loadRows();
-  if(currentTab==='report') loadReport();
   if(currentTab==='features'&&lastStatus)renderFeatureStatus(lastStatus);
 }
 window.addEventListener('hashchange',navigate);
@@ -101,7 +100,6 @@ function renderStatus(status) {
   $('step-crawl').textContent=s.total?'Đã có dữ liệu':'Chờ thu thập';
   $('step-label').textContent=`${number(s.labeled)} / ${number(s.usable)} mẫu`;
   $('step-model').textContent=status.job.running?'Đang huấn luyện':result?'Đã huấn luyện':featuresReady(status)?'Sẵn sàng huấn luyện':'Chờ trích xuất đặc trưng';
-  $('step-report').textContent=result?'Đã có kết quả':'Chưa có thực nghiệm';
   const non=s.labels['non-toxic']||0,toxic=s.labels.toxic||0,unlabeled=s.labels.unlabeled||0,total=Math.max(1,s.usable);
   $('donut-total').textContent=number(s.usable);
   $('donut').style.background=`conic-gradient(#536b82 0 ${non/total*100}%,#ae263b ${non/total*100}% ${(non+toxic)/total*100}%,#e1e4e9 ${(non+toxic)/total*100}% 100%)`;
@@ -134,8 +132,6 @@ function renderStatus(status) {
   $('stale-warning').hidden=!status.stale;
   $('automatic-training-warning').hidden=!(health?.automatic||result?.summary?.label_sources?.automatic);
   $('model-empty').hidden=!!result;$('model-results').hidden=!result;$('predict-button').disabled=!result||status.job.running;
-  $('report-state').textContent=result?(status.stale?'Có kết quả, cần cập nhật':'Đã có kết quả thực nghiệm'):(s.labeled?'Dataset đã có nhãn, chờ huấn luyện':'Đã có phần phương pháp, đang chờ dataset');
-  $('report-description').textContent=result?'Báo cáo gồm bảng chỉ số, so sánh đặc trưng/thuật toán và confusion matrix từ lần huấn luyện gần nhất.':'Báo cáo hiện có thống kê bộ dữ liệu và cơ sở lý thuyết. Phần chỉ số sẽ được bổ sung sau khi chạy huấn luyện.';
   updateDataActions(status);
   $('annotation-status').hidden=!(annotationJob?.running||annotationJob?.error);
   $('annotation-status').textContent=annotationJob?.error?annotationErrorMessage(annotationJob.message):annotationJob?.running?(annotationJob.automatic?'Đang gán nhãn…':'Đang tạo gợi ý…'):'';
@@ -409,8 +405,6 @@ $('import-file').onchange=async()=>{
   const file=$('import-file').files[0];if(!file)return;
   try{if(file.size>10_000_000)throw Error('Tệp tối đa 10 MB.');const r=await api('/api/import',{filename:file.name,content:await file.text()});toast(`Đã nhập ${r.added} mẫu mới và cập nhật ${r.labels_updated} nhãn.`);page=1;await loadRows();renderStatus(await api('/api/status'));}catch(error){toast(error.message,true);}finally{$('import-file').value='';}
 };
-async function loadReport(){try{const response=await fetch('/api/report');if(!response.ok)throw Error('Không tải được báo cáo.');$('report-preview').textContent=await response.text();}catch(error){toast(error.message,true);}}
-$('report-refresh').onclick=loadReport;
 const importLabel=document.querySelector('label[for="import-file"]');
 importLabel.tabIndex=0;importLabel.setAttribute('role','button');
 importLabel.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();$('import-file').click();}});

@@ -19,12 +19,17 @@ async function checkInterfaceBrowser(page, baseURL) {
     const path=new URL(route.request().url()).pathname;
     if(path==='/api/status')return route.fulfill({json:status});
     if(path==='/api/rows')return route.fulfill({json:{rows:[row],total:1}});
-    if(path==='/api/report')return route.fulfill({body:'# Báo cáo\nNội dung mẫu.'});
     throw Error('Unexpected UI fixture endpoint: '+path);
   });
   await page.route(baseURL+'/status', route=>crawlerConnected?route.fulfill({json:crawl}):route.abort('connectionrefused'));
   try {
     await page.goto(baseURL+'/#data');
+    await page.waitForSelector('.label-form');
+    check(await page.locator('nav [data-tab]').count()===5&&await page.locator('#report, [href="#report"], script[src="/report-video.js"]').count()===0,'Navigation contains five screens without the report feature');
+    await page.goto(baseURL+'/#report');
+    await page.waitForFunction(()=>document.querySelector('#overview').hidden===false);
+    check(await page.locator('#breadcrumb').innerText()===await page.locator('nav [data-tab="overview"]').getAttribute('aria-label'),'Old report links fall back to overview');
+    await page.locator('nav [data-tab="data"]').click();
     await page.waitForSelector('.label-form');
     check(!(await page.locator('#annotation-status').innerText()).includes('.onnx'),'Model filename is absent from the main processing status');
     check((await page.locator('#annotation-debug').textContent()).includes('24%'),'Detailed download progress is retained');
@@ -73,7 +78,7 @@ async function checkInterfaceBrowser(page, baseURL) {
 
     for(const width of [375,768,1024,1440]) {
       await page.setViewportSize({width,height:900});
-      for(const tab of ['overview','crawl','data','models','report']) {
+      for(const tab of ['overview','crawl','data','features','models']) {
         await page.locator('nav [data-tab="'+tab+'"]').click();
         check(await page.locator('#breadcrumb').innerText()===await page.locator('nav [data-tab="'+tab+'"]').getAttribute('aria-label'),`Navigation keeps its full label: ${tab}, ${width}px`);
         check(await page.evaluate(()=>document.scrollingElement.scrollWidth<=document.scrollingElement.clientWidth),`No page overflow: ${tab}, ${width}px`);
