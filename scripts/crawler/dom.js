@@ -52,6 +52,30 @@ let root=dialogs.find(e=>{const ids=identity(e);return ids.size===1&&ids.has(exp
 if(!root)root=[...document.querySelectorAll('[role=article]')].find(e=>visible(e)&&!e.parentElement?.closest('[role=article]')&&identity(e).size===1&&identity(e).has(expected));
 if(!root&&dialogs.length===1&&current?.id===expected&&!identity(dialogs[0]).size)root=dialogs[0];
 if(!root)return {missing_scope:true};
+if(action==='sort'){
+ const label=e=>H.clean(e.innerText||e.getAttribute('aria-label')||'');
+ const all=/^(?:Tất cả (?:các )?bình luận|All comments)$/i;
+ const isAll=e=>all.test(label(e))||[...e.querySelectorAll('span,[dir=auto]')].some(s=>visible(s)&&all.test(label(s)));
+ const filtered=/^(?:Phù hợp nhất|Liên quan nhất|Mới nhất|Most relevant|Newest|Top comments)$/i;
+ const controls=[...root.querySelectorAll('button,[role=button]')].filter(e=>visible(e)&&!e.closest('[role=menu],[role=listbox]')&&!e.parentElement?.closest('[role=article],[aria-label^="Bình luận của"],[aria-label^="Comment by"],[aria-label^="Comment from"]'));
+ const trigger=controls.find(e=>filtered.test(label(e)));
+ // A visible menu option is not proof that the active filter has changed.
+ if(!trigger&&controls.some(e=>isAll(e)))return {sort_status:'confirmed'};
+ if(!trigger)return {sort_status:'unavailable'};
+ const states=window.__ptitSortStates||(window.__ptitSortStates=new WeakMap());
+ const state=states.get(root)||{attempts:0,opened:false};states.set(root,state);
+ if(state.attempts++>=30)return {sort_status:'failed'};
+ // Facebook renders the sort menu in a portal outside the post dialog.
+ // Only inspect that portal after opening this post's own sort control.
+ if(state.opened){
+  // Some Facebook layouts use standalone role=button portal entries, without
+  // a menu/listbox ancestor. Match their title, including a separate description.
+  const option=[...document.querySelectorAll('[role=menuitem],[role=menuitemradio],[role=option],[role=button],button')].find(e=>visible(e)&&e!==trigger&&!e.contains(trigger)&&!e.closest('[role=article]')&&(isAll(e)||all.test(H.clean((e.innerText||e.getAttribute('aria-label')||'').split('\n')[0]))));
+  if(option)return {sort_status:'selecting',sort_element:option};
+  if(trigger.getAttribute('aria-expanded')==='true')return {sort_status:'waiting'};
+ }
+ state.opened=true;return {sort_status:'opening',sort_element:trigger};
+}
 const selector='[role=article],[aria-label^="Bình luận của"],[aria-label^="Comment by"],[aria-label^="Comment from"]';
 const own=(node,e)=>node.closest(selector)===e;
 const comments=[...root.querySelectorAll(selector)].filter(e=>{

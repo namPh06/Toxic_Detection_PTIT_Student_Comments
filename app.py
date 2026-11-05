@@ -6,6 +6,7 @@ import threading
 import time
 import webbrowser
 import argparse
+import re
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -141,15 +142,53 @@ def check_browser(driver):
     if current not in handles:
         driver.switch_to.window(handles[-1])
 
+def post_from_url(url):
+    """Recognize explicit Facebook permalinks without discovering other posts."""
+    parsed = urlparse(url)
+    if parsed.scheme != 'https' or not (parsed.hostname == 'facebook.com' or (parsed.hostname or '').endswith('.facebook.com')):
+        return None
+    match = re.fullmatch(r'/(?:groups/[^/]+/(?:posts|permalink)|[^/]+/posts)/([\w.-]+)/?', parsed.path)
+    query = parse_qs(parsed.query)
+    post_id = match.group(1) if match else None
+    if not post_id and parsed.path in ('/permalink.php', '/story.php'):
+        post_id = query.get('story_fbid', [''])[0]
+    if not post_id and re.fullmatch(r'/groups/[^/]+/?', parsed.path):
+        post_id = query.get('multi_permalinks', [''])[0]
+    if not post_id or not re.fullmatch(r'[\w.-]+', post_id):
+        return None
+    return dict(id=post_id, url=url.split('#')[0])
+
+
+def share_post_url(url):
+    parsed = urlparse(url)
+    return (parsed.scheme == 'https'
+            and (parsed.hostname == 'facebook.com' or (parsed.hostname or '').endswith('.facebook.com'))
+            and re.fullmatch(r'/share/p/[A-Za-z0-9_-]+/?', parsed.path) is not None)
+
+
+def resolve_share_post(driver, source):
+    """Wait for Facebook to resolve a share link; never scan a fallback feed."""
+    if not share_post_url(source):
+        return
+    update(message='Đang mở liên kết chia sẻ của bài viết…')
+    for _ in range(20):
+        if STOP.is_set():
+            raise RuntimeError('Đã dừng mở liên kết chia sẻ.')
+        if post_from_url(driver.current_url):
+            return
+        STOP.wait(0.5)
+    raise RuntimeError('Facebook chưa chuyển link chia sẻ sang bài viết. Hãy mở bài trong Chrome, sao chép liên kết đầy đủ rồi thử lại')
+
+
 def scope_url(url):
     parsed = urlparse(url)
     if parsed.scheme != 'https' or not (parsed.hostname == 'facebook.com' or (parsed.hostname or '').endswith('.facebook.com')):
         return False
     parts = parsed.path.strip('/').split('/')
-    return bool(parts[0]) and not any(x in parts for x in ('posts', 'permalink', 'login', 'checkpoint', 'watch', 'reel', 'reels')) and (parts[0] != 'groups' or len(parts) >= 2)
+    return bool(parts[0]) and not any(x in parts for x in ('posts', 'permalink', 'permalink.php', 'story.php', 'share', 'login', 'checkpoint', 'watch', 'reel', 'reels')) and (parts[0] != 'groups' or len(parts) >= 2)
 
 
-def ingest_filtered(items, post, gate, observed, original_keys, deadline=None):
+def ingest_filtered(items, post, gate, observed, original_keys):
     """Keep context in memory; only passing new comments enter ROWS."""
     changed = False
     for item in items:
@@ -159,7 +198,7 @@ def ingest_filtered(items, post, gate, observed, original_keys, deadline=None):
             changed = changed or old != item
             observed[cid] = dict(item)
     for position, (cid, item) in enumerate(list(observed.items()), 1):
-        if STOP.is_set() or (deadline is not None and time.monotonic() >= deadline):
+        if STOP.is_set():
             break
         key = (post['id'], cid)
         if key in original_keys:
@@ -180,7 +219,7 @@ def ingest_filtered(items, post, gate, observed, original_keys, deadline=None):
         gate.decisions[key] = decision['label']
         with LOCK:
             previous = ROWS.get(key)
-            if decision['label'] == gate.mode and (key in ROWS or len(ROWS) < 10000):
+            if decision['label'] == gate.mode:
                 ROWS[key] = dict(item,post_id=post['id'],post_url=post['url'],collection_method='selenium_auto',collected_at=datetime.now(timezone.utc).isoformat(),comment_filter='unknown',**gate.metadata(decision,context,parents))
             else:
                 ROWS.pop(key, None)
@@ -193,8 +232,12 @@ def ingest_filtered(items, post, gate, observed, original_keys, deadline=None):
 def run_batch(driver):
     target = STATE['target']
     source = driver.current_url
-    if not scope_url(source):
-        update(message='Hãy vào trang nhóm hoặc fanpage trong Chrome của công cụ, rồi bấm Bắt đầu.', phase='ready', running=False)
+    single_post = post_from_url(source)
+    if single_post:
+        target = 1
+        update(target=1)
+    if not single_post and not scope_url(source):
+        update(message='Hãy vào nhóm, fanpage hoặc bài viết Facebook trong Chrome của công cụ, rồi bấm Bắt đầu.', phase='ready', running=False)
         return
     with LOCK:
         previous_source = STATE['source']
@@ -202,14 +245,14 @@ def run_batch(driver):
             STATE['results'] = []
         STATE.update(source=source, running=True, phase='discovering', posts=0)
     feed_handle = driver.current_window_handle
-    posts = {}
+    posts = {single_post['id']: single_post} if single_post else {}
     stale = 0
     try:
         gate = CollectionFilter(STATE.get('collection_filter', 'all'))
         original_keys = set(ROWS)
         update(filter_counts={}, discovered=0, discovery_stop_reason='')
-        discovery_reason = 'iteration_limit'
-        for _ in range(max(60, target * 3)):
+        discovery_reason = 'single_post' if single_post else 'iteration_limit'
+        for _ in range(0 if single_post else max(60, target * 3)):
             if STOP.is_set():
                 break
             driver.execute_script(HELPERS)
@@ -260,7 +303,7 @@ def run_batch(driver):
             if STOP.is_set():
                 break
             observed = {}
-            reason = 'time_limit'
+            reason = 'no_progress'
             post_error = None
             update(phase='collecting', message=f'Bài {index}/{len(chosen)}: đang tải bình luận…')
             try:
@@ -269,11 +312,25 @@ def run_batch(driver):
                 if STOP.wait(3):
                     reason = 'user_stop'
                 else:
-                    started = time.monotonic()
                     stale = 0
                     missing = 0
-                    while not STOP.is_set() and time.monotonic() - started < 180:
+                    while not STOP.is_set():
                         driver.execute_script(HELPERS)
+                        sorting = driver.execute_script(DOM, 'sort', post['id'])
+                        sort_status = sorting.get('sort_status')
+                        if sort_status == 'failed':
+                            raise RuntimeError('Không chuyển được sang Tất cả bình luận. Dừng để kiểm tra bộ lọc Facebook.')
+                        if sorting.get('sort_element') is not None:
+                            from selenium.common.exceptions import StaleElementReferenceException
+                            try:
+                                sorting['sort_element'].click()
+                            except StaleElementReferenceException:
+                                pass  # Resolve the control again after Facebook rerenders.
+                        if sort_status in ('opening', 'selecting', 'waiting'):
+                            update(message=f'Bài {index}/{len(chosen)}: đang chuyển sang Tất cả bình luận…')
+                            if STOP.wait(0.25):
+                                break
+                            continue
                         result = driver.execute_script(DOM, 'read', post['id'])
                         if result.get('blocked'):
                             raise RuntimeError('Gặp đăng nhập/xác minh/hạn chế. Dừng toàn phiên, dữ liệu được giữ.')
@@ -291,7 +348,7 @@ def run_batch(driver):
                         capture_post_context(driver, post)
                         before = len(ROWS)
                         if gate.mode != 'all':
-                            observed_changed = ingest_filtered(result.get('rows', []), post, gate, observed, original_keys, deadline=started + 180)
+                            observed_changed = ingest_filtered(result.get('rows', []), post, gate, observed, original_keys)
                         else:
                             with LOCK:
                                 for item in result.get('rows', []):
@@ -307,18 +364,10 @@ def run_batch(driver):
                                         elif item['text_raw'] == old['text_raw'] and item.get('text_complete') is True:
                                             old['text_complete'] = True
                                         continue
-                                    if len(ROWS) >= 10000:
-                                        break
                                     ROWS[key] = dict(item, post_id=post['id'], post_url=post['url'], label='', annotation_note='', collection_method='selenium_auto', collected_at=datetime.now(timezone.utc).isoformat(), comment_filter='unknown')
                                 STATE['comments'] = len(ROWS)
                         save()
-                        if len(ROWS) >= 10000:
-                            reason = 'dataset_limit'
-                            STOP.set()
-                            break
                         if STOP.is_set():
-                            break
-                        if time.monotonic() - started >= 180:
                             break
                         step = driver.execute_script(DOM, 'advance', post['id'])
                         if step.get('blocked') or step.get('wrong_source'):
@@ -334,7 +383,7 @@ def run_batch(driver):
                         update(message=f'Bài {index}/{len(chosen)} · {len(ROWS)} bình luận trong bộ dữ liệu. Đang tự cuộn/tải thêm…')
                         if STOP.wait(2.5):
                             break
-                    if STOP.is_set() and reason != 'dataset_limit':
+                    if STOP.is_set():
                         reason = 'user_stop'
             except Exception as error:
                 reason, post_error = 'crawl_error', error
@@ -408,6 +457,7 @@ def worker():
                     check_browser(driver)
                     if STATE.get('requested_source'):
                         navigate(driver, STATE['requested_source'])
+                        resolve_share_post(driver, STATE['requested_source'])
                     run_batch(driver)
                     check_browser(driver)
                 except Exception as error:
@@ -641,15 +691,15 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError('Chế độ lọc không hợp lệ.')
             if type(target) is not int or not 1 <= target <= 500:
                 raise ValueError('Số bài phải là số nguyên từ 1 đến 500.')
-            if not isinstance(source, str) or len(source) > 2000 or (source and not scope_url(source)):
-                raise ValueError('Nhập URL https của nhóm/fanpage Facebook, hoặc để trống để dùng tab hiện tại.')
+            if not isinstance(source, str) or len(source) > 2000 or (source and not (post_from_url(source) or share_post_url(source) or scope_url(source))):
+                raise ValueError('Nhập URL https của nhóm, fanpage hoặc bài viết Facebook. Với link chia sẻ rút gọn, hãy mở bài và sao chép liên kết đầy đủ.')
             with LOCK:
                 if not STATE['ready'] or STATE['running']:
                     self.send(b'Not ready', 'text/plain', 409)
                     return
                 STATE['collection_filter'] = mode
                 STATE['filter_counts'] = {}
-                STATE['target'] = target
+                STATE['target'] = 1 if post_from_url(source) or share_post_url(source) else target
                 STATE['requested_source'] = source
                 STATE['running'] = True
                 STATE['message'] = 'Đang bắt đầu…'

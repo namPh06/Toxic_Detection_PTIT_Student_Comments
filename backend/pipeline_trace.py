@@ -41,7 +41,13 @@ def build_trace(text, directory, answer):
     score = answer.get('score')
     detail = f'Mô hình: {name}'
     if score is not None:
-        detail += f"\nĐiểm đầu ra: {score:.6g}\nNgưỡng: {answer['threshold']:.6g}\nĐiểm >= ngưỡng → toxic. Điểm này không phải độ chính xác của nhãn."
+        threshold = answer['threshold']
+        operator = '>=' if score >= threshold else '<'
+        decision = 'TOXIC' if score >= threshold else 'NON-TOXIC'
+        detail += (f"\nĐiểm đầu ra: {score!r}\nNgưỡng: {threshold!r}"
+                   f"\nSo sánh thực tế: {score!r} {operator} {threshold!r} → {decision}."
+                   '\nQuy tắc: điểm >= ngưỡng → TOXIC; điểm < ngưỡng → NON-TOXIC.'
+                   '\nĐiểm này không phải độ chính xác của nhãn.')
     else:
         detail += '\nArtifact cũ: dùng quyết định predict của mô hình đã lưu.'
     stages += [dict(title='Quyết định của mô hình', content=detail), dict(title='Kết luận', content=answer['label'].upper() + '\nKết quả tự động có thể sai; đây là minh họa đường dự đoán, không phải nhãn chuẩn.')]
