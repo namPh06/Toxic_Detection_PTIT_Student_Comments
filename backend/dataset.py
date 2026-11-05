@@ -174,7 +174,7 @@ def fingerprint(rows):
 def csv_bytes(rows):
     output = io.StringIO(newline='')
     columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_normalized', 'text_clean',
-               'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
+               'text_hash', 'label', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
                'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', 'label_policy_version', 'human_verified', 'label_usable', 'label_approved', 'label_approval_method', *LABEL_METADATA]
     writer = csv.DictWriter(output, fieldnames=columns, extrasaction='ignore')

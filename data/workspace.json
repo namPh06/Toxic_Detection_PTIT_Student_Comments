@@ -405,18 +405,40 @@
     },
     "22069ce667078554f78d9255": {
       "label": "toxic",
-      "text_hash": "a97a670691fb7ce029e97fb31ef2509598718a16092897ef6a1aff22f19637c9",
-      "label_source": "automatic",
-      "label_policy_version": "ptit-v4-abuse-context-20261102",
-      "human_verified": false,
-      "needs_review": true,
-      "review_reason": "unverified_v4_semantic",
       "note": "v4: Sử dụng từ 'cô phật' mang tính lăng mạ, xúc phạm đối với giảng viên, thể hiện thái độ thiếu tôn trọng và mang tính kỳ thị.",
       "excluded": false,
-      "label_model": "ollama/qwen3:4b-instruct-2507-q4_K_M",
-      "label_revision": "ptit-v4-abuse-context-20261102",
-      "model_score": null,
-      "label_threshold": null
+      "text_hash": "a97a670691fb7ce029e97fb31ef2509598718a16092897ef6a1aff22f19637c9",
+      "label_source": "manual",
+      "label_policy_version": "ptit-v4-abuse-context-20261102",
+      "human_verified": true,
+      "updated_at": "2026-11-05T02:07:00.043047+00:00",
+      "history": [
+        {
+          "label": "toxic",
+          "text_hash": "a97a670691fb7ce029e97fb31ef2509598718a16092897ef6a1aff22f19637c9",
+          "label_source": "automatic",
+          "label_policy_version": "ptit-v4-abuse-context-20261102",
+          "human_verified": false,
+          "needs_review": true,
+          "review_reason": "unverified_v4_semantic",
+          "note": "v4: Sử dụng từ 'cô phật' mang tính lăng mạ, xúc phạm đối với giảng viên, thể hiện thái độ thiếu tôn trọng và mang tính kỳ thị.",
+          "excluded": false,
+          "label_model": "ollama/qwen3:4b-instruct-2507-q4_K_M",
+          "label_revision": "ptit-v4-abuse-context-20261102",
+          "model_score": null,
+          "label_threshold": null
+        },
+        {
+          "label": "non-toxic",
+          "note": "v4: Sử dụng từ 'cô phật' mang tính lăng mạ, xúc phạm đối với giảng viên, thể hiện thái độ thiếu tôn trọng và mang tính kỳ thị.",
+          "excluded": false,
+          "text_hash": "a97a670691fb7ce029e97fb31ef2509598718a16092897ef6a1aff22f19637c9",
+          "label_source": "manual",
+          "label_policy_version": "ptit-v4-abuse-context-20261102",
+          "human_verified": true,
+          "updated_at": "2026-11-05T02:05:19.467986+00:00"
+        }
+      ]
     },
     "b2f8d5a96f9fe9834cdd5d03": {
       "label": "non-toxic",

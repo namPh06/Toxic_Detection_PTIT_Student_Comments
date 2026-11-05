@@ -1,5 +1,7 @@
 """Run with python -m unittest -v. Fixtures are synthetic and never touch real data."""
+import csv
 import http.client
+import io
 import json
 import tempfile
 import threading
@@ -342,6 +344,14 @@ class HTTPTests(unittest.TestCase):
             exported = json.loads(payload)
             self.assertEqual(exported['label_policy'], 'includes_automatic')
             self.assertEqual([(r['id'], r['label'], r['label_source']) for r in exported['rows']], [(first['id'], 'non-toxic', 'manual')])
+            for path in ('/api/export.csv', '/api/dataset.csv', '/api/dataset-auto.csv'):
+                with self.subTest(path=path):
+                    status, payload = self.request(path)
+                    self.assertEqual(status, 200)
+                    reader = csv.DictReader(io.StringIO(payload.decode('utf-8-sig')))
+                    self.assertNotIn('label_source', reader.fieldnames)
+                    self.assertEqual(next(reader)['label'], 'non-toxic')
+            self.assertEqual(lab.rows()[0]['label_source'], 'manual')
             status, payload = self.request('/api/dataset.csv')
             self.assertEqual(status, 200)
             imported = parse_import(payload.decode('utf-8-sig'), 'dataset.csv')

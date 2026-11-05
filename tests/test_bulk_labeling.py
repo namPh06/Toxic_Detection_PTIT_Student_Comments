@@ -83,7 +83,7 @@ class BulkLabelingTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 automatic_annotation(dict(item, model_score=bad))
 
-    def test_roundtrip_keeps_machine_origin_and_manual_review_supersedes_it(self):
+    def test_export_roundtrips_and_manual_review(self):
         self.raw[0]['text_raw'] = '@bạn lịch thi xem ở đâu?'
         self.run_bulk()
         rows = self.lab.dataset_rows(reviewed_only=False)
@@ -91,11 +91,14 @@ class BulkLabelingTests(unittest.TestCase):
                                   ('auto.json', json.dumps(dict(rows=rows), ensure_ascii=False))]:
             with self.subTest(filename=filename):
                 imported = parse_import(content, filename)
-                self.assertTrue(all(r['label_source'] == 'automatic' for r in imported))
+                source = 'imported' if filename.endswith('.csv') else 'automatic'
+                self.assertTrue(all(r['label_source'] == source for r in imported))
+                self.assertEqual([r['label'] for r in imported], [r['label'] for r in rows])
                 target = Lab(Path(self.temp.name)/filename, lambda: [])
                 target.import_rows(dict(filename=filename, content=content))
-                self.assertEqual(target.status()['dataset_health']['reviewed'], 0)
-                self.assertEqual(target.dataset_rows(False)[0]['model_score'], rows[0]['model_score'])
+                self.assertEqual(target.status()['dataset_health']['reviewed'], len(rows) if source == 'imported' else 0)
+                score = None if filename.endswith('.csv') else rows[0]['model_score']
+                self.assertEqual(target.dataset_rows(False)[0]['model_score'], score)
                 self.assertEqual(target.dataset_rows(False)[0]['text_raw'], self.raw[0]['text_raw'])
                 self.assertEqual(len(target.dataset_rows()), len(rows))
         before = fingerprint(self.lab.rows())
