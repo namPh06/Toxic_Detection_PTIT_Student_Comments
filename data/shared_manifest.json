@@ -4,7 +4,7 @@
   "label_usage_policy": "includes_automatic",
   "policy_sha256": "9e797636714d9e1b89314fc93ba8b922ee1d232a26531a344129f942ed5ce64b",
   "source_sha256": "157579f44abe955334cbd60001c9d04e807d3b67bb4ffca415d9c05fa056fc66",
-  "workspace_sha256": "9bcca66b7d07d0564a1e8e9f30c4845593284e92dbf37f6b61bfd5ae244df1cd",
+  "workspace_sha256": "bce83702914910dd865a5c0e3432169c4f6b5408a0a670bb72452b4c1006cc12",
   "imported_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "context_sha256": {
     "post_context.json": "8e5bce7cd375a18ef1d14db4bab09b5e7518c9a5167103bcd0cf0df0d4bc8615",
@@ -90,7 +90,7 @@
   "label_approved": 28,
   "usable_labels": 6580,
   "pending_review": 0,
-  "reservation_scope": "No reserved groups; all eligible labels enter the grouped development pool.",
+  "reservation_scope": "Historical diagnostic groups; not an independent blind test.",
   "groups": [
     {
       "id": "d4f8a122a0bb4e4c0741af57",

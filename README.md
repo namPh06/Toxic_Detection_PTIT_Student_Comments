@@ -4,7 +4,8 @@
 trích xuất đặc trưng và so sánh mô hình cho bài tập lớn. Backend Python, giao diện
 HTML/CSS/JavaScript; không cần Node.js hay bước build frontend.
 
-Huấn luyện ViSoBERT bằng GPU Colab rồi nhập mô hình về web: [Hướng dẫn Colab](docs/HUAN_LUYEN_COLAB.md).
+ViSoBERT có thể huấn luyện tại máy hoặc kết nối GPU Colab để gửi dữ liệu và nhận
+kết quả tự động. Cách xuất/nhập ZIP thủ công: [Hướng dẫn Colab](docs/HUAN_LUYEN_COLAB.md).
 
 ## Chạy ứng dụng
 
@@ -22,8 +23,9 @@ bị chiếm, dừng phiên cũ bằng Ctrl+C. Không cần đăng nhập Facebo
 hoặc huấn luyện. Chrome và Internet cần cho thu thập và tải phụ thuộc lần đầu.
 
 Để thu thập, bấm **Mở Chrome thu thập**, đăng nhập bằng tài khoản của mình, vào
-bài viết/nhóm có quyền truy cập rồi bắt đầu crawl. Có thể dùng `Login_Facebook.cmd`
-để đăng nhập riêng. Giữ `chrome-profile/` để giữ phiên; không đưa thư mục này lên Git.
+bài viết/nhóm có quyền truy cập rồi bắt đầu crawl. Để đăng nhập riêng, chạy
+`.venv\Scripts\python.exe -m backend.login` từ thư mục gốc dự án.
+Giữ `chrome-profile/` để giữ phiên; không đưa thư mục này lên Git.
 Nếu CAPTCHA quay về trang đăng nhập, hoàn tất đăng nhập trực tiếp trong Chrome,
 không chạy nhiều phiên cùng dùng profile. Facebook có thể ẩn bình luận, câu trả lời
 hoặc chỉ hiện nội dung thu gọn; số lượng thu được không chứng minh đã lấy đủ.
@@ -51,8 +53,8 @@ Hai thao tác trên giao diện được tách riêng:
 3. Tác vụ Qwen đọc tiêu chí và ngữ cảnh, cần Ollama cùng
    `qwen3:4b-instruct-2507-q4_K_M` tại máy. Không cần chạy lại tác vụ này khi nhận
    dữ liệu đã có nhãn. Việc sửa nhãn trên giao diện lưu vào `data/workspace.json`.
-4. Sau khi gán nhãn, thực hiện **Trích xuất đặc trưng → Huấn luyện → Đánh giá/báo
-   cáo**. Mẫu sạch có nhãn đã lưu trong nhóm phát triển được dùng trực tiếp,
+4. Sau khi gán nhãn, thực hiện **Trích xuất đặc trưng → Huấn luyện & đánh giá →
+   Thử phân loại bình luận**. Mẫu sạch có nhãn đã lưu trong nhóm phát triển được dùng trực tiếp,
    không phụ thuộc nguồn nhãn hoặc phê duyệt. Sửa nhãn làm đặc trưng cũ hết hiệu lực.
    Xuất bản dữ liệu như bên dưới khi chia sẻ cho nhóm.
 
@@ -67,10 +69,27 @@ Giữ Ollama chạy khi gán nhãn. Mô hình chỉ cần tải một lần; cá
 dùng được khi mở lại project. Nếu thay đổi code Python, khởi động lại máy chủ
 bằng `Open_Tool.cmd` để nạp phiên bản mới.
 
-Mốc kiểm tra 05/11/2026: **5.786 bình luận**, **622 bài**, **5.199 mẫu sạch có nhãn**,
-587 bản trùng. Trong mẫu sạch có **4.162 non-toxic** và **1.037 toxic** (19,95%).
-Nguồn nhãn: 5.198 tự động và 1 thủ công; nguồn nhãn và `human_verified` được giữ
-để truy vết. Các con số này mô tả dữ liệu, không chứng minh độ chính xác nhãn.
+Mốc đối chiếu 06/11/2026, tính từ `data/progress.json` và nhãn trong
+`data/workspace.json` bằng quy trình làm sạch hiện hành:
+
+| Thống kê | Số lượng |
+| --- | ---: |
+| Bình luận nguồn | 7.230 |
+| Bài viết nguồn | 644 |
+| Mẫu sạch đã có nhãn, đủ điều kiện sử dụng | 6.580 |
+| Bài viết có mẫu đủ điều kiện sử dụng | 620 |
+| Bản trùng | 602 |
+| Mẫu đã loại | 43 |
+| Mẫu rỗng / nội dung giao diện | 5 |
+| Non-toxic trong mẫu sạch | 5.082 |
+| Toxic trong mẫu sạch | 1.498 (22,77%) |
+| Nhãn tự động trong mẫu sạch | 6.552 |
+| Nhãn thủ công trong mẫu sạch | 28 |
+
+Toàn bộ 6.580 mẫu sạch đã có nhãn; không còn mẫu sạch chưa gán nhãn. Nguồn nhãn
+và `human_verified` được giữ để truy vết. Các con số này mô tả dữ liệu, không
+chứng minh độ chính xác nhãn. Khi dữ liệu hoặc nhãn thay đổi, cần xuất và kiểm
+tra lại bản dùng chung trước khi chia sẻ.
 
 Bản làm sạch hiện tại `ptit-v4-contextual-dc-20261105` chuẩn hóa `dc/đc` thành
 `được` khi ngữ cảnh rõ, giữ dạng viết tắt mơ hồ; giữ phủ định, từ tục, emoji và
@@ -115,7 +134,8 @@ không được coi là nhãn cuối.
    tính đúng về ngữ nghĩa. Khi cần kiểm tra giao diện/API, đối chiếu ID, văn bản,
    nguồn nhãn và số dòng giữa bản tải xuống với workspace tương ứng.
 5. Kiểm tra các bài nối bằng alias hoặc văn bản trùng không lọt sang các tập khác
-   nhau. Không dùng nhóm đã dành riêng để chọn ví dụ, sửa prompt hoặc tối ưu ngưỡng.
+   nhau. Nếu dành riêng nhóm kiểm định, không dùng nhóm đó để chọn ví dụ, sửa
+   prompt hoặc tối ưu ngưỡng.
 6. Tách kiểm tra kỹ thuật khỏi chất lượng nhãn: chạy lại ra cùng kết quả chỉ chứng
    minh ổn định. Độ chính xác cần nhãn tham chiếu được người đọc kiểm tra độc lập;
    báo precision/recall/F1 toxic, macro-F1 và confusion matrix, không chỉ accuracy.
@@ -158,7 +178,7 @@ chí và lịch sử; không chọn toàn bộ một phía của xung đột r�
 | `app.py`, `backend/lab.py` | Máy chủ cục bộ, thu thập và điều phối tác vụ |
 | `frontend/`, `assets/fonts/` | Giao diện HTML/CSS/JavaScript và font |
 | `scripts/crawler/` | JavaScript do Selenium thực thi để đọc Facebook |
-| `backend/` | Tiền xử lý, gán nhãn, đặc trưng, mô hình và tạo video |
+| `backend/` | Tiền xử lý, gán nhãn, đặc trưng, mô hình và video minh họa phân loại |
 | `data/progress.json` | Dữ liệu thu thập gốc |
 | `data/workspace.json` | Nhãn, phê duyệt bộ nhãn, xác nhận riêng, ghi chú và dữ liệu nhập dùng chung |
 | `data/post_context.json`, `data/parent_context.json` | Ngữ cảnh gán nhãn |
@@ -172,15 +192,20 @@ chí và lịch sử; không chọn toàn bộ một phía của xung đột r�
 | `docs/reviews/`, `docs/superpowers/` | Các đợt rà soát, kế hoạch và thiết kế |
 | `assets/images/debai.png` | Đề bài |
 
-Giữ `app.py`, `Open_Tool.cmd` và `Login_Facebook.cmd` ở thư mục gốc để mở như trước.
+`app.py` và `Open_Tool.cmd` nằm ở thư mục gốc; script `Login_Facebook.cmd` hiện
+nằm trong `scripts/crawler/`. Dùng lệnh `python -m backend.login` từ gốc khi cần
+đăng nhập riêng.
 Các lệnh tiện ích Python chạy từ gốc bằng `python -m backend.<tên_module>`, ví dụ
 `python -m backend.post_context --help`. Tài liệu rà soát và kế hoạch cũ có thể ghi
 đường dẫn trước khi gom thư mục; dùng cấu trúc và lệnh trong README này khi chạy.
 
 Chỉ lấy dòng `quality=ready` khi cần dữ liệu sạch; CSV chia sẻ vẫn chứa cả trạng
 thái loại/trùng để đối chiếu. Nhãn máy chưa xác nhận không phải đáp án chuẩn cho
-train/validation/test. Các nhóm từng dành riêng để chẩn đoán tiếp tục được giữ
-riêng, kể cả sau khi nối alias/trùng văn bản; chúng chưa phải bộ test mù độc lập.
+train/validation/test. Manifest hiện tại đưa cả 7.230 bình luận vào
+`development_pool`, không còn dòng thuộc `reserved`; lịch sử trước khi bỏ dành
+riêng nằm trong `data/label_history/release_reserved_20261105T155003Z/`.
+6.580 mẫu sạch có nhãn được dùng để chia train/validation/test theo nhóm bài;
+đây chưa phải bộ test mù được gán nhãn độc lập.
 
 Dữ liệu hiện hành và nhãn được Git theo dõi. `.venv/`, `models/`, profile Chrome,
 cache, dữ liệu xử lý và các lần huấn luyện trong `data/runs/` được tạo tại từng máy
@@ -202,7 +227,9 @@ Chạy từ thư mục dự án; dùng `-B` để không sinh cache bytecode:
 .venv\Scripts\python.exe -B -m backend.shared_dataset --check
 ```
 
-Kiểm tra ngày 05/11/2026 sau khi thêm cờ kiểm tra nhãn AI và xử lý lỗi Ollama: 94 kiểm thử Python, 93 đạt và 1 bỏ qua. Các kiểm thử
+Mốc kiểm thử lưu ngày 05/11/2026 sau khi thêm cờ kiểm tra nhãn AI và xử lý lỗi Ollama:
+94 kiểm thử Python, 93 đạt và 1 bỏ qua. Đây là kết quả lịch sử; chạy lại các lệnh
+trên để kiểm tra phiên bản hiện tại. Các kiểm thử
 Qwen dùng mô phỏng phản hồi; kết quả này không đo độ chính xác nhãn trên corpus thật.
 Kiểm thử dữ liệu/HTTP dùng dữ liệu tạm, không sửa bộ dữ liệu thật. Các file JavaScript
 trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ kiểm tra trình duyệt.
@@ -211,9 +238,49 @@ trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ ki
 
 Phạm vi đã chốt: tối ưu NB/SVM, chọn ngưỡng bằng validation, bổ sung ViSoBERT. Giữ nguyên nhãn, đầu vào bình luận và các nhóm chia; không thực hiện rà/gán lại nhãn hoặc bổ sung ngữ cảnh.
 
-Trong trang **Huấn luyện**, đánh dấu các mô hình cần chạy lại: Naive Bayes, SVM hoặc ViSoBERT. ViSoBERT mặc định không được chọn để tránh chạy lại ngoài ý muốn. Khi dùng cả BoW và TF-IDF, danh sách gồm đúng 5 mô hình: **BoW-NB, BoW-SVM, TF-IDF-NB, TF-IDF-SVM, ViSoBERT**. Nếu chỉ chọn một phương pháp đặc trưng thì NB/SVM chỉ chạy cho phương pháp đó. Không sinh thêm mô hình theo unigram/bigram hoặc hậu tố tuned. Lần đầu cần mạng để tải trọng số ViSoBERT; CPU chạy lâu hơn GPU.
+Giao diện hiện có 5 mục: **Tổng quan**, **Thu thập dữ liệu**, **Làm sạch & gán
+nhãn**, **Trích xuất đặc trưng**, **Huấn luyện & đánh giá**. Chức năng báo cáo
+Markdown và video báo cáo đã được gỡ; video minh họa phân loại vẫn có trong
+phần thử bình luận.
 
-Chỉ các mô hình được chọn mới huấn luyện. Mô hình khác được giữ từ lượt hoàn tất gần nhất khi nhãn, đầu vào, bộ chia và cấu hình đặc trưng liên quan còn phù hợp; bảng kết quả ghi rõ **Giữ kết quả cũ**. Nếu đổi unigram/bigram hoặc giới hạn đặc trưng thì không ghép lại NB/SVM dùng cấu hình cũ. Không giữ mô hình của phương pháp BoW/TF-IDF đã bỏ chọn. Checkpoint được liên kết cứng trong thư mục run mới khi hệ thống hỗ trợ, tránh nhân đôi trọng số; nếu không thì sao chép.
+Thao tác trên web:
+
+1. Vào **Trích xuất đặc trưng**, chọn BoW/TF-IDF, unigram/bigram và giới hạn từ
+   vựng, rồi trích xuất trên dữ liệu hiện tại.
+2. Vào **Huấn luyện & đánh giá**, đánh dấu mô hình cần chạy lại. Mặc định chọn
+   Naive Bayes và SVM; với cả BoW và TF-IDF sẽ chạy 4 cấu hình. Chọn thêm
+   ViSoBERT để chạy tối đa 5 mô hình. Nút huấn luyện bị khóa khi thiếu đặc trưng
+   phù hợp, dữ liệu chưa đủ điều kiện hoặc tác vụ khác đang chạy.
+3. Bấm **Huấn luyện … cấu hình** và chờ hoàn tất. Cần ít nhất 10 mẫu sạch mỗi
+   lớp, 5 nhóm bài độc lập có nhãn và mỗi tập đều có cả hai lớp. Hệ thống chia
+   khoảng 60% train, 20% validation, 20% test theo nhóm bài viết.
+4. Xem bảng so sánh, ma trận nhầm lẫn và biểu đồ. Dấu ★ chỉ mô hình được chọn
+   bằng Macro-F1 validation; Accuracy/Precision/Recall/F1 và Macro-F1 còn lại
+   đo trên test. Có thể tải chỉ số JSON.
+5. Nhập câu ở **Thử phân loại bình luận**, chọn mô hình và bấm **Phân loại**.
+   Bình luận thử không tự thêm vào dữ liệu huấn luyện.
+
+Khi dùng cả BoW và TF-IDF, danh sách tối đa gồm **BoW-NB, BoW-SVM, TF-IDF-NB,
+TF-IDF-SVM, ViSoBERT**. Nếu chỉ chọn một phương pháp đặc trưng thì NB/SVM chỉ
+chạy cho phương pháp đó. Không sinh thêm mô hình theo unigram/bigram hoặc hậu
+tố tuned. Lần đầu cần mạng để tải trọng số ViSoBERT; CPU chạy lâu hơn GPU.
+
+Để chạy ViSoBERT trên Colab, trong mục **Chạy ViSoBERT trên Google Colab**:
+
+1. Bấm **Tải notebook kết nối**, mở trên Google Colab, chọn runtime GPU rồi
+   chạy 3 ô của notebook.
+2. Chọn file `ptit-colab-connection.json` mà notebook tải xuống trong ô
+   **File kết nối từ Colab**, rồi bấm **Kết nối GPU**.
+3. Bảo đảm đã trích xuất đặc trưng, chọn ViSoBERT và đặt **Nơi huấn luyện
+   ViSoBERT** là **GPU Colab đã kết nối**, rồi bấm **Huấn luyện**.
+4. Giữ Colab và chương trình web mở, giữ nguyên dữ liệu/cấu hình cho đến khi
+   nhận kết quả tự động. NB/SVM vẫn chạy tại máy.
+
+File kết nối chứa mật khẩu; không commit hoặc chia sẻ file này. Khi cần chuyển
+ZIP thủ công, mở **Xuất / nhập ZIP thủ công và khôi phục kết quả** và làm theo
+[hướng dẫn Colab](docs/HUAN_LUYEN_COLAB.md).
+
+Chỉ các mô hình được chọn mới huấn luyện. Mô hình khác được giữ từ lượt hoàn tất gần nhất khi nhãn, đầu vào, bộ chia và cấu hình đặc trưng liên quan còn phù hợp; thông báo hoàn tất cho biết số mô hình vừa chạy và số kết quả cũ được giữ. Nếu đổi unigram/bigram hoặc giới hạn đặc trưng thì không ghép lại NB/SVM dùng cấu hình cũ. Không giữ mô hình của phương pháp BoW/TF-IDF đã bỏ chọn. Checkpoint được liên kết cứng trong thư mục run mới khi hệ thống hỗ trợ, tránh nhân đôi trọng số; nếu không thì sao chép.
 
 Có thể chạy cùng quy trình từ dòng lệnh sau khi trích xuất đặc trưng trên web. Lệnh dùng lại bộ đặc trưng trong `data/features.joblib`; nếu dữ liệu đã đổi thì yêu cầu trích xuất lại:
 
