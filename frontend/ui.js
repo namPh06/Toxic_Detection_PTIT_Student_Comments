@@ -5,7 +5,7 @@ const number = value => Number(value || 0).toLocaleString('vi-VN');
 const qualityNames = {ready:'Mẫu sạch',duplicate:'Bản trùng',conflict:'Nhãn mâu thuẫn',incomplete:'Chưa mở hết nội dung',empty_or_ui:'Rỗng / giao diện',excluded:'Đã loại'};
 let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, toastTimer, reviewSaving = false, cleaning = false;
 const reviewDrafts = new Map();
-let featureConfigInitialized=false, featurePreviewRequest=0, featurePreviewVersion='', featurePreviewIndex=0;
+let featureConfigInitialized=false, featurePreviewRequest=0, featurePreviewVersion='', featurePreviewIndex=0, colabBusy=false;
 function featureSettings(){
   return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),char_features:false};
 }
@@ -108,6 +108,10 @@ function renderStatus(status) {
   $('training-status').textContent=status.job.error?'Huấn luyện gặp lỗi. Xem chi tiết bên dưới và thử lại.':!algorithms.length?'Chọn ít nhất một mô hình để huấn luyện.':!status.job.running&&!featuresReady(status)?'Cần trích xuất đặc trưng phù hợp với dữ liệu và cấu hình hiện tại trước khi huấn luyện.':status.job.message;
   $('training-detail').hidden=!status.job.error;$('training-debug').textContent=status.job.error?status.job.message:'';
   $('train').disabled=trainingDisabled(status);
+  const colabBlocked=colabBusy||status.job.running||status.annotation_job?.running||status.features?.job.running;
+  $('colab-export').disabled=colabBlocked||!featuresReady(status);
+  $('colab-import').disabled=colabBlocked||!featuresReady(status);
+  if(!colabBusy&&featuresReady(status)&&$('colab-status').textContent==='Cần trích xuất đặc trưng trước khi xuất gói.')$('colab-status').textContent='Đặc trưng đã sẵn sàng. Có thể xuất gói để chạy ViSoBERT trên Colab.';
   $('train').textContent=status.job.running?'Đang huấn luyện…':`Huấn luyện ${configCount} cấu hình`;
   $('training-config-count').textContent=`${configCount} cấu hình`;
   $('training-feature-names').textContent=$('training-config-features').textContent=[...(nb||svm?methods:[]),...(algorithms.includes('ViSoBERT')?['ViSoBERT tokenizer']:[])].join(' · ');
@@ -206,6 +210,33 @@ async function loadFeaturePreview(index){
   finally{if(request===featurePreviewRequest)$('feature-preview').setAttribute('aria-busy','false');}
 }
 $('feature-form').onsubmit=event=>{event.preventDefault();action($('feature-extract'),async()=>{await api('/api/features',featureSettings());renderStatus(await api('/api/status'));toast('Đã bắt đầu trích xuất đặc trưng.');});};
+async function colabAction(message, fn){
+  if(colabBusy)return;
+  colabBusy=true;$('colab-status').textContent=message;$('colab-status').classList.remove('annotation-error');
+  if(lastStatus)renderStatus(lastStatus);
+  try{await fn();}
+  catch(error){$('colab-status').textContent=error.message;$('colab-status').classList.add('annotation-error');}
+  finally{colabBusy=false;try{renderStatus(await api('/api/status'));}catch{} }
+}
+async function colabResponse(response){
+  if(!response.ok){let message='Không xử lý được gói Colab.';try{message=(await response.json()).error||message;}catch{}throw new Error(message);}
+  return response;
+}
+$('colab-export').onclick=()=>colabAction('Đang đóng gói dữ liệu cho Colab…',async()=>{
+  const response=await colabResponse(await fetch('/api/colab/export',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}));
+  const url=URL.createObjectURL(await response.blob()),link=document.createElement('a');
+  link.href=url;link.download='ptit-colab-input.zip';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  $('colab-status').textContent='Đã xuất gói. Tải notebook, mở trên Colab và tải ZIP lên khi notebook yêu cầu.';
+});
+$('colab-import').onclick=()=>$('colab-result-file').click();
+$('colab-result-file').onchange=()=>{
+  const input=$('colab-result-file'),file=input.files[0];if(!file)return;
+  colabAction('Đang tải và kiểm tra mô hình Colab. Giữ trang mở cho đến khi hoàn tất…',async()=>{
+    if(file.size>1500000000)throw new Error('ZIP kết quả vượt giới hạn 1,5 GB.');
+    await colabResponse(await fetch('/api/colab/import',{method:'POST',headers:{'Content-Type':'application/zip'},body:file}));
+    $('colab-status').textContent='Đã nhập ViSoBERT từ Colab. Xem bảng so sánh hoặc dùng mục Thử phân loại bình luận bên dưới.';
+  }).finally(()=>{input.value='';});
+};
 for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
 $('feature-split').onchange=()=>loadFeaturePreview(0);
 $('feature-index').onchange=()=>{const value=Number($('feature-index').value);if(Number.isInteger(value)&&value>=1)loadFeaturePreview(value-1);};

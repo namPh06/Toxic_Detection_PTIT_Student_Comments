@@ -23,6 +23,7 @@ node_modules/
 outputs/*
 !outputs/history.zip
 data/features.joblib
+data/colab_jobs/
 data/.publish.lock
 data/progress_with_context.json
 data/startup-error.txt

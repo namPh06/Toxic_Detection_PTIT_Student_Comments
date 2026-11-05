@@ -475,3 +475,8 @@ footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line);
 .training-algorithms legend { padding: 0 6px; font-weight: 600; }
 .training-algorithms label { display: flex; align-items: center; gap: 8px; min-height: 36px; cursor: pointer; }
 .training-algorithms input { width: 18px; height: 18px; min-height: 18px; accent-color: #8b2040; }
+.colab-panel { margin-block: 20px; }
+.colab-steps { padding-left: 24px; line-height: 1.8; }
+.colab-steps li { margin-block: 12px; }
+.colab-steps .button { margin: 4px; vertical-align: middle; }
+.colab-panel a:focus-visible, .colab-panel button:focus-visible { outline: 3px solid #536b82; outline-offset: 3px; }

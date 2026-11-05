@@ -139,6 +139,20 @@
     <div class="model-hero-copy"><span class="eyebrow">MODEL WORKSPACE</span><h1>Huấn luyện & đánh giá</h1><p>Huấn luyện NB/SVM bằng bộ đặc trưng đã trích xuất và so sánh với ViSoBERT. Tối đa 5 mô hình khi chọn cả BoW và TF-IDF.</p><div class="model-hero-meta"><span id="training-config-count">4 cấu hình</span><span id="training-feature-names">BoW · TF-IDF · ViSoBERT tokenizer</span><span>Chia tập theo bài viết</span></div></div>
     <button id="train" class="button primary">Huấn luyện 5 cấu hình</button>
   </header>
+  <section class="panel colab-panel" aria-labelledby="colab-title">
+    <div class="panel-body">
+      <h2 id="colab-title">Chạy ViSoBERT trên Google Colab</h2>
+      <p>Chuyển phần huấn luyện ViSoBERT sang GPU Colab. NB/SVM có thể chạy tại máy và so sánh cùng kết quả nhập về.</p>
+      <ol class="colab-steps">
+        <li>Trích xuất đặc trưng, rồi <button type="button" class="button small" id="colab-export">Xuất gói Colab</button>.</li>
+        <li><a class="button small" href="/api/colab/notebook" download="PTIT_Colab.ipynb">Tải notebook</a>, mở tại <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a>, chọn GPU và chạy lần lượt các ô. Khi được hỏi, tải ZIP vừa xuất lên.</li>
+        <li>Tải ZIP kết quả từ ô cuối notebook, rồi <button type="button" class="button small" id="colab-import">Nhập kết quả Colab</button>.</li>
+      </ol>
+      <input type="file" id="colab-result-file" accept=".zip,application/zip" hidden>
+      <p class="muted">Gói xuất chứa bình luận và nhãn dùng cho thực nghiệm. A100 tùy quyền truy cập của tài khoản Colab. Giữ nguyên dữ liệu và cấu hình đặc trưng trong lúc chờ kết quả.</p>
+      <p id="colab-status" role="status" aria-live="polite">Cần trích xuất đặc trưng trước khi xuất gói.</p>
+    </div>
+  </section>
   <section class="model-lineup" aria-labelledby="model-lineup-title">
     <div class="panel-body">
       <fieldset class="training-algorithms"><legend>Chọn mô hình cần huấn luyện lại</legend>

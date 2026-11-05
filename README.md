@@ -4,6 +4,8 @@
 trích xuất đặc trưng và so sánh mô hình cho bài tập lớn. Backend Python, giao diện
 HTML/CSS/JavaScript; không cần Node.js hay bước build frontend.
 
+Huấn luyện ViSoBERT bằng GPU Colab rồi nhập mô hình về web: [Hướng dẫn Colab](docs/HUAN_LUYEN_COLAB.md).
+
 ## Chạy ứng dụng
 
 Bấm đúp `Open_Tool.cmd`, hoặc chạy từ thư mục dự án:

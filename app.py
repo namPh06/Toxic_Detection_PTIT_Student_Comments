@@ -656,6 +656,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send(LAB.report().encode(), 'text/markdown;charset=utf-8', filename='bao_cao_ptit.md')
         elif path == '/api/results.json':
             self.send(json.dumps(LAB.result(), ensure_ascii=False, indent=2).encode(), 'application/json;charset=utf-8', filename='metrics.json')
+        elif path == '/api/colab/notebook':
+            from backend.colab import notebook_bytes
+            self.send(notebook_bytes(), 'application/x-ipynb+json', filename='PTIT_Colab.ipynb')
         else:
             self.send(b'Not found', 'text/plain', 404)
 
@@ -668,6 +671,22 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             length = int(self.headers.get('Content-Length', '0'))
+            if self.path == '/api/colab/import':
+                from backend.colab import MAX_UPLOAD, import_result
+                import tempfile
+                if not 0 < length <= MAX_UPLOAD or self.headers.get_content_type() not in ('application/zip', 'application/octet-stream'):
+                    raise ValueError('Chọn ZIP kết quả Colab, tối đa 1,5 GB.')
+                with tempfile.TemporaryFile() as upload:
+                    remaining = length
+                    while remaining:
+                        chunk = self.rfile.read(min(1024 * 1024, remaining))
+                        if not chunk:
+                            raise ValueError('Tải ZIP chưa hoàn tất. Hãy nhập lại tệp.')
+                        upload.write(chunk)
+                        remaining -= len(chunk)
+                    upload.seek(0)
+                    self.json(import_result(LAB, upload))
+                return
             if not 0 < length <= 15_000_000 or self.headers.get_content_type() != 'application/json':
                 raise ValueError('Yêu cầu JSON, tối đa 15 MB.')
             body = json.loads(self.rfile.read(length))
@@ -739,6 +758,10 @@ class Handler(BaseHTTPRequestHandler):
             return LAB.save_cleaned()
         elif self.path == '/api/train':
             return LAB.start_training(body)
+        elif self.path == '/api/colab/export':
+            from backend.colab import export_package
+            self.send(export_package(LAB), 'application/zip', filename='ptit-colab-input.zip')
+            return None
         elif self.path == '/api/features':
             return LAB.start_features(body)
         elif self.path == '/api/predict':
