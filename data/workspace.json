@@ -100829,6 +100829,34 @@
       "review_reason": "unverified_v4_semantic",
       "note": "Câu bình luận có nội dung mang tính công kích ngầm khi nói 'toàn khen thoai', thể hiện sự thiếu tôn trọng và có thể hiểu là mỉa mai, hạ bệ đối với người khác, đặc biệt khi không có ngữ cảnh rõ ràng về việc khen hay chỉ trích.",
       "updated_at": "2026-11-05T15:00:21.905175+00:00"
+    },
+    "50fb5551f13a2863da12de69": {
+      "label": "toxic",
+      "excluded": false,
+      "label_source": "automatic",
+      "text_hash": "14e14aeb1eb505023a8c61294fdcbaa4f9a6182993e155368e3fbc65ca83b568",
+      "model_score": null,
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "label_threshold": null,
+      "needs_review": false,
+      "review_reason": "unverified_v4_semantic",
+      "note": "Từ 'đồ ngốc' mang tính lăng mạ, hạ nhục người khác, dù không có ngữ cảnh đầy đủ, nhưng vẫn đủ để xem là hành vi xúc phạm theo quy tắc toxic.",
+      "updated_at": "2026-11-05T22:49:52.331157+00:00"
+    },
+    "4cd7bdfb4e7f2214b24386bb": {
+      "label": "toxic",
+      "excluded": false,
+      "label_source": "automatic",
+      "text_hash": "7fa1344b71005758d8826048fb16c652871ed1a7805cafe5027611ac1ea49715",
+      "model_score": null,
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "label_threshold": null,
+      "needs_review": false,
+      "review_reason": "unverified_v4_semantic",
+      "note": "Từ 'ngu' là cách lăng mạ người khác, kết hợp với 'vcl' (từ tục cảm thán) thể hiện thái độ công kích, phù hợp với định nghĩa toxic trong quy tắc v4.",
+      "updated_at": "2026-11-05T22:49:58.920243+00:00"
     }
   },
   "imported": [],

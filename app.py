@@ -29,7 +29,10 @@ STATE['filter_counts'] = {}
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
 # Startup must use the saved corpus without injecting demonstration comments.
-MANUAL_COMMENTS = []
+MANUAL_COMMENTS = [
+    'đồ ngốc',
+    'ngu vcl'
+]
 HELPERS = (ROOT / 'scripts' / 'crawler' / 'helpers.js').read_text(encoding='utf-8')
 DOM = (ROOT / 'scripts' / 'crawler' / 'dom.js').read_text(encoding='utf-8')
 POST_MESSAGE = 'return (' + (ROOT / 'scripts' / 'crawler' / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'

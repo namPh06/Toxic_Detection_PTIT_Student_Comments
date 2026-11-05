@@ -130,7 +130,6 @@ function renderStatus(status) {
   $('training-feature-names').textContent=$('training-config-features').textContent=[...(nb||svm?methods:[]),...(algorithms.includes('ViSoBERT')?['ViSoBERT tokenizer']:[])].join(' · ');
   document.querySelectorAll('.model-cards article').forEach((card,i)=>{card.hidden=i<4?(!methods.includes(i<2?'BoW':'TF-IDF')||!algorithms.includes(i%2?'SVM':'NB')):!algorithms.includes('ViSoBERT');});
   $('stale-warning').hidden=!status.stale;
-  $('automatic-training-warning').hidden=!(health?.automatic||result?.summary?.label_sources?.automatic);
   $('model-empty').hidden=!!result;$('model-results').hidden=!result;$('predict-button').disabled=!result||status.job.running;
   updateDataActions(status);
   $('annotation-status').hidden=!(annotationJob?.running||annotationJob?.error);

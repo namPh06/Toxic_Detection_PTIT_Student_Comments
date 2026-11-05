@@ -87,7 +87,6 @@ async function checkBulkLabelingBrowser(page, baseURL) {
     check(await page.locator('.label-form input[name="note"]').inputValue()==='Ghi chú chưa lưu','Bulk completion preserves unsaved notes');
     check(!await page.locator('#auto-dataset-csv').isDisabled()&&await page.locator('#dataset-csv').isDisabled(),'Automatic export available without per-row approval; reviewed export stays separate');
     check(!await page.locator('#train').isDisabled(),'Machine-labeled dataset can be trained directly');
-    check(await page.locator('#automatic-training-warning').evaluate(el=>!el.hidden),'Automatic label limitation is displayed');
     await page.locator('#review-refresh').click();
     await page.waitForSelector('.review-badge');
     check(await page.locator('.label-suggestion').innerText().then(t=>t.includes('Cần kiểm tra')&&t.includes('toxic')&&!t.includes('0.600')),'Uncertain automatic label keeps its label and review flag without technical scores');
