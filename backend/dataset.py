@@ -243,7 +243,7 @@ def parse_import(content, filename):
             # Reconciled semantic decisions and SVM labels have no calibrated
             # probability. Preserve missing scores rather than inventing one.
             unscored = (row.get('model_score') in (None, '') and row.get('label_threshold') in (None, '')
-                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic'))
+                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic', 'uncertain_v4_semantic'))
             for name in ('model_score', 'label_threshold'):
                 if unscored:
                     label_metadata[name] = None

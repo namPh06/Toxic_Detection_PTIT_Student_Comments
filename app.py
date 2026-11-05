@@ -567,9 +567,11 @@ class Handler(BaseHTTPRequestHandler):
             search = query.get('q', [''])[0].casefold()
             label = query.get('label', ['all'])[0]
             quality = query.get('quality', ['all'])[0]
+            review = query.get('review', ['all'])[0]
             rows = [r for r in rows if (not search or search in str(r.get('text_raw', '')).casefold())
                     and (label == 'all' or r['label'] == ('' if label == 'unlabeled' else label))
-                    and (quality == 'all' or r['quality'] == quality)]
+                    and (quality == 'all' or r['quality'] == quality)
+                    and (review != 'needs_review' or r.get('needs_review'))]
             page = max(1, int(query.get('page', ['1'])[0]))
             self.json(dict(total=len(rows), page=page, rows=rows[(page - 1) * 25:page * 25]))
         elif path in ('/api/export.csv', '/api/export.json'):

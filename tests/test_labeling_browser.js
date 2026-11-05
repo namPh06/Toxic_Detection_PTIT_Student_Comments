@@ -31,7 +31,7 @@ async function checkLabelingBrowser(page, baseURL) {
       check(await page.locator('#dataset-csv').isDisabled(),`Reviewed export disabled with zero labels at ${width}px`);
       check(await page.locator('.use-suggestion').count()===1,`No accept button for uncertain/truncated rows at ${width}px`);
       check(await page.locator('.label-form').nth(2).innerText().then(t=>t.includes('Nội dung đã đổi')),`Stale annotation is explained at ${width}px`);
-      check(await page.locator('.label-suggestion').first().innerText().then(t=>t.includes('0.910')&&t.includes('Không phải độ chính xác')),`Score is not presented as accuracy at ${width}px`);
+      check(await page.locator('.label-suggestion').first().innerText().then(t=>t.includes('Gợi ý: toxic')&&!t.includes('0.910')&&!t.includes('local-fixture')),`Suggestion omits technical scores and model details at ${width}px`);
       check(await page.evaluate(()=>document.scrollingElement.scrollWidth<=innerWidth),`No page overflow at ${width}px`);
     }
     await page.locator('.use-suggestion').click();
@@ -89,9 +89,8 @@ async function checkBulkLabelingBrowser(page, baseURL) {
     check(!await page.locator('#train').isDisabled(),'Machine-labeled dataset can be trained directly');
     check(await page.locator('#automatic-training-warning').evaluate(el=>!el.hidden),'Automatic label limitation is displayed');
     await page.locator('#review-refresh').click();
-    await page.waitForFunction(()=>document.querySelector('.label-suggestion')?.textContent.includes('Nhãn tự động'));
-    await page.locator('.label-suggestion .row-detail > summary').click();
-    check(await page.locator('.label-suggestion').innerText().then(t=>t.includes('Cần kiểm tra')&&t.includes('0.600')),'Uncertain automatic label keeps score and review flag');
+    await page.waitForSelector('.review-badge');
+    check(await page.locator('.label-suggestion').innerText().then(t=>t.includes('Cần kiểm tra')&&t.includes('toxic')&&!t.includes('0.600')),'Uncertain automatic label keeps its label and review flag without technical scores');
     const download=page.waitForEvent('download');await page.locator('#auto-dataset-csv').click();
     check((await download).suggestedFilename()==='ptit-dataset-auto.csv','CSV download uses automatic dataset endpoint');
     for(const width of [1440,390]){
@@ -131,7 +130,7 @@ async function checkBulkReviewBrowser(page,baseURL){
     await page.setViewportSize({width:1440,height:800});
     await page.goto(baseURL+'/#data');await form(0).waitFor();
     check(await page.locator('#review-save-all').isDisabled(),'Untouched automatic labels need no per-row save');
-    check(await form(0).innerText().then(t=>t.includes('Nhãn tự động đã lưu')),'Automatic label explicitly shown as saved');
+    check(await form(0).locator('select').inputValue()==='non-toxic','Saved automatic label remains selected');
     await form(0).locator('select').selectOption('toxic');
     await form(0).locator('[name="note"]').fill('Đã đọc trang một');
     await page.locator('#next-page').click();await form(25).waitFor();

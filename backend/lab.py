@@ -115,7 +115,7 @@ class Lab:
                       unlabeled=stats['usable'] - stats['labeled'],
                       individually_reviewed=sum(reviewed(r) for r in rows if r['quality'] == 'ready'),
                       approval_method=self.workspace_extra.get('dataset_approval', {}).get('method', ''),
-                      needs_review=0,
+                      needs_review=sum(bool(r.get('needs_review')) for r in rows if r['quality'] == 'ready'),
                       suggested=sum(bool(r['suggestion'] and r['suggestion']['suggested_label']) for r in rows),
                       abstained=sum(bool(r['suggestion'] and not r['suggestion']['suggested_label']) for r in rows),
                       stale_annotations=sum(r['annotation_stale'] for r in rows), incomplete=stats['quality'].get('incomplete', 0),
@@ -341,7 +341,7 @@ class Lab:
             def notify(message):
                 with self.lock:
                     self.annotation_job['message'] = message
-            saved = excluded = 0
+            saved = excluded = flagged = 0
             for original, annotation in generate_annotations(rows, self.rows(), self.directory, notify):
                 with self.lock:
                     current = next((r for r in self.rows() if r['id'] == original['id']), None)
@@ -354,6 +354,7 @@ class Lab:
                     self.save_workspace(annotations, self.imported, suggestions)
                     saved += bool(annotation['label'])
                     excluded += annotation['excluded']
+                    flagged += bool(annotation.get('needs_review'))
             with self.lock:
                 self.save_cleaned()
                 dataset = [r for r in self.rows() if r['quality'] == 'ready' and r['label'] in LABELS]
@@ -361,7 +362,7 @@ class Lab:
                 temp = self.directory / 'dataset_auto.csv.tmp'
                 temp.write_bytes(csv_bytes(dataset))
                 temp.replace(self.directory / 'dataset_auto.csv')
-                self.annotation_job.update(message=f'Qwen hoàn tất: {saved} nhãn mới; loại {excluded} câu chưa rõ khỏi dataset.', error=False)
+                self.annotation_job.update(message=f'Qwen hoàn tất: {saved} nhãn mới; {flagged} câu cần kiểm tra; {excluded} câu không có kết quả hợp lệ.', error=False)
         except Exception as error:
             with self.lock:
                 self.annotation_job.update(message=f'Gán nhãn Qwen dừng: {error}. Kết quả từng câu đã xử lý được giữ lại.', error=True)

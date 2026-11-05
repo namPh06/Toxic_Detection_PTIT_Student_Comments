@@ -1,1544 +1,14 @@
 {
   "schema_version": 1,
-  "source": "https://www.facebook.com/groups/361726451351144",
+  "source": "https://www.facebook.com/antiptit",
   "completeness": "not_verified",
   "posts": [
     {
-      "post_id": "2418154899041612",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418154899041612/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409644696559299",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409644696559299/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417297485794020",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417297485794020/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414393376084431",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414393376084431/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2351239789066457",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2351239789066457/",
-      "reason": "no_progress",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415138176009951",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415138176009951/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412409292949506",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412409292949506/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414376372752798",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414376372752798/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2408231393367296",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2408231393367296/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2282858315904605",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2282858315904605/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412780672912368",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412780672912368/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409627656561003",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409627656561003/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410900966433672",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410900966433672/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410978999759202",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410978999759202/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412787279578374",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412787279578374/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413543899502712",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413543899502712/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413595652830870",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413595652830870/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412703722920063",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412703722920063/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412550549602047",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412550549602047/",
-      "reason": "crawl_error",
-      "count": 0,
-      "completeness": "not_verified",
-      "error": "Message: timeout: Timed out receiving message from renderer: 35.000\n  (Session info: chrome=156.0.8078.76)"
-    },
-    {
-      "post_id": "2420270268830075",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2420270268830075/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2419236345600134",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2419236345600134/",
-      "reason": "time_limit",
-      "count": 20,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417283399128762",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417283399128762/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2420423818814720",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2420423818814720/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417154455808323",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417154455808323/",
-      "reason": "time_limit",
-      "count": 10,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418291772361258",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418291772361258/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418341149022987",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418341149022987/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417489095774859",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417489095774859/",
-      "reason": "time_limit",
-      "count": 14,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417533335770435",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417533335770435/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2420177472172688",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2420177472172688/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2420261945497574",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2420261945497574/",
-      "reason": "no_progress",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418551932335242",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418551932335242/",
-      "reason": "time_limit",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "reason": "user_stop",
       "count": 13,
       "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418353439021758",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418353439021758/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417117635812005",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417117635812005/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2419258458931256",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2419258458931256/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1788026198721155",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1788026198721155/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417377695785999",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417377695785999/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2419328138924288",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2419328138924288/",
-      "reason": "no_progress",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418414682348967",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418414682348967/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417558659101236",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417558659101236/",
-      "reason": "time_limit",
-      "count": 28,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417315479125554",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417315479125554/",
-      "reason": "no_progress",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415088896014879",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415088896014879/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412764332914002",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412764332914002/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1883569379166836",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1883569379166836/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418164145707354",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418164145707354/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417435125780256",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417435125780256/",
-      "reason": "time_limit",
-      "count": 20,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414881832702252",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414881832702252/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414902276033541",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414902276033541/",
-      "reason": "time_limit",
-      "count": 21,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413592942831141",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413592942831141/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2315035856020184",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2315035856020184/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417687399088362",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417687399088362/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2381934085997027",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2381934085997027/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418003199056782",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418003199056782/",
-      "reason": "time_limit",
-      "count": 15,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418738775649891",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418738775649891/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2419321545591614",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2419321545591614/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412761182914317",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412761182914317/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418053159051786",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418053159051786/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418264379030664",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418264379030664/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2411803396343429",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2411803396343429/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1701747054015737",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1701747054015737/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1645397266317383",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1645397266317383/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413843862806049",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413843862806049/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2416498529207249",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2416498529207249/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2418315585692210",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2418315585692210/",
-      "reason": "no_progress",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410128173177618",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410128173177618/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409972603193175",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409972603193175/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410761506447618",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410761506447618/",
-      "reason": "time_limit",
-      "count": 10,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410894609767641",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410894609767641/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1512978069559304",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1512978069559304/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412858969571205",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412858969571205/",
-      "reason": "time_limit",
-      "count": 21,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2345592819631154",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2345592819631154/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2411736373016798",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2411736373016798/",
-      "reason": "time_limit",
-      "count": 16,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2274977163359387",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2274977163359387/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410927646431004",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410927646431004/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415084722681963",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415084722681963/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1467413037449141",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1467413037449141/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414943002696135",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414943002696135/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413409986182770",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413409986182770/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414812246042544",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414812246042544/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1644159673107809",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1644159673107809/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409969139860188",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409969139860188/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2342343096622793",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2342343096622793/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414923112698124",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414923112698124/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413532649503837",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413532649503837/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410684486455320",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410684486455320/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417271985796570",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417271985796570/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2408724129984689",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2408724129984689/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395493027974466",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395493027974466/",
-      "reason": "time_limit",
-      "count": 13,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2411940072996428",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2411940072996428/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415464722643963",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415464722643963/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409616436562125",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409616436562125/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410806443109791",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410806443109791/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414954976028271",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414954976028271/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2411852019671900",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2411852019671900/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415140872676348",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414356022754833",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414356022754833/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415452992645136",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415452992645136/",
-      "reason": "no_progress",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2414933272697108",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2414933272697108/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410695173120918",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410695173120918/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409471903243245",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409471903243245/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413512886172480",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413512886172480/",
-      "reason": "time_limit",
-      "count": 24,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2411851463005289",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2411851463005289/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397448597778909",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397448597778909/",
-      "reason": "time_limit",
-      "count": 26,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2417117229145379",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2417117229145379/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2407688436754925",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2407688436754925/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2415035026020266",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2415035026020266/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2409843936539375",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2409843936539375/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2406974280159674",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2406974280159674/",
-      "reason": "time_limit",
-      "count": 14,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2410629106460858",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2410629106460858/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2413807126143056",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2413807126143056/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2412797879577314",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2412797879577314/",
-      "reason": "crawl_error",
-      "count": 27,
-      "completeness": "not_verified",
-      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
-    },
-    {
-      "post_id": "2407948250062277",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2407948250062277/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2406960340161068",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2406960340161068/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397982317725537",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397982317725537/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2310399879817115",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2310399879817115/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2404185120438590",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2404185120438590/",
-      "reason": "time_limit",
-      "count": 7,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2408063206717448",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2408063206717448/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1688867118637064",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1688867118637064/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2407071583483277",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2407071583483277/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2405522386971530",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2405522386971530/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2367208134136289",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2367208134136289/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2407669806756788",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2407669806756788/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2405848646938904",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2405848646938904/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400388804151555",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400388804151555/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2406039403586495",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2406039403586495/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2406190243571411",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2406190243571411/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1746200632903712",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1746200632903712/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403663933824042",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403663933824042/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2391955364994899",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2391955364994899/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2407749730082129",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2407749730082129/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2039416386915467",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2039416386915467/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403651117158657",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403651117158657/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2402121360644966",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2402121360644966/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2405527996970969",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2405527996970969/",
-      "reason": "no_progress",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2406241993566236",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2406241993566236/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2404673157056453",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2404673157056453/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403497173840718",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403497173840718/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2401751307348638",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2401751307348638/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400284360828666",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400284360828666/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397061977817571",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397061977817571/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1367451867445259",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1367451867445259/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400508667472902",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400508667472902/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2343462623177507",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2343462623177507/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2401729040684198",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2401729040684198/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2404730427050726",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2404730427050726/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403550043835431",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403550043835431/",
-      "reason": "no_progress",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2401631554027280",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2401631554027280/",
-      "reason": "time_limit",
-      "count": 11,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2351176962406073",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2351176962406073/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403476897176079",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403476897176079/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2399898254200610",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2399898254200610/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2399055727618196",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2399055727618196/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403563350500767",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403563350500767/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2403169930540109",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2403169930540109/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2394611008062668",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2394611008062668/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1553043085552802",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1553043085552802/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397389481118154",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397389481118154/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2401832497340519",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2401832497340519/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2213316749525429",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2213316749525429/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400566647467104",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400566647467104/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2393725818151187",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2393725818151187/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2394429888080780",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2394429888080780/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2399963184194117",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2399963184194117/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2396164551240647",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2396164551240647/",
-      "reason": "time_limit",
-      "count": 9,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2388731758650593",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2388731758650593/",
-      "reason": "time_limit",
-      "count": 10,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400012850855817",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400012850855817/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1730175727839536",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1730175727839536/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2392967554893680",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2392967554893680/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1215141476009633",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1215141476009633/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400082650848837",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400082650848837/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397125161144586",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397125161144586/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2402740347249734",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2402740347249734/",
-      "reason": "unrecognized_scope",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2396634691193633",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2396634691193633/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395033471353755",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395033471353755/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2394797778043991",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2394797778043991/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400197014170734",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400197014170734/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2401345794055856",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2401345794055856/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395901887933580",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395901887933580/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400507884139647",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400507884139647/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397836824406753",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397836824406753/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397985611058541",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397985611058541/",
-      "reason": "time_limit",
-      "count": 14,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395916397932129",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395916397932129/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2399051037618665",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2399051037618665/",
-      "reason": "time_limit",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397040751153027",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397040751153027/",
-      "reason": "no_progress",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395594257964343",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395594257964343/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1705407626983013",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1705407626983013/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400470684143367",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400470684143367/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397445397779229",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397445397779229/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395974517926317",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395974517926317/",
-      "reason": "time_limit",
-      "count": 8,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2400566644133771",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2400566644133771/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2217219682468469",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2217219682468469/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2399999134190522",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2399999134190522/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397152807808488",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397152807808488/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2397938264396609",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2397938264396609/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2396923747831394",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2396923747831394/",
-      "reason": "crawl_error",
-      "count": 3,
-      "completeness": "not_verified",
-      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
-    },
-    {
-      "post_id": "2388781758645593",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2388781758645593/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2375555196634916",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2375555196634916/",
-      "reason": "no_progress",
-      "count": 5,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2392820518241717",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2392820518241717/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2388916791965423",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2388916791965423/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2394972554693180",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2394972554693180/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2395498957973873",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2395498957973873/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2388066772050425",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2388066772050425/",
-      "reason": "time_limit",
-      "count": 4,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2381846429339126",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2381846429339126/",
-      "reason": "time_limit",
-      "count": 6,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2383911562465946",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2383911562465946/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2386753422181760",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2386753422181760/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2384633402393762",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2384633402393762/",
-      "reason": "time_limit",
-      "count": 14,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2387677618756007",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2387677618756007/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2334781257378977",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2334781257378977/",
-      "reason": "time_limit",
-      "count": 16,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2368351800688589",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2368351800688589/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2382942719229497",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2382942719229497/",
-      "reason": "no_progress",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2383616569162112",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2383616569162112/",
-      "reason": "time_limit",
-      "count": 2,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2383068222550280",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2383068222550280/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2383258249197944",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2383258249197944/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2382935425896893",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2382935425896893/",
-      "reason": "time_limit",
-      "count": 3,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2387901985400237",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2387901985400237/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2388236202033482",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2388236202033482/",
-      "reason": "no_progress",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "1743206893203086",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/1743206893203086/",
-      "reason": "time_limit",
-      "count": 1,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2384241955766240",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2384241955766240/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2296372941219809",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2296372941219809/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2360010541522715",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2360010541522715/",
-      "reason": "time_limit",
-      "count": 0,
-      "completeness": "not_verified"
-    },
-    {
-      "post_id": "2386651252191977",
-      "url": "https://www.facebook.com/groups/361726451351144/posts/2386651252191977/",
-      "reason": "crawl_error",
-      "count": 0,
-      "completeness": "not_verified",
-      "error": "Bộ lọc Ollama mất kết nối hoặc phản hồi quá lâu. Kiểm tra Ollama rồi thử lại; bình luận chưa phân loại không được lưu."
     }
   ],
   "rows": [
@@ -158757,6 +157227,188 @@
         }
       ],
       "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODg2MDE3NDU2NDIzMjYz",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Nguyễn Trang coi nè e",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.355748+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNDUyOTk1NzkwNzI3OTk1",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Tuấn Anh 🙂",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356174+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzA5MDA4ODczOTY4MjY5",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Lam Thành",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356189+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1006253703790457",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "E cảm ơn rất nhìuuuuu ạ🥹🥹",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356195+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzQ2MTE3MTI0MTEwNjY1",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "by author\nThanh Lâm",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356200+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1110895253210557",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Nguyễn Hữu Sơn",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356206+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "1438146523767674",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Anti nhưng hôm nay yêu trường à",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356214+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODY0Nzg0MDM4NTU1NDkw",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Hay quá ad, nhưng mà móc khoá ạ 🙁",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356219+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfMTcwNTc2MzQ5Mzg0NTAx",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "thanks ad",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:42.356223+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNjk5NTE4NzE1NDM5NDc4",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Phạm Nam Long Pham Ngô Tuấn co ma hoc cac em",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:51.227918+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzA4ODM1NDgxMTA1NTkz",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Trường mình học môn .Net ở kì nào năm nào vậy AD",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:51.227941+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODc5MDgyMjAzNzA3ODEz",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "K uổng công like page",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:51.227947+00:00",
+      "comment_filter": "unknown"
+    },
+    {
+      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfMzEyMTcwOTk0NzY4NzY4",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Vũ Hoàng cháu cũng muốn môn ,này, chú dạy cháu vs, api đi chú😥",
+      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
+      "label": "",
+      "annotation_note": "",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T03:26:54.250097+00:00",
+      "comment_filter": "unknown"
     }
   ]
 }

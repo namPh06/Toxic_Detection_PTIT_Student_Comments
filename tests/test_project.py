@@ -358,6 +358,21 @@ class HTTPTests(unittest.TestCase):
             self.assertEqual(len(imported), 1)
             self.assertEqual(imported[0]['text_raw'], first['text_raw'])
 
+    def test_review_filter_paginates_and_manual_confirmation_removes_flag(self):
+        rows = [dict(r, label_source='automatic', needs_review=i % 2 == 0, review_reason='uncertain')
+                for i, r in enumerate(fixture()[:60])]
+        with tempfile.TemporaryDirectory() as temp, patch.object(self.app, 'LAB', Lab(Path(temp), lambda: rows)):
+            status, body = self.request('/api/rows?review=needs_review&quality=ready&page=2')
+            data = json.loads(body)
+            self.assertEqual((status, data['total'], len(data['rows'])), (200, 30, 5))
+            self.assertTrue(all(r['needs_review'] and r['label'] for r in data['rows']))
+            self.assertEqual(json.loads(self.request('/api/rows?review=needs_review&label=toxic')[1])['total'], 0)
+            row = self.app.LAB.rows()[0]
+            self.assertEqual(self.request('/api/annotate', dict(id=row['id'], text_hash=row['text_hash'], label=row['label']))[0], 200)
+            self.assertEqual(json.loads(self.request('/api/rows?review=needs_review')[1])['total'], 29)
+            self.assertEqual(self.app.LAB.status()['dataset_health']['needs_review'], 29)
+            self.assertFalse(Lab(Path(temp), lambda: rows).rows()[0]['needs_review'])
+
     def test_bulk_reviews_validate_the_entire_batch_and_persist(self):
         rows = [dict(r, label='') for r in fixture()[:3]]
         with tempfile.TemporaryDirectory() as temp, patch.object(self.app, 'LAB', Lab(Path(temp), lambda: rows)):

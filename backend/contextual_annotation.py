@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 import json
 
 def generate_annotations(rows, all_rows, directory, notify=lambda message: None):
-    gate = CollectionFilter('toxic')
+    gate = CollectionFilter('toxic', provisional_labels=True)
     def read(name):
         p = directory / name
         return json.loads(p.read_text(encoding='utf-8-sig')) if p.exists() else {}
@@ -31,10 +31,11 @@ def generate_annotations(rows, all_rows, directory, notify=lambda message: None)
         post['parent_missing'] = bool(row.get('parent_comment_id') and not parents)
         decision = gate.evaluate(row, post, parents)
         label = decision['label'] if decision['label'] in ('toxic','non-toxic') else ''
+        needs_review = bool(label) and decision['needs_review']
         annotation = dict(label=label, excluded=not bool(label), label_source='automatic',
             text_hash=row['text_hash'], model_score=None, label_model=MODEL,
-            label_revision=text_hash(gate.policy), label_threshold=None, needs_review=bool(label),
-            review_reason='unverified_v4_semantic', note=decision['reason'],
+            label_revision=text_hash(gate.policy), label_threshold=None, needs_review=needs_review,
+            review_reason='uncertain_v4_semantic' if needs_review else 'unverified_v4_semantic', note=decision['reason'],
             updated_at=datetime.now(timezone.utc).isoformat())
-        notify(f'Qwen: đã xét {i}/{len(rows)} bình luận; lưu từng kết quả, loại câu chưa rõ khỏi dataset.')
+        notify(f'Qwen: đã xét {i}/{len(rows)} bình luận; giữ nhãn đề xuất và đánh cờ câu cần kiểm tra.')
         yield row, annotation

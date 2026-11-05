@@ -36,6 +36,11 @@ Hai thao tác trên giao diện được tách riêng:
   nhãn đã lưu, kể cả quyết định của người đọc để nhãn trống chờ xem xét. Nút bị
   khóa khi không còn mẫu phù hợp. Mẫu sạch có nhãn máy dùng được ngay, không cần
   bước duyệt. Bản tải dataset ở phần chính gồm cả nhãn máy và nhãn sửa tay.
+  Khi AI phân vân, nó vẫn chọn nhãn phù hợp nhất và đánh cờ **Cần kiểm tra**,
+  kèm lý do. Chọn **Nhãn cần kiểm tra** trong ô lọc nhãn để xem riêng các câu này,
+  giữ hoặc sửa nhãn rồi bấm **Xác nhận nhãn** để gỡ cờ. Cờ được lưu cùng nhãn
+  và giữ khi mở lại project hoặc chia sẻ bằng JSON. Cờ này không phải xác suất
+  đúng/sai; các nhãn cũ chưa có thông tin phân vân không tự được đánh cờ.
 
 1. Thống nhất tiêu chí trong [QUY_TAC_GAN_NHAN.md](docs/QUY_TAC_GAN_NHAN.md).
 2. Đọc bình luận gốc và ngữ cảnh bài viết/bình luận cha khi cần. Chọn nhãn rồi
@@ -48,6 +53,17 @@ Hai thao tác trên giao diện được tách riêng:
    cáo**. Mẫu sạch có nhãn đã lưu trong nhóm phát triển được dùng trực tiếp,
    không phụ thuộc nguồn nhãn hoặc phê duyệt. Sửa nhãn làm đặc trưng cũ hết hiệu lực.
    Xuất bản dữ liệu như bên dưới khi chia sẻ cho nhóm.
+
+Trước lần gán nhãn tự động đầu tiên, cài [Ollama cho Windows](https://ollama.com/download/windows),
+mở Ollama và chạy lệnh sau trong terminal mới để tải mô hình (khoảng 2,5 GB):
+
+```powershell
+ollama pull qwen3:4b-instruct-2507-q4_K_M
+```
+
+Giữ Ollama chạy khi gán nhãn. Mô hình chỉ cần tải một lần; các nhãn đã lưu vẫn
+dùng được khi mở lại project. Nếu thay đổi code Python, khởi động lại máy chủ
+bằng `Open_Tool.cmd` để nạp phiên bản mới.
 
 Mốc kiểm tra 05/11/2026: **5.786 bình luận**, **622 bài**, **5.199 mẫu sạch có nhãn**,
 587 bản trùng. Trong mẫu sạch có **4.162 non-toxic** và **1.037 toxic** (19,95%).
@@ -185,7 +201,7 @@ Chạy từ thư mục dự án; dùng `-B` để không sinh cache bytecode:
 .venv\Scripts\python.exe -B -m backend.shared_dataset --check
 ```
 
-Kiểm tra ngày 05/11/2026 sau khi gom thư mục: 85 kiểm thử Python, 84 đạt và 1 bỏ qua. Các kiểm thử
+Kiểm tra ngày 05/11/2026 sau khi thêm cờ kiểm tra nhãn AI và xử lý lỗi Ollama: 94 kiểm thử Python, 93 đạt và 1 bỏ qua. Các kiểm thử
 Qwen dùng mô phỏng phản hồi; kết quả này không đo độ chính xác nhãn trên corpus thật.
 Kiểm thử dữ liệu/HTTP dùng dữ liệu tạm, không sửa bộ dữ liệu thật. Các file JavaScript
 trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ kiểm tra trình duyệt.

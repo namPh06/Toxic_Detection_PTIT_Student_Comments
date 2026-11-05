@@ -13,6 +13,8 @@
   --accent-soft: #faedf1;
   --success: #356b52;
   --warning: #80591e;
+  --warning-soft: #fff8e8;
+  --warning-line: #e5c58b;
   --radius: 16px;
   --shadow: 0 4px 24px #20283e05;
 }
@@ -151,15 +153,21 @@ details p { margin: 8px 0 12px; overflow-wrap: anywhere; }
 .export-menu > summary { display: list-item; list-style-position: inside; }
 .export-options { position: absolute; right: 0; top: calc(100% + 6px); display: grid; gap: 6px; width: 220px; padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); box-shadow: 0 4px 14px #24283014; }
 .annotation-assist .panel-heading, .cleaning-panel .panel-heading { border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.cleaning-panel .panel-heading { border-bottom: 0; }
+.cleaning-steps { margin: 12px 0 0; padding-left: 22px; font-size: 13px; color: var(--muted); }
+.cleaning-steps li + li { margin-top: 8px; }
 .annotation-assist .panel-body { padding-top: 12px; }
 .annotation-assist .panel-body > p { font-size: 13px; }
 .processing-status { color: var(--success); font-weight: 550; }
-.dataset-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 20px 0; padding-block: 16px; border-block: 1px solid var(--line); }
+.dataset-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 20px 0; padding-block: 16px; border-block: 1px solid var(--line); }
 .dataset-summary > div { padding: 0 16px; border-left: 1px solid var(--line); min-width: 0; }
 .dataset-summary > div:first-child { padding-left: 0; border: 0; }
 .dataset-summary strong { display: block; font-size: 25px; font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums; }
 .dataset-summary span { color: var(--muted); font-size: 12px; }
 .dataset-summary .review-count { color: var(--warning); }
+.review-notice { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; padding: 16px; border: 1px solid var(--warning-line); border-radius: 8px; background: var(--warning-soft); color: var(--warning); }
+.review-notice p { margin: 4px 0 0; font-size: 13px; }
+.review-notice .button { min-height: 44px; color: var(--warning); border-color: var(--warning-line); white-space: normal; }
 .download-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 8px; }
 .download-row b { font-size: 13px; font-weight: 600; }
 .download-row .actions { flex-shrink: 0; }
@@ -187,6 +195,10 @@ details p { margin: 8px 0 12px; overflow-wrap: anywhere; }
 .quality-tag.bad { color: var(--warning); background: #fff2dc; }
 .label-suggestion { margin-bottom: 12px; padding: 10px 12px; border-radius: 5px; border: 1px solid #e1e4e9; background: #f7f8fa; color: #3e4753; font-size: 12px; }
 .label-suggestion b { font-weight: 600; }
+.label-suggestion.needs-review { background: var(--warning-soft); border-color: var(--warning-line); color: var(--warning); }
+.review-badge { display: flex; align-items: center; gap: 6px; width: fit-content; max-width: 100%; margin-bottom: 10px; padding: 4px 8px; border: 1px solid var(--warning-line); border-radius: 6px; font-weight: 700; font-size: 12px; }
+.review-badge svg { width: 16px; height: 16px; }
+.label-suggestion .review-reason { margin-top: 10px; font-size: 12px; line-height: 1.65; }
 .label-suggestion p, .label-suggestion small { display: block; margin: 4px 0; font-size: 11px; overflow-wrap: anywhere; }
 .label-suggestion .row-detail { border-top: 1px solid var(--line); margin-top: 8px; }
 .label-suggestion button { margin-top: 6px; }
@@ -424,10 +436,11 @@ footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line);
   .annotation-assist .panel-heading .button, .cleaning-panel .panel-heading .button { width: 100%; }
   .dataset-summary { grid-template-columns: 1fr 1fr; gap: 18px 0; }
   .dataset-summary > div { padding-inline: 14px; }
-  .dataset-summary > div:nth-child(3) { border: 0; padding-left: 0; }
+  .dataset-summary > div:nth-child(3) { grid-column: 1 / -1; border: 0; padding-left: 0; }
   .dataset-summary strong { font-size: 24px; }
   .download-row { flex-wrap: wrap; }
   .toolbar { padding: 0 16px 16px; gap: 8px; }
+  .review-notice .button { width: 100%; }
   .search-box { flex-basis: 100%; }
   .toolbar select { flex: 1; max-width: 100%; min-width: 110px; }
   .toolbar .file-button { width: 100%; }

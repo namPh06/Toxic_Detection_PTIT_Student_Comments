@@ -60,7 +60,10 @@ def apply_approval(directory, rows, approval=None, imported=None):
         usable = usable_label(row)
         method = ('individual_review' if reviewed(row) else
                   'owner_batch_acceptance' if tokens.get(row['id']) == approval_token(row) else '') if usable else ''
-        result.append(dict(row, label_usable=usable, needs_review=False if usable else bool(row.get('needs_review')),
+        # Legacy unverified flags record provenance, not AI uncertainty.
+        needs_review = bool(row.get('needs_review')) and row.get('review_reason') not in (
+            'unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic')
+        result.append(dict(row, label_usable=usable, needs_review=needs_review,
                            label_approved=bool(method), label_approval_method=method))
     return result
 
@@ -175,7 +178,6 @@ def export(directory):
     rows = apply_approval(directory, prepare(raw, state['annotations']), state.get('dataset_approval', {}), state['imported'])
     for r in rows:
         r['human_verified'] = reviewed(r)
-        r['needs_review'] = False if usable_label(r) else r.get('needs_review', False)
     atomic_json(directory / 'shared_dataset.json', dict(schema_version=1, label_policy_version=POLICY,
                                                        label_policy='includes_automatic', rows=rows))
     csv_path = directory / 'shared_dataset.csv'
@@ -192,7 +194,7 @@ def export(directory):
                     summary=summary(rows), human_reviewed=sum(reviewed(r) for r in rows if r['quality'] == 'ready'),
                     label_approved=sum(r['label_approved'] for r in rows),
                     usable_labels=sum(usable_label(r) for r in rows),
-                    pending_review=0,
+                    pending_review=sum(bool(r.get('needs_review')) for r in rows if r['quality'] == 'ready'),
                     reservation_scope='Historical diagnostic groups; not an independent blind test.', groups=groups)
     manifest['groups_sha256'] = text_hash(json.dumps(groups, sort_keys=True))
     atomic_json(old_path, manifest)
@@ -216,7 +218,8 @@ def check(directory):
             (r['id'], r['text_hash'], r['label'], r['quality'], reviewed(r), r.get('label_usable', usable_label(r))) for r in actual]:
         raise ValueError('Dataset xuất khác workspace; chạy --export.')
     return dict(valid=True, total=len(rows), ready=sum(r['quality'] == 'ready' for r in rows),
-                human_reviewed=manifest['human_reviewed'], usable_labels=sum(usable_label(r) for r in rows), pending_review=0)
+                human_reviewed=manifest['human_reviewed'], usable_labels=sum(usable_label(r) for r in rows),
+                pending_review=sum(bool(r.get('needs_review')) for r in rows if r['quality'] == 'ready'))
 
 
 def migrate(directory):
