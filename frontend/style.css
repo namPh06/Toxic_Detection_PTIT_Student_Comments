@@ -480,3 +480,12 @@ footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line);
 .colab-steps li { margin-block: 12px; }
 .colab-steps .button { margin: 4px; vertical-align: middle; }
 .colab-panel a:focus-visible, .colab-panel button:focus-visible { outline: 3px solid #536b82; outline-offset: 3px; }
+.colab-connect-form { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr) minmax(0,1fr); gap: 16px; margin-block: 20px; }
+.colab-connect-form label, .colab-target label { display: block; margin-bottom: 6px; font-weight: 600; }
+.colab-connect-form input, .colab-target select { width: 100%; min-height: 44px; box-sizing: border-box; }
+.colab-connection-file, .colab-connect-actions { grid-column: 1 / -1; }
+.colab-connection-file small { display: block; margin-top: 6px; color: var(--muted); }
+.colab-target { max-width: 360px; margin-block: 16px; }
+.colab-manual { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+.colab-manual summary { cursor: pointer; font-weight: 600; min-height: 44px; }
+@media (max-width: 680px) { .colab-connect-form { grid-template-columns: minmax(0,1fr); } .colab-connect-actions { flex-wrap: wrap; } }

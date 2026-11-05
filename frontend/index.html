@@ -142,7 +142,22 @@
   <section class="panel colab-panel" aria-labelledby="colab-title">
     <div class="panel-body">
       <h2 id="colab-title">Chạy ViSoBERT trên Google Colab</h2>
-      <p>Chuyển phần huấn luyện ViSoBERT sang GPU Colab. NB/SVM có thể chạy tại máy và so sánh cùng kết quả nhập về.</p>
+      <p>Kết nối GPU Colab để bấm huấn luyện ngay trên web. Dữ liệu được gửi và kết quả được nhận tự động. NB/SVM chạy tại máy.</p>
+      <ol class="colab-steps">
+        <li><a class="button small" href="/api/colab/live-notebook" download="PTIT_Colab_Live.ipynb">Tải notebook kết nối</a>, mở trên <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a>, chọn GPU rồi chạy 3 ô.</li>
+        <li>Mở file <b>ptit-colab-connection.json</b> mà notebook tải xuống, rồi bấm <b>Kết nối GPU</b>.</li>
+        <li>Trích xuất đặc trưng, chọn ViSoBERT và bấm <b>Huấn luyện</b> ở phía trên. Giữ Colab và chương trình web mở cho đến khi nhận xong kết quả.</li>
+      </ol>
+      <form id="colab-connect-form" class="colab-connect-form">
+        <div class="colab-connection-file"><label for="colab-connection-file">File kết nối từ Colab</label><input type="file" id="colab-connection-file" accept=".json,application/json"><small>File chứa mật khẩu; chỉ sử dụng trên máy của bạn.</small></div>
+        <div><label for="colab-url">Link GPU Colab</label><input type="url" id="colab-url" placeholder="https://…gradio.live" required autocomplete="off"></div>
+        <div><label for="colab-username">Tài khoản</label><input id="colab-username" required autocomplete="off" value="ptit"></div>
+        <div><label for="colab-password">Mật khẩu</label><input type="password" id="colab-password" required autocomplete="off"></div>
+        <div class="actions colab-connect-actions"><button class="button primary" id="colab-connect" type="submit">Kết nối GPU</button><button class="button" id="colab-disconnect" type="button" disabled>Ngắt kết nối</button><button class="button" id="colab-retry" type="button" hidden>Nối lại / nhận kết quả</button></div>
+      </form>
+      <p id="colab-connection-status" role="status" aria-live="polite">Chưa kết nối GPU Colab.</p>
+      <p class="muted">Bấm huấn luyện sẽ gửi bình luận và nhãn của lượt thực nghiệm sang phiên Colab đã kết nối. Giữ nguyên dữ liệu và cấu hình trong lúc chạy. Kết nối chỉ được giữ trong phiên web hiện tại.</p>
+      <details class="colab-manual"><summary>Xuất / nhập ZIP thủ công và khôi phục kết quả</summary>
       <ol class="colab-steps">
         <li>Trích xuất đặc trưng, rồi <button type="button" class="button small" id="colab-export">Xuất gói Colab</button>.</li>
         <li><a class="button small" href="/api/colab/notebook" download="PTIT_Colab.ipynb">Tải notebook</a>, mở tại <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a>, chọn GPU và chạy lần lượt các ô. Khi được hỏi, tải ZIP vừa xuất lên.</li>
@@ -151,6 +166,7 @@
       <input type="file" id="colab-result-file" accept=".zip,application/zip" hidden>
       <p class="muted">Gói xuất chứa bình luận và nhãn dùng cho thực nghiệm. A100 tùy quyền truy cập của tài khoản Colab. Giữ nguyên dữ liệu và cấu hình đặc trưng trong lúc chờ kết quả.</p>
       <p id="colab-status" role="status" aria-live="polite">Cần trích xuất đặc trưng trước khi xuất gói.</p>
+      </details>
     </div>
   </section>
   <section class="model-lineup" aria-labelledby="model-lineup-title">
@@ -160,6 +176,7 @@
         <label><input type="checkbox" id="training-svm" checked> SVM</label>
         <label><input type="checkbox" id="training-visobert"> ViSoBERT</label>
       </fieldset>
+      <div class="colab-target"><label for="training-target">Nơi huấn luyện ViSoBERT</label><select id="training-target"><option value="local">Máy này</option><option value="colab">GPU Colab đã kết nối</option></select></div>
       <p class="muted" id="training-device">Tự chọn GPU CUDA nếu khả dụng, nếu không dùng CPU.</p>
       <p class="muted">Chỉ chạy các mô hình đã chọn. Kết quả cũ được giữ khi dữ liệu, bộ chia và cấu hình đặc trưng của mô hình còn phù hợp.</p>
     </div>

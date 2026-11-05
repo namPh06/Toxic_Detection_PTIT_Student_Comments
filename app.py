@@ -659,6 +659,9 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/colab/notebook':
             from backend.colab import notebook_bytes
             self.send(notebook_bytes(), 'application/x-ipynb+json', filename='PTIT_Colab.ipynb')
+        elif path == '/api/colab/live-notebook':
+            from backend.colab_live import live_notebook_bytes
+            self.send(live_notebook_bytes(), 'application/x-ipynb+json', filename='PTIT_Colab_Live.ipynb')
         else:
             self.send(b'Not found', 'text/plain', 404)
 
@@ -762,6 +765,14 @@ class Handler(BaseHTTPRequestHandler):
             from backend.colab import export_package
             self.send(export_package(LAB), 'application/zip', filename='ptit-colab-input.zip')
             return None
+        elif self.path == '/api/colab/connect':
+            return LAB.colab.connect(body)
+        elif self.path == '/api/colab/disconnect':
+            return LAB.colab.disconnect()
+        elif self.path == '/api/colab/train':
+            return LAB.colab.start_training(body)
+        elif self.path == '/api/colab/retry':
+            return LAB.colab.retry()
         elif self.path == '/api/features':
             return LAB.start_features(body)
         elif self.path == '/api/predict':

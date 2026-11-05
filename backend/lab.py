@@ -33,6 +33,8 @@ class Lab:
         if self.suggestions:
             self.annotation_job['message'] = f'Đã lưu kết quả mô hình cho {len(self.suggestions)} bình luận. Có thể gán nhãn toàn bộ hoặc xem từng mẫu.'
         self.split_check = None
+        from backend.colab_live import ColabConnection
+        self.colab = ColabConnection(self)
         self.run = self.read('latest.json', {}).get('run', '')
         if not re.fullmatch(r'run-\d{8}T\d{12}Z', self.run):
             self.run = ''
@@ -124,7 +126,7 @@ class Lab:
                       training_ready=training_ready, training_message=training_message)
         return dict(summary=stats, job=job, annotation_job=annotation_job, dataset_health=health, result=result, compute=compute_info(),
                     experiment_summary=summary(experiment),
-                    features=self.feature_status(rows),
+                    features=self.feature_status(rows), colab=self.colab.status(),
                     stale=self.result_stale(result, experiment))
 
     def feature_status(self, rows=None):

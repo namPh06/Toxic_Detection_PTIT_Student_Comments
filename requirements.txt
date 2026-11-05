@@ -7,6 +7,7 @@ pyvi==0.1.1
 underthesea==9.5.0
 transformers>=4.48,<5
 sentencepiece>=0.2,<1
+gradio-client==1.13.3
 
 pillow>=11,<14
 imageio>=2.37,<3

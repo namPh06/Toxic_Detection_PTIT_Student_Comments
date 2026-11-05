@@ -6,6 +6,7 @@ const qualityNames = {ready:'Mẫu sạch',duplicate:'Bản trùng',conflict:'Nh
 let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, toastTimer, reviewSaving = false, cleaning = false;
 const reviewDrafts = new Map();
 let featureConfigInitialized=false, featurePreviewRequest=0, featurePreviewVersion='', featurePreviewIndex=0, colabBusy=false;
+let gpuBusy=false, gpuFeedback=null, gpuFailed=false, gpuTargetInitialized=false;
 function featureSettings(){
   return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),char_features:false};
 }
@@ -86,7 +87,13 @@ function renderStatus(status) {
   ['training-nb','training-svm'].forEach(id=>$(id).disabled=status.job.running);
   $('training-visobert').disabled=status.job.running;
   const compute=status.compute||{device:'cpu',name:'CPU'};
-  $('training-device').textContent=`ViSoBERT: ${compute.device==='cuda'?'GPU · '+compute.name:'CPU (CUDA chưa khả dụng)'}. Naive Bayes / SVM: CPU.`;
+  if(!gpuTargetInitialized){
+    if(status.colab?.connected||status.colab?.retryable)$('training-target').value='colab';
+    gpuTargetInitialized=true;
+  }
+  const remoteSelected=$('training-target').value==='colab',remote=status.colab||{};
+  $('training-target').disabled=status.job.running;
+  $('training-device').textContent=`ViSoBERT: ${remoteSelected?(remote.connected?'Colab · '+remote.gpu:'Colab chưa kết nối'):(compute.device==='cuda'?'GPU · '+compute.name:'CPU (CUDA chưa khả dụng)')}. Naive Bayes / SVM: CPU.`;
   $('total').textContent=number(s.total);$('usable').textContent=number(s.usable);$('labeled').textContent=number(s.labeled);
   $('post-count').textContent=`Từ ${number(s.posts)} bài viết`;
   $('label-percent').textContent=`${s.usable?(100*s.labeled/s.usable).toFixed(1):0}% mẫu sạch đã có nhãn`;
@@ -108,6 +115,14 @@ function renderStatus(status) {
   $('training-status').textContent=status.job.error?'Huấn luyện gặp lỗi. Xem chi tiết bên dưới và thử lại.':!algorithms.length?'Chọn ít nhất một mô hình để huấn luyện.':!status.job.running&&!featuresReady(status)?'Cần trích xuất đặc trưng phù hợp với dữ liệu và cấu hình hiện tại trước khi huấn luyện.':status.job.message;
   $('training-detail').hidden=!status.job.error;$('training-debug').textContent=status.job.error?status.job.message:'';
   $('train').disabled=trainingDisabled(status);
+  if(remoteSelected&&algorithms.includes('ViSoBERT')&&(!remote.connected||remote.retryable||gpuBusy))$('train').disabled=true;
+  const gpuBlocked=gpuBusy||status.job.running;
+  ['colab-url','colab-username','colab-password','colab-connection-file','colab-connect'].forEach(id=>$(id).disabled=gpuBlocked);
+  $('colab-disconnect').disabled=gpuBlocked||(!remote.connected&&!remote.retryable);
+  $('colab-retry').hidden=!remote.retryable;
+  $('colab-retry').disabled=gpuBlocked||!featuresReady(status);
+  $('colab-connection-status').textContent=gpuFeedback??remote.message??'Chưa kết nối GPU Colab.';
+  $('colab-connection-status').classList.toggle('annotation-error',gpuFailed&&!gpuBusy);
   const colabBlocked=colabBusy||status.job.running||status.annotation_job?.running||status.features?.job.running;
   $('colab-export').disabled=colabBlocked||!featuresReady(status);
   $('colab-import').disabled=colabBlocked||!featuresReady(status);
@@ -142,7 +157,7 @@ function renderResults(result) {
   if($('matrix-model').dataset.run!==result.created_at){$('matrix-model').innerHTML=names.map(n=>`<option>${esc(n)}</option>`).join('');$('matrix-model').value=result.selected_model;$('matrix-model').dataset.run=result.created_at;}
   if($('predict-model').dataset.run!==result.created_at){$('predict-model').innerHTML='<option value="">Mô hình chọn theo validation</option>'+names.map(n=>`<option>${esc(n)}</option>`).join('');$('predict-model').dataset.run=result.created_at;}
   $('split-info').textContent=`Train ${result.split.train.count} · Validation ${result.split.validation.count} · Test ${result.split.test.count} mẫu. Chọn: ${result.selected_model}.`;
-  $('metrics-rows').innerHTML=result.models.map(m=>`<tr><td class="${m.name===result.selected_model?'selected-model':''}">${esc(m.name)}${m.name===result.selected_model?' ★':''}${m.retained?'<br><small>Giữ kết quả cũ</small>':''}<br><small>${esc(m.device||m.parameters?.device||'cpu')}${typeof m.threshold==='number'?` · Ngưỡng ${m.threshold.toFixed(4)}`:''}</small></td><td>${m.validation.f1_macro.toFixed(3)}</td>${['accuracy','precision','recall','f1','f1_macro'].map(k=>`<td>${m.test[k].toFixed(3)}</td>`).join('')}<td>${m.seconds.toFixed(1)}s</td></tr>`).join('');
+  $('metrics-rows').innerHTML=result.models.map(m=>`<tr><td class="${m.name===result.selected_model?'selected-model':''}">${esc(m.name)}${m.name===result.selected_model?' ★':''}<br><small>${esc(m.device||m.parameters?.device||'cpu')}${typeof m.threshold==='number'?` · Ngưỡng ${m.threshold.toFixed(4)}`:''}</small></td><td>${m.validation.f1_macro.toFixed(3)}</td>${['accuracy','precision','recall','f1','f1_macro'].map(k=>`<td>${m.test[k].toFixed(3)}</td>`).join('')}<td>${m.seconds.toFixed(1)}s</td></tr>`).join('');
   $('score-bars').innerHTML=result.models.map(m=>`<div><div class="bar-head"><span>${esc(m.name)}</span><b>${m.test.f1_macro.toFixed(3)}</b></div><div class="bar-track"><div class="bar-fill" style="width:${100*m.test.f1_macro}%"></div></div></div>`).join('');
   renderMatrix();
 }
@@ -237,6 +252,33 @@ $('colab-result-file').onchange=()=>{
     $('colab-status').textContent='Đã nhập ViSoBERT từ Colab. Xem bảng so sánh hoặc dùng mục Thử phân loại bình luận bên dưới.';
   }).finally(()=>{input.value='';});
 };
+async function gpuAction(message, fn){
+  if(gpuBusy)return;
+  gpuBusy=true;gpuFailed=false;gpuFeedback=message;if(lastStatus)renderStatus(lastStatus);
+  try{await fn();gpuFeedback=null;renderStatus(await api('/api/status'));}
+  catch(error){gpuFeedback=error.message;gpuFailed=true;}
+  finally{gpuBusy=false;if(lastStatus)renderStatus(lastStatus);}
+}
+$('colab-connection-file').onchange=async()=>{
+  const input=$('colab-connection-file'),file=input.files[0];if(!file)return;
+  try{
+    if(file.size>20000)throw new Error('File kết nối JSON vượt 20 KB.');
+    const connection=JSON.parse(await file.text());
+    if(!connection||['url','username','password'].some(k=>typeof connection[k]!=='string'||!connection[k]))throw new Error('File kết nối thiếu link, tài khoản hoặc mật khẩu.');
+    $('colab-url').value=connection.url;$('colab-username').value=connection.username;$('colab-password').value=connection.password;
+    gpuFeedback='Đã mở file kết nối. Bấm Kết nối GPU để kiểm tra.';gpuFailed=false;
+  }catch(error){gpuFeedback='Không đọc được file kết nối: '+error.message;gpuFailed=true;}
+  finally{input.value='';if(lastStatus)renderStatus(lastStatus);}
+};
+$('colab-connect-form').onsubmit=event=>{
+  event.preventDefault();gpuAction('Đang kiểm tra kết nối GPU Colab…',async()=>{
+    await api('/api/colab/connect',{url:$('colab-url').value,username:$('colab-username').value,password:$('colab-password').value});
+    $('colab-password').value='';$('training-target').value='colab';$('training-visobert').checked=true;
+  });
+};
+$('colab-disconnect').onclick=()=>gpuAction('Đang ngắt kết nối…',async()=>{await api('/api/colab/disconnect',{});$('training-target').value='local';$('colab-password').value='';});
+$('colab-retry').onclick=()=>gpuAction('Đang nối lại lượt Colab…',async()=>{await api('/api/colab/retry',{});});
+$('training-target').onchange=()=>{if(lastStatus)renderStatus(lastStatus);};
 for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
 $('feature-split').onchange=()=>loadFeaturePreview(0);
 $('feature-index').onchange=()=>{const value=Number($('feature-index').value);if(Number.isInteger(value)&&value>=1)loadFeaturePreview(value-1);};
@@ -357,7 +399,11 @@ $('browser-open').onclick=()=>action($('browser-open'),async()=>{await api('/api
 $('crawl-form').onsubmit=event=>{event.preventDefault();action($('start'),async()=>{await api('/start',{target:Number($('target').value),source:$('source-url').value.trim(),collection_filter:$('collection-filter').value});toast('Đã bắt đầu thu thập.');});};
 $('stop').onclick=()=>action($('stop'),async()=>{await api('/stop',{});toast('Đã gửi yêu cầu dừng; chờ thao tác hiện tại kết thúc.');});
 for(const id of ['training-nb','training-svm','training-visobert'])$(id).onchange=()=>{if(lastStatus)renderStatus(lastStatus);};
-$('train').onclick=()=>action($('train'),async()=>{await api('/api/train',{mode:'optimized',algorithms:selectedAlgorithms()});renderStatus(await api('/api/status'));toast('Đã bắt đầu huấn luyện các mô hình đã chọn. Giữ cửa sổ máy chủ mở.');});
+$('train').onclick=()=>action($('train'),async()=>{
+  const algorithms=selectedAlgorithms(),remote=$('training-target').value==='colab'&&algorithms.includes('ViSoBERT');
+  await api(remote?'/api/colab/train':'/api/train',{mode:'optimized',algorithms});
+  renderStatus(await api('/api/status'));toast(remote?'Đã bắt đầu. Giữ Colab và chương trình web mở để tự nhận kết quả.':'Đã bắt đầu huấn luyện các mô hình đã chọn. Giữ cửa sổ máy chủ mở.');
+});
 $('predict-form').onsubmit=event=>{event.preventDefault();action($('predict-button'),async()=>{window.pipelineReset?.();const traceRevision=window.pipelineRevision?.();const r=await api('/api/predict',{text:$('predict-text').value,model:$('predict-model').value,explain:true});if(traceRevision!==window.pipelineRevision?.())return;window.pipelineShow?.(r.trace);$('prediction').textContent=`${r.label.toUpperCase()} · ${r.model} — Bản chuẩn hóa: ${r.text_clean}${r.stale?' · Mô hình dùng snapshot dữ liệu cũ.':''}`;});};
 $('import-file').onchange=async()=>{
   const file=$('import-file').files[0];if(!file)return;

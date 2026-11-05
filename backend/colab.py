@@ -84,7 +84,7 @@ def export_package(lab):
     return buffer.getvalue()
 
 
-def run_snapshot(work, config=None):
+def run_snapshot(work, config=None, notify=print):
     from backend.improvements import train_improved
     import torch
     if not torch.cuda.is_available():
@@ -94,13 +94,13 @@ def run_snapshot(work, config=None):
     checksum = snapshot.pop('snapshot_sha256')
     if hashlib.sha256(encode(snapshot)).hexdigest() != checksum:
         raise ValueError('Gói dữ liệu đã thay đổi.')
-    prepared = build_features(snapshot['rows'], snapshot['settings'])
+    prepared = build_features(snapshot['rows'], snapshot['settings'], notify)
     if prepared['key'] != snapshot['key'] or prepared['split'] != snapshot['split']:
         raise ValueError('Cách chia tập hoặc phiên bản xử lý khác với web. Xuất lại gói.')
     prepared['created_at'] = snapshot['feature_created_at']
     run = 'run-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output = work / 'data' / 'runs' / run
-    train_improved(snapshot['rows'], output, prepared=prepared, algorithms=['ViSoBERT'], transformer_config=config)
+    train_improved(snapshot['rows'], output, notify=notify, prepared=prepared, algorithms=['ViSoBERT'], transformer_config=config)
     path = work / ('ptit-colab-result-' + snapshot['job_id'] + '.zip')
     with ZipFile(path, 'w', ZIP_DEFLATED) as archive:
         archive.writestr('colab-result.json', encode(dict(schema_version=1, job_id=snapshot['job_id'], snapshot_sha256=checksum)))
