@@ -3,90 +3,90 @@
   "label_policy_version": "ptit-v4-abuse-context-20261102",
   "label_usage_policy": "includes_automatic",
   "policy_sha256": "9e797636714d9e1b89314fc93ba8b922ee1d232a26531a344129f942ed5ce64b",
-  "source_sha256": "14711f118de6b163738820145c65857f6c4d0fd94efb6c755554e7357857540b",
-  "workspace_sha256": "5dbdd5cae15789e7d4a2980366ce3ca62bf2aca6bd98fce223c0024fbef374fb",
+  "source_sha256": "32cadd33f822b235044a0264f3859667741871049889e99cf54417b45b9bc0f3",
+  "workspace_sha256": "9dfba1daf7c460044c0828fb0f086eba9f2489b1637e1cb63c31b23b39d3c33b",
   "imported_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "context_sha256": {
     "post_context.json": "8e5bce7cd375a18ef1d14db4bab09b5e7518c9a5167103bcd0cf0df0d4bc8615",
     "parent_context.json": "749e46d3a01cb3a9038358a9fb031001bc09a7548aac735d0dcee39a9b4991ca"
   },
   "exports": {
-    "shared_dataset.json": "6e4098c221db710f0cf89ef43bee361e0f9f24b43e27b6e4165e1c5ac4b3242f",
-    "shared_dataset.csv": "39ac8ada76569ee1956744c9166d19e8faccf823ffdfc95dcff117cde8d4d32f"
+    "shared_dataset.json": "b6dc43ee777b742a1dfeae6f7c9393b1b444c072f51209dd1ca71bbc04ab6bac",
+    "shared_dataset.csv": "beb04d2f0c4c2c99d3ebbeff87f32f60ebc634bfda207ca4f2717f82dcc795d4"
   },
   "summary": {
-    "total": 5790,
-    "usable": 5203,
+    "total": 5841,
+    "usable": 5254,
     "quality": {
-      "ready": 5203,
+      "ready": 5254,
       "duplicate": 587
     },
     "labels": {
       "non-toxic": 4162,
-      "toxic": 1041
+      "toxic": 1092
     },
-    "labeled": 5203,
+    "labeled": 5254,
     "label_sources": {
-      "automatic": 5202,
-      "manual": 1
+      "automatic": 5252,
+      "manual": 2
     },
-    "posts": 624,
-    "avg_tokens": 15.2,
+    "posts": 634,
+    "avg_tokens": 15.3,
     "top_terms": [
       [
         "có",
-        1184
+        1203
       ],
       [
         "thì",
-        1073
+        1096
       ],
       [
         "không",
-        988
+        1006
       ],
       [
         "là",
-        913
+        930
       ],
       [
         "học",
-        901
+        913
       ],
       [
         "mà",
-        752
+        781
       ],
       [
         "đi",
-        717
+        732
       ],
       [
         "bạn",
-        680
+        698
       ],
       [
         "được",
-        638
+        646
       ],
       [
         "người",
-        580
+        600
       ],
       [
         "mình",
-        537
+        539
       ],
       [
         "cho",
-        522
+        531
       ]
     ],
     "preprocess_version": "ptit-v4-contextual-dc-20261105"
   },
-  "human_reviewed": 1,
-  "label_approved": 1,
-  "usable_labels": 5203,
+  "human_reviewed": 2,
+  "label_approved": 2,
+  "usable_labels": 5254,
   "pending_review": 0,
   "reservation_scope": "Historical diagnostic groups; not an independent blind test.",
   "groups": [
@@ -40619,7 +40619,364 @@
       "canonical_post_id": "2401631554027280",
       "group": "2401631554027280",
       "partition": "development_pool"
+    },
+    {
+      "id": "664ba195fce17bbb99662313",
+      "post_id": "2421515872038848",
+      "canonical_post_id": "2421515872038848",
+      "group": "2421515872038848",
+      "partition": "development_pool"
+    },
+    {
+      "id": "2a6758b677820dddbcbdb3c3",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "8daec58852a48673f395da59",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "87be1f472c45b9476d5ef329",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "9f5d9905aa94186311943ec6",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "371c3aef5229e260ca0847ee",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "f7f02a5b2d5029c4cfd1adac",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "37b6ce57a2b456014cc2220c",
+      "post_id": "2422413701949065",
+      "canonical_post_id": "2422413701949065",
+      "group": "2422413701949065",
+      "partition": "development_pool"
+    },
+    {
+      "id": "9cbbd0a897bcf1b885bcafb0",
+      "post_id": "2422413701949065",
+      "canonical_post_id": "2422413701949065",
+      "group": "2422413701949065",
+      "partition": "development_pool"
+    },
+    {
+      "id": "8961fb1fe545fdb04eac3e3b",
+      "post_id": "2422413701949065",
+      "canonical_post_id": "2422413701949065",
+      "group": "2422413701949065",
+      "partition": "development_pool"
+    },
+    {
+      "id": "79149161dc7e6af7335241c3",
+      "post_id": "2415140872676348",
+      "canonical_post_id": "2415140872676348",
+      "group": "2415140872676348",
+      "partition": "development_pool"
+    },
+    {
+      "id": "6c1217decf6f32806a409f75",
+      "post_id": "2415140872676348",
+      "canonical_post_id": "2415140872676348",
+      "group": "2415140872676348",
+      "partition": "development_pool"
+    },
+    {
+      "id": "59777894f635c291bc65da32",
+      "post_id": "2415140872676348",
+      "canonical_post_id": "2415140872676348",
+      "group": "2415140872676348",
+      "partition": "development_pool"
+    },
+    {
+      "id": "cfaa4a83556fe83111447946",
+      "post_id": "2415140872676348",
+      "canonical_post_id": "2415140872676348",
+      "group": "2415140872676348",
+      "partition": "development_pool"
+    },
+    {
+      "id": "7bf8a63e0bbdeb8a981c710d",
+      "post_id": "2422594348597667",
+      "canonical_post_id": "2422594348597667",
+      "group": "2422594348597667",
+      "partition": "development_pool"
+    },
+    {
+      "id": "1b76141edff30a99c441a44b",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "35d8b4b2d1bbf5e2f05f622e",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "1c5be8c676aca311654760f0",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "c323f9c505b07f237d109862",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "bd0e119c36446ab8ed81fd9b",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "67fb16fa588f5e8f6c7eee5a",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "83f0ae3f6ef97bcbaf6357e6",
+      "post_id": "2423403721850063",
+      "canonical_post_id": "2423403721850063",
+      "group": "2423403721850063",
+      "partition": "development_pool"
+    },
+    {
+      "id": "f97ded6e72e08208fe7d9205",
+      "post_id": "2421515872038848",
+      "canonical_post_id": "2421515872038848",
+      "group": "2421515872038848",
+      "partition": "development_pool"
+    },
+    {
+      "id": "2c0f080c83e7249648cb0722",
+      "post_id": "2421515872038848",
+      "canonical_post_id": "2421515872038848",
+      "group": "2421515872038848",
+      "partition": "development_pool"
+    },
+    {
+      "id": "f68dddeb032794f94991298d",
+      "post_id": "2422760385247730",
+      "canonical_post_id": "2422760385247730",
+      "group": "2422760385247730",
+      "partition": "development_pool"
+    },
+    {
+      "id": "a7fc20070f4ef85fad8b6939",
+      "post_id": "2422660131924422",
+      "canonical_post_id": "2422660131924422",
+      "group": "2422660131924422",
+      "partition": "development_pool"
+    },
+    {
+      "id": "b2f3c52e3e418d88f77e3d24",
+      "post_id": "2422660131924422",
+      "canonical_post_id": "2422660131924422",
+      "group": "2422660131924422",
+      "partition": "development_pool"
+    },
+    {
+      "id": "9b8381c3a278c322be38c987",
+      "post_id": "2422660131924422",
+      "canonical_post_id": "2422660131924422",
+      "group": "2422660131924422",
+      "partition": "development_pool"
+    },
+    {
+      "id": "c99cc79684f0b85810320a79",
+      "post_id": "2422660131924422",
+      "canonical_post_id": "2422660131924422",
+      "group": "2422660131924422",
+      "partition": "development_pool"
+    },
+    {
+      "id": "7f36a5e19cc5498cb4775d33",
+      "post_id": "2422660131924422",
+      "canonical_post_id": "2422660131924422",
+      "group": "2422660131924422",
+      "partition": "development_pool"
+    },
+    {
+      "id": "a9d4d5aa86fe50467a1f724d",
+      "post_id": "2420870682103367",
+      "canonical_post_id": "2420870682103367",
+      "group": "2420870682103367",
+      "partition": "development_pool"
+    },
+    {
+      "id": "5c6ab6b6a0d444e304197338",
+      "post_id": "2420870682103367",
+      "canonical_post_id": "2420870682103367",
+      "group": "2420870682103367",
+      "partition": "development_pool"
+    },
+    {
+      "id": "afaebf1b329dd50f2e54aa01",
+      "post_id": "2420870682103367",
+      "canonical_post_id": "2420870682103367",
+      "group": "2420870682103367",
+      "partition": "development_pool"
+    },
+    {
+      "id": "924bee34856017e2cd876cbc",
+      "post_id": "2422413701949065",
+      "canonical_post_id": "2422413701949065",
+      "group": "2422413701949065",
+      "partition": "development_pool"
+    },
+    {
+      "id": "ee3804b45379bb9409eecb4d",
+      "post_id": "2420440512146384",
+      "canonical_post_id": "2420440512146384",
+      "group": "2420440512146384",
+      "partition": "development_pool"
+    },
+    {
+      "id": "d33f01a3e0c1cb581da09e89",
+      "post_id": "2420440512146384",
+      "canonical_post_id": "2420440512146384",
+      "group": "2420440512146384",
+      "partition": "development_pool"
+    },
+    {
+      "id": "8f0e0e4604ff4525f26e7f75",
+      "post_id": "2420440512146384",
+      "canonical_post_id": "2420440512146384",
+      "group": "2420440512146384",
+      "partition": "development_pool"
+    },
+    {
+      "id": "6acd2ffc72c533713ccacec1",
+      "post_id": "2420440512146384",
+      "canonical_post_id": "2420440512146384",
+      "group": "2420440512146384",
+      "partition": "development_pool"
+    },
+    {
+      "id": "3364bb1de17ea675d7a81db4",
+      "post_id": "2421486902041745",
+      "canonical_post_id": "2421486902041745",
+      "group": "2421486902041745",
+      "partition": "development_pool"
+    },
+    {
+      "id": "cee4062032cbb0780c3205e5",
+      "post_id": "2421486902041745",
+      "canonical_post_id": "2421486902041745",
+      "group": "2421486902041745",
+      "partition": "development_pool"
+    },
+    {
+      "id": "35fbc4b181e96389a05e255c",
+      "post_id": "2421486902041745",
+      "canonical_post_id": "2421486902041745",
+      "group": "2421486902041745",
+      "partition": "development_pool"
+    },
+    {
+      "id": "1b522b80e05435aaacf9a20d",
+      "post_id": "2421486902041745",
+      "canonical_post_id": "2421486902041745",
+      "group": "2421486902041745",
+      "partition": "development_pool"
+    },
+    {
+      "id": "58a7d7d24d71776bd36cd97f",
+      "post_id": "1210371709819943",
+      "canonical_post_id": "1210371709819943",
+      "group": "1210371709819943",
+      "partition": "development_pool"
+    },
+    {
+      "id": "f8eb6aeb511a7e834208080e",
+      "post_id": "1210371709819943",
+      "canonical_post_id": "1210371709819943",
+      "group": "1210371709819943",
+      "partition": "development_pool"
+    },
+    {
+      "id": "a46ad516cc2a2d2cf9a97ec1",
+      "post_id": "1210371709819943",
+      "canonical_post_id": "1210371709819943",
+      "group": "1210371709819943",
+      "partition": "development_pool"
+    },
+    {
+      "id": "08a59ae73d51a6d15947482d",
+      "post_id": "1210371709819943",
+      "canonical_post_id": "1210371709819943",
+      "group": "1210371709819943",
+      "partition": "development_pool"
+    },
+    {
+      "id": "1158baeffb31909312dcffb8",
+      "post_id": "2421368172053618",
+      "canonical_post_id": "2421368172053618",
+      "group": "2421368172053618",
+      "partition": "development_pool"
+    },
+    {
+      "id": "051dbb7a5fbbb02b7608d161",
+      "post_id": "2421368172053618",
+      "canonical_post_id": "2421368172053618",
+      "group": "2421368172053618",
+      "partition": "development_pool"
+    },
+    {
+      "id": "1e4433a955d9ea5c90fc51bd",
+      "post_id": "2421368172053618",
+      "canonical_post_id": "2421368172053618",
+      "group": "2421368172053618",
+      "partition": "development_pool"
+    },
+    {
+      "id": "a01c4121b7968905e39f8c83",
+      "post_id": "2421368172053618",
+      "canonical_post_id": "2421368172053618",
+      "group": "2421368172053618",
+      "partition": "development_pool"
+    },
+    {
+      "id": "aad549fd64b7178b82ea1750",
+      "post_id": "2421368172053618",
+      "canonical_post_id": "2421368172053618",
+      "group": "2421368172053618",
+      "partition": "development_pool"
     }
   ],
-  "groups_sha256": "ab5ca20cbf0a7f5ea74ec2f754f3a82975c53e8c17cef5a364256877db91087b"
+  "groups_sha256": "2d8da745327e3ecd7f663f2b4c1f8b65af505965a3fe07b0844c6c3be36ea8fa"
 }

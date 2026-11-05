@@ -323,8 +323,7 @@ def build_report(rows, result=None, experiment_fingerprint=None, experiment_inpu
         'hoặc đùa thân mật cần xét ngữ cảnh, không dùng từ khóa đơn lẻ làm nhãn chuẩn.',
         'BoW biểu diễn số lần xuất hiện token/ngram. TF-IDF giảm trọng số token phổ biến và tăng trọng số '
         'token đặc trưng. Với cấu hình mặc định: idf(t)=log((1+n)/(1+df(t)))+1, sau đó chuẩn hóa L2. '
-        'Mặc định dùng unigram/bigram từ, tối đa 20.000 đặc trưng cho nhánh từ. Khi bật char_features, '
-        'ghép thêm nhánh char_wb 3–5 ký tự, tối đa 20.000 đặc trưng riêng; tổng hai nhánh có thể tới 40.000. '
+        'Dùng unigram/bigram từ, tối đa 20.000 đặc trưng; không bổ sung nhánh ký tự. '
         'Có thể chọn lại cấu hình trên trang Trích xuất đặc trưng. '
         'Từ vựng và IDF chỉ học trên train; NB/SVM dùng lại ma trận đã trích xuất.',
         'Multinomial Naive Bayes dùng xác suất có điều kiện với giả định độc lập đặc trưng và làm trơn alpha=1. '

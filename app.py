@@ -27,12 +27,8 @@ STATE['collection_filter'] = 'all'
 STATE['filter_counts'] = {}
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
-MANUAL_COMMENTS = [
-    # 'Thêm mỗi comment vào một dòng ở đây.',
-    'Đồ ngốc :))',
-    'nam một nụ hôn lốc xoáy, nữ một lốc sì ting',
-    'dcm đánh bỏ m bây giờ'
-]
+# Startup must use the saved corpus without injecting demonstration comments.
+MANUAL_COMMENTS = []
 HELPERS = (ROOT / 'scripts' / 'crawler' / 'helpers.js').read_text(encoding='utf-8')
 DOM = (ROOT / 'scripts' / 'crawler' / 'dom.js').read_text(encoding='utf-8')
 POST_MESSAGE = 'return (' + (ROOT / 'scripts' / 'crawler' / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'

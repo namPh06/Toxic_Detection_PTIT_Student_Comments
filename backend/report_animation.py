@@ -70,7 +70,7 @@ class ReportRenderer(_Renderer):
                 'raw': 'Giữ nguyên bản gốc để truy vết · Hai ví dụ cố định, không chọn theo kết quả dự đoán',
                 'clean': 'Chuẩn hóa bảo toàn nghĩa · Không biến mọi chữ k thành không · Không xóa phủ định',
                 'tokens': 'Underthesea dành cho NB/SVM · Không dùng bước này làm đầu vào ViSoBERT',
-                'bow': 'Từ điển chỉ fit trên train · Vector thưa gồm cả nhánh từ và nhánh ký tự',
+                'bow': 'Từ điển chỉ fit trên train · Vector thưa biểu diễn các đặc trưng đã trích xuất',
                 'tfidf': 'Mỗi artifact giữ từ điển/IDF riêng · Không fit lại trên validation hoặc test',
                 'visofeatures': 'Raw text → chuẩn hóa riêng → subword/ID/mask → embedding; không qua Underthesea',
                 'end': 'Tổng hợp kết quả đánh giá và mô hình được chọn'}[key]
@@ -201,7 +201,10 @@ class ReportRenderer(_Renderer):
                 if key=='tfidf' and features:
                     f=features[0]
                     p.text(x,585,f"Token đầu: count={f['count']}; idf={f['idf']:.3f}",18,WARN)
-            p.text(75,617,'Hiển thị rút gọn; nhánh từ và ký tự được ghép, không chuẩn hóa L2 chung lần nữa.',16,MUTED)
+            detail = ('Nhánh từ và ký tự được ghép; không chuẩn hóa L2 chung lần nữa.'
+                      if len(ev['branches']) > 1 else
+                      'BoW đếm từ/ngram; TF-IDF gán trọng số và chuẩn hóa L2 cho vector.')
+            p.text(75,617,detail,16,MUTED)
         elif key=='visofeatures':
             ev=e['examples'][1]['models']['ViSoBERT']
             phase=int(t//6)%4
@@ -234,7 +237,7 @@ class ReportRenderer(_Renderer):
             name=key.split(':')[1]; entry=self.entries[name]
             params=entry['parameters']
             if name.endswith('NB'):
-                lines=[f"Đầu vào: vector {entry['feature']} của nhánh từ và ký tự; nhãn train n/t.",
+                lines=[f"Đầu vào: vector đặc trưng {entry['feature']}; nhãn train n/t.",
                        'Học prior = số câu mỗi lớp / số câu train; học phân bố đặc trưng trong từng lớp.',
                        f"Làm trơn α = {params['alpha']:g} tránh xác suất bằng 0 cho đặc trưng chưa gặp trong lớp.",
                        'Giả định các đặc trưng độc lập khi biết lớp; thực tế ngram có thể tương quan.',

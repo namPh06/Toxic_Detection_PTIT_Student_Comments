@@ -11,9 +11,6 @@ def validate_settings(settings):
     methods = settings.get('methods', ['BoW', 'TF-IDF'])
     ngram = settings.get('ngram', 'both')
     maximum = settings.get('max_features', 20000)
-    char_features = settings.get('char_features', False)
-    if type(char_features) is not bool:
-        raise ValueError('Tùy chọn đặc trưng ký tự phải là boolean.')
     if (not isinstance(methods, list) or not methods or
             any(method not in ('BoW', 'TF-IDF') for method in methods) or len(set(methods)) != len(methods)):
         raise ValueError('Chọn ít nhất một phương pháp: BoW hoặc TF-IDF.')
@@ -22,12 +19,12 @@ def validate_settings(settings):
     if type(maximum) is not int or not 1 <= maximum <= 100000:
         raise ValueError('Số đặc trưng tối đa phải là số nguyên từ 1 đến 100.000.')
     return dict(methods=[name for name in ('BoW', 'TF-IDF') if name in methods], ngram=ngram, max_features=maximum,
-                char_features=char_features)
+                char_features=False)
 
 
 def feature_key(rows):
     # Post membership affects the split even when comment text/labels stay the same.
-    content = [PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint(rows), input_fingerprint(rows),
+    content = ['word-features-only-v1', PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint(rows), input_fingerprint(rows),
                sorted((r['id'], str(r['post_id']), str(r.get('split_group', ''))) for r in rows)]
     return hashlib.sha256(json.dumps(content, ensure_ascii=False).encode()).hexdigest()
 
@@ -35,7 +32,6 @@ def feature_key(rows):
 def build_features(rows, settings, notify=lambda message: None):
     from backend.experiments import split_dataset
     from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-    from sklearn.pipeline import FeatureUnion
 
     settings = validate_settings(settings)
     eligible, split, groups = split_dataset(rows)
@@ -47,11 +43,6 @@ def build_features(rows, settings, notify=lambda message: None):
         vectorizer = (CountVectorizer if name == 'BoW' else TfidfVectorizer)(
             tokenizer=word_tokens, token_pattern=None, lowercase=False,
             ngram_range=ngrams, max_features=settings['max_features'])
-        if settings['char_features']:
-            characters = (CountVectorizer if name == 'BoW' else TfidfVectorizer)(
-                analyzer='char_wb', ngram_range=(3, 5), lowercase=False,
-                max_features=settings['max_features'])
-            vectorizer = FeatureUnion([('word', vectorizer), ('char', characters)])
         try:
             matrices = {'train': vectorizer.fit_transform(texts['train'])}
         except ValueError as error:

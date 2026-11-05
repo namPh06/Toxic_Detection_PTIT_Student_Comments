@@ -7,7 +7,7 @@ let currentTab = 'overview', page = 1, datasetRequest = 0, lastStatus = null, to
 const reviewDrafts = new Map();
 let featureConfigInitialized=false, featurePreviewRequest=0, featurePreviewVersion='', featurePreviewIndex=0;
 function featureSettings(){
-  return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),char_features:$('feature-char').checked};
+  return {methods:['BoW','TF-IDF'].filter((name,i)=>$(i?'feature-tfidf':'feature-bow').checked),ngram:$('feature-ngram').value,max_features:Number($('feature-max').value),char_features:false};
 }
 function featureConfigDirty(state){
   if(!state?.result)return false;
@@ -164,12 +164,12 @@ async function refresh() {
 function renderFeatureStatus(status){
   const state=status.features, result=state?.result,s=status.experiment_summary||status.summary;
   if(!featureConfigInitialized){
-    if(result){const config=result.settings;$('feature-bow').checked=config.methods.includes('BoW');$('feature-tfidf').checked=config.methods.includes('TF-IDF');$('feature-ngram').value=config.ngram;$('feature-max').value=config.max_features;$('feature-char').checked=!!config.char_features;}
+    if(result){const config=result.settings;$('feature-bow').checked=config.methods.includes('BoW');$('feature-tfidf').checked=config.methods.includes('TF-IDF');$('feature-ngram').value=config.ngram;$('feature-max').value=config.max_features;}
     featureConfigInitialized=true;
   }
   $('feature-eligible').textContent=number(s.labeled);$('feature-non-toxic').textContent=number(s.labels['non-toxic']);$('feature-toxic').textContent=number(s.labels.toxic);$('feature-unused').textContent=number(status.summary.total-s.labeled);
   const busy=!!(state?.job.running||status.job.running||status.annotation_job?.running),dirty=featureConfigDirty(state),stale=!!(state?.stale||dirty);
-  for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max','feature-char'])$(id).disabled=busy;
+  for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).disabled=busy;
   $('feature-extract').disabled=busy||status.dataset_health?.training_ready===false;
   $('feature-extract').textContent=state?.job.running?'Đang trích xuất…':result?'Trích xuất lại đặc trưng':'Trích xuất đặc trưng';
   $('feature-form').setAttribute('aria-busy',String(!!state?.job.running));
@@ -184,7 +184,7 @@ function renderFeatureStatus(status){
   if($('feature-results').dataset.version!==version){
     $('feature-results').dataset.version=version;
     $('feature-created').textContent='Tách từ: '+result.tokenizer+' · Đã lưu: '+new Date(version).toLocaleString('vi-VN');
-    $('feature-dimensions').innerHTML=Object.entries(result.methods).map(([name,data])=>`<article class="panel"><div class="panel-heading"><h3>${esc(name)}</h3><span class="pill">${esc(({unigram:'Unigram',bigram:'Bigram',both:'Unigram + bigram'})[result.settings.ngram])}</span></div><div class="panel-body"><strong class="feature-dimension">${number(data.dimensions)}</strong><span> đặc trưng thực tế</span><p class="muted">${result.settings.char_features?'Từ + cụm ký tự 3–5 · Giới hạn mỗi nhánh':'Giới hạn'} ${number(result.settings.max_features)} · ${number(data.matrices.train[0])} dòng train × ${number(data.dimensions)} cột.</p></div></article>`).join('');
+    $('feature-dimensions').innerHTML=Object.entries(result.methods).map(([name,data])=>`<article class="panel"><div class="panel-heading"><h3>${esc(name)}</h3><span class="pill">${esc(({unigram:'Unigram',bigram:'Bigram',both:'Unigram + bigram'})[result.settings.ngram])}</span></div><div class="panel-body"><strong class="feature-dimension">${number(data.dimensions)}</strong><span> đặc trưng thực tế</span><p class="muted">Giới hạn ${number(result.settings.max_features)} · ${number(data.matrices.train[0])} dòng train × ${number(data.dimensions)} cột.</p></div></article>`).join('');
     $('feature-splits').innerHTML=Object.entries(result.split).map(([part,data])=>`<tr><td>${esc(part==='train'?'Train':part==='validation'?'Validation':'Test')}</td><td>${number(data.count)}</td><td>${number(data.labels['non-toxic'])}</td><td>${number(data.labels.toxic)}</td><td>${number(data.groups)}</td></tr>`).join('');
   }
   if(currentTab==='features'&&!stale&&featurePreviewVersion!==version){featurePreviewVersion=version;loadFeaturePreview(0);}
@@ -206,7 +206,7 @@ async function loadFeaturePreview(index){
   finally{if(request===featurePreviewRequest)$('feature-preview').setAttribute('aria-busy','false');}
 }
 $('feature-form').onsubmit=event=>{event.preventDefault();action($('feature-extract'),async()=>{await api('/api/features',featureSettings());renderStatus(await api('/api/status'));toast('Đã bắt đầu trích xuất đặc trưng.');});};
-for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max','feature-char'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
+for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).addEventListener('change',()=>{if(lastStatus){featurePreviewVersion='';renderStatus(lastStatus);}});
 $('feature-split').onchange=()=>loadFeaturePreview(0);
 $('feature-index').onchange=()=>{const value=Number($('feature-index').value);if(Number.isInteger(value)&&value>=1)loadFeaturePreview(value-1);};
 $('feature-prev').onclick=()=>loadFeaturePreview(Math.max(0,featurePreviewIndex-1));
