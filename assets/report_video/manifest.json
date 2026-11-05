@@ -1,0 +1,203 @@
+{
+  "id": "b0d96d0232d3646f3f183ea54b3939adaf4174a1f927e229c240faef02785192",
+  "run": "run-20261104T182905355791Z",
+  "chapters": [
+    {
+      "key": "intro",
+      "title": "1. Bài toán và dữ liệu",
+      "start": 0,
+      "duration": 13.2,
+      "transition": 1.2
+    },
+    {
+      "key": "raw",
+      "title": "2. Hai bình luận đầu vào",
+      "start": 13.2,
+      "duration": 13.2,
+      "transition": 1.2
+    },
+    {
+      "key": "clean",
+      "title": "3. Chuẩn hóa và teencode",
+      "start": 26.4,
+      "duration": 19.2,
+      "transition": 1.2
+    },
+    {
+      "key": "tokens",
+      "title": "4. Tách từ truyền thống",
+      "start": 45.6,
+      "duration": 17.2,
+      "transition": 1.2
+    },
+    {
+      "key": "bow",
+      "title": "5. Đặc trưng · BoW",
+      "start": 62.8,
+      "duration": 19.2,
+      "transition": 1.2
+    },
+    {
+      "key": "tfidf",
+      "title": "5. Đặc trưng · TF-IDF",
+      "start": 82.0,
+      "duration": 18.7,
+      "transition": 0.7
+    },
+    {
+      "key": "visofeatures",
+      "title": "6. Đặc trưng riêng của ViSoBERT",
+      "start": 100.7,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "learn:BoW-NB",
+      "title": "7. BoW-NB · Mô hình học gì?",
+      "start": 125.4,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:BoW-NB:0",
+      "title": "7. BoW-NB · Ví dụ 1",
+      "start": 150.1,
+      "duration": 29.2,
+      "transition": 1.2
+    },
+    {
+      "key": "model:BoW-NB:1",
+      "title": "7. BoW-NB · Ví dụ 2",
+      "start": 179.3,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "learn:BoW-SVM",
+      "title": "7. BoW-SVM · Mô hình học gì?",
+      "start": 208.0,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:BoW-SVM:0",
+      "title": "7. BoW-SVM · Ví dụ 1",
+      "start": 232.7,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:BoW-SVM:1",
+      "title": "7. BoW-SVM · Ví dụ 2",
+      "start": 261.4,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "learn:TF-IDF-NB",
+      "title": "7. TF-IDF-NB · Mô hình học gì?",
+      "start": 290.1,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:TF-IDF-NB:0",
+      "title": "7. TF-IDF-NB · Ví dụ 1",
+      "start": 314.8,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:TF-IDF-NB:1",
+      "title": "7. TF-IDF-NB · Ví dụ 2",
+      "start": 343.5,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "learn:TF-IDF-SVM",
+      "title": "7. TF-IDF-SVM · Mô hình học gì?",
+      "start": 372.2,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:TF-IDF-SVM:0",
+      "title": "7. TF-IDF-SVM · Ví dụ 1",
+      "start": 396.9,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:TF-IDF-SVM:1",
+      "title": "7. TF-IDF-SVM · Ví dụ 2",
+      "start": 425.6,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "learn:ViSoBERT",
+      "title": "7. ViSoBERT · Mô hình học gì?",
+      "start": 454.3,
+      "duration": 24.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:ViSoBERT:0",
+      "title": "7. ViSoBERT · Ví dụ 1",
+      "start": 479.0,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "model:ViSoBERT:1",
+      "title": "7. ViSoBERT · Ví dụ 2",
+      "start": 507.7,
+      "duration": 28.7,
+      "transition": 0.7
+    },
+    {
+      "key": "compare:BoW-NB",
+      "title": "8. So sánh · BoW-NB",
+      "start": 536.4,
+      "duration": 9.2,
+      "transition": 1.2
+    },
+    {
+      "key": "compare:BoW-SVM",
+      "title": "8. So sánh · BoW-SVM",
+      "start": 545.6,
+      "duration": 8.7,
+      "transition": 0.7
+    },
+    {
+      "key": "compare:TF-IDF-NB",
+      "title": "8. So sánh · TF-IDF-NB",
+      "start": 554.3,
+      "duration": 8.7,
+      "transition": 0.7
+    },
+    {
+      "key": "compare:TF-IDF-SVM",
+      "title": "8. So sánh · TF-IDF-SVM",
+      "start": 563.0,
+      "duration": 8.7,
+      "transition": 0.7
+    },
+    {
+      "key": "compare:ViSoBERT",
+      "title": "8. So sánh · ViSoBERT",
+      "start": 571.7,
+      "duration": 8.7,
+      "transition": 0.7
+    },
+    {
+      "key": "end",
+      "title": "9. Kết luận chung",
+      "start": 580.4,
+      "duration": 17.2,
+      "transition": 1.2
+    }
+  ],
+  "duration": 597.6
+}

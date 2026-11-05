@@ -3,6 +3,7 @@ import hashlib
 import json
 import math
 import re
+import shutil
 import threading
 from datetime import datetime, timezone
 from pathlib import Path
@@ -170,8 +171,9 @@ def build_evidence(directory, progress=lambda value: None):
 
 
 class ReportStore:
-    def __init__(self, data=ROOT / 'data', folder=ROOT / 'outputs/system_report_videos'):
+    def __init__(self, data=ROOT / 'data', folder=ROOT / 'outputs/system_report_videos', bundled=ROOT / 'assets/report_video'):
         self.data, self.folder = Path(data), Path(folder)
+        self.bundled = Path(bundled)
         self.lock = threading.RLock()
         self.pending = None
         self.worker = None
@@ -199,6 +201,24 @@ class ReportStore:
             manifest = read(path)
             return dict(id=key, run=manifest['run'], chapters=manifest['chapters'], duration=manifest['duration'])
         return None
+
+    def bundled_ready(self):
+        pointer = self.bundled / 'manifest.json'
+        video = self.bundled / 'report.mp4'
+        if pointer.exists() and video.exists() and video.stat().st_size > 1024:
+            return read(pointer)
+        return None
+
+    def publish(self, key):
+        """Keep a portable, Git-trackable copy without requiring fitted models."""
+        manifest = self.ready(key)
+        if not manifest:
+            raise ValueError('Video báo cáo chưa sẵn sàng để chia sẻ.')
+        self.bundled.mkdir(parents=True, exist_ok=True)
+        temporary = self.bundled / 'report.partial.mp4'
+        shutil.copyfile(self.folder / (key + '.mp4'), temporary)
+        temporary.replace(self.bundled / 'report.mp4')
+        atomic(self.bundled / 'manifest.json', manifest)
 
     def enqueue(self, run=None, retry=False):
         run = run or read(self.data / 'latest.json')['run']
@@ -249,6 +269,7 @@ class ReportStore:
                 with self.lock:
                     if key == self.wanted:
                         atomic(self.folder / 'latest-ready.json', self.ready(key))
+                        self.publish(key)
                     self.current.update(state='done', progress=100)
             except Exception as exc:
                 temporary.unlink(missing_ok=True)
@@ -259,11 +280,15 @@ class ReportStore:
         with self.lock:
             pointer = self.folder / 'latest-ready.json'
             ready = self.ready(read(pointer)['id']) if pointer.exists() else None
+            ready = ready or self.bundled_ready()
             return dict(job=dict(self.current) if self.current else None, ready=ready,
                         updating=bool(self.pending or (self.current and self.current['state'] == 'running')),
                         stale=bool(ready and self.wanted and ready['id'] != self.wanted))
 
     def video_path(self, key):
+        bundled = self.bundled_ready()
+        if bundled and bundled['id'] == key and not self.ready(key):
+            return self.bundled / 'report.mp4'
         if not self.ready(key):
             raise ValueError('Video báo cáo chưa sẵn sàng.')
         return self.folder / (key + '.mp4')

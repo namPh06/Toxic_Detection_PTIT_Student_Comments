@@ -3,7 +3,7 @@
   "label_policy_version": "ptit-v4-abuse-context-20261102",
   "label_usage_policy": "includes_automatic",
   "policy_sha256": "9e797636714d9e1b89314fc93ba8b922ee1d232a26531a344129f942ed5ce64b",
-  "source_sha256": "f758a18f4f317bfb90998287f522498ed3e014430332e86f72aa95d7685c29d4",
+  "source_sha256": "14711f118de6b163738820145c65857f6c4d0fd94efb6c755554e7357857540b",
   "workspace_sha256": "5dbdd5cae15789e7d4a2980366ce3ca62bf2aca6bd98fce223c0024fbef374fb",
   "imported_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "context_sha256": {
@@ -11,31 +11,31 @@
     "parent_context.json": "749e46d3a01cb3a9038358a9fb031001bc09a7548aac735d0dcee39a9b4991ca"
   },
   "exports": {
-    "shared_dataset.json": "39466ff1a13a6b64f604283a44bf6e39036721cf0b457642fbd312a5b57c4034",
-    "shared_dataset.csv": "6d572889bfa012f1c5eee8444ad6a34af79d9c34bf3b362c6cdeabb0af305e46"
+    "shared_dataset.json": "6e4098c221db710f0cf89ef43bee361e0f9f24b43e27b6e4165e1c5ac4b3242f",
+    "shared_dataset.csv": "39ac8ada76569ee1956744c9166d19e8faccf823ffdfc95dcff117cde8d4d32f"
   },
   "summary": {
-    "total": 5786,
-    "usable": 5199,
+    "total": 5790,
+    "usable": 5203,
     "quality": {
-      "ready": 5199,
+      "ready": 5203,
       "duplicate": 587
     },
     "labels": {
       "non-toxic": 4162,
-      "toxic": 1037
+      "toxic": 1041
     },
-    "labeled": 5199,
+    "labeled": 5203,
     "label_sources": {
-      "automatic": 5198,
+      "automatic": 5202,
       "manual": 1
     },
-    "posts": 622,
+    "posts": 624,
     "avg_tokens": 15.2,
     "top_terms": [
       [
         "có",
-        1183
+        1184
       ],
       [
         "thì",
@@ -43,31 +43,31 @@
       ],
       [
         "không",
-        986
+        988
       ],
       [
         "là",
-        911
+        913
       ],
       [
         "học",
-        899
+        901
       ],
       [
         "mà",
         752
       ],
       [
+        "đi",
+        717
+      ],
+      [
         "bạn",
-        745
+        680
       ],
       [
         "được",
-        743
-      ],
-      [
-        "đi",
-        716
+        638
       ],
       [
         "người",
@@ -75,18 +75,18 @@
       ],
       [
         "mình",
-        561
+        537
       ],
       [
         "cho",
         522
       ]
     ],
-    "preprocess_version": "ptit-v2-preserve-meaning-20261103"
+    "preprocess_version": "ptit-v4-contextual-dc-20261105"
   },
   "human_reviewed": 1,
   "label_approved": 1,
-  "usable_labels": 5199,
+  "usable_labels": 5203,
   "pending_review": 0,
   "reservation_scope": "Historical diagnostic groups; not an independent blind test.",
   "groups": [
@@ -40591,7 +40591,35 @@
       "canonical_post_id": "1743206893203086",
       "group": "1743206893203086",
       "partition": "development_pool"
+    },
+    {
+      "id": "129f9668b6b756b006296c99",
+      "post_id": "2422594348597667",
+      "canonical_post_id": "2422594348597667",
+      "group": "2422594348597667",
+      "partition": "development_pool"
+    },
+    {
+      "id": "4fb8c36d048cddce5883101a",
+      "post_id": "2420745905449178",
+      "canonical_post_id": "2420745905449178",
+      "group": "2420745905449178",
+      "partition": "development_pool"
+    },
+    {
+      "id": "3895ef6c8b8dfdd52e953a3a",
+      "post_id": "2420745905449178",
+      "canonical_post_id": "2420745905449178",
+      "group": "2420745905449178",
+      "partition": "development_pool"
+    },
+    {
+      "id": "5f803c56bc2f8cb607e9d294",
+      "post_id": "2401631554027280",
+      "canonical_post_id": "2401631554027280",
+      "group": "2401631554027280",
+      "partition": "development_pool"
     }
   ],
-  "groups_sha256": "cfcfeb792c3c0946970efc6be07c3fe1e6b14ecd4d8807a67850716f5ce1461d"
+  "groups_sha256": "ab5ca20cbf0a7f5ea74ec2f754f3a82975c53e8c17cef5a364256877db91087b"
 }

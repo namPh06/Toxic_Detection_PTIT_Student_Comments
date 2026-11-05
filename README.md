@@ -245,3 +245,14 @@ Sau khi đổi PyTorch, dừng và mở lại hệ thống để tiến trình n
 Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `docs/Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
 
 Nhãn/dữ liệu dùng chung vẫn được Git theo dõi như phần bàn giao ở trên. Trọng số, cache và kết quả chạy được bỏ qua trong Git; người nhận có sẵn nhãn để chạy bước đặc trưng/huấn luyện, không phải gán lại. Ngưỡng đã tối ưu chỉ dùng được kèm đúng checkpoint của lượt chạy tương ứng.
+
+## Video báo cáo dùng chung
+
+Video tạo sẵn nằm trong `assets/report_video/report.mp4`, kèm mục lục chương
+trong `assets/report_video/manifest.json`. Hai file này cần được commit và push
+cùng mã nguồn. Người pull về mở công cụ rồi vào **Báo cáo** là xem được,
+không cần tải mô hình hoặc huấn luyện lại chỉ để xem video.
+
+Khi dựng video mới thành công, hệ thống tự cập nhật hai file trên. Hãy commit
+và push cả hai để chia sẻ phiên bản mới. Video có sẵn thể hiện lần huấn luyện
+ghi trong thông tin video; không phải kết quả huấn luyện mới trên máy người xem.

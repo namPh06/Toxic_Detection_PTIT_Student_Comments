@@ -5,14 +5,13 @@ import html
 import io
 import json
 import re
-import sys
+import tempfile
+import time
+from pathlib import Path
 import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from functools import lru_cache
-
-# Existing joblib vectorizers refer to dataset.word_tokens.
-sys.modules.setdefault('dataset', sys.modules[__name__])
 
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
@@ -40,9 +39,28 @@ def _word_tokens_cached(text):
 
 def atomic_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_suffix(path.suffix + '.tmp')
-    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf-8')
-    temp.replace(path)
+    # Separate writers must never share a temporary file. Windows readers may
+    # briefly deny replacement; retry without removing the last valid dataset.
+    with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
+                                     prefix=path.name + '.', suffix='.tmp', delete=False) as handle:
+        temp = path.parent / Path(handle.name).name
+        try:
+            json.dump(value, handle, ensure_ascii=False, indent=2)
+        except BaseException:
+            handle.close()
+            temp.unlink(missing_ok=True)
+            raise
+    try:
+        for attempt in range(8):
+            try:
+                temp.replace(path)
+                break
+            except PermissionError:
+                if attempt == 7:
+                    raise
+                time.sleep(min(0.05 * 2 ** attempt, 0.5))
+    finally:
+        temp.unlink(missing_ok=True)
 
 
 def row_id(row):
@@ -174,7 +192,7 @@ def fingerprint(rows):
 def csv_bytes(rows):
     output = io.StringIO(newline='')
     columns = ['id', 'post_id', 'comment_id', 'post_url', 'parent_comment_id', 'text_raw', 'text_normalized', 'text_clean',
-               'text_hash', 'label', 'quality', 'excluded', 'text_complete',
+               'text_hash', 'label', 'label_source', 'quality', 'excluded', 'text_complete',
                'annotation_stale', 'previous_label', 'annotation_note', 'identifier_quality',
                'collection_method', 'collected_at', 'collection_filter', 'filter_policy_hash', 'filter_reason', 'filter_evidence', 'post_text_raw', 'parent_context', 'label_policy_version', 'human_verified', 'label_usable', 'label_approved', 'label_approval_method', *LABEL_METADATA]
     writer = csv.DictWriter(output, fieldnames=columns, extrasaction='ignore')
@@ -243,7 +261,7 @@ def parse_import(content, filename):
             # Reconciled semantic decisions and SVM labels have no calibrated
             # probability. Preserve missing scores rather than inventing one.
             unscored = (row.get('model_score') in (None, '') and row.get('label_threshold') in (None, '')
-                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic', 'uncertain_v4_semantic'))
+                        and row.get('review_reason') in ('unverified_reconciled_proposal', 'unverified_text_only_fallback', 'unverified_collection_filter', 'unverified_v4_semantic'))
             for name in ('model_score', 'label_threshold'):
                 if unscored:
                     label_metadata[name] = None

@@ -1,13 +1,1671 @@
 {
   "schema_version": 1,
-  "source": "https://www.facebook.com/antiptit",
+  "source": "https://www.facebook.com/groups/361726451351144",
   "completeness": "not_verified",
   "posts": [
     {
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "reason": "user_stop",
+      "post_id": "2418154899041612",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418154899041612/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409644696559299",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409644696559299/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417297485794020",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417297485794020/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414393376084431",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414393376084431/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2351239789066457",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2351239789066457/",
+      "reason": "no_progress",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415138176009951",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415138176009951/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412409292949506",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412409292949506/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414376372752798",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414376372752798/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2408231393367296",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2408231393367296/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2282858315904605",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2282858315904605/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412780672912368",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412780672912368/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409627656561003",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409627656561003/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410900966433672",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410900966433672/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410978999759202",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410978999759202/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412787279578374",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412787279578374/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413543899502712",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413543899502712/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413595652830870",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413595652830870/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412703722920063",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412703722920063/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412550549602047",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412550549602047/",
+      "reason": "crawl_error",
+      "count": 0,
+      "completeness": "not_verified",
+      "error": "Message: timeout: Timed out receiving message from renderer: 35.000\n  (Session info: chrome=156.0.8078.76)"
+    },
+    {
+      "post_id": "2420270268830075",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420270268830075/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2419236345600134",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2419236345600134/",
+      "reason": "time_limit",
+      "count": 20,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417283399128762",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417283399128762/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2420423818814720",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420423818814720/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417154455808323",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417154455808323/",
+      "reason": "time_limit",
+      "count": 10,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418291772361258",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418291772361258/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418341149022987",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418341149022987/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417489095774859",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417489095774859/",
+      "reason": "time_limit",
+      "count": 14,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417533335770435",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417533335770435/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2420177472172688",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420177472172688/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2420261945497574",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420261945497574/",
+      "reason": "no_progress",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418551932335242",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418551932335242/",
+      "reason": "time_limit",
       "count": 13,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418353439021758",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418353439021758/",
+      "reason": "time_limit",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417117635812005",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417117635812005/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2419258458931256",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2419258458931256/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1788026198721155",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1788026198721155/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2419328138924288",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2419328138924288/",
+      "reason": "no_progress",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418414682348967",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418414682348967/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417558659101236",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417558659101236/",
+      "reason": "time_limit",
+      "count": 28,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417315479125554",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417315479125554/",
+      "reason": "no_progress",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415088896014879",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415088896014879/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412764332914002",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412764332914002/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1883569379166836",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1883569379166836/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418164145707354",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418164145707354/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417435125780256",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417435125780256/",
+      "reason": "time_limit",
+      "count": 20,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414881832702252",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414881832702252/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414902276033541",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414902276033541/",
+      "reason": "time_limit",
+      "count": 21,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413592942831141",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413592942831141/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2315035856020184",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2315035856020184/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417687399088362",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417687399088362/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2381934085997027",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2381934085997027/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418003199056782",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418003199056782/",
+      "reason": "time_limit",
+      "count": 15,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418738775649891",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418738775649891/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2419321545591614",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2419321545591614/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412761182914317",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412761182914317/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418053159051786",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418053159051786/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418264379030664",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418264379030664/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2411803396343429",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2411803396343429/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1701747054015737",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1701747054015737/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1645397266317383",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1645397266317383/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413843862806049",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413843862806049/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2416498529207249",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2416498529207249/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2418315585692210",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2418315585692210/",
+      "reason": "no_progress",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410128173177618",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410128173177618/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409972603193175",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409972603193175/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410761506447618",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410761506447618/",
+      "reason": "time_limit",
+      "count": 10,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410894609767641",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410894609767641/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1512978069559304",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1512978069559304/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412858969571205",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412858969571205/",
+      "reason": "time_limit",
+      "count": 21,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2345592819631154",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2345592819631154/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2411736373016798",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2411736373016798/",
+      "reason": "time_limit",
+      "count": 16,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2274977163359387",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2274977163359387/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410927646431004",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410927646431004/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415084722681963",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415084722681963/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1467413037449141",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1467413037449141/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414943002696135",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414943002696135/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413409986182770",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413409986182770/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414812246042544",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414812246042544/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1644159673107809",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1644159673107809/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409969139860188",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409969139860188/",
+      "reason": "time_limit",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2342343096622793",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2342343096622793/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414923112698124",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414923112698124/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413532649503837",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413532649503837/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410684486455320",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410684486455320/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417271985796570",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417271985796570/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2408724129984689",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2408724129984689/",
+      "reason": "time_limit",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395493027974466",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395493027974466/",
+      "reason": "time_limit",
+      "count": 13,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2411940072996428",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2411940072996428/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415464722643963",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415464722643963/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409616436562125",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409616436562125/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410806443109791",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410806443109791/",
+      "reason": "time_limit",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414954976028271",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414954976028271/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2411852019671900",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2411852019671900/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414356022754833",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414356022754833/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415452992645136",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415452992645136/",
+      "reason": "no_progress",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2414933272697108",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2414933272697108/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410695173120918",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410695173120918/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409471903243245",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409471903243245/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413512886172480",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413512886172480/",
+      "reason": "time_limit",
+      "count": 24,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2411851463005289",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2411851463005289/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397448597778909",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397448597778909/",
+      "reason": "time_limit",
+      "count": 26,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417117229145379",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417117229145379/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2407688436754925",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2407688436754925/",
+      "reason": "time_limit",
+      "count": 11,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415035026020266",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415035026020266/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2409843936539375",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2409843936539375/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2406974280159674",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2406974280159674/",
+      "reason": "time_limit",
+      "count": 14,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2410629106460858",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2410629106460858/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2413807126143056",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2413807126143056/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2412797879577314",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2412797879577314/",
+      "reason": "crawl_error",
+      "count": 27,
+      "completeness": "not_verified",
+      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
+    },
+    {
+      "post_id": "2407948250062277",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2407948250062277/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2406960340161068",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2406960340161068/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397982317725537",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397982317725537/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2310399879817115",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2310399879817115/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2404185120438590",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2404185120438590/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2408063206717448",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2408063206717448/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1688867118637064",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1688867118637064/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2407071583483277",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2407071583483277/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2405522386971530",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2405522386971530/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2367208134136289",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2367208134136289/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2407669806756788",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2407669806756788/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2405848646938904",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2405848646938904/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400388804151555",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400388804151555/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2406039403586495",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2406039403586495/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2406190243571411",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2406190243571411/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1746200632903712",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1746200632903712/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403663933824042",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403663933824042/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2391955364994899",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2391955364994899/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2407749730082129",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2407749730082129/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2039416386915467",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2039416386915467/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403651117158657",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403651117158657/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2402121360644966",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2402121360644966/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2405527996970969",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2405527996970969/",
+      "reason": "no_progress",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2406241993566236",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2406241993566236/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2404673157056453",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2404673157056453/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403497173840718",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403497173840718/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2401751307348638",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2401751307348638/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400284360828666",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400284360828666/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397061977817571",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397061977817571/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1367451867445259",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1367451867445259/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400508667472902",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400508667472902/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2343462623177507",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2343462623177507/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2401729040684198",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2401729040684198/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2404730427050726",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2404730427050726/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403550043835431",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403550043835431/",
+      "reason": "no_progress",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2351176962406073",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2351176962406073/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403476897176079",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403476897176079/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2399898254200610",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2399898254200610/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2399055727618196",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2399055727618196/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403563350500767",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403563350500767/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2403169930540109",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2403169930540109/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2394611008062668",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2394611008062668/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1553043085552802",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1553043085552802/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397389481118154",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397389481118154/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2401832497340519",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2401832497340519/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2213316749525429",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2213316749525429/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400566647467104",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400566647467104/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2393725818151187",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2393725818151187/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2394429888080780",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2394429888080780/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2399963184194117",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2399963184194117/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2396164551240647",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2396164551240647/",
+      "reason": "time_limit",
+      "count": 9,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2388731758650593",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2388731758650593/",
+      "reason": "time_limit",
+      "count": 10,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400012850855817",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400012850855817/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1730175727839536",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1730175727839536/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2392967554893680",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2392967554893680/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1215141476009633",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1215141476009633/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400082650848837",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400082650848837/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397125161144586",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397125161144586/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2402740347249734",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2402740347249734/",
+      "reason": "unrecognized_scope",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2396634691193633",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2396634691193633/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395033471353755",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395033471353755/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2394797778043991",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2394797778043991/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400197014170734",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400197014170734/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2401345794055856",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2401345794055856/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395901887933580",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395901887933580/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400507884139647",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400507884139647/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397836824406753",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397836824406753/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397985611058541",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397985611058541/",
+      "reason": "time_limit",
+      "count": 14,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395916397932129",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395916397932129/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2399051037618665",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2399051037618665/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397040751153027",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397040751153027/",
+      "reason": "no_progress",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395594257964343",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395594257964343/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1705407626983013",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1705407626983013/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400470684143367",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400470684143367/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397445397779229",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397445397779229/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395974517926317",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395974517926317/",
+      "reason": "time_limit",
+      "count": 8,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2400566644133771",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2400566644133771/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2217219682468469",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2217219682468469/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2399999134190522",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2399999134190522/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397152807808488",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397152807808488/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2397938264396609",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2397938264396609/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2396923747831394",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2396923747831394/",
+      "reason": "crawl_error",
+      "count": 3,
+      "completeness": "not_verified",
+      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
+    },
+    {
+      "post_id": "2388781758645593",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2388781758645593/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2375555196634916",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2375555196634916/",
+      "reason": "no_progress",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2392820518241717",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2392820518241717/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2388916791965423",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2388916791965423/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2394972554693180",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2394972554693180/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2395498957973873",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2395498957973873/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2388066772050425",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2388066772050425/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2381846429339126",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2381846429339126/",
+      "reason": "time_limit",
+      "count": 6,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2383911562465946",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2383911562465946/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2386753422181760",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2386753422181760/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2384633402393762",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2384633402393762/",
+      "reason": "time_limit",
+      "count": 14,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2387677618756007",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2387677618756007/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2334781257378977",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2334781257378977/",
+      "reason": "time_limit",
+      "count": 16,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2368351800688589",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2368351800688589/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2382942719229497",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2382942719229497/",
+      "reason": "no_progress",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2383616569162112",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2383616569162112/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2383068222550280",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2383068222550280/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2383258249197944",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2383258249197944/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2382935425896893",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2382935425896893/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2387901985400237",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2387901985400237/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2388236202033482",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2388236202033482/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1743206893203086",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1743206893203086/",
+      "reason": "time_limit",
+      "count": 1,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2384241955766240",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2384241955766240/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2296372941219809",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2296372941219809/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2360010541522715",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2360010541522715/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2386651252191977",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2386651252191977/",
+      "reason": "crawl_error",
+      "count": 0,
+      "completeness": "not_verified",
+      "error": "Bộ lọc Ollama mất kết nối hoặc phản hồi quá lâu. Kiểm tra Ollama rồi thử lại; bình luận chưa phân loại không được lưu."
+    },
+    {
+      "post_id": "2420745905449178",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420745905449178/",
+      "reason": "crawl_error",
+      "count": 2,
+      "completeness": "not_verified",
+      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
+    },
+    {
+      "post_id": "2401631554027280",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2401631554027280/",
+      "reason": "crawl_error",
+      "count": 12,
+      "completeness": "not_verified",
+      "error": "[WinError 5] Access is denied: 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json.tmp' -> 'D:\\\\Ki I 2025-2026\\\\khaiphavanban\\\\Toxic_Detection_PTIT_Student_Comments\\\\data\\\\progress.json'"
+    },
+    {
+      "post_id": "2421005148756587",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421005148756587/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421244285399340",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421244285399340/",
+      "reason": "user_stop",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2415140872676348",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
+      "reason": "time_limit",
+      "count": 13,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2422594348597667",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2422594348597667/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2423518718505230",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2423518718505230/",
+      "reason": "no_progress",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2423403721850063",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421515872038848",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421515872038848/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2422760385247730",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
+      "reason": "time_limit",
+      "count": 7,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2422660131924422",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2420870682103367",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420870682103367/",
+      "reason": "time_limit",
+      "count": 3,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2422413701949065",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2422413701949065/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2417377695785999",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2417377695785999/",
+      "reason": "time_limit",
+      "count": 2,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421548568702245",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421548568702245/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2420440512146384",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2420440512146384/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421486902041745",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421486902041745/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "1210371709819943",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/1210371709819943/",
+      "reason": "time_limit",
+      "count": 4,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421368172053618",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "reason": "time_limit",
+      "count": 5,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2421315665392202",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2421315665392202/",
+      "reason": "time_limit",
+      "count": 0,
+      "completeness": "not_verified"
+    },
+    {
+      "post_id": "2422418778615224",
+      "url": "https://www.facebook.com/groups/361726451351144/posts/2422418778615224/",
+      "reason": "user_stop",
+      "count": 0,
       "completeness": "not_verified"
     }
   ],
@@ -157229,186 +158887,1723 @@
       "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODg2MDE3NDU2NDIzMjYz",
+      "comment_id": "2423026045221164",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2422656985258070",
       "text_complete": true,
-      "text_raw": "Nguyễn Trang coi nè e",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "JazzyPhoenix3106 lợi thế chắc bé bằng lỗ mũi. Quan trọng là học đc gì chứ giờ ai chả có bằng? Làm giả còn đc",
+      "post_id": "2422594348597667",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422594348597667/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.355748+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-04T20:08:33.875997+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng hình ảnh so sánh mang tính lăng mạ, hạ nhục với việc so sánh 'lợi thế chắc bé bằng lỗ mũi', thể hiện sự công kích và xúc phạm đối với người khác.",
+      "filter_evidence": [
+        "JazzyPhoenix3106 lợi thế chắc bé bằng lỗ mũi"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422656985258070",
+          "text_raw": "Bạn ơi đừng bỏ học, sau này có thể bạn phải hối hận đấy. Sau này dù bạn làm gì đi nữa dù trái ngành, có bằng đại học luôn là một lợi thế.",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNDUyOTk1NzkwNzI3OTk1",
+      "comment_id": "2422485041941931",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "Tuấn Anh 🙂",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Gái khoá Trung xênh, giỏi\nThầy cô dễ thưn khrap\nThảo Ly Trần Khánh HuyềnMai Nhật Mỹ 🥰",
+      "post_id": "2420745905449178",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420745905449178/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356174+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-04T20:10:06.794671+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ thiếu tôn trọng và mang tính lăng mạ như 'xênh, giỏi' đối với học sinh, và 'dễ thưn khrap' để chỉ trích thầy cô một cách thiếu lịch sự, có thể coi là công kích và hạ nhục.",
+      "filter_evidence": [
+        "Gái khoá Trung xênh, giỏi",
+        "Thầy cô dễ thưn khrap"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzA5MDA4ODczOTY4MjY5",
+      "comment_id": "2422709995252769",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2422584205265348",
       "text_complete": true,
-      "text_raw": "Lam Thành",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "CopperAsparagus4875 đi học k thấy đang sửa à hay là bị đui v e ?",
+      "post_id": "2420745905449178",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420745905449178/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356189+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-04T20:09:59.812159+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng từ 'đui' mang tính lăng mạ, xúc phạm người khác, dù không có ngữ cảnh rõ ràng nhưng vẫn thể hiện hành vi hạ nhục, công kích.",
+      "filter_evidence": [
+        "bị đui v e"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422584205265348",
+          "text_raw": "Chạy đi các em ơi, cơ sở vật chất tệ lắm, phí cao quá tr",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "1006253703790457",
+      "comment_id": "2401704684019967",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2401639184026517",
       "text_complete": true,
-      "text_raw": "E cảm ơn rất nhìuuuuu ạ🥹🥹",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Vũ Đức Thế Long df dễ chịu đâu, k phải đất nó nên nó thế thôi. Bọn tàu chả bh hiền lành dễ chịu :)))",
+      "post_id": "2401631554027280",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2401631554027280/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356195+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T00:58:51.316627+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng ngôn ngữ mỉa mai, hạ nhục với cụm 'df dễ chịu đâu, k phải đất nó nên nó thế thôi' và 'bọn tàu chả bh hiền lành dễ chịu', cho thấy sự công kích, kỳ thị đối với một nhóm người (bọn tàu), dù không có từ tục rõ ràng nhưng hành vi mang tính lăng mạ, đánh giá tiêu cực một cách thiếu công bằng và mang tính chê bai ẩn ý.",
+      "filter_evidence": [
+        "Vũ Đức Thế Long df dễ chịu đâu, k phải đất nó nên nó thế thôi. Bọn tàu chả bh hiền lành dễ chịu :)))"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2401639184026517",
+          "text_raw": "Bọn tàu này cực kì thâm nho :))) khó mà chơi cùng lắm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzQ2MTE3MTI0MTEwNjY1",
+      "comment_id": "2423389358518166",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2421585438698558",
       "text_complete": true,
-      "text_raw": "by author\nThanh Lâm",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "ProficientTangerine4815 Có mua về nhưng ko bao h động luôn. Bth môn tiếng việt viết vớ vẩn cũng 9-10 r, trừ mấy khứa hồi xưa thi hsg ngữ văn chắc mới cần 😂",
+      "post_id": "2421515872038848",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421515872038848/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356200+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T01:58:49.085321+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng từ 'vớ vẩn' để chỉ trích môn học và đánh giá thấp chất lượng giảng dạy, thể hiện thái độ bực bội và hạ nhục, dù không có hành động đe dọa trực tiếp nhưng vẫn có tính lăng mạ đối với môn học.",
+      "filter_evidence": [
+        "Bth môn tiếng việt viết vớ vẩn cũng 9-10 r"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421585438698558",
+          "text_raw": "hồi xưa chép quyển này là tội đồ vl, h thấy bình thg v ko hiểu sao hồi đấy sợ :)))",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "1110895253210557",
+      "comment_id": "2422778721912563",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "Nguyễn Hữu Sơn",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Thằng cu này đi thi đúng năm hạn hả😂 hổm thì bị leak tin nhắn tố cáo quán quân, nếu là thật thì coi như công cốc vì đối thủ đi cửa sau lại bị chơi xấu, còn nếu là giả thì bị chúng nó chế ảnh lan truyền mất danh dự. Giờ thêm quả loot đồ thế này, đúng tam tai",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356206+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:42.208649+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mỉa mai, hạ bệ ('thằng cu'), công kích đối thủ và chế giễu hành vi của người khác, đồng thời đưa ra các tình huống giả định mang tính đe dọa và lan truyền mất danh dự, thể hiện hành vi xúc phạm và quấy rối.",
+      "filter_evidence": [
+        "Thằng cu này đi thi đúng năm hạn hả😂",
+        "nếu là thật thì coi như công cốc vì đối thủ đi cửa sau lại bị chơi xấu",
+        "còn nếu là giả thì bị chúng nó chế ảnh lan truyền mất danh dự",
+        "đúng tam tai"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "1438146523767674",
+      "comment_id": "2422843635239405",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "Anti nhưng hôm nay yêu trường à",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Trên đó cuộc thi lớn mà vẫn dám lụm hả ta , sợ thật , camera mọi ngóc ngách mà ko tìm đc á 😢",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356214+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:42.763276+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính công kích, hạ bệ như 'lụm hả ta', 'sợ thật', và chỉ trích hành vi của người khác trong bối cảnh thi cử với thái độ nghi ngờ, thiếu tôn trọng, có thể coi là lăng mạ hoặc đe dọa.",
+      "filter_evidence": [
+        "Trên đó cuộc thi lớn mà vẫn dám lụm hả ta",
+        "sợ thật",
+        "camera mọi ngóc ngách mà ko tìm đc á"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODY0Nzg0MDM4NTU1NDkw",
+      "comment_id": "2422773761913059",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "Hay quá ad, nhưng mà móc khoá ạ 🙁",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Vãi loot hết đồ ngta luôn",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356219+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:43.317744+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ thô tục 'Vãi' và hành vi công kích mang tính lăng mạ, hạ nhục đối với người khác qua việc nói 'hết đồ ngta luôn', thể hiện hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "Vãi loot hết đồ ngta luôn"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfMTcwNTc2MzQ5Mzg0NTAx",
+      "comment_id": "2422780905245678",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2422778721912563",
       "text_complete": true,
-      "text_raw": "thanks ad",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Người tham gia ẩn danh 308 thằng cu quán quân cx bị luộc đồ mà:))",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:42.356223+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:43.863440+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng từ ngữ mang tính hạ nhục như 'thằng cu' để chỉ trích người tham gia, đồng thời đưa ra tình huống bị 'luộc đồ' như một hành động công kích, thể hiện thái độ bực bội và xúc phạm.",
+      "filter_evidence": [
+        "thằng cu quán quân cx bị luộc đồ mà"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422778721912563",
+          "text_raw": "Thằng cu này đi thi đúng năm hạn hả😂 hổm thì bị leak tin nhắn tố cáo quán quân, nếu là thật thì coi như công cốc vì đối thủ đi cửa sau lại bị chơi xấu, còn nếu là giả thì bị chúng nó chế ảnh lan truyền mất danh dự. Giờ thêm quả loot đồ thế này, đúng tam tai",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNjk5NTE4NzE1NDM5NDc4",
+      "comment_id": "2422868411903594",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2422778721912563",
       "text_complete": true,
-      "text_raw": "Phạm Nam Long Pham Ngô Tuấn co ma hoc cac em",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Người tham gia ẩn danh 308 do dở hơn thì thua chứ sao lại hên xui?",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:51.227918+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:44.934264+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng ngôn ngữ mang tính lăng mạ, công kích người tham gia ẩn danh bằng cách nói họ 'dở hơn thì thua' và 'hên xui', thể hiện sự chế giễu và đánh giá thấp, đi kèm với thái độ phủ nhận hoặc chê bai một cách mang tính xúc phạm.",
+      "filter_evidence": [
+        "Người tham gia ẩn danh 308 do dở hơn thì thua chứ sao lại hên xui?"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422778721912563",
+          "text_raw": "Thằng cu này đi thi đúng năm hạn hả😂 hổm thì bị leak tin nhắn tố cáo quán quân, nếu là thật thì coi như công cốc vì đối thủ đi cửa sau lại bị chơi xấu, còn nếu là giả thì bị chúng nó chế ảnh lan truyền mất danh dự. Giờ thêm quả loot đồ thế này, đúng tam tai",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfNzA4ODM1NDgxMTA1NTkz",
+      "comment_id": "2423042968552805",
       "identifier_quality": "facebook_comment_id",
-      "parent_comment_id": "",
+      "parent_comment_id": "2422764521913983",
       "text_complete": true,
-      "text_raw": "Trường mình học môn .Net ở kì nào năm nào vậy AD",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "ProficientTurkey1006 vs cả m là cái thá gì mà t cần đứng trc mặt",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:51.227941+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:01:54.603762+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, công kích đối với người khác bằng cách gọi 'cả m là cái thá gì', thể hiện thái độ bực bội và thiếu tôn trọng, đồng thời có dấu hiệu đe dọa hoặc hạ bệ khi nói về việc đứng trước mặt.",
+      "filter_evidence": [
+        "cả m là cái thá gì mà t cần đứng trc mặt"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422764521913983",
+          "text_raw": "Nghệ thuật 2 ngón muôn nơi",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfODc5MDgyMjAzNzA3ODEz",
+      "comment_id": "2422461078610994",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "K uổng công like page",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Nghe vụ đánh rắm làm nhớ cái con ở trọ chung với t hồi xưa, cứ nửa đêm là nó đánh rắm bùm bùm. Con ml Võ Lan Uyên cao đẳng KT đối ngoại sn 2000, mày sống sai với t nhiều cái lắm, nhưng mà m quánh rắm thối lắm nhé Uyên đéo phải xạo loz với t là mùi cống bốc lên đâu, đi mà khám đít đi coi chừng bị hở van đít nhé Uyên",
+      "post_id": "2422413701949065",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422413701949065/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:51.227947+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:05:08.878098+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ thô tục, hạ nhục và đe dọa với nội dung liên quan đến cơ quan sinh dục và hành vi không phù hợp, thể hiện rõ hành vi xúc phạm, lăng mạ và quấy rối.",
+      "filter_evidence": [
+        "mày sống sai với t nhiều cái lắm",
+        "m quánh rắm thối lắm nhé Uyên",
+        "đi mà khám đít đi coi chừng bị hở van đít nhé Uyên"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     },
     {
-      "comment_id": "Y29tbWVudDo4MzY4ODY3Mjg0NTA5MjFfMzEyMTcwOTk0NzY4NzY4",
+      "comment_id": "2422537218603380",
       "identifier_quality": "facebook_comment_id",
       "parent_comment_id": "",
       "text_complete": true,
-      "text_raw": "Vũ Hoàng cháu cũng muốn môn ,này, chú dạy cháu vs, api đi chú😥",
-      "post_id": "pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "post_url": "https://www.facebook.com/antiptit/posts/pfbid02ZNkRvybjkWD5TSRjEK6dh76rAyaAjEE2wYwEdCoGEtpLixpAtE2poEWKhHD9kVmVl",
-      "label": "",
-      "annotation_note": "",
+      "text_raw": "Nói b mua đèn học mà dùng, tắt đèn to kia cho dễ ngủ, còn đánh rắm v thì đi khám sớm",
+      "post_id": "2422413701949065",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422413701949065/",
       "collection_method": "selenium_auto",
-      "collected_at": "2026-11-05T03:26:54.250097+00:00",
-      "comment_filter": "unknown"
+      "collected_at": "2026-11-05T02:05:09.458895+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng hình ảnh khiêu khích và mang tính lăng mạ, đe dọa với việc 'đánh rắm v', dù không trực tiếp nói xấu người khác, nhưng hành vi này có tính chất quấy rối và kỳ thị, phù hợp với định nghĩa toxic trong quy tắc hiện hành.",
+      "filter_evidence": [
+        "đánh rắm v thì đi khám sớm"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422754681914967",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422415988615503",
+      "text_complete": true,
+      "text_raw": "AmusingMango8922 bà chj cùng phòng t lúc nào cx bắt t giảm sáng ở đèn hk, bả thì ở trên gác xếp, mà giảm sáng đi còn gì là đèn hk nữa 🙂. Trả nhẽ bật đèn phòng cho khỏi ngủ 😇\nBảo mua bịt mắt thì dãy đành đạch xong gọi điện mách bồ mà ko giám nói tiếng Kinh, bả nói tiếng tỉnh bả sống. Riếc bị nói xấu nhiều quá t nghe hiểu mấy câu bả nói xấu luôn 🙂",
+      "post_id": "2422413701949065",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422413701949065/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T02:05:09.993581+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mỉa mai, hạ bệ và công kích khi nói về người khác, ví dụ 'bả thì ở trên gác xếp, mà giảm sáng đi còn gì là đèn hk nữa' và 'bả nói tiếng tỉnh bả sống. Riếc bị nói xấu nhiều quá t nghe hiểu mấy câu bả nói xấu luôn', thể hiện sự kỳ thị và xúc phạm đối với người khác.",
+      "filter_evidence": [
+        "bà chj cùng phòng t lúc nào cx bắt t giảm sáng ở đèn hk, bả thì ở trên gác xếp, mà giảm sáng đi còn gì là đèn hk nữa 🙂",
+        "Bảo mua bịt mắt thì dãy đành đạch xong gọi điện mách bồ mà ko giám nói tiếng Kinh, bả nói tiếng tỉnh bả sống. Riếc bị nói xấu nhiều quá t nghe hiểu mấy câu bả nói xấu luôn 🙂"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422415988615503",
+          "text_raw": "Chuyển trọ đi bạn, bạn kia k thể nhịn đánh rắm mãi đc và cũng k thể tắt điện lúc học. Vậy nên cách giải quyết là tìm trọ mới",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2417084229148679",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "mày mà nói câu đấy trước mặt tao tao cho mày 3 triệu",
+      "post_id": "2415140872676348",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T02:11:38.368567+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng lời đe dọa và hành vi cổ vũ gây hại bằng cách hứa sẽ trả thù nếu đối phương nói điều gì đó trước mặt mình, thể hiện hành vi quấy rối và đe dọa.",
+      "filter_evidence": [
+        "mày mà nói câu đấy trước mặt tao tao cho mày 3 triệu"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2417078962482539",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "nhảm nhí",
+      "post_id": "2415140872676348",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T02:11:15.409104+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Từ 'nhảm nhí' mang tính lăng mạ, xúc phạm, không có ngữ cảnh nào cho thấy đây là đùa hoặc chỉ trích thông tin vô hại, do đó được coi là hành vi toxic.",
+      "filter_evidence": [
+        "nhảm nhí"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2417076922482743",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Bài lol này cũng duyệt dc thằng ad bị ngoo",
+      "post_id": "2415140872676348",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T02:11:21.190374+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng từ 'lol' và 'ngoo' mang tính chế giễu, kèm theo việc chỉ trích việc duyệt bài của một cá nhân (thằng ad), thể hiện hành vi công kích, hạ nhục và có thể gây tổn thương đến người bị chỉ trích.",
+      "filter_evidence": [
+        "Bài lol này cũng duyệt dc thằng ad bị ngoo"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2417028005820968",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Nói gì v mẹ",
+      "post_id": "2415140872676348",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2415140872676348/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T02:11:34.651980+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ thiếu tôn trọng và mang tính lăng mạ khi gọi 'mẹ' trong bối cảnh không rõ ràng, thể hiện sự công kích hoặc hạ nhục đối với người khác.",
+      "filter_evidence": [
+        "Nói gì v mẹ"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423571601833275",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422656528591449",
+      "text_complete": true,
+      "text_raw": "ChummyAlligator7250 nói câu gì hay đi bạn ơi, bạn không giúp người khác, sau này bạn khó khăn, khốn đốn, ai sẽ giúp bạn, bạn ơi, rồi họ sẽ bỏ mặc bạn, giống như bạn đã từng bỏ mặc họ thôi, lúc ấy đừng trách ai nhé",
+      "post_id": "2422594348597667",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422594348597667/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:42:02.338378+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận công kích, hạ bệ người khác bằng cách so sánh việc bỏ mặc người khác với hậu quả cá nhân, tạo cảm giác bị trách móc và kỳ thị, thể hiện hành vi lăng mạ và quấy rối.",
+      "filter_evidence": [
+        "bạn không giúp người khác, sau này bạn khó khăn, khốn đốn, ai sẽ giúp bạn, bạn ơi, rồi họ sẽ bỏ mặc bạn, giống như bạn đã từng bỏ mặc họ thôi, lúc ấy đừng trách ai nhé"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422656528591449",
+          "text_raw": "K nên can thiệp vào nhân quả người khác",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423412055182563",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Bth thôi, các \"quan\" giờ toàn dân HY đấy, người HY giỏi ha, chắc giỏi nhất cả nước 🐧",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:46:58.612068+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng cách nói mang tính lăng mạ, so sánh người HY như 'quan' và khẳng định họ 'giỏi nhất cả nước' một cách thiếu căn cứ, thể hiện sự công kích và kỳ thị đối với nhóm người khác, dù không trực tiếp nói xấu.",
+      "filter_evidence": [
+        "các \"quan\" giờ toàn dân HY đấy",
+        "người HY giỏi ha, chắc giỏi nhất cả nước"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423479425175826",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Dân An Nam đóng vai nạn nhân rất giỏi !!!\nKhôn lỏi với chính người nhà của mình !!!\nỐi giời ơi m nhìn con nhà người ta kìa !!! 😎😎😎\nỐi giời ơi - mẹ nhìn mẹ nhà người ta kìa !!! ( giãy đành đạch 😌😌😌😌)",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:46:59.540638+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, công kích và có vẻ như đang chỉ trích một cá nhân hoặc nhóm người bằng cách so sánh họ với 'nạn nhân' và 'con nhà người ta', đồng thời sử dụng từ ngữ mang tính kỳ thị và chế giễu, thể hiện hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "Khôn lỏi với chính người nhà của mình !!!",
+        "Ối giời ơi m nhìn con nhà người ta kìa !!!",
+        "Ối giời ơi - mẹ nhìn mẹ nhà người ta kìa !!! ( giãy đành đạch 😌😌😌😌)"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423414655182303",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423406418516460",
+      "text_complete": true,
+      "text_raw": "Hồ Ngọc Cường \"nhìn con nhà ng ta\" 2 đời",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:47:00.150629+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, công kích khi nói 'nhìn con nhà ng ta' với sắc thái khinh miệt, cho thấy hành vi hạ nhục, kỳ thị đối với một cá nhân cụ thể.",
+      "filter_evidence": [
+        "Hồ Ngọc Cường \"nhìn con nhà ng ta\" 2 đời"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423406418516460",
+          "text_raw": "Ác mộng nhà hàng xóm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423415308515571",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423406418516460",
+      "text_complete": true,
+      "text_raw": "Hồ Ngọc Cường sau này kh dám so sánh con ngta luôn😂",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:47:00.760776+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng từ 'con ngta' để chỉ trích Hồ Ngọc Cường một cách mang tính lăng mạ, đồng thời sử dụng emoji cười để che giấu thái độ chế giễu, thể hiện hành vi công kích và hạ nhục.",
+      "filter_evidence": [
+        "Hồ Ngọc Cường sau này kh dám so sánh con ngta luôn😂"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423406418516460",
+          "text_raw": "Ác mộng nhà hàng xóm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423454738511628",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423406418516460",
+      "text_complete": true,
+      "text_raw": "Hồ Ngọc Cường\nSao con kh giống con nhà ngta đi ❌\nSao mẹ kh giống mẹ nhà ngta đi ✅",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:46:37.015835+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả so sánh con người với 'con nhà ngta' và dùng dấu ❌ để thể hiện sự chê bai, có thể mang tính lăng mạ hoặc công kích ngầm, đặc biệt khi so sánh giữa hai cá nhân mà không có cơ sở rõ ràng hoặc không phản biện hợp lý.",
+      "filter_evidence": [
+        "Sao con kh giống con nhà ngta đi ❌"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423406418516460",
+          "text_raw": "Ác mộng nhà hàng xóm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423438938513208",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423406418516460",
+      "text_complete": true,
+      "text_raw": "LP Maii \"mày cãi tao à, mày ngon, con với cái, mất dạy. Ối giồi ôi sao tôii có đứa cin bất hiếu thế này\"",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:46:37.900832+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ bạo lực, hạ nhục và mang tính lăng mạ như 'mày ngon, con với cái, mất dạy' và 'đứa cin bất hiếu', thể hiện hành vi công kích, kỳ thị đối với người khác.",
+      "filter_evidence": [
+        "mày cãi tao à, mày ngon, con với cái, mất dạy",
+        "Ối giồi ôi sao tôii có đứa cin bất hiếu thế này"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423406418516460",
+          "text_raw": "Ác mộng nhà hàng xóm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423531421837293",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423406418516460",
+      "text_complete": true,
+      "text_raw": "Hồ Ngọc Cường chồng chửi: mẹ con m nhìn mẹ con nta đi =)))))",
+      "post_id": "2423403721850063",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2423403721850063/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:46:40.107308+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ và đùa cợt khi nói về việc 'chồng chửi', đồng thời dùng cụm 'mẹ con m nhìn mẹ con nta đi' thể hiện sự công kích, hạ bệ, và có thể hiểu là chế giễu, tạo cảm giác bị xúc phạm hoặc bị đánh giá thấp.",
+      "filter_evidence": [
+        "Hồ Ngọc Cường chồng chửi: mẹ con m nhìn mẹ con nta đi =)))))"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423406418516460",
+          "text_raw": "Ác mộng nhà hàng xóm",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421645378692564",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421522728704829",
+      "text_complete": true,
+      "text_raw": "Chấn Phong não tôm như mày thì chỉ nhìn bìa xong pass là đúng r 😂",
+      "post_id": "2421515872038848",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421515872038848/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:50:11.384236+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng hình ảnh 'não tôm' để mỉa mai, hạ bệ người khác, thể hiện sự công kích và lăng mạ, dù không có lời nói trực tiếp, nhưng hành vi này mang tính xúc phạm và đe dọa.",
+      "filter_evidence": [
+        "Chấn Phong não tôm như mày thì chỉ nhìn bìa xong pass là đúng r"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421522728704829",
+          "text_raw": "Bìa nhìn xấu với quê mùa quá",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421936975330071",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421522728704829",
+      "text_complete": true,
+      "text_raw": "Võ Khoa Mày bị vấn đề về nhận thức hay gì mà xuyên tạc và vu không tao hả? Mày còn dám xúc phạm tao",
+      "post_id": "2421515872038848",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421515872038848/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:50:15.815869+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ xúc phạm, hạ nhục và đe dọa trực tiếp đối với người khác, thể hiện rõ hành vi công kích và lăng mạ.",
+      "filter_evidence": [
+        "Mày còn dám xúc phạm tao",
+        "Võ Khoa Mày bị vấn đề về nhận thức hay gì mà xuyên tạc và vu không tao hả?"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421522728704829",
+          "text_raw": "Bìa nhìn xấu với quê mùa quá",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423575405166228",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2423558795167889",
+      "text_complete": true,
+      "text_raw": "PinkAvocado7499 mấy em đấy đi lần đầu sao mà biết ? Không phải chỗ các em ấy làm và là nơi hay đến\nThế là lỗi nhân viên chứ ? Không mở mồm báo cho nhà trường hay người xung quanh thí sinh 1 câu xong quay ra đổ cho người ta không biết hỏi nhà đài\nThế các em ấy phải hỏi ai ?",
+      "post_id": "2422760385247730",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422760385247730/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:53:26.055793+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, đổ lỗi cho nhân viên và thí sinh, đồng thời chỉ trích việc không báo cho nhà trường hoặc người xung quanh, tạo cảm giác bị đe dọa và hạ bệ, thể hiện hành vi xúc phạm, công kích.",
+      "filter_evidence": [
+        "Thế là lỗi nhân viên chứ ? Không mở mồm báo cho nhà trường hay người xung quanh thí sinh 1 câu xong quay ra đổ cho người ta không biết hỏi nhà đài",
+        "Thế các em ấy phải hỏi ai ?"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2423558795167889",
+          "text_raw": "trc khi đổ tội cho các thí sinh khác thì trường quay S14 k chỉ là nơi ghi hình của riêng Đường lên đỉnh Olympia nhé:)) nó còn ghi hình rất nhiều chương trình khác nên sau khi cắt sóng thì bộ phận staff ở đó đã phải dọn dẹp để cho show khác quay rồi còn khi em quay lại tại sao k thấy gấu hoặc máy tính thì có thể đã dc ng khác cất đi e nên liên hệ lại với ng phụ trách chứ đăng lên mạng lại gây hiểu lầm t từng làm ở đài V nên t biết ấy:)",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423084225215346",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422770281913407",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 708 thí sinh VN khác vs người VN nhé :))) đọc hiểu thế này khéo tiếng Việt của bạn còn k nổi C1 đâu chứ đừng nói đến tiếng Anh mà đòi kéo trung bình người VN lên 6.2 :)))",
+      "post_id": "2422660131924422",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:56:35.788098+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, hạ nhục người khác bằng cách chỉ trích trình độ tiếng Việt của họ là chưa đạt C1 và chỉ trích việc 'đòi kéo trung bình người VN lên 6.2', thể hiện thái độ kỳ thị và lăng mạ.",
+      "filter_evidence": [
+        "đọc hiểu thế này khéo tiếng Việt của bạn còn k nổi C1 đâu chứ đừng nói đến tiếng Anh mà đòi kéo trung bình người VN lên 6.2",
+        "đừng nói đến tiếng Anh mà đòi kéo trung bình người VN lên 6.2"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422770281913407",
+          "text_raw": "Nói bạn đừng buồn, 6.0 là chưa đạt C1 nữa thì sao dạy ai trong khi trung bình VN là 6.2",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423572888499813",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422770281913407",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 708 má m làm như ai học tiếng anh trên cái đất Việt Nam này cũng thi ielts ko bằng mà trung với bình",
+      "post_id": "2422660131924422",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:56:17.451890+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ bao dung, mang tính lăng mạ ('má m làm như', 'trung với bình') và công kích ngầm đối với người học tiếng Anh tại Việt Nam, thể hiện thái độ khinh miệt và không tôn trọng.",
+      "filter_evidence": [
+        "Người tham gia ẩn danh 708 má m làm như ai học tiếng anh trên cái đất Việt Nam này cũng thi ielts ko bằng mà trung với bình"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422770281913407",
+          "text_raw": "Nói bạn đừng buồn, 6.0 là chưa đạt C1 nữa thì sao dạy ai trong khi trung bình VN là 6.2",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422775658579536",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422768321913603",
+      "text_complete": true,
+      "text_raw": "Anonymous participant 802 thôi b ơii năm sau nhà nước cấm tuyển sinh dhoc dùng ielts r, chạy lẹ:) con nít để nó nói tiếng việt chứ học TA coi có ác k",
+      "post_id": "2422660131924422",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:56:19.350934+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, như 'con nít' và 'có ác k', nhằm hạ bệ, công kích đối tượng học sinh, đồng thời có thái độ kỳ thị khi nói về việc học tiếng Việt.",
+      "filter_evidence": [
+        "con nít để nó nói tiếng việt chứ học TA coi có ác k"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422768321913603",
+          "text_raw": "Thực ra là 6.0 là giỏi á trời, chỉ là k hợp với dạy cho cấp 3 thôi. Dạy cấp 1 là ok đó",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422825448574557",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422768321913603",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 512 nó nói đúng mà:))) bạn học ngành khác thì ko sao chứ bạn học NNA, có tận 4 năm trau dồi TA mà IELTS mới đc có 6.0 thì nên xem lại bản thân nha. IELTS 6.0 mình ôn chưa đầy 1 năm đó bạn",
+      "post_id": "2422660131924422",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:56:19.889303+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, hạ nhục người khác bằng cách chỉ trích họ 'nên xem lại bản thân' sau khi nói họ đạt IELTS 6.0 sau 4 năm học, thể hiện thái độ kỳ thị và đánh giá cá nhân một cách tiêu cực.",
+      "filter_evidence": [
+        "bạn học NNA, có tận 4 năm trau dồi TA mà IELTS mới đc có 6.0 thì nên xem lại bản thân nha"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422768321913603",
+          "text_raw": "Thực ra là 6.0 là giỏi á trời, chỉ là k hợp với dạy cho cấp 3 thôi. Dạy cấp 1 là ok đó",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422848081905627",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422768321913603",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 512 học nna thì ít cũng phải C1, trg đại học nào dởm đến mức cho sv ra trường với b2 vậy=)))? Nhớ nè, Ngôn ngữ Anh cần phải giỏi cả tiếng Anh mới nghiên cứu được nhé, b2 như này chỉ vừa để làm việc nhé, nghiên cứu ngôn ngữ như Ngôn ngữ Anh cần trình độ ít là C1, ngôn ngữ mà bằng C không nổi thì có mà ăn cám à? Trình độ còn không đủ để nghiên cứu, giờ mà làm nckh thì khéo chả đủ trình để làm",
+      "post_id": "2422660131924422",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422660131924422/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:56:20.433751+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, hạ bệ và đe dọa bằng cách so sánh trình độ ngôn ngữ của sinh viên với 'b2' là 'chỉ vừa để làm việc' và 'ngôn ngữ mà bằng C không nổi thì có mà ăn cám', đồng thời chỉ trích đại học là 'dởm', thể hiện hành vi lăng mạ và kỳ thị.",
+      "filter_evidence": [
+        "Người tham gia ẩn danh 512 học nna thì ít cũng phải C1, trg đại học nào dởm đến mức cho sv ra trường với b2 vậy=)))?",
+        "b2 như này chỉ vừa để làm việc nhé, nghiên cứu ngôn ngữ như Ngôn ngữ Anh cần trình độ ít là C1, ngôn ngữ mà bằng C không nổi thì có mà ăn cám à?",
+        "Trình độ còn không đủ để nghiên cứu, giờ mà làm nckh thì khéo chả đủ trình để làm"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422768321913603",
+          "text_raw": "Thực ra là 6.0 là giỏi á trời, chỉ là k hợp với dạy cho cấp 3 thôi. Dạy cấp 1 là ok đó",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422477148609387",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Ngon thế vào mà húp, sv sp ra trg đông như quân nguyên thất nghiệp cả nùi kìa, cái này khác gì lùa gà để đóng học phí đâu",
+      "post_id": "2420870682103367",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420870682103367/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:59:40.064876+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận sử dụng hình ảnh so sánh mang tính lăng mạ, kỳ thị (lùa gà) và chỉ trích học sinh như 'quân nguyên thất nghiệp cả nùi', thể hiện sự hạ nhục, công kích đối với học sinh và hệ thống giáo dục.",
+      "filter_evidence": [
+        "sv sp ra trg đông như quân nguyên thất nghiệp cả nùi kìa",
+        "cái này khác gì lùa gà để đóng học phí đâu"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422571028599999",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422546475269121",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 824 thế tức là sv sư phạm được đào tạo đầy đủ thì phải giỏi hơn r, cứ thế mà cạnh tranh thôi, mong tất cả các ngành nhà nước đều vậy: công an quân đội toà án kiểm sát,… cứ bên ngoài giỏi hơn những bạn được đào tạo trong trường thì mời bên ngoài vào ngành thôi, ai kém hơn thì bị đào thải",
+      "post_id": "2420870682103367",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420870682103367/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:59:41.985475+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, đe dọa và kỳ thị những người được đào tạo trong trường sư phạm bằng cách nói rằng nếu bên ngoài giỏi hơn thì nên mời họ vào ngành và ai kém hơn thì bị đào thải, thể hiện hành vi hạ nhục và quấy rối.",
+      "filter_evidence": [
+        "cứ thế mà cạnh tranh thôi, mong tất cả các ngành nhà nước đều vậy: công an quân đội toà án kiểm sát,… cứ bên ngoài giỏi hơn những bạn được đào tạo trong trường thì mời bên ngoài vào ngành thôi, ai kém hơn thì bị đào thải"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422546475269121",
+          "text_raw": "nếu k cần học sư phạm ngay từ đầu mà vẫn đi dạy học được chỉ cần có bằng nvsp thì tôi thấy thiệt cho các bạn sv sư phạm quá=)) thế thì cần gì phải phải ôn thi bục mặt cạnh tranh với nhau vào trường sư phạm làm gì nhỉ? Cứ học ngành khác xong muốn đi dạy thì học thêm bằng nvsp là được. Chẳng thấy công bằng chút nào sinh viên sư phạm phải nỗ lực lắm mới thi đỗ trường sư phạm mà ở ngoài kia vẫn có những người k phải cạnh tranh gì chỉ cần học bằng nvsp là dạy được ngay, hỏi chấm thật",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422580798599022",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422546475269121",
+      "text_complete": true,
+      "text_raw": "Huy Phong nó 29đ nó đủ ỉa lên đầu cả họ m r mà chỉnh nó, sp hcmue ra trg còn thất nghiệp hả hong khi kco quan hệ chạy chọt để xin hợp đồng dạy kìa, còn thi viên chức là phải thi với thạc sĩ, gv dạy hàng chục năm, nói cho m mở mang đầu óc, cái chính sách này chả khác gì hợp thức hoá cho mấy tk có tiền, quan hệ hết con ạ",
+      "post_id": "2420870682103367",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420870682103367/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T04:59:42.552467+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, công kích như 'ỉa lên đầu cả họ m r', 'hợp thức hoá cho mấy tk có tiền', và chỉ trích công khai với thái độ bực bội, đe dọa, và kỳ thị người khác dựa trên quan hệ xã hội, điều này vượt quá phạm vi phản biện và trở thành hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "Huy Phong nó 29đ nó đủ ỉa lên đầu cả họ m r mà chỉnh nó",
+        "sp hcmue ra trg còn thất nghiệp hả hong khi kco quan hệ chạy chọt để xin hợp đồng dạy kìa",
+        "còn thi viên chức là phải thi với thạc sĩ, gv dạy hàng chục năm, nói cho m mở mang đầu óc, cái chính sách này chả khác gì hợp thức hoá cho mấy tk có tiền",
+        "quan hệ hết con ạ"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422546475269121",
+          "text_raw": "nếu k cần học sư phạm ngay từ đầu mà vẫn đi dạy học được chỉ cần có bằng nvsp thì tôi thấy thiệt cho các bạn sv sư phạm quá=)) thế thì cần gì phải phải ôn thi bục mặt cạnh tranh với nhau vào trường sư phạm làm gì nhỉ? Cứ học ngành khác xong muốn đi dạy thì học thêm bằng nvsp là được. Chẳng thấy công bằng chút nào sinh viên sư phạm phải nỗ lực lắm mới thi đỗ trường sư phạm mà ở ngoài kia vẫn có những người k phải cạnh tranh gì chỉ cần học bằng nvsp là dạy được ngay, hỏi chấm thật",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422472918609810",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422455015278267",
+      "text_complete": true,
+      "text_raw": "BalancedNectarine7276 nhưng mà bạn ko đánh rắm đùng đùng, còn bạn của chủ tus thì có :)))",
+      "post_id": "2422413701949065",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2422413701949065/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:02:55.214190+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ thô tục và so sánh mang tính hạ nhục giữa hai đối tượng (bạn của mình và bạn của chủ tus), thể hiện hành vi công kích và lăng mạ.",
+      "filter_evidence": [
+        "bạn ko đánh rắm đùng đùng, còn bạn của chủ tus thì có :)))"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422455015278267",
+          "text_raw": "T cũng học giờ đó mà mấy đứa ở phòng t ngủ ngon :))",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422441588612943",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Nhu cầu cao, nghịch ngợm, ra dại, phố bẩn",
+      "post_id": "2420440512146384",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420440512146384/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:12:17.151547+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng các từ như 'nghịch ngợm', 'ra dại', 'phố bẩn' để chỉ trích một cách mang tính lăng mạ và kỳ thị, thể hiện hành vi công kích, hạ nhục đối với một đối tượng không rõ ràng, phù hợp với định nghĩa toxic.",
+      "filter_evidence": [
+        "nghịch ngợm",
+        "ra dại",
+        "phố bẩn"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422459235277845",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Ai không năng khiếu lắm thì vào học há mồm luôn. Và lý thuyết cực khó nhé. Học rồi sẽ có nhiều cú sốc nhé",
+      "post_id": "2420440512146384",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420440512146384/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:12:17.741203+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận dùng ngôn ngữ hạ nhục, xúc phạm người không có năng khiếu bằng cách nói họ 'há mồm luôn', thể hiện sự công kích và kỳ thị.",
+      "filter_evidence": [
+        "Ai không năng khiếu lắm thì vào học há mồm luôn"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422435758613526",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "cái ngành trai gái có tư tưởng rất lệch lạc, chỉ nghĩ tới nắc nhau, mà còn là chơi tập thể",
+      "post_id": "2420440512146384",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420440512146384/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:12:18.354954+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận dùng từ 'lệch lạc', 'chỉ nghĩ tới nắc nhau' để chỉ trích tư tưởng của ngành trai gái, mang tính lăng mạ và công kích, cho thấy hành vi hạ nhục, kỳ thị đối với một nhóm đối tượng.",
+      "filter_evidence": [
+        "cái ngành trai gái có tư tưởng rất lệch lạc, chỉ nghĩ tới nắc nhau, mà còn là chơi tập thể"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2422530025270766",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2422441588612943",
+      "text_complete": true,
+      "text_raw": "BraveTiger3560 đi cày lòi mắt ra mà nghịch với chẳng ngợm, tgian thì đ có bảo phố bẩn. Lạy các ngài, lấy một vài thành phần ra quy cho cả hội",
+      "post_id": "2420440512146384",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2420440512146384/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:12:18.939888+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng hình ảnh 'cày lòi mắt ra' và 'nghịch với chẳng ngợm' để miêu tả một cách mang tính lăng mạ, công kích, thể hiện sự hạ nhục và quấy rối đối với người khác. Câu 'phố bẩn' được dùng để chỉ trích một cách mang tính kỳ thị, không phải chỉ trích thông tin khách quan.",
+      "filter_evidence": [
+        "BraveTiger3560 đi cày lòi mắt ra mà nghịch với chẳng ngợm",
+        "tgian thì đ có bảo phố bẩn"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2422441588612943",
+          "text_raw": "Nhu cầu cao, nghịch ngợm, ra dại, phố bẩn",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421675042022931",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Mua gói premium 500 đô mỗi tháng để món nợ của bạn có thể tiếp cận với nhiều tỷ phú hơn🐧",
+      "post_id": "2421486902041745",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421486902041745/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:15:45.858498+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận mang tính lăng mạ, công kích bằng cách liên hệ 'món nợ' của người khác với việc tiếp cận 'nhiều tỷ phú hơn', thể hiện sự kỳ thị và chế giễu về tài chính và đẳng cấp xã hội.",
+      "filter_evidence": [
+        "Mua gói premium 500 đô mỗi tháng để món nợ của bạn có thể tiếp cận với nhiều tỷ phú hơn🐧"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421959318661170",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421607878696314",
+      "text_complete": true,
+      "text_raw": "Huy Nguyen nợ vài tỷ đô chẳng hạn 😳",
+      "post_id": "2421486902041745",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421486902041745/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:15:47.648653+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công khai nói rằng Huy Nguyen nợ vài tỷ đô, điều này mang tính lăng mạ và xúc phạm, đặc biệt khi được đặt trong bối cảnh một người có thể bị coi là tỷ phú. Việc chỉ trích tài chính của một cá nhân như vậy, nhất là khi không có bằng chứng hoặc lý do cụ thể, có thể coi là hành vi hạ nhục và xúc phạm.",
+      "filter_evidence": [
+        "Huy Nguyen nợ vài tỷ đô chẳng hạn 😳"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421607878696314",
+          "text_raw": "Làm thế nào để khoản nợ của mình trở lên thu hút trong mắt tỷ Phú 🤡",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2423557905167978",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Các bạn nghĩ tư bản sẽ trả nợ hộ bạn ư ?!?! Ngây thơ quá rồi, các bạn ạ :))))",
+      "post_id": "2421486902041745",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421486902041745/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:15:48.185660+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng lời lẽ hạ nhục, công kích người khác với thái độ khinh miệt, gọi họ là 'ngây thơ quá rồi', thể hiện hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "Ngây thơ quá rồi, các bạn ạ"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421627232027712",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Mấy bố này có tiền mặt trong người đâu mà trả. Sống bằng thẻ tín dụng với tín thác. Trả đc quái",
+      "post_id": "2421486902041745",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421486902041745/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:15:48.677116+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Bình luận dùng ngôn ngữ mỉa mai, hạ bệ ('mấy bố này'), và chỉ trích cách sống của người khác với thái độ khinh miệt, ngầm kỳ thị nhóm người có thu nhập thấp hoặc không có tiền mặt, tạo cảm giác bị đánh giá thấp và không thể đáp ứng được chi phí học phí.",
+      "filter_evidence": [
+        "Mấy bố này có tiền mặt trong người đâu mà trả. Sống bằng thẻ tín dụng với tín thác. Trả đc quái"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "1210854533104994",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Vào đi các em, học trg này chơi suốt😆",
+      "post_id": "1210371709819943",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/1210371709819943/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:18:58.738195+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng từ 'chơi suốt' để chỉ trích trường học, mang tính lăng mạ và công kích, cho thấy thái độ chế giễu, không phù hợp với hành vi non-toxic.",
+      "filter_evidence": [
+        "học trg này chơi suốt😆"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "1978502689673504",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "1210406753149772",
+      "text_complete": true,
+      "text_raw": "Lương Ngọc Mùi chỉ có các cổ đông hauier mới đc phép chửi trường thôi, còn bọn ngoại bang mà lấc cấc là ko xg vs tụi này đâu=)))))",
+      "post_id": "1210371709819943",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/1210371709819943/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:18:49.883974+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích và hạ bệ những người 'ngoại bang' bằng cách nói họ 'lấc cấc' và 'ko xg vs tụi này', thể hiện sự kỳ thị và phân biệt đối xử, đồng thời dùng ngôn ngữ mang tính lăng mạ, dù có đùa cợt.",
+      "filter_evidence": [
+        "Lương Ngọc Mùi chỉ có các cổ đông hauier mới đc phép chửi trường thôi, còn bọn ngoại bang mà lấc cấc là ko xg vs tụi này đâu=)))))"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "1210406753149772",
+          "text_raw": "sinh viên trường hay chửi trường cho vui mồm\nchứ sv trường khác chửi trường là đ zui",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "1210382879818826",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "1210381833152264",
+      "text_complete": true,
+      "text_raw": "Phan Minh Hà hư đốnn",
+      "post_id": "1210371709819943",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/1210371709819943/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:18:50.488002+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng từ 'hư đốnn' để chỉ trích một cá nhân, mang tính lăng mạ và xúc phạm, dù không có ngữ cảnh rõ ràng về hành vi cụ thể. Từ này có sắc thái chế giễu, hạ bệ, phù hợp với định nghĩa hành vi toxic về việc công kích, hạ nhục.",
+      "filter_evidence": [
+        "Phan Minh Hà hư đốnn"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "1210381833152264",
+          "text_raw": "Chưa vào trường đã ghét trường. Vào học rồi còn ghét trường hơn:))",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "1212794112911036",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "1210381833152264",
+      "text_complete": true,
+      "text_raw": "Phan Minh Hà ở đâu cũng có sv chửi trường :))",
+      "post_id": "1210371709819943",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/1210371709819943/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:18:51.137612+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả nói rằng có sinh viên chửi trường ở đâu cũng có, điều này mang tính công kích và lăng mạ đối với trường, dù không dùng từ tục nhưng vẫn thể hiện thái độ tiêu cực và công kích một cách rộng rãi, phù hợp với định nghĩa toxic về việc công kích hoặc hạ nhục.",
+      "filter_evidence": [
+        "Phan Minh Hà ở đâu cũng có sv chửi trường :))"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "1210381833152264",
+          "text_raw": "Chưa vào trường đã ghét trường. Vào học rồi còn ghét trường hơn:))",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421430405380728",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "",
+      "text_complete": true,
+      "text_raw": "Kiến thức có thể lãng quên, nhưng những ác mộng khi tham gia Hội sinh viên và Đoàn thanh niên trường thì gần như ko quên được. Vì thế đừng tham gia nha mấy em.\nMà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em, đừng nghe mấy đứa hay bảo này bảo kia rằng tham gia là tốt. Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha\n(Trích lời 1 người anh quen biết ạ)",
+      "post_id": "2421368172053618",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:22:01.388245+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả công kích, hạ bệ việc tham gia Hội sinh viên và Đoàn thanh niên bằng cách gọi là 'bế tắc' và 'mất sự tươi trẻ thanh xuân', thể hiện thái độ tiêu cực và kỳ thị đối với hoạt động này, dù không dùng từ tục nhưng có hành vi xúc phạm, đe dọa.",
+      "filter_evidence": [
+        "Mà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em",
+        "Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha"
+      ],
+      "post_text_raw": "",
+      "parent_context": [],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421455558711546",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421430405380728",
+      "text_complete": true,
+      "text_raw": "Người tham gia ẩn danh 301 cái bọn HSV với ĐTN hãm thì cành cạch, toàn đi ăn với đi uống, toxic chúa, thêm tí chức vào t tưởng đâu chủ tịch nước với tổng thống, vênh lắm -)))",
+      "post_id": "2421368172053618",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:22:01.994236+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mỉa mai, hạ bệ và đe dọa như 'cái bọn HSV với ĐTN hãm thì cành cạch', 'toxic chúa', 'vênh lắm' để công kích và kỳ thị tổ chức Hội sinh viên và Đoàn thanh niên, thể hiện hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "cái bọn HSV với ĐTN hãm thì cành cạch",
+        "toxic chúa",
+        "thêm tí chức vào t tưởng đâu chủ tịch nước với tổng thống, vênh lắm"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421430405380728",
+          "text_raw": "Kiến thức có thể lãng quên, nhưng những ác mộng khi tham gia Hội sinh viên và Đoàn thanh niên trường thì gần như ko quên được. Vì thế đừng tham gia nha mấy em.\nMà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em, đừng nghe mấy đứa hay bảo này bảo kia rằng tham gia là tốt. Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha\n(Trích lời 1 người anh quen biết ạ)",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421576775366091",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421430405380728",
+      "text_complete": true,
+      "text_raw": "Ác_quỷ_tài_lanh gpa có đứa nào cao đâu, học thì lơ là tiếc tiền bố mẹ thật sự",
+      "post_id": "2421368172053618",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:22:02.543512+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả dùng từ 'Ác_quỷ_tài_lanh' để chỉ trích một cá nhân, kèm theo lời chê bai về GPA và thái độ học tập, thể hiện hành vi hạ nhục, công kích cá nhân.",
+      "filter_evidence": [
+        "Ác_quỷ_tài_lanh gpa có đứa nào cao đâu, học thì lơ là tiếc tiền bố mẹ thật sự"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421430405380728",
+          "text_raw": "Kiến thức có thể lãng quên, nhưng những ác mộng khi tham gia Hội sinh viên và Đoàn thanh niên trường thì gần như ko quên được. Vì thế đừng tham gia nha mấy em.\nMà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em, đừng nghe mấy đứa hay bảo này bảo kia rằng tham gia là tốt. Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha\n(Trích lời 1 người anh quen biết ạ)",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421633182027117",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421430405380728",
+      "text_complete": true,
+      "text_raw": "Ác_quỷ_tài_lanh chuẩn luôn, toàn ăn uống chơi bời r chia bè phái tự cắn nhau nhìn phát ói, nma gặp ngkhac phải cứ thượng đẳng thôi😂",
+      "post_id": "2421368172053618",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:22:03.089492+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng ngôn ngữ mang tính lăng mạ, công kích như 'Ác_quỷ_tài_lanh', 'tự cắn nhau nhìn phát ói', 'thượng đẳng' để chỉ trích và hạ bệ hành vi của hội sinh viên và đoàn thanh niên, thể hiện thái độ tiêu cực và kỳ thị, phù hợp với định nghĩa toxic.",
+      "filter_evidence": [
+        "Ác_quỷ_tài_lanh chuẩn luôn, toàn ăn uống chơi bời r chia bè phái tự cắn nhau nhìn phát ói, nma gặp ngkhac phải cứ thượng đẳng thôi😂"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421430405380728",
+          "text_raw": "Kiến thức có thể lãng quên, nhưng những ác mộng khi tham gia Hội sinh viên và Đoàn thanh niên trường thì gần như ko quên được. Vì thế đừng tham gia nha mấy em.\nMà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em, đừng nghe mấy đứa hay bảo này bảo kia rằng tham gia là tốt. Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha\n(Trích lời 1 người anh quen biết ạ)",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
+    },
+    {
+      "comment_id": "2421608558696246",
+      "identifier_quality": "facebook_comment_id",
+      "parent_comment_id": "2421430405380728",
+      "text_complete": true,
+      "text_raw": "FriendlyAvocado3090 có đứa ở ban văn phòng đoàn vênh như cóc, quát nạt sinh viên hơn bố mẹ mà bản thân chắc gì bằng người ta, có tí chức là vênh tợn lên",
+      "post_id": "2421368172053618",
+      "post_url": "https://www.facebook.com/groups/361726451351144/posts/2421368172053618/",
+      "collection_method": "selenium_auto",
+      "collected_at": "2026-11-05T05:22:03.639741+00:00",
+      "comment_filter": "unknown",
+      "label": "toxic",
+      "label_source": "automatic",
+      "needs_review": true,
+      "review_reason": "unverified_collection_filter",
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+      "collection_filter": "toxic",
+      "filter_policy_hash": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "filter_reason": "Tác giả sử dụng hình ảnh so sánh 'vênh như cóc' và 'quát nạt sinh viên hơn bố mẹ' để hạ bệ, công kích người khác, thể hiện thái độ lăng mạ và kỳ thị, phù hợp với định nghĩa toxic về hành vi xúc phạm, hạ nhục.",
+      "filter_evidence": [
+        "có đứa ở ban văn phòng đoàn vênh như cóc",
+        "quát nạt sinh viên hơn bố mẹ",
+        "có tí chức là vênh tợn lên"
+      ],
+      "post_text_raw": "",
+      "parent_context": [
+        {
+          "comment_id": "2421430405380728",
+          "text_raw": "Kiến thức có thể lãng quên, nhưng những ác mộng khi tham gia Hội sinh viên và Đoàn thanh niên trường thì gần như ko quên được. Vì thế đừng tham gia nha mấy em.\nMà tham gia HSV và ĐTN thì cuộc sống sinh viên mới bế tắc đó các em, đừng nghe mấy đứa hay bảo này bảo kia rằng tham gia là tốt. Đừng dại chấp nhận tham gia mấy cái này và các clb, nếu ko sẽ mất sự tươi trẻ thanh xuân nha\n(Trích lời 1 người anh quen biết ạ)",
+          "text_complete": true
+        }
+      ],
+      "annotation_note": "Nhãn máy dùng để lọc khi thu thập; chưa được người dùng duyệt."
     }
   ]
 }
