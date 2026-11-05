@@ -81301,6 +81301,56 @@
       "review_reason": "unverified_v4_semantic",
       "note": "Bình luận thể hiện mong muốn được dạy môn học và sự thân mật với người dạy, không có hành vi xúc phạm, hạ nhục hoặc công kích nào.",
       "updated_at": "2026-11-05T03:57:53.736053+00:00"
+    },
+    "0169676f18143c469b96b8c8": {
+      "label": "non-toxic",
+      "excluded": false,
+      "label_source": "automatic",
+      "text_hash": "b4a99f5dc52bd3eb2582828bafd86a8e0cfc62f4d29d1ead3f3f369f86d546da",
+      "model_score": null,
+      "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+      "label_revision": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+      "label_threshold": null,
+      "needs_review": false,
+      "review_reason": "unverified_v4_semantic",
+      "note": "Bình luận không chứa nội dung xúc phạm, hạ nhục hoặc công kích nào. Câu này mang tính hình thức, mang âm hưởng thơ mộng hoặc ẩn dụ, không có hành vi mang tính lăng mạ, đe dọa hay quấy rối. Không có dấu hiệu chỉ trích hoặc phản đối đối tượng cụ thể.",
+      "updated_at": "2026-11-05T04:29:30.298622+00:00"
+    },
+    "639e4fe7372212d18aa74bb0": {
+      "label": "toxic",
+      "note": "Bình luận sử dụng từ ngữ 'đánh bỏ m' mang tính công kích, lăng mạ đối với người khác, dù không rõ ngữ cảnh nhưng hành vi này thể hiện sự hạ nhục, công kích trực tiếp.",
+      "excluded": false,
+      "text_hash": "165ffdf58e807b1bf1bc7dca21651e0ac97f7d24bd4fb07527a833e5aa96ca7f",
+      "label_source": "manual",
+      "label_policy_version": "ptit-v4-abuse-context-20261102",
+      "human_verified": true,
+      "updated_at": "2026-11-05T04:48:36.848805+00:00",
+      "history": [
+        {
+          "label": "toxic",
+          "excluded": false,
+          "label_source": "automatic",
+          "text_hash": "165ffdf58e807b1bf1bc7dca21651e0ac97f7d24bd4fb07527a833e5aa96ca7f",
+          "model_score": null,
+          "label_model": "qwen3:4b-instruct-2507-q4_K_M",
+          "label_revision": "e89b6ad1ca64fc2e1600d99e11ec87932dd5aa350775ed1424cad01d2d8bdffc",
+          "label_threshold": null,
+          "needs_review": false,
+          "review_reason": "unverified_v4_semantic",
+          "note": "Bình luận sử dụng từ ngữ 'đánh bỏ m' mang tính công kích, lăng mạ đối với người khác, dù không rõ ngữ cảnh nhưng hành vi này thể hiện sự hạ nhục, công kích trực tiếp.",
+          "updated_at": "2026-11-05T04:29:35.332480+00:00"
+        },
+        {
+          "label": "non-toxic",
+          "note": "Bình luận sử dụng từ ngữ 'đánh bỏ m' mang tính công kích, lăng mạ đối với người khác, dù không rõ ngữ cảnh nhưng hành vi này thể hiện sự hạ nhục, công kích trực tiếp.",
+          "excluded": false,
+          "text_hash": "165ffdf58e807b1bf1bc7dca21651e0ac97f7d24bd4fb07527a833e5aa96ca7f",
+          "label_source": "manual",
+          "label_policy_version": "ptit-v4-abuse-context-20261102",
+          "human_verified": true,
+          "updated_at": "2026-11-05T04:47:29.463460+00:00"
+        }
+      ]
     }
   },
   "imported": [],

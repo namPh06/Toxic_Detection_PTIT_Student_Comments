@@ -12,6 +12,7 @@
   --accent-hover: #8d1833;
   --accent-soft: #faedf1;
   --success: #356b52;
+  --success-soft: #edf4ef;
   --warning: #80591e;
   --warning-soft: #fff8e8;
   --warning-line: #e5c58b;
@@ -202,7 +203,11 @@ details p { margin: 8px 0 12px; overflow-wrap: anywhere; }
 .label-suggestion p, .label-suggestion small { display: block; margin: 4px 0; font-size: 11px; overflow-wrap: anywhere; }
 .label-suggestion .row-detail { border-top: 1px solid var(--line); margin-top: 8px; }
 .label-suggestion button { margin-top: 6px; }
-.label-form select { width: 100%; padding: 8px 10px; font-size: 12px; }
+.label-chip { display: inline-block; padding: 3px 10px; border: 1px solid; border-radius: 6px; font-size: 12px; font-weight: 700; }
+.label-form select { width: 100%; min-height: 44px; padding: 8px 10px; border-width: 2px; font-size: 12px; font-weight: 700; }
+.label-chip[data-label="toxic"], .label-form select[data-label="toxic"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.label-chip[data-label="non-toxic"], .label-form select[data-label="non-toxic"] { background: var(--success-soft); border-color: var(--success); color: var(--success); }
+.label-form select option { background: var(--surface); color: var(--ink); }
 .label-form input[type=text] { margin-top: 8px; padding: 8px 10px; font-size: 12px; }
 .label-form .check { display: flex; align-items: center; gap: 7px; min-height: 32px; margin: 6px 0; font-size: 11px; font-weight: 400; }
 .label-form .button { width: 100%; }

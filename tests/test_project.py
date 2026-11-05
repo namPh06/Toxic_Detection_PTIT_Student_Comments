@@ -190,6 +190,28 @@ class ExperimentTests(unittest.TestCase):
 
 
 class CrawlerTests(unittest.TestCase):
+    def test_manual_comments_have_stable_ids_and_preserve_saved_labels(self):
+        import app
+        comments = ['Cảm ơn bạn đã giải thích bài tập.', 'Mình chưa hiểu phần này, bạn nói rõ hơn nhé.']
+        with tempfile.TemporaryDirectory() as temp, patch.multiple(
+                app, DATA=Path(temp), ROWS={}, STATE=dict(app.STATE), MANUAL_COMMENTS=comments):
+            app.restore()
+            original = {r['text_raw']: r['comment_id'] for r in app.ROWS.values()}
+            lab = Lab(Path(temp), lambda: app.payload()['rows'])
+            self.assertEqual(sum(lab.can_auto_label(r) for r in lab.rows()), 2)
+            row = lab.rows()[0]
+            lab.annotate(dict(id=row['id'], text_hash=row['text_hash'], label='non-toxic'))
+            app.save()
+            app.ROWS.clear()
+            comments.reverse()
+            comments.append(comments[0])
+            app.restore()
+            restored = Lab(Path(temp), lambda: app.payload()['rows'])
+            self.assertEqual({r['text_raw']: r['comment_id'] for r in app.ROWS.values()}, original)
+            self.assertEqual(app.STATE['comments'], 2)
+            self.assertEqual(sum(restored.can_auto_label(r) for r in restored.rows()), 1)
+            self.assertEqual(next(r for r in restored.rows() if r['id'] == row['id'])['label'], 'non-toxic')
+
     def test_retry_incomplete_posts_preserves_rows_and_updates_longer_text(self):
         import app
         source = 'https://www.facebook.com/groups/ptit/'

@@ -84,7 +84,7 @@
     </div>
   </article>
   <article class="panel annotation-assist">
-    <div class="panel-heading"><div><h2>2. Gán nhãn tự động</h2></div><button id="auto-label-all" class="button" type="button" disabled>Gán nhãn tự động</button></div>
+    <div class="panel-heading"><div><h2>2. Gán nhãn tự động</h2></div><button id="auto-label-all" class="button primary" type="button" disabled>Gán nhãn tự động</button></div>
     <div class="panel-body">
       <p id="annotation-status" class="processing-status" role="status" aria-live="polite" hidden></p>
       <div id="dataset-health" class="dataset-summary">Đang kiểm tra dataset…</div>
@@ -94,7 +94,7 @@
     </div>
   </article>
   <article class="panel review-panel">
-    <div class="panel-heading"><div><h2>3. Kiểm tra & sửa nhãn</h2></div><button id="review-refresh" class="button small" type="button">Cập nhật danh sách</button></div>
+    <div class="panel-heading"><div><h2>3. Kiểm tra & sửa nhãn</h2></div><button id="review-refresh" class="button primary small" type="button">Cập nhật danh sách</button></div>
     <div class="toolbar"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="search" type="search" placeholder="Tìm trong bình luận…" aria-label="Tìm bình luận"></div><select id="label-filter" aria-label="Lọc nhãn"><option value="all">Tất cả nhãn</option><option value="unlabeled">Chưa gán nhãn</option><option value="toxic">Toxic</option><option value="non-toxic">Non-toxic</option><option value="needs_review">Nhãn cần kiểm tra</option></select><select id="quality-filter" aria-label="Lọc chất lượng"><option value="ready">Mẫu sạch duy nhất</option><option value="all">Tất cả chất lượng</option><option value="duplicate">Bản trùng</option><option value="conflict">Nhãn mâu thuẫn</option><option value="incomplete">Chưa mở hết nội dung</option><option value="empty_or_ui">Rỗng / chữ giao diện</option><option value="excluded">Đã loại thủ công</option></select><label class="button file-button" for="import-file">Nhập tệp</label><input type="file" id="import-file" accept=".json,.csv" hidden></div>
     <div class="table-scroll data-table" tabindex="0" role="region" aria-label="Bình luận và gán nhãn"><table class="annotation-table"><thead><tr><th>Nội dung bình luận</th><th>Chất lượng</th><th>Nhãn & đánh giá</th></tr></thead><tbody id="data-rows"></tbody></table></div><div class="pagination"><span id="page-info">Đang tải…</span><div class="actions"><button id="prev-page" class="button small">← Trước</button><button id="next-page" class="button small">Sau →</button></div></div>
     <div class="review-actions"><p id="review-pending" role="status" aria-live="polite">Không có thay đổi chưa lưu.</p><button id="review-save-all" class="button primary" type="button" disabled>Lưu tất cả thay đổi</button></div>
