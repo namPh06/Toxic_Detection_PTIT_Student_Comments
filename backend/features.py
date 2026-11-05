@@ -4,7 +4,7 @@ import json
 from collections import Counter
 from datetime import datetime, timezone
 
-from dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint, input_fingerprint, word_tokens
+from backend.dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint, input_fingerprint, word_tokens
 
 
 def validate_settings(settings):
@@ -33,7 +33,7 @@ def feature_key(rows):
 
 
 def build_features(rows, settings, notify=lambda message: None):
-    from experiments import split_dataset
+    from backend.experiments import split_dataset
     from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
     from sklearn.pipeline import FeatureUnion
 

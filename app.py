@@ -11,10 +11,10 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
-from dataset import atomic_json, csv_bytes, text_hash
-from lab import Lab
-from collection_filter import CollectionFilter, MODES
-from post_context import load_context, enrich_posts
+from backend.dataset import atomic_json, csv_bytes, text_hash
+from backend.lab import Lab
+from backend.collection_filter import CollectionFilter, MODES
+from backend.post_context import load_context, enrich_posts
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
@@ -27,9 +27,9 @@ STATE['collection_filter'] = 'all'
 STATE['filter_counts'] = {}
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
-HELPERS = (ROOT / 'helpers.js').read_text(encoding='utf-8')
-DOM = (ROOT / 'dom.js').read_text(encoding='utf-8')
-POST_MESSAGE = 'return (' + (ROOT / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'
+HELPERS = (ROOT / 'scripts' / 'crawler' / 'helpers.js').read_text(encoding='utf-8')
+DOM = (ROOT / 'scripts' / 'crawler' / 'dom.js').read_text(encoding='utf-8')
+POST_MESSAGE = 'return (' + (ROOT / 'scripts' / 'crawler' / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'
 POST_CONTEXT = load_context(DATA / 'post_context.json')
 
 def capture_post_context(driver, post):
@@ -524,11 +524,11 @@ class Handler(BaseHTTPRequestHandler):
         url = urlparse(self.path)
         path, query = url.path, parse_qs(url.query)
         static = {
-            '/': ('index.html', 'text/html'),
-            '/ui.js': ('ui.js', 'text/javascript'),
-            '/pipeline.js': ('pipeline.js', 'text/javascript'),
-            '/report-video.js': ('report-video.js', 'text/javascript'),
-            '/style.css': ('style.css', 'text/css'),
+            '/': ('frontend/index.html', 'text/html'),
+            '/ui.js': ('frontend/ui.js', 'text/javascript'),
+            '/pipeline.js': ('frontend/pipeline.js', 'text/javascript'),
+            '/report-video.js': ('frontend/report-video.js', 'text/javascript'),
+            '/style.css': ('frontend/style.css', 'text/css'),
             '/assets/fonts/be-vietnam-pro-400.ttf': ('assets/fonts/be-vietnam-pro-400.ttf', 'font/ttf'),
             '/assets/fonts/be-vietnam-pro-500.ttf': ('assets/fonts/be-vietnam-pro-500.ttf', 'font/ttf'),
             '/assets/fonts/be-vietnam-pro-600.ttf': ('assets/fonts/be-vietnam-pro-600.ttf', 'font/ttf'),
@@ -538,16 +538,16 @@ class Handler(BaseHTTPRequestHandler):
             filename, kind = static[path]
             self.send((ROOT / filename).read_bytes(), kind + ';charset=utf-8')
         elif path == '/api/system-report-video':
-            from system_report_video import STORE
+            from backend.system_report_video import STORE
             self.json(STORE.status())
         elif path == '/api/system-report-video.mp4':
-            from system_report_video import STORE
+            from backend.system_report_video import STORE
             self.send_video(STORE.video_path(query.get('id', [''])[0]), download='download' in query)
         elif path == '/api/pipeline-video':
-            import pipeline_video
+            from backend import pipeline_video
             self.json(pipeline_video.status(query.get('id', [''])[0]))
         elif path == '/api/pipeline-video.mp4':
-            import pipeline_video
+            from backend import pipeline_video
             video = pipeline_video.video_path(query.get('id', [''])[0])
             self.send_video(video, download='download' in query)
         elif path == '/favicon.ico':
@@ -684,10 +684,10 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == '/api/predict':
             return LAB.predict(body)
         elif self.path == '/api/system-report-video':
-            from system_report_video import STORE
+            from backend.system_report_video import STORE
             return STORE.enqueue(retry=True)
         elif self.path == '/api/pipeline-video':
-            import pipeline_video
+            from backend import pipeline_video
             answer = LAB.predict(dict(text=body.get('text'), model=body.get('model'), explain=True))
             if answer['trace']['run'] != body.get('run'):
                 raise ValueError('Mô hình đã thay đổi. Phân loại lại trước khi tạo video.')
@@ -709,7 +709,7 @@ if __name__ == '__main__':
     restore()
     # Rendering runs in one background worker; a cached report is immediately playable.
     try:
-        from system_report_video import STORE
+        from backend.system_report_video import STORE
         if (DATA / 'latest.json').exists():
             STORE.enqueue()
     except Exception as error:

@@ -6,9 +6,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from dataset import csv_bytes, fingerprint, parse_import
-from lab import Lab
-from labeling import automatic_annotation
+from backend.dataset import csv_bytes, fingerprint, parse_import
+from backend.lab import Lab
+from backend.labeling import automatic_annotation
 from tests.test_lab_integrity import suggestion
 from tests.test_project import fixture
 
@@ -32,7 +32,7 @@ class BulkLabelingTests(unittest.TestCase):
             yield row, dict(automatic_annotation(item), excluded=False)
 
     def run_bulk(self):
-        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate):
+        with patch('backend.contextual_annotation.generate_annotations', side_effect=self.contextual_generate):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertFalse(self.lab.annotation_job['error'], self.lab.annotation_job)
 
@@ -46,9 +46,9 @@ class BulkLabelingTests(unittest.TestCase):
         cached = self.lab.rows()[1]
         self.lab.suggestions[cached['id']] = dict(suggestion(cached), model_score=.5, suggested_label='', abstain_reason='uncertain')
         eligible = [r for r in self.lab.rows() if r['quality'] == 'ready' and not r['label']]
-        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate) as infer:
+        with patch('backend.contextual_annotation.generate_annotations', side_effect=self.contextual_generate) as infer:
             # start_suggestions selects the whole workspace, not the UI's 25-row page.
-            with patch('lab.threading.Thread') as thread:
+            with patch('backend.lab.threading.Thread') as thread:
                 started = self.lab.start_suggestions(automatic=True)
                 selected, automatic = thread.call_args.kwargs['args']
             self.lab.suggest(selected, automatic)
@@ -111,7 +111,7 @@ class BulkLabelingTests(unittest.TestCase):
 
     def test_commit_failure_does_not_partially_label(self):
         before = copy.deepcopy(self.lab.annotations)
-        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch('lab.atomic_json', side_effect=OSError('disk full')):
+        with patch('backend.contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch('backend.lab.atomic_json', side_effect=OSError('disk full')):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertTrue(self.lab.annotation_job['error'])
         self.assertFalse(self.lab.annotation_job['running'])
@@ -119,7 +119,7 @@ class BulkLabelingTests(unittest.TestCase):
         self.assertFalse((self.directory/'workspace.json').exists())
 
     def test_export_failure_keeps_committed_labels_downloadable(self):
-        with patch('contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch.object(self.lab, 'save_cleaned', side_effect=OSError('disk full')):
+        with patch('backend.contextual_annotation.generate_annotations', side_effect=self.contextual_generate), patch.object(self.lab, 'save_cleaned', side_effect=OSError('disk full')):
             self.lab.suggest(self.lab.rows(), automatic=True)
         self.assertTrue(self.lab.annotation_job['error'])
         self.assertIn('được giữ lại', self.lab.annotation_job['message'])
@@ -133,7 +133,7 @@ class BulkLabelingTests(unittest.TestCase):
             self.lab.annotate(dict(id=rows[1]['id'], text_hash=rows[1]['text_hash'], label='', excluded=True))
             self.raw[2]['text_raw'] += ' mới bổ sung'
             return self.contextual_generate(rows)
-        with patch('contextual_annotation.generate_annotations', side_effect=generate):
+        with patch('backend.contextual_annotation.generate_annotations', side_effect=generate):
             self.lab.suggest(snapshot, automatic=True)
         self.assertFalse(self.lab.annotation_job['error'])
         rows = self.lab.rows()

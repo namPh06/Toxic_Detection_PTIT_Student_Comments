@@ -1,14 +1,19 @@
 """Bounded validation-only model search, thresholds, and optional ViSoBERT."""
 import argparse
 import json
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 
-from dataset import LABELS, atomic_json, fingerprint, input_fingerprint
-from experiments import build_report, metrics, publish_run, train_experiment, validate_algorithms
+from backend.dataset import LABELS, atomic_json, fingerprint, input_fingerprint
+from backend.experiments import build_report, metrics, publish_run, train_experiment, validate_algorithms
+
+# Existing joblib models refer to improvements.ThresholdClassifier.
+if __name__ != '__main__':
+    sys.modules.setdefault('improvements', sys.modules[__name__])
 
 
 def choose_threshold(labels, scores, default=0.5):
@@ -106,7 +111,7 @@ def search_baselines(features, train_labels, validation_labels, notify=print, al
 def train_improved(rows, output, notify=print, prepared=None, include_visobert=False,
                    transformer_config=None, algorithms=None):
     import joblib
-    from features import build_features
+    from backend.features import build_features
 
     algorithms = validate_algorithms(algorithms, include_visobert, optimized=True)
     output = Path(output)
@@ -160,7 +165,7 @@ def train_improved(rows, output, notify=print, prepared=None, include_visobert=F
     result['search_seconds'] = round(search_seconds, 3)
 
     if 'ViSoBERT' in algorithms:
-        from transformer_model import train_transformer, score_transformer
+        from backend.transformer_model import train_transformer, score_transformer
         raw = {part: [eligible[i]['text_raw'] for i in ids] for part, ids in split.items()}
         model, tokenizer, transformer = train_transformer(raw['train'], labels['train'], raw['validation'], labels['validation'],
                                                           output.parent.parent.parent / 'models' / 'visobert-base',
@@ -185,9 +190,9 @@ def main():
     parser.add_argument('--algorithms', nargs='+', choices=['NB', 'SVM', 'ViSoBERT'],
                         help='Only train the selected algorithms; retain compatible previous models.')
     args = parser.parse_args()
-    root = Path(__file__).resolve().parent
+    root = Path(__file__).resolve().parents[1]
     if args.download_visobert:
-        from transformer_model import download_base
+        from backend.transformer_model import download_base
         print(download_base(root / 'models' / 'visobert-base'), flush=True)
         return
     from app import LAB, restore
@@ -207,12 +212,12 @@ def main():
     if fingerprint(rows) != fingerprint(current) or input_fingerprint(rows) != input_fingerprint(current):
         raise ValueError('Dữ liệu đã thay đổi trong lúc huấn luyện; giữ kết quả cũ và không cập nhật latest.')
     result = publish_run(result, output, root / 'data', rows)
-    (root / 'Report.md').write_text(build_report(LAB.rows(), result,
+    (root / 'docs' / 'Report.md').write_text(build_report(LAB.rows(), result,
         experiment_fingerprint=fingerprint(current), experiment_input_fingerprint=input_fingerprint(current)), encoding='utf-8')
     print(json.dumps(dict(run=run, selected=result['selected_model'], models=len(result['models'])), ensure_ascii=False), flush=True)
 
 
 if __name__ == '__main__':
     # Keep persisted class references importable when the CLI is __main__.
-    from improvements import main as run_main
+    from backend.improvements import main as run_main
     run_main()

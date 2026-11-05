@@ -1,6 +1,6 @@
 """Context-aware local automatic annotations using the current collection policy."""
-from collection_filter import CollectionFilter, MODEL
-from dataset import text_hash
+from backend.collection_filter import CollectionFilter, MODEL
+from backend.dataset import text_hash
 from datetime import datetime, timezone
 import json
 

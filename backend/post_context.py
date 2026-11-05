@@ -6,7 +6,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from dataset import atomic_json
+from backend.dataset import atomic_json
 
 
 def load_context(path):

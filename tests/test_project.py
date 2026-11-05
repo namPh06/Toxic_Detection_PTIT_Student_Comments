@@ -8,9 +8,9 @@ import unicodedata
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
-from experiments import build_report, metrics, predict, split_dataset, train_experiment
-from lab import Lab
+from backend.dataset import clean_text, csv_bytes, fingerprint, parse_import, prepare, row_id, summary, text_hash, word_tokens
+from backend.experiments import build_report, metrics, predict, split_dataset, train_experiment
+from backend.lab import Lab
 
 
 def fixture():
@@ -84,7 +84,7 @@ class DatasetTests(unittest.TestCase):
     def test_failed_save_does_not_change_in_memory_label(self):
         with tempfile.TemporaryDirectory() as temp:
             lab = Lab(Path(temp), lambda: fixture()[:2])
-            with patch('lab.atomic_json', side_effect=OSError('disk full')):
+            with patch('backend.lab.atomic_json', side_effect=OSError('disk full')):
                 with self.assertRaises(OSError):
                     lab.annotate(dict(id=row_id(fixture()[0]), text_hash=text_hash(fixture()[0]['text_raw']), label='toxic'))
             self.assertEqual(lab.rows()[0]['label'], 'non-toxic')
@@ -101,6 +101,36 @@ class DatasetTests(unittest.TestCase):
 
 
 class ExperimentTests(unittest.TestCase):
+    def test_saved_models_with_old_module_names_still_predict(self):
+        import joblib
+        import subprocess
+        import sys
+        from backend.dataset import TOKENIZER_VERSION
+        from backend.improvements import ThresholdClassifier
+        from sklearn.dummy import DummyClassifier
+        from sklearn.feature_extraction.text import CountVectorizer
+        from sklearn.pipeline import Pipeline
+
+        model = ThresholdClassifier(Pipeline([
+            ('vectorizer', CountVectorizer(tokenizer=word_tokens, token_pattern=None)),
+            ('classifier', DummyClassifier(strategy='most_frequent')),
+        ]).fit(['cảm ơn', 'đồ ngu'], [0, 1]), .5)
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            with patch.object(ThresholdClassifier, '__module__', 'improvements'), \
+                    patch.object(word_tokens, '__module__', 'dataset'):
+                joblib.dump(model, directory / 'BoW-NB.joblib')
+            (directory / 'metrics.json').write_text(json.dumps(dict(
+                tokenizer_version=TOKENIZER_VERSION,
+                models=[dict(name='BoW-NB', threshold=.5,
+                             artifact=dict(kind='sklearn', file='BoW-NB.joblib'))])), encoding='utf-8')
+            script = ('from pathlib import Path; import sys; '
+                      'from backend.experiments import predict; '
+                      'assert predict("cam on", Path(sys.argv[1]), "BoW-NB")["label"] == "non-toxic"')
+            result = subprocess.run([sys.executable, '-B', '-c', script, temp],
+                                    cwd=Path(__file__).resolve().parents[1], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_split_prevents_post_and_duplicate_leakage(self):
         raw = fixture()
         raw.append(dict(raw[0], post_id='1', comment_id='cross-post-duplicate'))
@@ -258,6 +288,17 @@ class HTTPTests(unittest.TestCase):
                 self.assertEqual(body[:4], b'\x00\x01\x00\x00')
         self.assertEqual(self.request('/assets/fonts/../../app.py')[0], 404)
 
+    def test_frontend_files_are_served_after_reorganization(self):
+        for url, filename in (('/', 'index.html'), ('/style.css', 'style.css'),
+                              ('/ui.js', 'ui.js'), ('/pipeline.js', 'pipeline.js'),
+                              ('/report-video.js', 'report-video.js')):
+            with self.subTest(url=url):
+                status, body = self.request(url)
+                self.assertEqual(status, 200)
+                self.assertEqual(body, (self.app.ROOT / 'frontend' / filename).read_bytes())
+        for url in ('/backend/dataset.py', '/scripts/crawler/helpers.js', '/frontend/../app.py'):
+            self.assertEqual(self.request(url)[0], 404)
+
     def test_api_validation_host_origin_and_paging(self):
         self.assertEqual(self.request('/api/status', host='evil.test')[0], 403)
         self.assertEqual(self.request('/api/annotate', {}, origin=False)[0], 403)
@@ -330,13 +371,13 @@ class HTTPTests(unittest.TestCase):
     def test_bulk_endpoint_and_automatic_exports(self):
         import time
         from tests.test_bulk_labeling import BulkLabelingTests
-        from labeling import automatic_annotation
+        from backend.labeling import automatic_annotation
         def contextual_fixture(selected, *_):
             for row, item in zip(selected, BulkLabelingTests.generate(selected)):
                 yield row, dict(automatic_annotation(item), excluded=False)
         rows = [dict(r, label='') for r in fixture()[:30]]
         with tempfile.TemporaryDirectory() as temp, patch.object(self.app, 'LAB', Lab(Path(temp), lambda: rows)), \
-                patch('contextual_annotation.generate_annotations', side_effect=contextual_fixture):
+                patch('backend.contextual_annotation.generate_annotations', side_effect=contextual_fixture):
             self.assertEqual(self.request('/api/auto-label', {}, origin=False)[0], 403)
             status, body = self.request('/api/auto-label', {})
             self.assertEqual(status, 200)

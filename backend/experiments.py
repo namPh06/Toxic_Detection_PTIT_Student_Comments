@@ -6,7 +6,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, fingerprint, input_fingerprint, summary
+from backend.dataset import LABELS, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, fingerprint, input_fingerprint, summary
 
 MODEL_NAMES = ('BoW-NB', 'BoW-SVM', 'TF-IDF-NB', 'TF-IDF-SVM', 'ViSoBERT')
 
@@ -95,7 +95,7 @@ def train_experiment(rows, output, notify=lambda message: None, prepared=None, a
     from sklearn.naive_bayes import MultinomialNB
     from sklearn.pipeline import Pipeline
     from sklearn.svm import LinearSVC
-    from features import build_features, feature_key
+    from backend.features import build_features, feature_key
 
     # An empty internal baseline list supports a ViSoBERT-only optimized run.
     algorithms = validate_algorithms(algorithms) if algorithms != [] else []
@@ -258,7 +258,8 @@ def publish_run(result, output, directory, rows):
 
 
 def predict(text, directory, model_name):
-    from dataset import clean_text
+    from backend import improvements  # Register the module name used by older joblib models.
+    from backend.dataset import clean_text
     metadata = json.loads((directory / 'metrics.json').read_text(encoding='utf-8'))
     if metadata.get('tokenizer_version') != TOKENIZER_VERSION:
         raise ValueError('Mô hình dùng cách tách từ cũ. Hãy trích xuất lại đặc trưng bằng Underthesea và huấn luyện lại.')
@@ -279,7 +280,7 @@ def predict(text, directory, model_name):
             model = joblib.load(directory / artifact['file'])
             score = float(model.decision_function([cleaned])[0])
         elif artifact['kind'] == 'transformer':
-            from transformer_model import predict_transformer
+            from backend.transformer_model import predict_transformer
             score = float(predict_transformer(directory / 'ViSoBERT', [text])[0])
         else:
             raise ValueError('Định dạng mô hình không được hỗ trợ.')

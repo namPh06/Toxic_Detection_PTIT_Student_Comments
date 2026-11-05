@@ -116,7 +116,7 @@ class CrawlerIntegrityTests(unittest.TestCase):
     def test_group_aliases_require_matching_facebook_group_metadata(self):
         script = r"""
 const assert = require('node:assert/strict');
-const H = require('./helpers.js');
+const H = require('./scripts/crawler/helpers.js');
 const group = {__typename:'Group', id:'450310163844833', url:'https://www.facebook.com/groups/2k5ptit/'};
 const unrelated = {__typename:'Group', id:'999', url:'https://www.facebook.com/groups/another/'};
 const scripts = ['invalid JSON', JSON.stringify({data:[group, unrelated]})];
@@ -135,14 +135,14 @@ assert.deepEqual([...H.groupAliases(group.id, [JSON.stringify({...group, __typen
     def test_comment_urls_and_fallback_expansion_identity(self):
         script = r"""
 const assert = require('node:assert/strict');
-let H = require('./helpers.js');
+let H = require('./scripts/crawler/helpers.js');
 for (const url of ['https://evil.test/?comment_id=123', 'https://facebook.com.evil.test/?comment_id=123', 'http://facebook.com/?comment_id=123', 'javascript:alert(1)', 'https://facebook.com/?comment_id=a%20b']) {
   assert.equal(H.commentInfo(url).id, '', url);
 }
 assert.deepEqual(H.commentInfo('https://www.facebook.com/groups/g/posts/1/?comment_id=2&reply_comment_id=3'), {id:'3',parent:'2'});
 const node = {}, id = H.fallbackCommentId(node, '1', 'Student', 'Nội dung...', false);
-delete require.cache[require.resolve('./helpers.js')];
-H = require('./helpers.js');
+delete require.cache[require.resolve('./scripts/crawler/helpers.js')];
+H = require('./scripts/crawler/helpers.js');
 assert.equal(H.fallbackCommentId(node, '1', 'Student', 'Nội dung đầy đủ', true), id);
 assert.equal(H.fallbackCommentId(node, '1', 'Student', 'Nội dung đầy đủ', true), id);
 assert.notEqual(H.fallbackCommentId(node, '1', 'Student', 'Một bình luận khác', true), id);

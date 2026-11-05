@@ -2,8 +2,8 @@
 import json
 import urllib.error
 from pathlib import Path
-from dataset import text_hash
-from semantic_labeling import request
+from backend.dataset import text_hash
+from backend.semantic_labeling import request
 
 MODES = ('all', 'toxic', 'non-toxic')
 MODEL = 'qwen3:4b-instruct-2507-q4_K_M'
@@ -38,7 +38,7 @@ class CollectionFilter:
         self.decisions = {}
         self.digest = ''
         self.policy = ''
-        self.policy_path = Path(policy_path or Path(__file__).with_name('QUY_TAC_GAN_NHAN.md'))
+        self.policy_path = Path(policy_path or Path(__file__).resolve().parents[1] / 'docs' / 'QUY_TAC_GAN_NHAN.md')
         if mode != 'all':
             self.refresh_policy()
             try:

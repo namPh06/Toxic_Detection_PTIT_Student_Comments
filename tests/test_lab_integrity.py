@@ -7,8 +7,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from dataset import csv_bytes, row_id, text_hash
-from lab import Lab
+from backend.dataset import csv_bytes, row_id, text_hash
+from backend.lab import Lab
 
 
 def suggestion(row):
@@ -165,7 +165,7 @@ class LabIntegrityTests(unittest.TestCase):
 
     def test_suggestions_remain_outside_dataset_until_human_review(self):
         raw_before = copy.deepcopy(self.source_rows)
-        with patch('labeling.generate_suggestions', side_effect=lambda rows, *_: [suggestion(row) for row in rows]):
+        with patch('backend.labeling.generate_suggestions', side_effect=lambda rows, *_: [suggestion(row) for row in rows]):
             self.lab.suggest(self.lab.rows())
         self.assertFalse(self.lab.annotation_job['error'])
         self.assertTrue(all(row['suggestion'] and row['label'] == '' for row in self.lab.rows()))
@@ -193,7 +193,7 @@ class LabIntegrityTests(unittest.TestCase):
             return [suggestion(row) for row in rows]
 
         self.lab.annotation_job['running'] = True
-        with patch('labeling.generate_suggestions', side_effect=delayed_generate):
+        with patch('backend.labeling.generate_suggestions', side_effect=delayed_generate):
             worker = threading.Thread(target=self.lab.suggest, args=(snapshot,), daemon=True)
             worker.start()
             try:
@@ -216,15 +216,15 @@ class LabIntegrityTests(unittest.TestCase):
 
     def test_inference_or_suggestion_commit_failure_preserves_workspace(self):
         self.review(0)
-        with patch('labeling.generate_suggestions', side_effect=lambda rows, *_: [suggestion(row) for row in rows]):
+        with patch('backend.labeling.generate_suggestions', side_effect=lambda rows, *_: [suggestion(row) for row in rows]):
             self.lab.suggest(self.lab.rows()[1:2])
         before, disk = self.state(), (self.directory / 'workspace.json').read_bytes()
         for failure in ('inference', 'commit'):
             with self.subTest(failure=failure):
                 self.lab.annotation_job['running'] = True
                 prediction = (lambda rows, *_: [suggestion(row) for row in rows]) if failure == 'commit' else RuntimeError('simulated inference failure')
-                with patch('labeling.generate_suggestions', side_effect=prediction), \
-                        patch('lab.atomic_json', side_effect=OSError('simulated storage failure')):
+                with patch('backend.labeling.generate_suggestions', side_effect=prediction), \
+                        patch('backend.lab.atomic_json', side_effect=OSError('simulated storage failure')):
                     self.lab.suggest(self.lab.rows()[2:])
                 self.assertTrue(self.lab.annotation_job['error'])
                 self.assertFalse(self.lab.annotation_job['running'])

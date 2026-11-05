@@ -2,7 +2,7 @@
 import json
 import unittest
 
-from dataset import clean_text, csv_bytes, parse_import, prepare, row_id, text_hash
+from backend.dataset import clean_text, csv_bytes, parse_import, prepare, row_id, text_hash
 
 
 def sample(**values):

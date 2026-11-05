@@ -7,11 +7,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zipfile import ZipFile
 
-from dataset import LABELS, atomic_json, csv_bytes, prepare, row_id, summary, text_hash
-from post_context import canonical_post_id
+from backend.dataset import LABELS, atomic_json, csv_bytes, prepare, row_id, summary, text_hash
+from backend.post_context import canonical_post_id
 
 POLICY = 'ptit-v4-abuse-context-20261102'
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def digest(path):
@@ -49,7 +49,7 @@ def apply_approval(directory, rows, approval=None, imported=None):
             imported = state.get('imported', [])
     valid = (approval.get('method') == 'owner_batch_acceptance'
              and approval.get('label_policy_version') == POLICY
-             and approval.get('policy_sha256') == digest(directory.parent / 'QUY_TAC_GAN_NHAN.md')
+             and approval.get('policy_sha256') == digest(directory.parent / 'docs' / 'QUY_TAC_GAN_NHAN.md')
              and approval.get('source_sha256') == digest(directory / 'progress.json')
              and approval.get('imported_sha256') == text_hash(json.dumps(imported, ensure_ascii=False, sort_keys=True))
              and approval.get('context_sha256') == {
@@ -78,7 +78,7 @@ def approve_current(directory):
     state['dataset_approval'] = dict(
         method='owner_batch_acceptance', approved_at=datetime.now(timezone.utc).isoformat(),
         statement='Người phụ trách phê duyệt bộ nhãn hiện có với sự hỗ trợ của AI; không xác nhận từng mẫu được gán tay.',
-        label_policy_version=POLICY, policy_sha256=digest(directory.parent / 'QUY_TAC_GAN_NHAN.md'),
+        label_policy_version=POLICY, policy_sha256=digest(directory.parent / 'docs' / 'QUY_TAC_GAN_NHAN.md'),
         source_sha256=digest(directory / 'progress.json'),
         imported_sha256=text_hash(json.dumps(state['imported'], ensure_ascii=False, sort_keys=True)),
         context_sha256={name: digest(directory / name) for name in ('post_context.json', 'parent_context.json')},
@@ -141,11 +141,11 @@ def training_rows(directory, rows):
     if manifest['label_policy_version'] != POLICY:
         raise ValueError('Chính sách nhãn đã đổi; cần xuất lại bộ dữ liệu dùng chung.')
     if manifest['source_sha256'] != digest(directory / 'progress.json'):
-        raise ValueError('Dữ liệu crawl đã đổi; chạy shared_dataset.py --export trước khi huấn luyện.')
+        raise ValueError('Dữ liệu crawl đã đổi; chạy python -m backend.shared_dataset --export trước khi huấn luyện.')
     state = load(directory / 'workspace.json')
     if manifest['imported_sha256'] != text_hash(json.dumps(state['imported'], ensure_ascii=False, sort_keys=True)):
-        raise ValueError('Dữ liệu nhập đã đổi; chạy shared_dataset.py --export trước khi huấn luyện.')
-    policy = directory.parent / 'QUY_TAC_GAN_NHAN.md'
+        raise ValueError('Dữ liệu nhập đã đổi; chạy python -m backend.shared_dataset --export trước khi huấn luyện.')
+    policy = directory.parent / 'docs' / 'QUY_TAC_GAN_NHAN.md'
     if manifest['policy_sha256'] != digest(policy):
         raise ValueError('Tiêu chí gán nhãn đã đổi; cần rà soát nhãn và cập nhật phiên bản chính sách.')
     by_id = {r['id']: r for r in manifest['groups']}
@@ -183,7 +183,7 @@ def export(directory):
     temp.write_bytes(csv_bytes(rows))
     temp.replace(csv_path)
     manifest = dict(schema_version=1, label_policy_version=POLICY, label_usage_policy='includes_automatic',
-                    policy_sha256=digest(directory.parent / 'QUY_TAC_GAN_NHAN.md'),
+                    policy_sha256=digest(directory.parent / 'docs' / 'QUY_TAC_GAN_NHAN.md'),
                     source_sha256=digest(directory / 'progress.json'),
                     workspace_sha256=digest(directory / 'workspace.json'),
                     imported_sha256=text_hash(json.dumps(state['imported'], ensure_ascii=False, sort_keys=True)),
@@ -204,7 +204,7 @@ def check(directory):
     expected = dict(manifest['exports'], **manifest['context_sha256'])
     expected.update({'progress.json': manifest['source_sha256'], 'workspace.json': manifest['workspace_sha256']})
     stale = [name for name, value in expected.items() if digest(directory / name) != value]
-    if digest(directory.parent / 'QUY_TAC_GAN_NHAN.md') != manifest['policy_sha256']:
+    if digest(directory.parent / 'docs' / 'QUY_TAC_GAN_NHAN.md') != manifest['policy_sha256']:
         stale.append('QUY_TAC_GAN_NHAN.md')
     if stale:
         raise ValueError('Bản chia sẻ chưa đồng bộ: ' + ', '.join(stale) + '. Chạy --export trước khi commit/push.')

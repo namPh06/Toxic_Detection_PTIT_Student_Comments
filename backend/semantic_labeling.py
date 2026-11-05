@@ -5,7 +5,7 @@ import json
 import time
 import urllib.request
 from pathlib import Path
-from dataset import atomic_json, text_hash
+from backend.dataset import atomic_json, text_hash
 
 POLICY_VERSION = 'ptit-v4-abuse-context-20261102'
 SYSTEM = '''Classify the communicative ACT of the author of a Vietnamese comment, not isolated words.

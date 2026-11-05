@@ -1,6 +1,6 @@
 """Read-only visualization of the artifacts used by a prediction."""
 import json
-from dataset import PREPROCESS_VERSION, word_tokens
+from backend.dataset import PREPROCESS_VERSION, word_tokens
 
 
 def build_trace(text, directory, answer):
@@ -14,7 +14,7 @@ def build_trace(text, directory, answer):
     if metadata.get('preprocess_version') != PREPROCESS_VERSION:
         warning = 'Phiên bản chuẩn hóa của run khác phiên bản hiện tại; nên huấn luyện lại trước khi báo cáo.'
     if name == 'ViSoBERT':
-        from transformer_model import normalize_input
+        from backend.transformer_model import normalize_input
         from transformers import AutoTokenizer
         folder = directory / 'ViSoBERT'
         config = json.loads((folder / 'training.json').read_text(encoding='utf-8'))['config']
@@ -25,6 +25,7 @@ def build_trace(text, directory, answer):
                    dict(title='Tokenizer ViSoBERT', content=json.dumps(dict(tokens=tokenizer.convert_ids_to_tokens(ids), ids=ids), ensure_ascii=False)),
                    dict(title='Encoder và đầu phân loại', content='Dùng trọng số ViSoBERT đã lưu. Không suy diễn mức đóng góp của từng token.')]
     else:
+        from backend import improvements  # Register the module name used by older joblib models.
         cleaned = answer['text_clean']
         tokens = word_tokens(cleaned)
         stages += [dict(title='Làm sạch và chuẩn hóa', content=cleaned),

@@ -37,7 +37,7 @@ Hai thao tác trên giao diện được tách riêng:
   khóa khi không còn mẫu phù hợp. Mẫu sạch có nhãn máy dùng được ngay, không cần
   bước duyệt. Bản tải dataset ở phần chính gồm cả nhãn máy và nhãn sửa tay.
 
-1. Thống nhất tiêu chí trong [QUY_TAC_GAN_NHAN.md](QUY_TAC_GAN_NHAN.md).
+1. Thống nhất tiêu chí trong [QUY_TAC_GAN_NHAN.md](docs/QUY_TAC_GAN_NHAN.md).
 2. Đọc bình luận gốc và ngữ cảnh bài viết/bình luận cha khi cần. Chọn nhãn rồi
    bấm **Lưu nhãn** hoặc **Lưu tất cả thay đổi** khi cần sửa. Câu không đủ ngữ
    cảnh hoặc không hợp lệ cần được loại/để chờ rà soát.
@@ -92,7 +92,7 @@ không được coi là nhãn cuối.
    duyệt lại; không sửa ID/hash hoặc bỏ cột nguồn nhãn khi chỉnh CSV bằng Excel.
 3. Rà các nhóm rỗng/giao diện, trùng, nhãn mâu thuẫn, chưa mở hết nội dung và đã
    loại. Giữ dữ liệu gốc để đối chiếu; nhãn trống không đồng nghĩa non-toxic.
-4. Sau khi lưu, xuất rồi chạy `shared_dataset.py --check` như bên dưới. Lệnh kiểm
+4. Sau khi lưu, xuất rồi chạy `python -m backend.shared_dataset --check` như bên dưới. Lệnh kiểm
    tra checksum, nguồn dữ liệu/nhãn/ngữ cảnh, nhóm chia và bản xuất; không đánh giá
    tính đúng về ngữ nghĩa. Khi cần kiểm tra giao diện/API, đối chiếu ID, văn bản,
    nguồn nhãn và số dòng giữa bản tải xuống với workspace tương ứng.
@@ -112,8 +112,8 @@ Dừng máy chủ trước khi xuất/commit hoặc pull để tránh ghi đè d
 Sau một đợt gán nhãn, chạy:
 
 ```powershell
-.venv\Scripts\python.exe shared_dataset.py --export
-.venv\Scripts\python.exe shared_dataset.py --check
+.venv\Scripts\python.exe -m backend.shared_dataset --export
+.venv\Scripts\python.exe -m backend.shared_dataset --check
 git add data/progress.json data/workspace.json data/shared_dataset.json data/shared_dataset.csv data/shared_manifest.json data/post_context.json data/parent_context.json data/label_history
 git commit -m "Cap nhat du lieu va nhan"
 git push
@@ -123,7 +123,7 @@ Lần bàn giao code cần commit cả những file code đã sửa. Người nh
 
 ```powershell
 git pull
-.venv\Scripts\python.exe shared_dataset.py --check
+.venv\Scripts\python.exe -m backend.shared_dataset --check
 .venv\Scripts\python.exe app.py
 ```
 
@@ -137,9 +137,10 @@ chí và lịch sử; không chọn toàn bộ một phía của xung đột r�
 
 | Vị trí | Vai trò |
 | --- | --- |
-| `app.py`, `lab.py` | Máy chủ cục bộ, thu thập và điều phối tác vụ |
-| `index.html`, `style.css`, các file `.js`, `assets/` | Giao diện và font |
-| Các module Python còn lại | Tiền xử lý, gán nhãn, đặc trưng và mô hình |
+| `app.py`, `backend/lab.py` | Máy chủ cục bộ, thu thập và điều phối tác vụ |
+| `frontend/`, `assets/fonts/` | Giao diện HTML/CSS/JavaScript và font |
+| `scripts/crawler/` | JavaScript do Selenium thực thi để đọc Facebook |
+| `backend/` | Tiền xử lý, gán nhãn, đặc trưng, mô hình và tạo video |
 | `data/progress.json` | Dữ liệu thu thập gốc |
 | `data/workspace.json` | Nhãn, phê duyệt bộ nhãn, xác nhận riêng, ghi chú và dữ liệu nhập dùng chung |
 | `data/post_context.json`, `data/parent_context.json` | Ngữ cảnh gán nhãn |
@@ -148,7 +149,16 @@ chí và lịch sử; không chọn toàn bộ một phía của xung đột r�
 | `data/label_history/` | Workspace trước khi chuyển sang tiêu chí hiện hành |
 | `outputs/history.zip` | Lịch sử các đợt rà soát, quyết định của người gán và công cụ cũ |
 | `tests/` | Bộ kiểm thử Python và các kịch bản kiểm tra trình duyệt |
-| `Report.md` | Phương pháp và trạng thái báo cáo bài làm |
+| `docs/Report.md` | Phương pháp và trạng thái báo cáo bài làm |
+| `docs/HUONG_DAN_MINH_HOA_PIPELINE.md` | Hướng dẫn video minh họa |
+| `docs/QUY_TAC_GAN_NHAN.md` | Tiêu chí gán nhãn được dùng khi thu thập và kiểm tra dataset |
+| `docs/reviews/`, `docs/superpowers/` | Các đợt rà soát, kế hoạch và thiết kế |
+| `assets/images/debai.png` | Đề bài |
+
+Giữ `app.py`, `Open_Tool.cmd` và `Login_Facebook.cmd` ở thư mục gốc để mở như trước.
+Các lệnh tiện ích Python chạy từ gốc bằng `python -m backend.<tên_module>`, ví dụ
+`python -m backend.post_context --help`. Tài liệu rà soát và kế hoạch cũ có thể ghi
+đường dẫn trước khi gom thư mục; dùng cấu trúc và lệnh trong README này khi chạy.
 
 Chỉ lấy dòng `quality=ready` khi cần dữ liệu sạch; CSV chia sẻ vẫn chứa cả trạng
 thái loại/trùng để đối chiếu. Nhãn máy chưa xác nhận không phải đáp án chuẩn cho
@@ -172,10 +182,10 @@ Chạy từ thư mục dự án; dùng `-B` để không sinh cache bytecode:
 
 ```powershell
 .venv\Scripts\python.exe -B -m unittest discover -s tests
-.venv\Scripts\python.exe -B shared_dataset.py --check
+.venv\Scripts\python.exe -B -m backend.shared_dataset --check
 ```
 
-Kiểm tra ngày 05/11/2026: 83 kiểm thử Python, 82 đạt và 1 bỏ qua. Các kiểm thử
+Kiểm tra ngày 05/11/2026 sau khi gom thư mục: 85 kiểm thử Python, 84 đạt và 1 bỏ qua. Các kiểm thử
 Qwen dùng mô phỏng phản hồi; kết quả này không đo độ chính xác nhãn trên corpus thật.
 Kiểm thử dữ liệu/HTTP dùng dữ liệu tạm, không sửa bộ dữ liệu thật. Các file JavaScript
 trong `tests/` là kịch bản nhận đối tượng `page` từ công cụ kiểm tra trình duyệt.
@@ -191,9 +201,9 @@ Chỉ các mô hình được chọn mới huấn luyện. Mô hình khác đư�
 Có thể chạy cùng quy trình từ dòng lệnh sau khi trích xuất đặc trưng trên web. Lệnh dùng lại bộ đặc trưng trong `data/features.joblib`; nếu dữ liệu đã đổi thì yêu cầu trích xuất lại:
 
 ```powershell
-.venv\Scripts\python.exe -B improvements.py --include-visobert
-.venv\Scripts\python.exe -B improvements.py --algorithms NB SVM
-.venv\Scripts\python.exe -B improvements.py --algorithms ViSoBERT
+.venv\Scripts\python.exe -B -m backend.improvements --include-visobert
+.venv\Scripts\python.exe -B -m backend.improvements --algorithms NB SVM
+.venv\Scripts\python.exe -B -m backend.improvements --algorithms ViSoBERT
 ```
 
 Bỏ `--include-visobert` nếu chỉ cần NB/SVM. Tham số `--visobert-epochs` đặt số epoch tối đa của ViSoBERT (mặc định 4). Dừng sớm và khôi phục checkpoint theo validation.
@@ -216,6 +226,6 @@ Sau khi đổi PyTorch, dừng và mở lại hệ thống để tiến trình n
 - Chọn tham số bằng macro-F1 validation, rồi chọn ngưỡng trên validation; lưu chỉ số trước/sau ngưỡng và áp dụng lại ngưỡng khi dự đoán. Không chọn cấu hình/ngưỡng theo test.
 - ViSoBERT lưu revision nguồn, tokenizer, cấu hình và checkpoint. CPU tinh chỉnh hai tầng encoder cuối cùng với bộ phân loại; GPU tinh chỉnh toàn bộ encoder với bộ phân loại. Đầu vào giữ dấu câu/emoji và dùng tokenizer riêng của ViSoBERT.
 
-Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
+Mỗi lượt chạy dùng chung một thư mục `data/runs/<run>/`: `metrics.json`, dự đoán từng mô hình, `search.json` và checkpoint. `data/latest.json` trỏ đến lượt hoàn tất; giao diện tự nhận kết quả mới, kể cả khi chạy từ dòng lệnh. `docs/Report.md` được cập nhật từ số đo thực tế. Thời gian trong chế độ chọn tham số bao gồm tìm kiếm trong nhóm, nên không dùng để so trực tiếp tốc độ dự đoán hoặc tốc độ huấn luyện một cấu hình.
 
 Nhãn/dữ liệu dùng chung vẫn được Git theo dõi như phần bàn giao ở trên. Trọng số, cache và kết quả chạy được bỏ qua trong Git; người nhận có sẵn nhãn để chạy bước đặc trưng/huấn luyện, không phải gán lại. Ngưỡng đã tối ưu chỉ dùng được kèm đúng checkpoint của lượt chạy tương ứng.

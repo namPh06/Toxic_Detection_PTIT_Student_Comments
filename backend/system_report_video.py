@@ -7,7 +7,7 @@ import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 VERSION = 'system-report-1'
 NAMES = ('BoW-NB', 'BoW-SVM', 'TF-IDF-NB', 'TF-IDF-SVM', 'ViSoBERT')
 
@@ -32,7 +32,7 @@ def display_text(text):
 
 def evidence_for_linear(model, text, threshold):
     import numpy as np
-    from dataset import clean_text
+    from backend.dataset import clean_text
     pipeline = getattr(model, 'estimator', model)
     vectorizer, classifier = pipeline.named_steps['vectorizer'], pipeline.named_steps['classifier']
     cleaned = clean_text(text)
@@ -88,7 +88,8 @@ def evidence_for_linear(model, text, threshold):
 
 def build_evidence(directory, progress=lambda value: None):
     import joblib
-    from dataset import clean_text, word_tokens, PREPROCESS_VERSION, TOKENIZER_VERSION
+    from backend import improvements  # Register the module name used by older joblib models.
+    from backend.dataset import clean_text, word_tokens, PREPROCESS_VERSION, TOKENIZER_VERSION
     directory = Path(directory)
     metrics = read(directory / 'metrics.json')
     if (metrics.get('preprocess_version') != PREPROCESS_VERSION or
@@ -127,7 +128,7 @@ def build_evidence(directory, progress=lambda value: None):
     progress(12)
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
-    from transformer_model import normalize_input
+    from backend.transformer_model import normalize_input
     folder = directory / 'ViSoBERT'
     training = read(folder / 'training.json')
     tokenizer = AutoTokenizer.from_pretrained(folder, local_files_only=True)
@@ -185,7 +186,7 @@ class ReportStore:
         # Includes all fitted files, not just reported metrics: weight replacement invalidates cache.
         files = [(str(p.relative_to(directory)), p.stat().st_size, p.stat().st_mtime_ns)
                  for p in sorted(directory.rglob('*')) if p.is_file() and p.suffix in ('.json', '.joblib', '.bin', '.safetensors')]
-        renderer_hash = hashlib.sha256(b''.join((ROOT / name).read_bytes() for name in
+        renderer_hash = hashlib.sha256(b''.join((ROOT / 'backend' / name).read_bytes() for name in
             ('system_report_video.py', 'report_animation.py', 'animation_renderer.py'))).hexdigest()
         return hashlib.sha256(json.dumps([VERSION, renderer_hash, run, metrics, files], sort_keys=True).encode()).hexdigest()
 
@@ -234,7 +235,7 @@ class ReportStore:
                     with self.lock:
                         self.current['progress'] = value
                 evidence = build_evidence(self.data / 'runs' / run, progress)
-                from report_animation import render_report, chapters
+                from backend.report_animation import render_report, chapters
                 evidence['chapters'] = chapters(evidence)
                 evidence['duration'] = sum(c['duration'] for c in evidence['chapters'])
                 render_report(evidence, temporary, progress)

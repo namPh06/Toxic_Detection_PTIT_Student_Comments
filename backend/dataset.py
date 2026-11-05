@@ -5,10 +5,14 @@ import html
 import io
 import json
 import re
+import sys
 import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from functools import lru_cache
+
+# Existing joblib vectorizers refer to dataset.word_tokens.
+sys.modules.setdefault('dataset', sys.modules[__name__])
 
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')

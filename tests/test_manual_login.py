@@ -5,7 +5,7 @@ import urllib.error
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-import login
+from backend import login
 
 
 class ManualLoginTests(unittest.TestCase):

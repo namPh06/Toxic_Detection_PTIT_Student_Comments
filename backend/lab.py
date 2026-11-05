@@ -4,10 +4,10 @@ import re
 import threading
 from datetime import datetime, timezone
 
-from dataset import LABELS, LABEL_METADATA, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, input_fingerprint, parse_import, prepare, row_id, summary, text_hash
-from experiments import active_result, build_report, predict, publish_run, split_dataset, train_experiment, validate_algorithms
-from features import build_features, feature_key, feature_summary, preview_features, validate_settings
-from shared_dataset import POLICY, apply_approval, digest, reviewed, training_rows, usable_label
+from backend.dataset import LABELS, LABEL_METADATA, PREPROCESS_VERSION, TOKENIZER_VERSION, atomic_json, csv_bytes, fingerprint, input_fingerprint, parse_import, prepare, row_id, summary, text_hash
+from backend.experiments import active_result, build_report, predict, publish_run, split_dataset, train_experiment, validate_algorithms
+from backend.features import build_features, feature_key, feature_summary, preview_features, validate_settings
+from backend.shared_dataset import POLICY, apply_approval, digest, reviewed, training_rows, usable_label
 
 
 class Lab:
@@ -74,7 +74,7 @@ class Lab:
             return training_rows(self.directory, rows)
         # The real corpus must never bypass a missing release boundary.
         if (self.directory / 'progress.json').exists():
-            raise ValueError('Thiếu manifest chia nhóm; chạy shared_dataset.py --export trước.')
+            raise ValueError('Thiếu manifest chia nhóm; chạy python -m backend.shared_dataset --export trước.')
         return rows  # Independent synthetic/import-only workspaces.
 
     def result(self):
@@ -92,7 +92,7 @@ class Lab:
                     (result.get('input_fingerprint') and result['input_fingerprint'] != input_fingerprint(rows))))
 
     def status(self):
-        from transformer_model import compute_info
+        from backend.transformer_model import compute_info
         with self.lock:
             rows = self.rows()
             result = self.result()
@@ -294,7 +294,7 @@ class Lab:
         if automatic:
             return self.annotate_contextually(rows)
         try:
-            from labeling import automatic_annotation, generate_suggestions
+            from backend.labeling import automatic_annotation, generate_suggestions
 
             def notify(message):
                 with self.lock:
@@ -337,7 +337,7 @@ class Lab:
 
     def annotate_contextually(self, rows):
         try:
-            from contextual_annotation import generate_annotations
+            from backend.contextual_annotation import generate_annotations
             def notify(message):
                 with self.lock:
                     self.annotation_job['message'] = message
@@ -397,7 +397,7 @@ class Lab:
                 with self.lock:
                     self.job['message'] = message
             if mode == 'optimized':
-                from improvements import train_improved
+                from backend.improvements import train_improved
                 result = train_improved(rows, self.directory / 'runs' / run, notify, prepared=prepared,
                                         include_visobert=include_visobert, algorithms=algorithms)
             else:
@@ -411,7 +411,7 @@ class Lab:
                 self.job.update(message=f'Đã chạy {len(result["trained_models"])} cấu hình, giữ {len(result["retained_models"])} kết quả cũ phù hợp. Chọn mô hình bằng validation.', error=False)
             # A report failure must never turn successful model training into a failure.
             try:
-                from system_report_video import STORE
+                from backend.system_report_video import STORE
                 if self.directory.resolve() == STORE.data.resolve():
                     STORE.enqueue(run)
             except Exception:
@@ -436,7 +436,7 @@ class Lab:
         answer = predict(text, self.directory / 'runs' / run, body.get('model') or result['selected_model'])
         answer['stale'] = self.result_stale(result, self.experiment_rows())
         if body.get('explain'):
-            from pipeline_trace import build_trace
+            from backend.pipeline_trace import build_trace
             answer['trace'] = build_trace(text, self.directory / 'runs' / run, answer)
         return answer
 

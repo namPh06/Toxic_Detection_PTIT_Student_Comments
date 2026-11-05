@@ -6,7 +6,7 @@ import time
 import unicodedata
 from pathlib import Path
 
-from dataset import LABELS, atomic_json
+from backend.dataset import LABELS, atomic_json
 
 MODEL_ID = 'uitnlp/visobert'
 

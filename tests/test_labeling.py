@@ -8,8 +8,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from dataset import text_hash
-from labeling import FILES, MODEL_ID, REVISION, ensure_model, generate_suggestions, suggestion_from_logit, valid_file
+from backend.dataset import text_hash
+from backend.labeling import FILES, MODEL_ID, REVISION, ensure_model, generate_suggestions, suggestion_from_logit, valid_file
 
 
 class Download(io.BytesIO):
@@ -32,16 +32,16 @@ class LabelingTests(unittest.TestCase):
     def test_verified_cache_is_offline_and_bad_download_is_not_installed(self):
         data = b'synthetic model asset'
         spec = {'model.onnx': (len(data), hashlib.sha256(data).hexdigest())}
-        with tempfile.TemporaryDirectory() as td, patch('labeling.FILES', spec):
+        with tempfile.TemporaryDirectory() as td, patch('backend.labeling.FILES', spec):
             path = Path(td) / 'model.onnx'
-            with patch('labeling.urllib.request.urlopen', return_value=Download(data)) as network:
+            with patch('backend.labeling.urllib.request.urlopen', return_value=Download(data)) as network:
                 ensure_model(td)
                 self.assertEqual(path.read_bytes(), data)
                 self.assertIn('/resolve/', network.call_args.args[0])
-            with patch('labeling.urllib.request.urlopen', side_effect=AssertionError('must remain offline')):
+            with patch('backend.labeling.urllib.request.urlopen', side_effect=AssertionError('must remain offline')):
                 ensure_model(td)
             path.write_bytes(b'previous corrupt file')
-            with patch('labeling.urllib.request.urlopen', return_value=Download(b'x' * len(data))):
+            with patch('backend.labeling.urllib.request.urlopen', return_value=Download(b'x' * len(data))):
                 with self.assertRaises(ValueError):
                     ensure_model(td)
             self.assertEqual(path.read_bytes(), b'previous corrupt file')
@@ -50,11 +50,11 @@ class LabelingTests(unittest.TestCase):
     def test_no_eligible_rows_does_not_load_or_download_model(self):
         rows = [dict(quality='excluded', label=''), dict(quality='ready', label='toxic'),
                 dict(quality='duplicate', label=''), dict(quality='ready', label='', text_complete=False)]
-        with patch('labeling.ensure_model', side_effect=AssertionError('should not load')):
+        with patch('backend.labeling.ensure_model', side_effect=AssertionError('should not load')):
             self.assertEqual(generate_suggestions(rows, 'unused'), [])
 
     def test_invalid_rows_rejected_before_network(self):
-        with patch('labeling.ensure_model', side_effect=AssertionError('should not load')):
+        with patch('backend.labeling.ensure_model', side_effect=AssertionError('should not load')):
             for rows in ([dict(quality='ready', label='')],
                          [dict(id='1', quality='ready', label='', text_raw='')],
                          [dict(id='1', quality='ready', label='', text_raw='test')] * 2):
@@ -86,8 +86,8 @@ class LabelingTests(unittest.TestCase):
         original = [dict(row) for row in rows]
         with tempfile.TemporaryDirectory() as td:
             tokenizer.save(str(Path(td) / 'tokenizer.json'))
-            with patch('labeling.ensure_model', return_value=Path(td)), patch('onnxruntime.InferenceSession', return_value=session), \
-                    patch('labeling.BATCH_SIZE', 2), patch('labeling.MAX_TOKENS', 5):
+            with patch('backend.labeling.ensure_model', return_value=Path(td)), patch('onnxruntime.InferenceSession', return_value=session), \
+                    patch('backend.labeling.BATCH_SIZE', 2), patch('backend.labeling.MAX_TOKENS', 5):
                 result = generate_suggestions(rows, td)
         self.assertEqual(rows, original)
         self.assertEqual([item['suggested_label'] for item in result], ['non-toxic', '', ''])
@@ -106,7 +106,7 @@ class LabelingTests(unittest.TestCase):
         texts = ['Cho mình hỏi lịch thi môn lập trình nhé.', 'Mày là đồ ngu, cút đi.', 'Tôi không đồng ý với ý kiến này.'] * 6
         texts += ['xin chào ' * 1000]
         rows = [dict(id=f'synthetic-{i}', text_raw=text, quality='ready', label='') for i, text in enumerate(texts)]
-        with patch('labeling.urllib.request.urlopen', side_effect=AssertionError('smoke inference must remain offline')):
+        with patch('backend.labeling.urllib.request.urlopen', side_effect=AssertionError('smoke inference must remain offline')):
             results = generate_suggestions(rows, directory)
         self.assertEqual(len(results), len(rows))
         self.assertEqual([r['id'] for r in results], [r['id'] for r in rows])

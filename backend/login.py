@@ -5,7 +5,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def open_login():
@@ -19,7 +19,7 @@ def open_login():
     except (OSError, ValueError, IndexError, urllib.error.URLError):
         pass
     else:
-        raise RuntimeError('Hay dong cua so Chrome thu thap cua tool truoc, roi chay lai DANG_NHAP_FACEBOOK.cmd.')
+        raise RuntimeError('Hay dong cua so Chrome thu thap cua tool truoc, roi chay lai Login_Facebook.cmd.')
 
     candidates = [Path(os.environ.get(v, d)) / 'Google/Chrome/Application/chrome.exe'
                   for v, d in (('PROGRAMFILES', r'C:\Program Files'),
