@@ -1,0 +1,26 @@
+{
+  "version": "ptit-teencode-20261110",
+  "source": "Các dạng viết được rà từ train.json; biên soạn thủ công cho miền bình luận sinh viên. Không sao chép bảng bên ngoài.",
+  "reference": "https://aclanthology.org/2024.eacl-long.85/",
+  "direct": {
+    "ko": "không", "khum": "không", "hong": "không", "hok": "không",
+    "khg": "không", "k0": "không", "đc": "được", "mn": "mọi người",
+    "mik": "mình", "ntn": "như thế nào", "cx": "cũng",
+    "nhma": "nhưng mà", "nma": "nhưng mà", "ngta": "người ta",
+    "cmt": "bình luận", "bth": "bình thường"
+  },
+  "elongated": {"khumm+": "không", "koo+": "không", "hokk+": "không"},
+  "context_rules": [
+    {"pattern": "\\b(?P<prefix>quên\\s+)mk(?=\\s+(?:đăng nhập|tài khoản)\\b)", "replacement": "\\g<prefix>mật khẩu", "note": "mk đi cùng quên và thông tin đăng nhập"},
+    {"pattern": "\\bmk(?=\\s+(?:đang học|đi học|cảm ơn|cám ơn)\\b)", "replacement": "mình", "note": "Chỉ mở rộng mk trong cụm tự xưng rõ"},
+    {"pattern": "\\bbn(?=\\s+(?:tiền|tín chỉ)\\b)", "replacement": "bao nhiêu", "note": "Câu hỏi số lượng"},
+    {"pattern": "\\bbn(?=\\s+(?:có đi học|ơi)\\b)", "replacement": "bạn", "note": "Lời gọi hoặc hỏi người đối thoại"},
+    {"pattern": "\\b(?P<prefix>làm\\s+)dc(?=\\s+bài\\b)", "replacement": "\\g<prefix>được", "note": "Khả năng làm bài"},
+    {"pattern": "\\b(?P<prefix>(?:xin|tìm)\\s+)dc(?=\\s+việc\\b)", "replacement": "\\g<prefix>được", "note": "Kết quả tìm việc"},
+    {"pattern": "\\b(?P<prefix>(?:đổi|học|thi|đăng ký|đăng kí|nhận|vào|ra)\\s+)dc(?=\\s|[?.!,]|$)", "replacement": "\\g<prefix>được", "note": "Giữ nguyên quy tắc trước đây"},
+    {"pattern": "\\b(?P<prefix>không\\s+)dc(?=\\s+(?:đâu|à|ạ|nhé|nha|rồi)\\b|[?.!,]|$)", "replacement": "\\g<prefix>được", "note": "Phủ định khả năng; không áp dụng cho DC viết hoa"},
+    {"pattern": "\\bk(?=\\s+(?:biết|hiểu|thích|muốn|cần|được|dc|đc|thể|nên|phải|có|tốt)\\b)", "replacement": "không", "note": "Phủ định trước động từ; không thay 50k, hạng K hay ký hiệu K"}
+  ],
+  "protected": ["m", "t", "vs", "bt", "trg", "th", "vl", "vcl", "đm", "dm", "PTIT", "CNTT", "DC", "AC", "WA", "XL"],
+  "policy": "Quy tắc ngữ cảnh phân biệt hoa thường để tránh tên riêng và ký hiệu; thay trực tiếp chỉ cho token viết thường. Không cắt chữ lặp tổng quát, không đoán từ lạ, không xóa phủ định/từ tục/emoji."
+}

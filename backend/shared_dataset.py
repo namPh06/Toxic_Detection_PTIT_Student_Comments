@@ -136,6 +136,45 @@ def source_rows(directory):
     return load(directory / 'progress.json')['rows'] + state['imported'], state
 
 
+SPLIT_NAMES = ('train', 'validation', 'test')
+
+
+def fixed_rows(directory):
+    """Read all three fixed files together; never silently randomize a partial set."""
+    paths = [directory / (name + '.json') for name in SPLIT_NAMES]
+    if not any(path.exists() for path in paths):
+        return None
+    if not all(path.exists() for path in paths):
+        raise ValueError('Thiếu file train.json, validation.json hoặc test.json; hãy khôi phục đủ ba tập.')
+    result = {}
+    for name, path in zip(SPLIT_NAMES, paths):
+        payload = load(path)
+        if payload.get('partition') != name or not payload.get('rows'):
+            raise ValueError(f'File {path.name} không đúng phân vùng hoặc không có mẫu.')
+        for row in payload['rows']:
+            if row['id'] in result:
+                raise ValueError('Trùng ID trong ba tập cố định: ' + row['id'])
+            result[row['id']] = (name, row)
+    return result
+
+
+def refresh_fixed_rows(directory, rows):
+    """Refresh saved labels/clean text without adding or moving any members."""
+    fixed = fixed_rows(directory)
+    if fixed is None:
+        return
+    actual = {r['id']: r for r in rows}
+    for key, (_, previous) in fixed.items():
+        if key not in actual or actual[key]['text_hash'] != previous['text_hash'] or not usable_label(actual[key]):
+            raise ValueError('Mẫu cố định bị đổi nội dung hoặc không còn hợp lệ: ' + key)
+    for name in SPLIT_NAMES:
+        path = directory / (name + '.json')
+        payload = load(path)
+        payload['rows'] = [actual[r['id']] for r in payload['rows']]
+        if payload != load(path):
+            atomic_json(path, payload)
+
+
 def training_rows(directory, rows):
     """Labels can evolve without changing the frozen group boundary."""
     manifest = load(directory / 'shared_manifest.json')
@@ -154,9 +193,28 @@ def training_rows(directory, rows):
     by_id = {r['id']: r for r in manifest['groups']}
     if {r['id'] for r in rows} != set(by_id):
         raise ValueError('Dữ liệu không khớp manifest chia nhóm; cần xuất lại.')
-    return [dict(r, split_group=by_id[r['id']]['group'])
+    fixed = fixed_rows(directory)
+    if manifest.get('fixed_split_files') and fixed is None:
+        raise ValueError('Thiếu ba file dữ liệu cố định; không tự chia lại ngẫu nhiên.')
+    assignments = {key: {'partition': name, 'text_hash': row['text_hash']}
+                   for key, (name, row) in (fixed or {}).items()}
+    if fixed is not None:
+        actual = {r['id']: r for r in rows}
+        if any(key not in actual or actual[key]['text_hash'] != value['text_hash']
+               for key, value in assignments.items()):
+            raise ValueError('Nội dung bộ chia cố định đã thay đổi; cần rà soát trước khi dùng.')
+        if any(not usable_label(actual[key]) for key in assignments):
+            raise ValueError('Bộ chia cố định có mẫu không còn đủ điều kiện; cần rà soát trước khi dùng.')
+        if any(actual[key]['label'] != saved['label'] or actual[key]['text_clean'] != saved['text_clean']
+               for key, (_, saved) in fixed.items()):
+            raise ValueError('Nhãn hoặc chuẩn hóa của ba tập chưa đồng bộ; chạy python -m backend.shared_dataset --export.')
+        # Preserve source order for existing feature/run fingerprints, but read saved split rows.
+        rows = [fixed[r['id']][1] for r in rows if r['id'] in fixed]
+    return [dict(r, split_group=by_id[r['id']]['group'],
+                 **({'dataset_partition': assignments[r['id']]['partition']} if fixed else {}))
             for r in apply_approval(directory, rows, state.get('dataset_approval', {}), state['imported'])
-            if usable_label(r) and by_id[r['id']]['partition'] == 'development_pool']
+            if usable_label(r) and by_id[r['id']]['partition'] == 'development_pool'
+            and (not fixed or r['id'] in assignments)]
 
 
 def export(directory):
@@ -178,6 +236,7 @@ def export(directory):
     rows = apply_approval(directory, prepare(raw, state['annotations']), state.get('dataset_approval', {}), state['imported'])
     for r in rows:
         r['human_verified'] = reviewed(r)
+    refresh_fixed_rows(directory, rows)
     atomic_json(directory / 'shared_dataset.json', dict(schema_version=1, label_policy_version=POLICY,
                                                        label_policy='includes_automatic', rows=rows))
     csv_path = directory / 'shared_dataset.csv'
@@ -197,6 +256,8 @@ def export(directory):
                     pending_review=sum(bool(r.get('needs_review')) for r in rows if r['quality'] == 'ready'),
                     reservation_scope='Historical diagnostic groups; not an independent blind test.', groups=groups)
     manifest['groups_sha256'] = text_hash(json.dumps(groups, sort_keys=True))
+    if fixed_rows(directory) is not None:
+        manifest['fixed_split_files'] = [name + '.json' for name in SPLIT_NAMES]
     atomic_json(old_path, manifest)
     return {k: manifest[k] for k in ('summary', 'human_reviewed', 'usable_labels', 'pending_review')}
 

@@ -91,13 +91,13 @@ class BulkLabelingTests(unittest.TestCase):
                                   ('auto.json', json.dumps(dict(rows=rows), ensure_ascii=False))]:
             with self.subTest(filename=filename):
                 imported = parse_import(content, filename)
-                source = 'imported' if filename.endswith('.csv') else 'automatic'
+                source = 'automatic'  # Both formats preserve the original label provenance.
                 self.assertTrue(all(r['label_source'] == source for r in imported))
                 self.assertEqual([r['label'] for r in imported], [r['label'] for r in rows])
                 target = Lab(Path(self.temp.name)/filename, lambda: [])
                 target.import_rows(dict(filename=filename, content=content))
                 self.assertEqual(target.status()['dataset_health']['reviewed'], len(rows) if source == 'imported' else 0)
-                score = None if filename.endswith('.csv') else rows[0]['model_score']
+                score = rows[0]['model_score']
                 self.assertEqual(target.dataset_rows(False)[0]['model_score'], score)
                 self.assertEqual(target.dataset_rows(False)[0]['text_raw'], self.raw[0]['text_raw'])
                 self.assertEqual(len(target.dataset_rows()), len(rows))

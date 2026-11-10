@@ -14,7 +14,7 @@ from backend.dataset import atomic_json, fingerprint, input_fingerprint, LABELS
 from backend.features import feature_key, build_features
 
 MAX_UPLOAD = 1_500_000_000
-MODULES = ('dataset', 'features', 'experiments', 'improvements', 'transformer_model', 'colab')
+MODULES = ('teencode', 'dataset', 'features', 'experiments', 'improvements', 'transformer_model', 'colab')
 MODEL_FILES = {'config.json', 'model.safetensors', 'tokenizer.json', 'tokenizer_config.json',
                'special_tokens_map.json', 'sentencepiece.bpe.model', 'added_tokens.json', 'training.json'}
 
@@ -51,7 +51,7 @@ def notebook_bytes():
     markdown('# Huấn luyện ViSoBERT trên Colab\nChọn **Runtime → Change runtime type → GPU** (A100 nếu tài khoản được cấp). Chạy lần lượt các ô. Gói chứa bình luận và nhãn; chỉ tải lên phiên Colab của bạn. NB/SVM tiếp tục chạy trên web.')
     code('%pip -q install "transformers>=4.48,<5" "scikit-learn>=1.6,<2" "underthesea==9.5.0" "sentencepiece>=0.2,<1"\n')
     code("import torch\nfrom packaging.version import Version\nassert Version(torch.__version__.split('+')[0]) >= Version('2.6'), 'Cần runtime Colab có PyTorch >= 2.6.'\nassert torch.cuda.is_available(), 'Hãy chọn GPU trong Runtime trước khi tiếp tục.'\nprint('GPU:', torch.cuda.get_device_name(0))\n")
-    code("from google.colab import files\nfrom pathlib import Path, PurePosixPath\nfrom zipfile import ZipFile\nimport io, os, sys, tempfile\nuploaded = files.upload()\nassert len(uploaded) == 1, 'Chọn đúng một ZIP xuất từ web.'\nwork = Path(tempfile.mkdtemp(prefix='ptit-colab-'))\nwith ZipFile(io.BytesIO(next(iter(uploaded.values())))) as z:\n    names = z.namelist()\n    allowed = {'snapshot.json', 'PTIT_Colab.ipynb', 'backend/__init__.py'} | {'backend/'+m+'.py' for m in ('dataset','features','experiments','improvements','transformer_model','colab')}\n    assert len(names) == len(set(names)) and set(names) <= allowed and 'snapshot.json' in names\n    assert sum(i.file_size for i in z.infolist()) < 100_000_000\n    z.extractall(work)\nos.chdir(work)\nsys.path.insert(0, str(work))\nprint('Đã nhận gói dữ liệu.')\n")
+    code("from google.colab import files\nfrom pathlib import Path, PurePosixPath\nfrom zipfile import ZipFile\nimport io, os, sys, tempfile\nuploaded = files.upload()\nassert len(uploaded) == 1, 'Chọn đúng một ZIP xuất từ web.'\nwork = Path(tempfile.mkdtemp(prefix='ptit-colab-'))\nwith ZipFile(io.BytesIO(next(iter(uploaded.values())))) as z:\n    names = z.namelist()\n    allowed = {'snapshot.json', 'PTIT_Colab.ipynb', 'backend/__init__.py', 'data/teencode_dictionary.json'} | {'backend/'+m+'.py' for m in ('teencode','dataset','features','experiments','improvements','transformer_model','colab')}\n    assert len(names) == len(set(names)) and set(names) <= allowed and 'snapshot.json' in names\n    assert sum(i.file_size for i in z.infolist()) < 100_000_000\n    z.extractall(work)\nos.chdir(work)\nsys.path.insert(0, str(work))\nprint('Đã nhận gói dữ liệu.')\n")
     markdown('## Huấn luyện\nGiữ mặc định để so sánh với lần chạy trên máy. Có thể chỉnh số epoch và batch bên dưới. Notebook giữ nguyên cách chia tập, chọn checkpoint và ngưỡng bằng validation. Ô này tải mô hình nền từ Hugging Face ở lần đầu.')
     code("from backend.colab import run_snapshot\nconfig = dict(epochs=4, batch_size=16, accumulation=1)\nresult_zip = run_snapshot(work, config=config)\nprint('Đã lưu:', result_zip)\n")
     markdown('## Tải kết quả\nTải ZIP rồi dùng nút **Nhập kết quả Colab** trên web. Nếu tải bị gián đoạn, chạy lại riêng ô này, không cần huấn luyện lại.')
@@ -79,6 +79,7 @@ def export_package(lab):
         archive.writestr('snapshot.json', encode(snapshot))
         archive.writestr('PTIT_Colab.ipynb', notebook_bytes())
         archive.writestr('backend/__init__.py', '')
+        archive.write(Path(__file__).resolve().parents[1] / 'data/teencode_dictionary.json', 'data/teencode_dictionary.json')
         for module in MODULES:
             archive.write(Path(__file__).parent / (module + '.py'), 'backend/' + module + '.py')
     return buffer.getvalue()

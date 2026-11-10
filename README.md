@@ -32,6 +32,19 @@ hoặc chỉ hiện nội dung thu gọn; số lượng thu được không ch�
 
 ## Gán nhãn và chạy các bước tiếp theo
 
+Ba tập dùng cố định nằm trong `data/train.json` (4.837 mẫu),
+`data/validation.json` (833 mẫu) và `data/test.json` (904 mẫu).
+Mỗi file có trường `rows`, chứa bình luận, ngữ cảnh, nhãn và ID.
+Huấn luyện đọc trực tiếp ba file, không chia lại mỗi lần chạy; các nhóm bài
+và bình luận trùng không được nằm chéo giữa các tập.
+Dữ liệu cào mới vẫn lưu riêng trong nguồn, không tự thêm vào ba tập này.
+Sửa nhãn qua giao diện/nhập kết quả Excel vào workspace rồi chạy
+`python -m backend.shared_dataset --export` để đồng bộ nhãn của các mẫu hiện có;
+thao tác này không thêm hoặc chuyển mẫu giữa các tập. Không sửa nhãn chỉ trong
+JSON vì nhãn gốc vẫn được quản lý trong workspace.
+Giữ `progress.json`, `workspace.json`, ngữ cảnh và lịch sử nhãn: chúng có vai trò
+khác với ba tập huấn luyện. File `evaluation_split.json` cũ đã được thay thế.
+
 Hai thao tác trên giao diện được tách riêng:
 
 - **Làm sạch dữ liệu** chỉ chuẩn hóa, kiểm tra chất lượng, lọc trùng và lưu bản

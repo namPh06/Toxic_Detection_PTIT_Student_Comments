@@ -185,11 +185,17 @@ class ExperimentTests(unittest.TestCase):
 
 
 class CrawlerTests(unittest.TestCase):
-    def test_manual_comments_have_stable_ids_and_preserve_saved_labels(self):
+    def test_startup_uses_saved_comments_without_injecting_demo_rows(self):
         import app
         comments = ['Cảm ơn bạn đã giải thích bài tập.', 'Mình chưa hiểu phần này, bạn nói rõ hơn nhé.']
         with tempfile.TemporaryDirectory() as temp, patch.multiple(
-                app, DATA=Path(temp), ROWS={}, STATE=dict(app.STATE), MANUAL_COMMENTS=comments):
+                app, DATA=Path(temp), ROWS={}, STATE=dict(app.STATE)):
+            app.restore()
+            self.assertEqual(app.ROWS, {})
+            from backend.dataset import atomic_json
+            saved = [dict(post_id='saved-post', comment_id=str(i), text_raw=text,
+                          text_complete=True, label='') for i, text in enumerate(comments)]
+            atomic_json(Path(temp) / 'progress.json', dict(rows=saved, posts=[]))
             app.restore()
             original = {r['text_raw']: r['comment_id'] for r in app.ROWS.values()}
             lab = Lab(Path(temp), lambda: app.payload()['rows'])

@@ -56,6 +56,17 @@ def split_dataset(rows):
         parents[root(post)] = root(previous)
     groups = np.array([root(group_key(r)) for r in eligible])
     labels = np.array([LABELS.index(r['label']) for r in eligible])
+    if any(r.get('dataset_partition') for r in eligible):
+        if any(r.get('dataset_partition') not in ('train', 'validation', 'test') for r in eligible):
+            raise ValueError('Bộ chia cố định thiếu phân vùng cho một số mẫu.')
+        split = {name: [i for i, r in enumerate(eligible) if r['dataset_partition'] == name]
+                 for name in ('train', 'validation', 'test')}
+        memberships = [{groups[i] for i in ids} for ids in split.values()]
+        if any(memberships[i] & memberships[j] for i in range(3) for j in range(i)):
+            raise ValueError('Bộ chia cố định có nhóm bài hoặc nội dung trùng giữa các tập.')
+        if any(len(set(labels[ids])) != 2 for ids in split.values()):
+            raise ValueError('Mỗi tập cố định phải có đủ hai nhãn.')
+        return eligible, split, groups.tolist()
     if len(set(groups)) < 5:
         raise ValueError('Cần ít nhất 5 nhóm bài độc lập đã gán nhãn. Các bài có bình luận trùng được nối cùng nhóm để tránh rò rỉ dữ liệu.')
     indexes = np.arange(len(eligible))
@@ -261,6 +272,8 @@ def predict(text, directory, model_name):
     metadata = json.loads((directory / 'metrics.json').read_text(encoding='utf-8'))
     if metadata.get('tokenizer_version') != TOKENIZER_VERSION:
         raise ValueError('Mô hình dùng cách tách từ cũ. Hãy trích xuất lại đặc trưng bằng Underthesea và huấn luyện lại.')
+    if metadata.get('preprocess_version') != PREPROCESS_VERSION:
+        raise ValueError('Chuẩn hóa teencode đã đổi. Hãy trích xuất lại đặc trưng và huấn luyện lại mô hình.')
     cleaned = clean_text(text)
     if not cleaned:
         raise ValueError('Bình luận không còn token sau làm sạch.')

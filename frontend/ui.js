@@ -181,14 +181,16 @@ function renderFeatureStatus(status){
     if(result){const config=result.settings;$('feature-bow').checked=config.methods.includes('BoW');$('feature-tfidf').checked=config.methods.includes('TF-IDF');$('feature-ngram').value=config.ngram;$('feature-max').value=config.max_features;}
     featureConfigInitialized=true;
   }
-  $('feature-eligible').textContent=number(s.labeled);$('feature-non-toxic').textContent=number(s.labels['non-toxic']);$('feature-toxic').textContent=number(s.labels.toxic);$('feature-unused').textContent=number(status.summary.total-s.labeled);
+  // A validation failure means counts are unknown, not that every label vanished.
+  const valid=status.experiment_valid!==false;
+  $('feature-eligible').textContent=valid?number(s.labeled):'—';$('feature-non-toxic').textContent=valid?number(s.labels['non-toxic']):'—';$('feature-toxic').textContent=valid?number(s.labels.toxic):'—';$('feature-unused').textContent=valid?number(status.summary.total-s.labeled):'—';
   const busy=!!(state?.job.running||status.job.running||status.annotation_job?.running),dirty=featureConfigDirty(state),stale=!!(state?.stale||dirty);
   for(const id of ['feature-bow','feature-tfidf','feature-ngram','feature-max'])$(id).disabled=busy;
   $('feature-extract').disabled=busy||status.dataset_health?.training_ready===false;
   $('feature-extract').textContent=state?.job.running?'Đang trích xuất…':result?'Trích xuất lại đặc trưng':'Trích xuất đặc trưng';
   $('feature-form').setAttribute('aria-busy',String(!!state?.job.running));
   $('feature-progress').hidden=!state?.job.running;
-  $('feature-status').textContent=state?.job.running?state.job.message:state?.job.error?state.job.message:stale?'Cần trích xuất lại đặc trưng':result?'Đã có bộ đặc trưng phù hợp với dữ liệu hiện tại':'Chưa trích xuất đặc trưng';
+  $('feature-status').textContent=!valid?'Dữ liệu cần đồng bộ trước khi trích xuất':state?.job.running?state.job.message:state?.job.error?state.job.message:stale?'Cần trích xuất lại đặc trưng':result?'Đã có bộ đặc trưng phù hợp với dữ liệu hiện tại':'Chưa trích xuất đặc trưng';
   $('feature-status').classList.toggle('annotation-error',!!state?.job.error);
   $('feature-status-note').textContent=status.dataset_health?.training_ready===false?status.dataset_health.training_message:state?.job.running?'Đang tạo BoW và TF-IDF từ tập train. Giữ cửa sổ công cụ mở.':'Tách từ bằng Underthesea. Từ vựng và IDF chỉ học trên train. ViSoBERT dùng tokenizer riêng khi huấn luyện.';
   $('feature-stale').hidden=!stale;$('feature-results').hidden=!result;$('feature-preview').hidden=!result||stale;

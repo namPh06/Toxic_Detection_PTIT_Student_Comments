@@ -35,7 +35,7 @@ def validate_connection(body):
 def live_notebook_bytes():
     from backend.colab import notebook_bytes
     notebook = json.loads(notebook_bytes())
-    sources = {'backend/__init__.py': ''}
+    sources = {'backend/__init__.py': '', 'data/teencode_dictionary.json': (Path(__file__).resolve().parents[1] / 'data/teencode_dictionary.json').read_text(encoding='utf-8')}
     for module in (*MODULES, 'colab_worker'):
         sources['backend/' + module + '.py'] = (Path(__file__).parent / (module + '.py')).read_text(encoding='utf-8')
     payload = base64.b64encode(encode(sources)).decode('ascii')

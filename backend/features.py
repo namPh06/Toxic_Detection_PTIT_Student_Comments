@@ -25,7 +25,8 @@ def validate_settings(settings):
 def feature_key(rows):
     # Post membership affects the split even when comment text/labels stay the same.
     content = ['word-features-only-v1', PREPROCESS_VERSION, TOKENIZER_VERSION, fingerprint(rows), input_fingerprint(rows),
-               sorted((r['id'], str(r['post_id']), str(r.get('split_group', ''))) for r in rows)]
+               sorted((r['id'], str(r['post_id']), str(r.get('split_group', '')),
+                       str(r.get('dataset_partition', ''))) for r in rows)]
     return hashlib.sha256(json.dumps(content, ensure_ascii=False).encode()).hexdigest()
 
 

@@ -28,11 +28,6 @@ STATE['collection_filter'] = 'all'
 STATE['filter_counts'] = {}
 STATE['version'] = '3.0-comment-lab'
 ROWS = {}
-# Startup must use the saved corpus without injecting demonstration comments.
-MANUAL_COMMENTS = [
-    'đồ ngốc',
-    'ngu vcl'
-]
 HELPERS = (ROOT / 'scripts' / 'crawler' / 'helpers.js').read_text(encoding='utf-8')
 DOM = (ROOT / 'scripts' / 'crawler' / 'dom.js').read_text(encoding='utf-8')
 POST_MESSAGE = 'return (' + (ROOT / 'scripts' / 'crawler' / 'post_message.js').read_text(encoding='utf-8') + ')(arguments[0]);'
@@ -79,11 +74,6 @@ def restore():
             ROWS[(row['post_id'], row['comment_id'])] = row
         results = data.get('posts', [])
         update(source=data.get('source', ''), results=results, posts=len(results), comments=len(ROWS))
-    for text in MANUAL_COMMENTS:
-        comment_id = text_hash(text)
-        ROWS.setdefault(('manual-input', comment_id), dict(
-            post_id='manual-input', comment_id=comment_id, text_raw=text,
-            text_complete=True, label='', collection_method='manual_input'))
     update(comments=len(ROWS))
 
 def is_tab_crash(error):

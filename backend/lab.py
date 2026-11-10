@@ -103,8 +103,10 @@ class Lab:
         stats = summary(rows)
         with self.lock:
             experiment = []
+            dataset_valid = False
             try:
                 experiment = self.experiment_rows(rows)
+                dataset_valid = True
                 split_dataset(experiment)
                 training_ready, training_message = True, 'Đủ điều kiện kỹ thuật để chia tập; chưa phải chứng nhận chất lượng nhãn.'
             except (ValueError, OSError, KeyError) as error:
@@ -125,7 +127,7 @@ class Lab:
                       automatic_candidates=sum(self.can_auto_label(r) for r in rows),
                       training_ready=training_ready, training_message=training_message)
         return dict(summary=stats, job=job, annotation_job=annotation_job, dataset_health=health, result=result, compute=compute_info(),
-                    experiment_summary=summary(experiment),
+                    experiment_summary=summary(experiment), experiment_valid=dataset_valid,
                     features=self.feature_status(rows), colab=self.colab.status(),
                     stale=self.result_stale(result, experiment))
 

@@ -31,7 +31,7 @@ class TrainingService:
         if not path.is_file() or path.stat().st_size > 100_000_000:
             raise ValueError('Gói dữ liệu không hợp lệ hoặc vượt 100 MB.')
         with checked_archive(path) as archive:
-            allowed = {'snapshot.json', 'PTIT_Colab.ipynb', 'backend/__init__.py'} | {'backend/' + m + '.py' for m in MODULES}
+            allowed = {'snapshot.json', 'PTIT_Colab.ipynb', 'backend/__init__.py', 'data/teencode_dictionary.json'} | {'backend/' + m + '.py' for m in MODULES}
             if (not set(archive.namelist()) <= allowed or 'snapshot.json' not in archive.namelist()
                     or sum(i.file_size for i in archive.infolist()) > 100_000_000):
                 raise ValueError('Chỉ nhận ZIP thực nghiệm xuất từ web PTIT.')

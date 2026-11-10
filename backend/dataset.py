@@ -16,12 +16,10 @@ from functools import lru_cache
 LABELS = ('non-toxic', 'toxic')
 LABEL_METADATA = ('model_score', 'label_model', 'label_revision', 'label_threshold', 'needs_review', 'review_reason')
 STOP_WORDS = frozenset(('các', 'những'))
-TEENCODE = {'ko': 'không', 'khum': 'không', 'hong': 'không',
-            'hok': 'không', 'đc': 'được', 'mn': 'mọi người',
-            'mik': 'mình', 'ntn': 'như thế nào', 'khg': 'không', 'k0': 'không'}
+from backend.teencode import TEENCODE, DICTIONARY_HASH, normalize_teencode
 UI_ONLY = re.compile(r'^(?:thích|like|trả lời|reply|xem bản dịch|see translation|'
                      r'\d+\s*(?:phút|giờ|ngày|tuần|tháng|năm)(?: trước)?)$', re.I)
-PREPROCESS_VERSION = 'ptit-v4-contextual-dc-20261105'
+PREPROCESS_VERSION = 'ptit-teencode-20261110-' + DICTIONARY_HASH
 TOKENIZER_VERSION = 'underthesea-9.5.0-v1'
 
 
@@ -77,24 +75,6 @@ def input_fingerprint(rows):
     return text_hash(json.dumps(sorted((r['id'], r.get('text_raw', '')) for r in rows), ensure_ascii=False))
 
 
-def normalize_teencode(value):
-    """A separate view, never overwrite raw input; leave unknown meanings intact."""
-    text = unicodedata.normalize('NFC', str(value or ''))
-    # Narrow local cues only. In particular m is never inferred as mình/mày.
-    patterns = (
-        (r'\b(?P<prefix>quên\s+)mk(?=\s+(?:đăng nhập|tài khoản)\b)', r'\g<prefix>mật khẩu'),
-        (r'\bmk(?=\s+(?:đang học|đi học)\b)', 'mình'),
-        (r'\bbn(?=\s+(?:tiền|tín chỉ)\b)', 'bao nhiêu'),
-        (r'\bbn(?=\s+có đi học\b)', 'bạn'),
-        (r'\b(?P<prefix>làm\s+)dc(?=\s+bài\b)', r'\g<prefix>được'),
-        (r'\b(?P<prefix>(?:xin|tìm)\s+)dc(?=\s+việc\b)', r'\g<prefix>được'),
-        (r'\b(?P<prefix>(?:đổi|học|thi|đăng ký|đăng kí|nhận|vào|ra)\s+)dc(?=\s|[?.!,]|$)', r'\g<prefix>được'),
-    )
-    for pattern, replacement in patterns:
-        text = re.sub(pattern, replacement, text, flags=re.I)
-    return re.sub(r'\b\w+\b', lambda m: TEENCODE.get(m[0].lower(), m[0]), text)
-
-
 def clean_text(value, *, remove_stopwords=True):
     text = normalize_teencode(html.unescape(str(value or ''))).lower()
     text = re.sub(r'<(?:/?(?:div|span|p|br|a|b|i|strong))\b[^>]*>', ' ', text)
@@ -112,7 +92,7 @@ def clean_text(value, *, remove_stopwords=True):
     tokens = re.findall(r'[0-9#*]\ufe0f?\u20e3|[\U0001f1e6-\U0001f1ff]{2}|\w+(?:\+\+|#)?|'
                         rf'[^\w\s\u200d]{modifier}(?:\u200d[^\w\s]{modifier})*', text)
     # Keep negation, accents, profanity and emoji: they can change the target label.
-    tokens = [expanded for t in tokens for expanded in TEENCODE.get(t, t).split()
+    tokens = [expanded for t in tokens for expanded in [t]
               if (not remove_stopwords or expanded not in STOP_WORDS) and not all(unicodedata.category(c).startswith('P') for c in expanded)]
     return ' '.join(tokens).strip()
 
